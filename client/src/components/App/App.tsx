@@ -80,7 +80,7 @@ class App extends React.Component<{}, IState> {
     newDescription
   }: IPutEditAccountRequest) => {
     const {
-      user: { facebookId, picks, profilePic }
+      user: { facebookId }
     } = this.state;
 
     await fetch(`http://linktobackend.com/editAccount`, {

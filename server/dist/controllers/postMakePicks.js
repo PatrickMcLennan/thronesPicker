@@ -57,8 +57,7 @@ exports.postMakePicks = function (req, res) { return __awaiter(_this, void 0, vo
                 if (!serverError) return [3, 2];
                 return [2, res.send({
                         success: serverError,
-                        message: "Sorry - there was an issue submitting your picks at this time.  Please try again a little later.",
-                        picks: user.picks
+                        message: "Sorry - there was an issue submitting your picks at this time.  Please try again a little later."
                     })];
             case 2:
                 user.picks = picks;
@@ -67,8 +66,7 @@ exports.postMakePicks = function (req, res) { return __awaiter(_this, void 0, vo
                 _b.sent();
                 return [2, res.send({
                         success: true,
-                        message: "Picks have been submitted successfully",
-                        picks: user.picks
+                        message: "Picks have been submitted successfully"
                     })];
         }
     });

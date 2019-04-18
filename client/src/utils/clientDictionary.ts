@@ -20,6 +20,11 @@ export interface IPicks {
   riverrunLord?: ICharacter;
   // Iron Islands
   ironIslandsLord?: ICharacter;
+  // Wardens
+  wardenNorth?: ICharacter;
+  wardenEast?: ICharacter;
+  wardenSouth?: ICharacter;
+  wardenWest?: ICharacter;
   dead?: ICharacter[];
   unpicked?: ICharacter[];
 }
@@ -136,6 +141,21 @@ export interface IPostMakePicsResponse extends Response {
 // Lord Commander of the Nights Watch
 // Nights Watch
 
+////////////// WINTERFELL
+// Lord
+
+////////////// CASTERLY ROCK
+// Lord
+
+////////////// DORNE
+// Lord
+
+////////////// THE REACH
+// Lord
+
+////////////// RIVERRUN
+// Lord
+
 ////////////// IRON ISLANDS
 // Lord
 
@@ -144,14 +164,3 @@ export interface IPostMakePicsResponse extends Response {
 // South
 // East
 // WestNorth
-
-////////////// WINTERFELL
-// Lord
-////////////// CASTERLY ROCK
-// Lord
-////////////// DORNE
-// Lord
-////////////// THE REACH
-// Lord
-////////////// RIVERRUN
-// Lord

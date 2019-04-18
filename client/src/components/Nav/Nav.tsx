@@ -18,7 +18,7 @@ class Nav extends React.Component<IProps, IState> {
 
   render(): JSX.Element {
     return (
-      <nav>
+      <nav data-testid="nav">
         <h1>name</h1>
         <h1>house</h1>
       </nav>
