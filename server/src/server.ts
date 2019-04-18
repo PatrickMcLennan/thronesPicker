@@ -17,7 +17,7 @@ app.use(cors());
 app.use(json());
 
 app.post('/login', postLogin);
-app.post('/makepicks', postMakePicks);
+app.post('/makePicks', postMakePicks);
 
 app.listen(
   PORT,

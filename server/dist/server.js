@@ -25,7 +25,7 @@ app.use(compression_1.default());
 app.use(cors_1.default());
 app.use(body_parser_1.json());
 app.post('/login', controllers_1.postLogin);
-app.post('/makepicks', controllers_1.postMakePicks);
+app.post('/makePicks', controllers_1.postMakePicks);
 app.listen(PORT, function () {
     mongoose_1.connect(process.env.MONGO, utils_1.mongoConfig)
         .then(function () { return console.log("Mongo is connected"); })

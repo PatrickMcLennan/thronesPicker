@@ -23,6 +23,8 @@ export interface IPicks {
   riverrunLord?: ICharacter;
   // Iron Islands
   ironIslandsLord?: ICharacter;
+  dead?: ICharacter[];
+  unpicked?: ICharacter[];
 }
 
 export interface IPlacement {
@@ -44,7 +46,7 @@ export interface IUser extends Document {
   profilePic: string;
   house: House;
   description?: string;
-  // picks:
+  picks: IPicks;
 }
 
 export interface ICharacter extends Document {
@@ -75,10 +77,14 @@ export interface IPostLoginResponseFailure extends Response {
 
 export interface IPostMakePicksRequest extends Request {
   facebookId: IUser['facebookId'];
-  // user picks
+  picks: IPicks;
 }
-export interface IPostMakePicksResponse extends Response {
+export interface IPostMakePicksResponseSuccess extends Response {
   success: boolean;
   message: string;
-  // picks
+  picks: IPicks;
+}
+export interface IPostMakePicksResponseFailure extends Response {
+  success: boolean;
+  message: string;
 }
