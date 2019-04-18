@@ -1,4 +1,3 @@
-import { DocumentQuery } from 'mongoose';
 import { IPostMakePicksRequest, IPostMakePicksResponse, IUser } from '../utils';
 import { User } from '../schemas';
 
@@ -23,16 +22,14 @@ export const postMakePicks = async (
   if (serverError) {
     return res.send({
       success: serverError,
-      message: `Sorry - there was an issue submitting your picks at this time.  Please try again a little later.`,
-      picks: user.picks
+      message: `Sorry - there was an issue submitting your picks at this time.  Please try again a little later.`
     });
   } else {
     user.picks = picks;
     await user.save();
     return res.send({
       success: true,
-      message: `Picks have been submitted successfully`,
-      picks: user.picks
+      message: `Picks have been submitted successfully`
     });
   }
 };

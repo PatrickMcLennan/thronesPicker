@@ -1,27 +1,40 @@
 import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { IUser, IPostLoginResponseSuccess } from '../../utils/dictionary';
+import {
+  IUser,
+  IServerCall,
+  IPostLoginResponse,
+  IPutEditAccountRequest,
+  IPutEditAccountResponse,
+  IPicks
+} from '../../utils/clientDictionary';
 import { GlobalStyle, theme } from '../../utils/globalStyles';
 
 interface IState {
   user: IUser;
+  serverCall: IServerCall;
   showLogIn: boolean;
   showHome: boolean;
   otherUsers: IUser[];
 }
 
 class App extends React.Component<{}, IState> {
-  state = {
+  state: IState = {
     user: {
       name: '',
-      facebookId: 0,
+      facebookId: '',
       profilePic: '',
       house: '',
-      description: ''
-      // picks:
+      description: '',
+      picks: {}
     },
-    showLogIn: false,
+    serverCall: {
+      show: false,
+      success: true,
+      message: ''
+    },
+    showLogIn: true,
     showHome: false,
     otherUsers: []
   };
@@ -30,22 +43,64 @@ class App extends React.Component<{}, IState> {
     const callBack: Function = ({
       user,
       otherUsers
-    }: IPostLoginResponseSuccess): void => {
-      this.setState((prevState: IState) => ({
-        ...prevState,
-        user: {
-          name: user.name,
-          facebookId: user.facebookId,
-          profilePic: user.profilePic,
-          house: user.house,
-          description: user.description
-        },
+    }: IPostLoginResponse): void => {
+      this.setState({
+        user,
+        showLogIn: false,
+        showHome: true,
         otherUsers
-      }));
+      });
     };
   };
 
-  postMakePicks: Function = async (): Promise<void> => {
+  showMessage: Function = ({ success, message }: IServerCall): void => {
+    this.setState({
+      serverCall: { show: true, success, message }
+    });
+
+    setTimeout(
+      (): void =>
+        this.setState({
+          serverCall: { show: false, success: false, message: '' }
+        }),
+      2750
+    );
+  };
+
+  putEditAccount: Function = async ({
+    newHouse,
+    newDescription
+  }: IPutEditAccountRequest) => {
+    const {
+      user: { facebookId, picks, profilePic }
+    } = this.state;
+
+    await fetch(`http://linktobackend.com/editAccount`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ facebookId, newHouse, newDescription })
+    })
+      .then(
+        (response: IPutEditAccountResponse): Function => {
+          const { newName } = response;
+          this.setState((prevState: IState) => ({
+            ...prevState,
+            user: {
+              ...this.state.user,
+              name: newName,
+              house: newHouse,
+              description: newDescription
+            }
+          }));
+          return this.showMessage(response);
+        }
+      )
+      .catch((err: IServerCall): Function => this.showMessage(err));
+  };
+
+  postMakePicks: Function = async (newPicks: IPicks): Promise<void> => {
     const {
       user: { facebookId }
     } = this.state;
@@ -55,8 +110,18 @@ class App extends React.Component<{}, IState> {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ facebookId, picks })
-    });
+      body: JSON.stringify({ facebookId, newPicks })
+    })
+      .then(
+        (response: IServerCall): Function => {
+          this.setState((prevState: IState) => ({
+            ...prevState,
+            user: { ...this.state.user, picks: newPicks }
+          }));
+          return this.showMessage(response);
+        }
+      )
+      .catch((err: Response): Function => this.showMessage(err));
   };
 
   render(): JSX.Element {

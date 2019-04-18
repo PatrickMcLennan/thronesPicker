@@ -25,12 +25,12 @@ export interface IPicks {
 }
 
 // INTERFACES
-export interface IUser extends Document {
+export interface IUser {
   name: string;
-  facebookId?: number;
+  facebookId?: string;
   accessToken?: number;
   profilePic: string;
-  house: House;
+  house: House | null;
   description?: string;
   picks: IPicks;
 }
@@ -39,6 +39,7 @@ export interface ICharacter extends Document {
   name: string;
   house: House;
   alive: boolean;
+  job?: IPicks;
   wikiLink: string;
 }
 export interface ILocation extends Document {
@@ -46,17 +47,44 @@ export interface ILocation extends Document {
   currentHouse: House;
   wikiLink: string;
 }
-export interface IPostLoginResponseSuccess extends Response {
-  success: boolean;
-  message: string;
-  user: IUser;
-  otherUsers: IUser[];
-}
-export interface IPostLoginResponseFailure extends Response {
+
+// SERVERCALL
+export interface IServerCall {
+  show: boolean;
   success: boolean;
   message: string;
 }
 
+// LOG IN
+export interface IPostLoginResponse extends IServerCall {
+  user: IUser;
+  otherUsers: IUser[];
+}
+export interface IPostLoginResponseFailure extends IServerCall {
+  success: boolean;
+  message: string;
+}
+
+// EDIT ACCOUNT
+export interface IPutEditAccountRequest extends Request {
+  newHouse: House;
+  newDescription: string;
+}
+export interface IPutEditAccountResponse extends Response {
+  newName: string;
+  newHouse: House;
+  newDescription: string;
+}
+
+// MAKE/CHANGE PICS
+export interface IPostMakePicsRequest extends Request {
+  facebookId: string;
+  newPicks: IPicks;
+}
+export interface IPostMakePicsResponse extends Response {
+  facebookId: string;
+  newPicks: IPicks;
+}
 // GOOD PNGS
 // https://www.kisspng.com/free/game-of-thrones.html
 

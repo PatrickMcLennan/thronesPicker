@@ -7,7 +7,7 @@ const UserSchema: Schema<IUser> = new Schema({
     required: 'A users name must be provided'
   },
   facebookId: {
-    type: Number,
+    type: String,
     required: 'A user must have a Facebook ID'
   },
   profilePic: {
