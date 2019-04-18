@@ -1,11 +1,8 @@
 import * as React from 'react';
+import { IBadge } from './../../utils/clientDictionary';
 
-interface IProps {
-  src: string;
-  alt: string;
-  handler: Function;
-}
-
-const Badge: Function = ({ src, alt, handler }: IProps): JSX.Element => (
-  <img src={src} alt={alt} onClick={() => handler} />
+const Badge: Function = ({ src, alt, handler }: IBadge): JSX.Element => (
+  <img data-testid="badge" src={src} alt={alt} onClick={() => handler} />
 );
+
+export default Badge;

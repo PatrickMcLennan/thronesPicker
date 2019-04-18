@@ -40,6 +40,12 @@ export interface IUser {
   picks: IPicks;
 }
 
+export interface IBadge {
+  src: string;
+  alt: string;
+  handler: Function;
+}
+
 export interface ICharacter extends Document {
   name: string;
   house: House;

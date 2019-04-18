@@ -13,7 +13,6 @@ afterEach(cleanup);
 
 const { name, profilePic, house }: IUser = fakeUserSolo;
 const changeComponent: Function = jest.fn();
-
 const renderNav = () =>
   render(
     <ThemeProvider theme={theme}>
@@ -26,7 +25,7 @@ const renderNav = () =>
     </ThemeProvider>
   );
 
-test('<Nav showMenu="false" />', () => {
+test('<Nav />', () => {
   const { getByTestId } = renderNav();
   const nav = getByTestId('nav');
 

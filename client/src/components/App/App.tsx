@@ -52,12 +52,15 @@ class App extends React.Component<{}, IState> {
       user,
       otherUsers
     }: IPostLoginResponse): void => {
-      this.setState({
-        user,
-        showLogIn: false,
-        showHome: true,
-        otherUsers
-      });
+      this.setState(
+        (prevState: IState): IState => ({
+          ...prevState,
+          user,
+          showLogIn: false,
+          showHome: true,
+          otherUsers
+        })
+      );
     };
   };
 
@@ -139,20 +142,15 @@ class App extends React.Component<{}, IState> {
       'showAccountEditor',
       'showMakePicks'
     ];
-    const unwantedComponents: string[] = allComponents.filter(
-      (component: string) => component !== newComponent
-    );
-    unwantedComponents.forEach(
-      (component: string): void =>
+
+    return allComponents.forEach(
+      (componentKey: string): void =>
         this.setState(
           (prevState: IState): IState => ({
             ...prevState,
-            [component]: false
+            [componentKey]: componentKey === newComponent
           })
         )
-    );
-    return this.setState(
-      (prevState: IState): IState => ({ ...prevState, [newComponent]: true })
     );
   };
 

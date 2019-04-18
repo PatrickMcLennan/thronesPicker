@@ -1,4 +1,4 @@
-import { IUser } from './clientDictionary';
+import { IUser, IBadge } from './clientDictionary';
 
 export const fakeUserSolo: IUser = {
   name: 'solo',
