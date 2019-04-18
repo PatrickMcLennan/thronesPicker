@@ -42,19 +42,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var node_fetch_1 = __importDefault(require("node-fetch"));
 var schemas_1 = require("../schemas");
 exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var _a, accessToken, userID, loginError, allUsers, user;
+    var _a, accessToken, userID, loginError, otherUsers, user;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _a = req.body, accessToken = _a.accessToken, userID = _a.userID;
                 loginError = false;
-                allUsers = schemas_1.User.find({}, function (err, users) {
-                    if (err) {
-                        loginError = true;
-                    }
-                    else {
-                        return users.map(function (user) { return user.toJSON(); });
-                    }
+                otherUsers = schemas_1.User.find({}, function (allUsers) {
+                    return allUsers.map(function (user) { return user.toJSON(); });
                 });
                 return [4, node_fetch_1.default("https://graph.facebook.com/v3.2/me?access_token=" + accessToken + "&method=get&pretty=0&sdk=joey&suppress_http_code=1")
                         .then(function (rawUserData) { return rawUserData.json(); })
@@ -65,6 +60,14 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                     return [2, res.send({
                             success: loginError,
                             message: "Sorry - there was an issue logging in at this time.  Please try again later."
+                        })];
+                }
+                else {
+                    return [2, res.send({
+                            success: true,
+                            message: "I wish you luck in the wars to come.",
+                            user: user,
+                            otherUsers: otherUsers
                         })];
                 }
                 return [2];

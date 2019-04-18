@@ -4,6 +4,27 @@ import { Request, Response } from 'express';
 // TYPES
 export type House = string;
 
+export interface IPicks {
+  // Kings Landing
+  ironThrone?: ICharacter;
+  handOfTheKing?: ICharacter;
+  // The Wall
+  nightsWatchLordCommander?: ICharacter;
+  nightsWatch?: ICharacter;
+  // WinterFell
+  winterfellLord?: ICharacter;
+  // Casterly Rock
+  casterlyRockLord?: ICharacter;
+  // Dorne
+  dorneLord?: ICharacter;
+  // The Reach
+  reachLord?: ICharacter;
+  // Riverrun
+  riverrunLord?: ICharacter;
+  // Iron Islands
+  ironIslandsLord?: ICharacter;
+}
+
 export interface IPlacement {
   ruler: ICharacter;
 
@@ -18,26 +39,24 @@ export interface IPlacement {
 // INTERFACES
 export interface IUser extends Document {
   name: string;
-  facebookId: number;
-  accessToken: number;
+  facebookId?: number;
+  accessToken?: number;
   profilePic: string;
   house: House;
   description?: string;
-  // picks
-}
-
-export interface IOtherUser extends Document {
-  name: string;
-  profilePic: string;
-  house: House;
-  description: string;
-  // picks
+  // picks:
 }
 
 export interface ICharacter extends Document {
   name: string;
   house: House;
   alive: boolean;
+  wikiLink: string;
+}
+export interface ILocation extends Document {
+  name: string;
+  currentHouse: House;
+  wikiLink: string;
 }
 
 export interface IPostLoginRequest extends Request {

@@ -47,3 +47,41 @@ export interface IUser {
 // Varys
 // Samwell Tarly
 // Gendry Baratheon
+// Qyburn
+
+////////////// JOBS //////////////
+
+////////////// KINGS LANDING
+// King / Queen
+// Hand of the King
+
+////////////// THE WALL
+// Lord Commander of the Nights Watch
+// Nights Watch
+
+////////////// IRON ISLANDS
+// Lord
+
+////////////// WINTERFELL
+// Lord
+////////////// CASTERLY ROCK
+// Lord
+////////////// DORNE
+// Lord
+////////////// THE REACH
+// Lord
+////////////// RIVERRUN
+// Lord
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//

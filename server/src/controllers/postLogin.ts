@@ -1,5 +1,5 @@
 import { default as fetch } from 'node-fetch';
-
+import { DocumentQuery } from 'mongoose';
 import { User } from '../schemas';
 import { IUser } from '../utils';
 import {
@@ -7,6 +7,7 @@ import {
   IPostLoginResponseSuccess,
   IPostLoginResponseFailure
 } from '../utils';
+import { Mongoose } from 'mongoose';
 
 export const postLogin = async (
   req: IPostLoginRequest,
@@ -16,15 +17,10 @@ export const postLogin = async (
 
   let loginError: boolean = false;
 
-  let allUsers: IUser = User.find(
+  const otherUsers: DocumentQuery<IUser[], IUser> = User.find(
     {},
-    (err: string, users: IUser[]): void | IUser[] => {
-      if (err) {
-        loginError = true;
-      } else {
-        return users.map((user: IUser): IUser => user.toJSON());
-      }
-    }
+    (allUsers: IUser[]): IUser[] =>
+      allUsers.map((user: IUser): IUser => user.toJSON())
   );
 
   const user: IUser | boolean = await fetch(
@@ -37,6 +33,13 @@ export const postLogin = async (
     return res.send({
       success: loginError,
       message: `Sorry - there was an issue logging in at this time.  Please try again later.`
+    });
+  } else {
+    return res.send({
+      success: true,
+      message: `I wish you luck in the wars to come.`,
+      user,
+      otherUsers
     });
   }
 };
