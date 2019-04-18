@@ -155,8 +155,8 @@ class App extends React.Component<{}, IState> {
   };
 
   render(): JSX.Element {
-    const { user } = this.state;
-    const { name, profilePic, house } = user;
+    const { user, otherUsers }: IState = this.state;
+    const { name, profilePic, house }: IUser = user;
     const { showLogIn }: IState = this.state;
     return (
       <ThemeProvider theme={theme}>
@@ -166,6 +166,9 @@ class App extends React.Component<{}, IState> {
           profilePic={profilePic}
           house={house}
           changeComponent={this.changeComponent}
+          randomSuggestion={
+            otherUsers[Math.floor(Math.random() * otherUsers.length)]
+          }
         />
         {showLogIn && <LogInModal />}
       </ThemeProvider>

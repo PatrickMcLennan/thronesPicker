@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '../../../utils/globalStyles';
 import Nav from '../Nav';
 import { IUser } from '../../../utils/clientDictionary';
-import { fakeUserSolo } from '../../../utils/testDummies';
+import { fakeUserSolo, fakeUserArray } from '../../../utils/testDummies';
 
 afterEach(cleanup);
 
@@ -21,6 +21,9 @@ const renderNav = () =>
         profilePic={profilePic}
         house={house}
         changeComponent={changeComponent}
+        randomSuggestion={
+          fakeUserArray[Math.floor(Math.random() * fakeUserArray.length)]
+        }
       />
     </ThemeProvider>
   );
