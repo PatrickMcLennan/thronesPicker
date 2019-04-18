@@ -139,6 +139,12 @@ export interface IPostMakePicsResponse extends Response {
 ////////////// IRON ISLANDS
 // Lord
 
+////////////// WARDENS
+// North
+// South
+// East
+// WestNorth
+
 ////////////// WINTERFELL
 // Lord
 ////////////// CASTERLY ROCK

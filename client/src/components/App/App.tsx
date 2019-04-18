@@ -7,15 +7,21 @@ import {
   IPostLoginResponse,
   IPutEditAccountRequest,
   IPutEditAccountResponse,
-  IPicks
+  IPicks,
+  IPostMakePicsResponse
 } from '../../utils/clientDictionary';
 import { GlobalStyle, theme } from '../../utils/globalStyles';
+
+import LogInModal from '../LogInModal/LogInModal';
+import Nav from '../Nav/Nav';
 
 interface IState {
   user: IUser;
   serverCall: IServerCall;
   showLogIn: boolean;
   showHome: boolean;
+  showAccountEditor: boolean;
+  showMakePicks: boolean;
   otherUsers: IUser[];
 }
 
@@ -36,6 +42,8 @@ class App extends React.Component<{}, IState> {
     },
     showLogIn: true,
     showHome: false,
+    showAccountEditor: false,
+    showMakePicks: false,
     otherUsers: []
   };
 
@@ -113,7 +121,7 @@ class App extends React.Component<{}, IState> {
       body: JSON.stringify({ facebookId, newPicks })
     })
       .then(
-        (response: IServerCall): Function => {
+        (response: IPostMakePicsResponse): Function => {
           this.setState((prevState: IState) => ({
             ...prevState,
             user: { ...this.state.user, picks: newPicks }
@@ -121,16 +129,47 @@ class App extends React.Component<{}, IState> {
           return this.showMessage(response);
         }
       )
-      .catch((err: Response): Function => this.showMessage(err));
+      .catch((err: IServerCall): Function => this.showMessage(err));
+  };
+
+  changeComponent: Function = (newComponent: string): void => {
+    const allComponents: string[] = [
+      'showLogIn',
+      'showHome',
+      'showAccountEditor',
+      'showMakePicks'
+    ];
+    const unwantedComponents: string[] = allComponents.filter(
+      (component: string) => component !== newComponent
+    );
+    unwantedComponents.forEach(
+      (component: string): void =>
+        this.setState(
+          (prevState: IState): IState => ({
+            ...prevState,
+            [component]: false
+          })
+        )
+    );
+    return this.setState(
+      (prevState: IState): IState => ({ ...prevState, [newComponent]: true })
+    );
   };
 
   render(): JSX.Element {
+    const { user } = this.state;
+    const { name, profilePic, house } = user;
+    const { showLogIn }: IState = this.state;
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <div>
-          <h1>hello</h1>
-        </div>
+        <Nav
+          name={name}
+          profilePic={profilePic}
+          house={house}
+          changeComponent={this.changeComponent}
+        />
+        {showLogIn && <LogInModal />}
       </ThemeProvider>
     );
   }
