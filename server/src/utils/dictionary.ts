@@ -27,17 +27,6 @@ export interface IPicks {
   unpicked?: ICharacter[];
 }
 
-export interface IPlacement {
-  ruler: ICharacter;
-
-  wardenNorth: ICharacter;
-  wardenEast: ICharacter;
-  wardenSouth: ICharacter;
-  wardenWest: ICharacter;
-
-  wall: ICharacter;
-}
-
 // INTERFACES
 export interface IUser extends Document {
   name: string;
@@ -61,6 +50,7 @@ export interface ILocation extends Document {
   wikiLink: string;
 }
 
+// LOG IN
 export interface IPostLoginRequest extends Request {
   facebookId: IUser['facebookId'];
 }
@@ -75,16 +65,13 @@ export interface IPostLoginResponseFailure extends Response {
   message: string;
 }
 
+// MAKE PICKS
 export interface IPostMakePicksRequest extends Request {
   facebookId: IUser['facebookId'];
   picks: IPicks;
 }
-export interface IPostMakePicksResponseSuccess extends Response {
+export interface IPostMakePicksResponse extends Response {
   success: boolean;
   message: string;
   picks: IPicks;
-}
-export interface IPostMakePicksResponseFailure extends Response {
-  success: boolean;
-  message: string;
 }

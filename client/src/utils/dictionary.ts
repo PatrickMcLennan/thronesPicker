@@ -1,11 +1,60 @@
+// TYPES
 export type House = string;
 
-export interface IUser {
+export interface IPicks {
+  // Kings Landing
+  ironThrone?: ICharacter;
+  handOfTheKing?: ICharacter;
+  // The Wall
+  nightsWatchLordCommander?: ICharacter;
+  nightsWatch?: ICharacter;
+  // WinterFell
+  winterfellLord?: ICharacter;
+  // Casterly Rock
+  casterlyRockLord?: ICharacter;
+  // Dorne
+  dorneLord?: ICharacter;
+  // The Reach
+  reachLord?: ICharacter;
+  // Riverrun
+  riverrunLord?: ICharacter;
+  // Iron Islands
+  ironIslandsLord?: ICharacter;
+  dead?: ICharacter[];
+  unpicked?: ICharacter[];
+}
+
+// INTERFACES
+export interface IUser extends Document {
   name: string;
-  facebookId: number;
+  facebookId?: number;
+  accessToken?: number;
   profilePic: string;
   house: House;
   description?: string;
+  picks: IPicks;
+}
+
+export interface ICharacter extends Document {
+  name: string;
+  house: House;
+  alive: boolean;
+  wikiLink: string;
+}
+export interface ILocation extends Document {
+  name: string;
+  currentHouse: House;
+  wikiLink: string;
+}
+export interface IPostLoginResponseSuccess extends Response {
+  success: boolean;
+  message: string;
+  user: IUser;
+  otherUsers: IUser[];
+}
+export interface IPostLoginResponseFailure extends Response {
+  success: boolean;
+  message: string;
 }
 
 // GOOD PNGS

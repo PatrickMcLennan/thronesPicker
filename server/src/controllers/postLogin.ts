@@ -7,7 +7,6 @@ import {
   IPostLoginResponseSuccess,
   IPostLoginResponseFailure
 } from '../utils';
-import { Mongoose } from 'mongoose';
 
 export const postLogin = async (
   req: IPostLoginRequest,

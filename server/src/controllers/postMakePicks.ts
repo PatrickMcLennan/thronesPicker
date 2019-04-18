@@ -1,16 +1,11 @@
 import { DocumentQuery } from 'mongoose';
-import {
-  IPostMakePicksRequest,
-  IPostMakePicksResponseSuccess,
-  IPostMakePicksResponseFailure,
-  IUser
-} from '../utils';
+import { IPostMakePicksRequest, IPostMakePicksResponse, IUser } from '../utils';
 import { User } from '../schemas';
 
 export const postMakePicks = async (
   req: IPostMakePicksRequest,
-  res: IPostMakePicksResponseSuccess | IPostMakePicksResponseFailure
-): Promise<IPostMakePicksResponseSuccess | IPostMakePicksResponseFailure> => {
+  res: IPostMakePicksResponse
+) => {
   let serverError: boolean = false;
   const { facebookId, picks }: IPostMakePicksRequest = req.body;
 
@@ -28,7 +23,8 @@ export const postMakePicks = async (
   if (serverError) {
     return res.send({
       success: serverError,
-      message: `Sorry - there was an issue submitting your picks at this time.  Please try again a little later.`
+      message: `Sorry - there was an issue submitting your picks at this time.  Please try again a little later.`,
+      picks: user.picks
     });
   } else {
     user.picks = picks;

@@ -57,7 +57,8 @@ exports.postMakePicks = function (req, res) { return __awaiter(_this, void 0, vo
                 if (!serverError) return [3, 2];
                 return [2, res.send({
                         success: serverError,
-                        message: "Sorry - there was an issue submitting your picks at this time.  Please try again a little later."
+                        message: "Sorry - there was an issue submitting your picks at this time.  Please try again a little later.",
+                        picks: user.picks
                     })];
             case 2:
                 user.picks = picks;

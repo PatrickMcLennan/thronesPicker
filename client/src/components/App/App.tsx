@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { IUser } from '../../utils/dictionary';
+import { IUser, IPostLoginResponseSuccess } from '../../utils/dictionary';
 import { GlobalStyle, theme } from '../../utils/globalStyles';
 
 interface IState {
   user: IUser;
   showLogIn: boolean;
   showHome: boolean;
+  otherUsers: IUser[];
 }
 
 class App extends React.Component<{}, IState> {
@@ -18,37 +19,45 @@ class App extends React.Component<{}, IState> {
       profilePic: '',
       house: '',
       description: ''
+      // picks:
     },
     showLogIn: false,
-    showHome: false
+    showHome: false,
+    otherUsers: []
   };
 
   getLogIn: Function = (): void => {
     const callBack: Function = ({
-      name,
-      facebookId,
-      profilePic,
-      house,
-      description
-    }: IUser): void => {
+      user,
+      otherUsers
+    }: IPostLoginResponseSuccess): void => {
       this.setState((prevState: IState) => ({
         ...prevState,
         user: {
-          name,
-          facebookId,
-          profilePic,
-          house,
-          description
-        }
+          name: user.name,
+          facebookId: user.facebookId,
+          profilePic: user.profilePic,
+          house: user.house,
+          description: user.description
+        },
+        otherUsers
       }));
     };
   };
 
-  postMakePicks: Function = (user: IUser): void => {};
+  postMakePicks: Function = async (): Promise<void> => {
+    const {
+      user: { facebookId }
+    } = this.state;
 
-  putEditPicks: Function = (user: IUser): void => {};
-
-  getOtherUsers: Function = (): IUser[] | void => {};
+    await fetch(`http://linktobackend.com/makePicks`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ facebookId, picks })
+    });
+  };
 
   render(): JSX.Element {
     return (
