@@ -24,7 +24,6 @@ var app = express_1.default();
 app.use(compression_1.default());
 app.use(cors_1.default());
 app.use(body_parser_1.json());
-app.get('/otherUsers', controllers_1.getOtherUsers);
 app.post('/login', controllers_1.postLogin);
 app.post('/makepicks', controllers_1.postMakePicks);
 app.listen(PORT, function () {

@@ -19,9 +19,19 @@ export interface IPlacement {
 export interface IUser extends Document {
   name: string;
   facebookId: number;
+  accessToken: number;
   profilePic: string;
   house: House;
   description?: string;
+  // picks
+}
+
+export interface IOtherUser extends Document {
+  name: string;
+  profilePic: string;
+  house: House;
+  description: string;
+  // picks
 }
 
 export interface ICharacter extends Document {
@@ -33,8 +43,15 @@ export interface ICharacter extends Document {
 export interface IPostLoginRequest extends Request {
   facebookId: IUser['facebookId'];
 }
-export interface IPostLoginResponse extends Response {
+export interface IPostLoginResponseSuccess extends Response {
+  success: boolean;
+  message: string;
   user: IUser;
+  otherUsers: IUser[];
+}
+export interface IPostLoginResponseFailure extends Response {
+  success: boolean;
+  message: string;
 }
 
 export interface IPostMakePicksRequest extends Request {
@@ -42,12 +59,7 @@ export interface IPostMakePicksRequest extends Request {
   // user picks
 }
 export interface IPostMakePicksResponse extends Response {
+  success: boolean;
+  message: string;
   // picks
-}
-
-export interface IGetOtherUsersRequest extends Request {
-  //
-}
-export interface IGetOtherUsersResponse extends Response {
-  otherUsers: IUser[];
 }
