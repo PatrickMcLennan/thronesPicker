@@ -22,12 +22,6 @@ export interface IPicks {
   unpicked: ICharacter[];
 }
 
-export interface IHouse {
-  name: string;
-  sigil: string;
-  members: ICharacter[];
-  wikiLink?: string;
-}
 export interface IUser extends Document {
   name: string;
   facebookId: number;
@@ -42,7 +36,10 @@ export interface IUser extends Document {
 export interface ICharacter extends Document {
   name: string;
   house: IHouse;
+  home: string;
+  sigilUrl: string;
   alive: boolean;
+  placement: IPicks;
   wikiLink: string;
 }
 
@@ -50,6 +47,13 @@ export interface ILocation extends Document {
   name: string;
   currentHouse: IHouse;
   wikiLink: string;
+}
+
+export interface IHouse {
+  name: string;
+  sigilUrl: string;
+  members: ICharacter[];
+  wikiLink?: string;
 }
 
 // LOG IN

@@ -1,11 +1,17 @@
-import { IUser } from './clientDictionary';
+import {
+  houseStark,
+  houseLannister,
+  houseGreyjoy,
+  houseBaratheon
+} from './houses';
+import { IUser, IHouse, ICharacter, IPicks } from './clientDictionary';
 
 export const fakeUserSolo: IUser = {
   name: 'user/solo',
   facebookId: 'user/solo/facebookIdString',
   accessToken: 0,
   profilePic: 'user/solo/profilePic',
-  house: 'user/solo/house',
+  house: houseStark,
   description: 'user/solo/description',
   picks: {},
   currentScore: 0
@@ -17,7 +23,7 @@ export const fakeUserArray: IUser[] = [
     facebookId: 'user/array/1/facebookIdString',
     accessToken: 1,
     profilePic: 'user/array/1/profilePic',
-    house: 'user/array/1/house',
+    house: houseLannister,
     description: 'user/array/1/description',
     picks: {},
     currentScore: 0
@@ -27,7 +33,7 @@ export const fakeUserArray: IUser[] = [
     facebookId: 'user/array/2/facebookIdString',
     accessToken: 2,
     profilePic: 'user/array/2/profilePic',
-    house: 'user/array/2/house',
+    house: houseGreyjoy,
     description: 'user/array/2/description',
     picks: {},
     currentScore: 0
@@ -37,7 +43,7 @@ export const fakeUserArray: IUser[] = [
     facebookId: 'user/array/3/facebookIdString',
     accessToken: 3,
     profilePic: 'user/array/3/profilePic',
-    house: 'user/array/3/house',
+    house: houseBaratheon,
     description: 'user/array/3/description',
     picks: {},
     currentScore: 0

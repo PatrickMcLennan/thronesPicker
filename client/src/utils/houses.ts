@@ -18,90 +18,90 @@ import {
 
 export const houseTargaryen: IHouse = {
   name: 'Targaryen',
-  sigil: targaryenArray[0].sigil,
+  sigilUrl: targaryenArray[0].sigilUrl,
   members: targaryenArray,
   wikiLink: 'https://awoiaf.westeros.org/index.php/House_Targaryen'
 };
 
 export const houseStark: IHouse = {
   name: 'Stark',
-  sigil: starkArray[0].sigil,
+  sigilUrl: starkArray[0].sigilUrl,
   members: starkArray,
   wikiLink: 'https://awoiaf.westeros.org/index.php/House_Stark'
 };
 
 export const houseLannister: IHouse = {
   name: 'Lannister',
-  sigil: lannisterArray[0].sigil,
+  sigilUrl: lannisterArray[0].sigilUrl,
   members: lannisterArray,
   wikiLink: 'https://awoiaf.westeros.org/index.php/House_Lannister'
 };
 
 export const houseArryn: IHouse = {
   name: 'Arryn',
-  sigil: arrynArray[0].sigil,
+  sigilUrl: arrynArray[0].sigilUrl,
   members: arrynArray,
   wikiLink: 'https://awoiaf.westeros.org/index.php/House_Arryn'
 };
 
 export const houseGreyjoy: IHouse = {
   name: 'Greyjoy',
-  sigil: greyjoyArray[0].sigil,
+  sigilUrl: greyjoyArray[0].sigilUrl,
   members: greyjoyArray,
   wikiLink: 'https://awoiaf.westeros.org/index.php/House_Greyjoy'
 };
 
 export const houseClegane: IHouse = {
   name: 'Clegane',
-  sigil: cleganeArray[0].sigil,
+  sigilUrl: cleganeArray[0].sigilUrl,
   members: cleganeArray,
   wikiLink: 'https://awoiaf.westeros.org/index.php/House_Clegane'
 };
 
 export const houseTully: IHouse = {
   name: 'Tully',
-  sigil: tullyArray[0].sigil,
+  sigilUrl: tullyArray[0].sigilUrl,
   members: tullyArray,
   wikiLink: 'https://awoiaf.westeros.org/index.php/House_Tully'
 };
 
 export const houseMormont: IHouse = {
   name: 'Mormont',
-  sigil: mormontArray[0].sigil,
+  sigilUrl: mormontArray[0].sigilUrl,
   members: mormontArray,
   wikiLink: 'https://awoiaf.westeros.org/index.php/House_Mormont'
 };
 
 export const houseTarly: IHouse = {
   name: 'Tarly',
-  sigil: tarlyArray[0].sigil,
+  sigilUrl: tarlyArray[0].sigilUrl,
   members: tarlyArray,
   wikiLink: 'https://awoiaf.westeros.org/index.php/House_Tarly'
 };
 
 export const houseTarth: IHouse = {
   name: 'Tarth',
-  sigil: tarthArray[0].sigil,
+  sigilUrl: tarthArray[0].sigilUrl,
   members: tarthArray,
   wikiLink: 'https://awoiaf.westeros.org/index.php/House_Tarth'
 };
 
 export const houseMartell: IHouse = {
   name: 'Martell',
-  sigil: martellArray[0].sigil,
+  sigilUrl: martellArray[0].sigilUrl,
   members: martellArray,
   wikiLink: 'https://awoiaf.westeros.org/index.php/House_Martell'
 };
 
 export const houseBaratheon: IHouse = {
   name: 'Baratheon',
-  sigil: baratheonArray[0].sigil,
+  sigilUrl: baratheonArray[0].sigilUrl,
   members: baratheonArray,
   wikiLink: 'https://awoiaf.westeros.org/index.php/House_Baratheon'
 };
 
 export const houseUnknown: IHouse = {
   name: 'Unknown',
-  sigil: 'placeholder link',
+  sigilUrl: 'placeholder link',
   members: unknownArray
 };

@@ -36,7 +36,7 @@ export interface ICharacter {
   name: string;
   house: IHouse;
   home: string;
-  sigil: string;
+  sigilUrl: string;
   alive: boolean;
   placement: IPicks;
   wikiLink: string;
@@ -48,14 +48,14 @@ export interface ILocation {
 }
 export interface IHouse {
   name: string;
-  sigil: string;
+  sigilUrl: string;
   members: ICharacter[];
   wikiLink?: string;
 }
 
 // SERVERCALL
 export interface IServerCall {
-  show: boolean;
+  showResult: boolean;
   success: boolean;
   message: string;
 }

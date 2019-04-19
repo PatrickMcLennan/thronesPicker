@@ -2,7 +2,11 @@ import * as React from 'react';
 
 import { StyledDiv } from './Message.style';
 
-interface IProps {}
+interface IProps {
+  success: boolean;
+  message: string;
+}
+
 interface IState {
   triggerAnimation: boolean;
 }

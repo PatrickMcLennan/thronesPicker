@@ -16,6 +16,7 @@ import LogInModal from '../LogInModal/LogInModal';
 import RulesModal from '../RulesModal/RulesModal';
 import AccountEditor from '../AccountEditor/AccountEditor';
 import Nav from '../Nav/Nav';
+import Message from '../Message/Message';
 
 interface IState {
   user: IUser;
@@ -38,7 +39,7 @@ class App extends React.Component<{}, IState> {
       profilePic: '',
       house: {
         name: '',
-        sigil: '',
+        sigilUrl: '',
         members: [],
         wikiLink: ''
       },
@@ -64,7 +65,7 @@ class App extends React.Component<{}, IState> {
       currentScore: 0
     },
     serverCall: {
-      show: false,
+      showResult: false,
       success: true,
       message: ''
     },
@@ -100,15 +101,15 @@ class App extends React.Component<{}, IState> {
     };
   };
 
-  showMessage: Function = ({ success, message }: IServerCall): void => {
+  showMessage: Function = ({ success, message }: IServerCall) => {
     this.setState({
-      serverCall: { show: true, success, message }
+      serverCall: { showResult: true, success, message }
     });
 
-    setTimeout(
+    return setTimeout(
       (): void =>
         this.setState({
-          serverCall: { show: false, success: false, message: '' }
+          serverCall: { showResult: false, success: false, message: '' }
         }),
       2750
     );
@@ -184,7 +185,8 @@ class App extends React.Component<{}, IState> {
   };
 
   render(): JSX.Element {
-    const { user, otherUsers }: IState = this.state;
+    const { user, otherUsers, serverCall }: IState = this.state;
+    const { show, success, message } = serverCall;
     const { name, profilePic, house }: IUser = user;
     const { showLogIn, showAccountEditor, showRules }: IState = this.state;
     return (

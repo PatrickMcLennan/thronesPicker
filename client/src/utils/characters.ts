@@ -21,7 +21,7 @@ const daenerysTargaryen: ICharacter = {
   name: 'Daenerys Targaryen',
   house: houseTargaryen,
   home: 'DragonStone',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Targaryen.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -34,7 +34,7 @@ const jonSnow: ICharacter = {
   name: 'Jon Snow',
   house: houseStark,
   home: 'Winterfell',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -44,7 +44,7 @@ const aryaStark: ICharacter = {
   name: 'Arya Stark',
   house: houseStark,
   home: 'Winterfell',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -54,7 +54,7 @@ const sansaStark: ICharacter = {
   name: 'Sansa Stark',
   house: houseStark,
   home: 'Winterfell',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -64,7 +64,7 @@ const branStark: ICharacter = {
   name: 'Bran Stark',
   house: houseStark,
   home: 'Winterfell',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -83,7 +83,7 @@ const jaimeLannister: ICharacter = {
   name: 'Jaime Lannister',
   house: houseLannister,
   home: 'Casterly Rock',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Lannister.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -93,7 +93,7 @@ const cerseiLannister: ICharacter = {
   name: 'Cersei Lannister',
   house: houseLannister,
   home: 'Casterly Rock',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Lannister.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -103,7 +103,7 @@ const tyrionLannister: ICharacter = {
   name: 'Tyrion Lannister',
   house: houseLannister,
   home: 'Casterly Rock',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Lannister.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -121,7 +121,7 @@ export const robinArryn: ICharacter = {
   name: 'Robin Arryn',
   house: houseArryn,
   home: 'The Vale',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Arryn.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -134,7 +134,7 @@ const theonGreyjoy: ICharacter = {
   name: 'Theon Greyjoy',
   house: houseGreyjoy,
   home: 'Iron Islands',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Greyjoy.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -144,7 +144,7 @@ const yaraGreyjoy: ICharacter = {
   name: 'Yara Greyjoy',
   house: houseGreyjoy,
   home: 'Iron Islands',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Greyjoy.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -154,7 +154,7 @@ const euronGreyjoy: ICharacter = {
   name: 'Euron Greyjoy',
   house: houseGreyjoy,
   home: 'Iron Islands',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Greyjoy.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -171,7 +171,7 @@ const sandorClegane: ICharacter = {
   name: 'Sandor Clegane',
   house: houseClegane,
   home: 'Westerlands',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Clegane.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -181,7 +181,7 @@ const gregorClegane: ICharacter = {
   name: 'Gregor Clegane',
   house: houseClegane,
   home: 'Westerlands',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Clegane.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -194,7 +194,7 @@ const edmureTully: ICharacter = {
   name: 'Edmure Tully',
   house: houseTully,
   home: 'Riverrun',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Tully.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -207,7 +207,7 @@ const jorahMormont: ICharacter = {
   name: 'Jorah Mormont',
   house: houseMormont,
   home: 'Bear Island',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Mormont.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -217,7 +217,7 @@ const lyannaMormont: ICharacter = {
   name: 'Lyanna Mormont',
   house: houseMormont,
   home: 'Bear Island',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Mormont.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -230,7 +230,7 @@ const samwellTarly: ICharacter = {
   name: 'Samwell Tarly',
   house: houseTarly,
   home: 'Horn Hill',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Tarly.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -243,7 +243,7 @@ const brienneTarth: ICharacter = {
   name: 'Brienne Tarth',
   house: houseTarth,
   home: 'Evenfall Hall',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Tarth.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -256,7 +256,7 @@ const ellariaSand: ICharacter = {
   name: 'Ellaria Sand',
   house: houseMartell,
   home: 'Sunspear',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Martell.svg&width=240&lang=en',
   alive: null,
   placement: null,
@@ -269,7 +269,7 @@ const gendryBaratheon: ICharacter = {
   name: 'Gendry Baratheon',
   house: houseBaratheon,
   home: 'Kings Landing',
-  sigil:
+  sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Baratheon.svg&width=218&lang=en',
   alive: null,
   placement: null,
@@ -282,7 +282,7 @@ const bronn: ICharacter = {
   name: 'Bronn',
   house: houseUnknown,
   home: '?',
-  sigil: 'linkToSigil',
+  sigilUrl: 'linkTosigilUrl',
   alive: null,
   placement: null,
   wikiLink: 'https://awoiaf.westeros.org/index.php/Bronn'
@@ -291,7 +291,7 @@ const davosSeaworth: ICharacter = {
   name: 'Davos Seaworth',
   house: houseUnknown,
   home: 'Winterfell',
-  sigil: 'linkToSigil',
+  sigilUrl: 'linkTosigilUrl',
   alive: null,
   placement: null,
   wikiLink: 'https://awoiaf.westeros.org/index.php/Davos_Seaworth'
@@ -300,7 +300,7 @@ const melisandre: ICharacter = {
   name: 'Melisandre',
   house: houseUnknown,
   home: 'Asshai',
-  sigil: 'linkToSigil',
+  sigilUrl: 'linkTosigilUrl',
   alive: null,
   placement: null,
   wikiLink: 'https://awoiaf.westeros.org/index.php/Melisandre'
@@ -309,7 +309,7 @@ const tormundGiantsbane: ICharacter = {
   name: 'Tormund Giantsbane',
   house: houseUnknown,
   home: 'North of the Wall',
-  sigil: 'linkToSigil',
+  sigilUrl: 'linkTosigilUrl',
   alive: null,
   placement: null,
   wikiLink: 'https://awoiaf.westeros.org/index.php/Tormund'
@@ -319,7 +319,7 @@ const bericDondarrion: ICharacter = {
   name: 'Beric Dondarrion',
   house: houseUnknown,
   home: 'Blackhaven',
-  sigil: 'linkToSigil',
+  sigilUrl: 'linkTosigilUrl',
   alive: null,
   placement: null,
   wikiLink: 'https://awoiaf.westeros.org/index.php/Beric_Dondarrion'
@@ -328,7 +328,7 @@ const eddisonTollet: ICharacter = {
   name: 'Eddison Tollet',
   house: houseUnknown,
   home: '?',
-  sigil: 'linkToSigil',
+  sigilUrl: 'linkTosigilUrl',
   alive: null,
   placement: null,
   wikiLink: 'https://awoiaf.westeros.org/index.php/Eddison_Tollett'
@@ -338,7 +338,7 @@ const greyWorm: ICharacter = {
   name: 'Grey Worm',
   house: houseUnknown,
   home: '?',
-  sigil: 'linkToSigil',
+  sigilUrl: 'linkTosigilUrl',
   alive: null,
   placement: null,
   wikiLink: 'https://awoiaf.westeros.org/index.php/Grey_Worm'
@@ -347,7 +347,7 @@ const varys: ICharacter = {
   name: 'Varys',
   house: houseUnknown,
   home: '?',
-  sigil: 'linkToSigil',
+  sigilUrl: 'linkTosigilUrl',
   alive: null,
   placement: null,
   wikiLink: 'https://awoiaf.westeros.org/index.php/Varys'
@@ -357,7 +357,7 @@ const qyburn: ICharacter = {
   name: 'Qyburn',
   house: houseUnknown,
   home: '?',
-  sigil: 'linkToSigil',
+  sigilUrl: 'linkTosigilUrl',
   alive: null,
   placement: null,
   wikiLink: 'https://awoiaf.westeros.org/index.php/Qyburn'
