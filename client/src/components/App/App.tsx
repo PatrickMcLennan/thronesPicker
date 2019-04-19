@@ -23,6 +23,7 @@ interface IState {
   showAccountEditor: boolean;
   showMakePicks: boolean;
   showOtherUsers: boolean;
+  showTheRules: boolean;
   allComponents: string[];
   otherUsers: IUser[];
 }
@@ -47,12 +48,14 @@ class App extends React.Component<{}, IState> {
     showAccountEditor: false,
     showMakePicks: false,
     showOtherUsers: false,
+    showTheRules: false,
     allComponents: [
       'showLogin',
       'showHome',
       'showAccountEditor',
       'showMakePicks',
-      'showOtherUsers'
+      'showOtherUsers',
+      'showTheRules'
     ],
     otherUsers: []
   };
@@ -164,6 +167,7 @@ class App extends React.Component<{}, IState> {
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyle />
+        {showLogIn && <LogInModal />}
         <Nav
           name={name}
           profilePic={profilePic}
@@ -173,7 +177,6 @@ class App extends React.Component<{}, IState> {
             otherUsers[Math.floor(Math.random() * otherUsers.length)]
           }
         />
-        {showLogIn && <LogInModal />}
       </ThemeProvider>
     );
   }

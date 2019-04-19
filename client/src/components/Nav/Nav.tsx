@@ -42,9 +42,9 @@ class Nav extends React.Component<IProps, IState> {
     const { renderMenu }: IState = this.state;
     return (
       <nav data-testid="nav">
-        <Badge src={profilePic} alt={name} handler={() => this.toggleMenu} />
         <h1>name</h1>
         <h1>house</h1>
+        <Badge src={profilePic} alt={name} handler={() => this.toggleMenu} />
         {renderMenu && (
           <StyledUl triggerAnimation={renderMenu}>
             <StyledLi
@@ -67,8 +67,14 @@ class Nav extends React.Component<IProps, IState> {
             </StyledLi>
             <StyledLi
               data-testid="menu__item"
-              onClick={changeComponent('showOtherUsers')}
+              onClick={changeComponent('showTheRules')}
               delay={1}>
+              The Rules
+            </StyledLi>
+            <StyledLi
+              data-testid="menu__item"
+              onClick={changeComponent('showOtherUsers')}
+              delay={1.25}>
               See other Picks
             </StyledLi>
             <StyledLi data-testid="menu__item" delay={0.1}>
