@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { StyledUl, StyledLi } from './Nav.style';
+import { StyledNav, StyledUl, StyledLi } from './Nav.style';
 import Badge from '../Badge/Badge';
 import { IUser } from '../../utils/clientDictionary';
 
@@ -13,15 +13,30 @@ interface IProps {
 }
 
 interface IState {
-  name: string;
   renderMenu: boolean;
+  triggerAnimation: boolean;
 }
 
 class Nav extends React.Component<IProps, IState> {
   state = {
-    name: this.props.name,
-    renderMenu: false
+    renderMenu: false,
+    triggerAnimation: false
   };
+
+  componentWillMount() {
+    return this.setState((prevState: IState) => ({
+      ...prevState,
+      triggerAnimation: true
+    }));
+  }
+
+  componentWillUnmount() {
+    this.setState((prevState: IState) => ({
+      ...prevState,
+      triggerAnimation: false
+    }));
+    return setTimeout((): null => null, 750);
+  }
 
   toggleMenu: Function = (): void => {
     return this.setState(
@@ -39,9 +54,9 @@ class Nav extends React.Component<IProps, IState> {
       randomSuggestion,
       changeComponent
     }: IProps = this.props;
-    const { renderMenu }: IState = this.state;
+    const { renderMenu, triggerAnimation }: IState = this.state;
     return (
-      <nav data-testid="nav">
+      <StyledNav data-testid="nav" triggerAnimation={triggerAnimation}>
         <h1>name</h1>
         <h1>house</h1>
         <Badge src={profilePic} alt={name} handler={() => this.toggleMenu} />
@@ -82,7 +97,7 @@ class Nav extends React.Component<IProps, IState> {
             </StyledLi>
           </StyledUl>
         )}
-      </nav>
+      </StyledNav>
     );
   }
 }

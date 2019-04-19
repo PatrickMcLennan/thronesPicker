@@ -6,12 +6,18 @@ interface IProps {
 }
 
 export const StyledNav = styled.nav`
-  ${({ theme: { flexin } }: any) =>
-    flexin(`flex-end`, `center`, `row`, `no-wrap`)}
-  position:fixed;
+  display: none;
+  position: fixed;
   top: 2.5vh;
   left: 0;
   right: 0;
+
+  ${(props: IProps) =>
+    props.triggerAnimation &&
+    css`
+      ${({ theme: { flexin } }: any) =>
+        flexin(`flex-end`, `center`, `row`, `no-wrap`)}
+    `}
 `;
 
 export const StyledUl = styled.ul`
@@ -34,6 +40,7 @@ export const StyledLi = styled.li`
   transform: translateY(100%) rotateY(90deg);
   transition: all 0.3s ease-out;
   transition-delay: calc(${(props: IProps) => props.delay} * 0.5);
+
   ${(props: IProps) =>
     props.triggerAnimation &&
     css`

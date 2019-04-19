@@ -11,9 +11,24 @@ class Message extends React.Component<IProps, IState> {
   state = {
     triggerAnimation: false
   };
+
+  componentDidMount() {
+    return this.setState((prevState: IState) => ({
+      ...prevState,
+      triggerAnimation: true
+    }));
+  }
+  componentWillUnmount() {
+    this.setState((prevState: IState) => ({
+      ...prevState,
+      triggerAnimation: false
+    }));
+    return setTimeout((): null => null, 750);
+  }
   render(): JSX.Element {
+    const { triggerAnimation } = this.state;
     return (
-      <StyledDiv data-testid="message">
+      <StyledDiv triggerAnimation={triggerAnimation} data-testid="message">
         <h1>hello</h1>
       </StyledDiv>
     );

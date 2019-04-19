@@ -25,6 +25,15 @@ class AccountEditor extends React.Component<IProps, IState> {
       (prevState: IState): IState => ({ ...prevState, triggerAnimation: true })
     );
   }
+
+  componentWillUnmount() {
+    this.setState((prevState: IState) => ({
+      ...prevState,
+      triggerAnimation: false
+    }));
+    return setTimeout((): null => null, 750);
+  }
+
   handleChange: Function = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { id, value } = e.target;
     return this.setState(
