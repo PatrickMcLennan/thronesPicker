@@ -41,17 +41,23 @@ export interface IUser {
   currentScore: number;
 }
 
-export interface ICharacter extends Document {
+export interface ICharacter {
   name: string;
   house: House;
-  alive: boolean;
-  job?: IPicks;
+  home: string;
+  sigil: string;
+  alive: boolean | null;
+  job: IPicks | null;
   wikiLink: string;
 }
-export interface ILocation extends Document {
+export interface ILocation {
   name: string;
   currentHouse: House;
   wikiLink: string;
+}
+export interface IHouse {
+  name: string;
+  members: ICharacter[];
 }
 
 // SERVERCALL
@@ -110,21 +116,26 @@ export interface IPostMakePicsResponse extends Response {
 ////////////// ARRYNS
 // Robin Arryn
 
+////////////// GREYJOYS
+// Theon Greyjoy
+// Yara Greyjoy
+// Euron Greyjoy
+
+////////////// CLEGANES
+// Sandor 'The Hound' Clegane
+// Gregor 'The Mountain' Clegane
+
 ////////////// OTHERS
 // Edmure Tully
 // Jorah Mormont
 // Bronn
 // Davos Seaworth
 // Melisandre
-// Theon Greyjoy
-// Yara Greyjoy
-// Euron Greyjoy
-// Sandor 'The Hound' Clegane
-// Gregor 'The Mountain' Clegane
 // Tormund Giantsbane
 // Brienne of Tarth
 // Beric Dondarrion
-// Edd Tollett
+
+// Eddison Tollett
 // Ellaria Sand
 // Grey Worm
 // Varys

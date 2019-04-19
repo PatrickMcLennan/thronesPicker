@@ -62,8 +62,8 @@ class AccountEditor extends React.Component<IProps, IState> {
         data-testid="accountEditor"
         triggerAnimation={triggerAnimation}>
         <StyledForm
-          triggerAnimation={triggerAnimation}
           data-testid="accountEditor__form"
+          triggerAnimation={triggerAnimation}
           onSubmit={this.handleSubmit}
         />
       </StyledSection>
