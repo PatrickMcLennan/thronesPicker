@@ -5,27 +5,27 @@ import 'jest-dom/extend-expect';
 import { ThemeProvider } from 'styled-components';
 
 import { theme } from '../../../utils/globalStyles';
-import Badge from '../Badge';
-import { IBadge } from '../../../utils/clientDictionary';
+import Thumbnail from '../Thumbnail';
+import { IThumbnail } from '../../../utils/clientDictionary';
 
 afterEach(cleanup);
 
 const fakeHandler: Function = jest.fn();
-const fakeProps: IBadge = {
+const fakeProps: IThumbnail = {
   src: 'solo/src',
   alt: 'solo/alt',
   handler: fakeHandler
 };
 
-const renderBadge = () =>
+const renderThumbnail = () =>
   render(
     <ThemeProvider theme={theme}>
-      <Badge {...fakeProps} />
+      <Thumbnail {...fakeProps} />
     </ThemeProvider>
   );
 
-test('<Badge />', () => {
-  const { getByTestId } = renderBadge();
+test('<Thumbnail />', () => {
+  const { getByTestId } = renderThumbnail();
   const badge = getByTestId('badge');
 
   // Content

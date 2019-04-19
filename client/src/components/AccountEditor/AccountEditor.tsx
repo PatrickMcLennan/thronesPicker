@@ -11,12 +11,16 @@ interface IProps {
 
 interface IState {
   user: IUser;
+  newHouse: string;
+  newDescription: string;
   triggerAnimation: boolean;
 }
 
 class AccountEditor extends React.Component<IProps, IState> {
   state = {
     user: { ...this.props.user },
+    newHouse: '',
+    newDescription: '',
     triggerAnimation: false
   };
 

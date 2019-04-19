@@ -40,7 +40,7 @@ export interface IUser {
   picks: IPicks;
 }
 
-export interface IBadge {
+export interface IThumbnail {
   src: string;
   alt: string;
   handler: Function;

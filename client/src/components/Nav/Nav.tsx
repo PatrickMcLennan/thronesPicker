@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { StyledNav, StyledUl, StyledLi } from './Nav.style';
-import Badge from '../Badge/Badge';
+import Badge from '../Thumbnail/Thumbnail';
 import { IUser } from '../../utils/clientDictionary';
 
 interface IProps {

@@ -1,10 +1,11 @@
 import * as React from 'react';
 
-import { StyledSection } from './LogInModal.style';
+import { StyledSection } from './LogInModal';
 
 interface IState {
   triggerAnimation: boolean;
 }
+
 class LogInModal extends React.Component<{}, {}> {
   state = {
     triggerAnimation: false
