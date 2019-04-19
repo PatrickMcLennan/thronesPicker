@@ -10,12 +10,25 @@ var CharacterSchema = new mongoose_1.Schema({
         type: String,
         required: 'Each character must belong to a house'
     },
+    home: {
+        type: String,
+        required: 'Each character must belong to a house'
+    },
+    sigil: {
+        type: String,
+        required: 'Each character must belong to a house'
+    },
     alive: {
         type: Boolean,
         required: 'Each character must be either alive or dead.'
     },
     placement: {
-        type: String
+        type: String,
+        required: 'Each Character must be either Dead, bet on or unpicked'
+    },
+    wikiLink: {
+        type: String,
+        required: 'Each Character requries a link to their wiki'
     }
 });
 exports.Character = mongoose_1.model('Character', CharacterSchema);

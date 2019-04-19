@@ -20,6 +20,10 @@ var UserSchema = new mongoose_1.Schema({
     },
     description: {
         type: String
+    },
+    currentScore: {
+        type: Number,
+        required: 'Each Player must have a score'
     }
 });
 exports.User = mongoose_1.model('User', UserSchema);

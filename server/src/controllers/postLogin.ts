@@ -15,18 +15,25 @@ export const postLogin = async (
   const { accessToken, userID } = req.body;
 
   let loginError: boolean = false;
+  let userExists: boolean = false;
 
-  const otherUsers: DocumentQuery<IUser[], IUser> = User.find(
-    {},
-    (allUsers: IUser[]): IUser[] =>
-      allUsers.map((user: IUser): IUser => user.toJSON())
-  );
-
-  const user: IUser | boolean = await fetch(
+  const user: IUser = await fetch(
     `https://graph.facebook.com/v3.2/me?access_token=${accessToken}&method=get&pretty=0&sdk=joey&suppress_http_code=1`
   )
-    .then(rawUserData => rawUserData.json())
+    .then((rawUserData): Promise<IUser> => rawUserData.json())
+    .then(
+      (user: IUser): DocumentQuery<IUser, IUser, {}> =>
+        User.findOne({ facebookId: user.facebookId })
+    )
     .catch((err: string): boolean => (loginError = true));
+
+  const otherUsers: IUser[] = await User.find({}, (allUsers: IUser[]) =>
+    allUsers
+      .map((savedUser: IUser): IUser => user.toJSON())
+      .filter(
+        (savedUser: IUser): boolean => savedUser.facebookId !== user.facebookId
+      )
+  );
 
   if (loginError) {
     return res.send({

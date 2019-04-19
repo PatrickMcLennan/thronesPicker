@@ -42,20 +42,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var node_fetch_1 = __importDefault(require("node-fetch"));
 var schemas_1 = require("../schemas");
 exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var _a, accessToken, userID, loginError, otherUsers, user;
+    var _a, accessToken, userID, loginError, userExists, user, otherUsers;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _a = req.body, accessToken = _a.accessToken, userID = _a.userID;
                 loginError = false;
-                otherUsers = schemas_1.User.find({}, function (allUsers) {
-                    return allUsers.map(function (user) { return user.toJSON(); });
-                });
+                userExists = false;
                 return [4, node_fetch_1.default("https://graph.facebook.com/v3.2/me?access_token=" + accessToken + "&method=get&pretty=0&sdk=joey&suppress_http_code=1")
                         .then(function (rawUserData) { return rawUserData.json(); })
+                        .then(function (user) {
+                        return schemas_1.User.findOne({ facebookId: user.facebookId });
+                    })
                         .catch(function (err) { return (loginError = true); })];
             case 1:
                 user = _b.sent();
+                return [4, schemas_1.User.find({}, function (allUsers) {
+                        return allUsers
+                            .map(function (savedUser) { return user.toJSON(); })
+                            .filter(function (savedUser) { return savedUser.facebookId !== user.facebookId; });
+                    })];
+            case 2:
+                otherUsers = _b.sent();
                 if (loginError) {
                     return [2, res.send({
                             success: loginError,
