@@ -57,6 +57,7 @@ export interface ILocation {
 }
 export interface IHouse {
   name: string;
+  sigil: string;
   members: ICharacter[];
 }
 

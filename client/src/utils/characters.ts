@@ -192,6 +192,42 @@ const samwellTarly: ICharacter = {
 };
 export const tarlyArray: ICharacter[] = [samwellTarly];
 
+////////////// TARTH
+const brienneTarth: ICharacter = {
+  name: 'Brienne Tarth',
+  house: 'Tarth',
+  home: 'Evenfall Hall',
+  sigil: 'linkToSigil',
+  alive: null,
+  job: null,
+  wikiLink: 'linkToWiki'
+};
+export const tarthArray: ICharacter[] = [brienneTarth];
+
+////////////// MARTELL
+const ellariaSand: ICharacter = {
+  name: 'Ellaria Sand',
+  house: 'Martell',
+  home: 'Sunspear',
+  sigil: 'linkToSigil',
+  alive: null,
+  job: null,
+  wikiLink: 'linkToWiki'
+};
+export const martellArray: ICharacter[] = [ellariaSand];
+
+////////////// BARATHEON
+const gendryBaratheon: ICharacter = {
+  name: 'Gendry Baratheon',
+  house: 'Baratheon',
+  home: 'Kings Landing',
+  sigil: 'linkToSigil',
+  alive: null,
+  job: null,
+  wikiLink: 'linkToWiki'
+};
+export const baratheonArray: ICharacter[] = [gendryBaratheon];
+
 ////////////// OTHERS
 const bronn: ICharacter = {
   name: 'Bronn',
@@ -229,15 +265,7 @@ const tormundGiantsbane: ICharacter = {
   job: null,
   wikiLink: 'linkToWiki'
 };
-const brienneTarth: ICharacter = {
-  name: 'Brienne Tarth',
-  house: 'Tarth',
-  home: 'Evenfall Hall',
-  sigil: 'linkToSigil',
-  alive: null,
-  job: null,
-  wikiLink: 'linkToWiki'
-};
+
 const bericDondarrion: ICharacter = {
   name: 'Beric Dondarrion',
   house: 'Dondarrion',
@@ -256,15 +284,7 @@ const eddisonTollet: ICharacter = {
   job: null,
   wikiLink: 'linkToWiki'
 };
-const ellariaSand: ICharacter = {
-  name: 'Ellaria Sand',
-  house: 'Martell',
-  home: 'Sunspear',
-  sigil: 'linkToSigil',
-  alive: null,
-  job: null,
-  wikiLink: 'linkToWiki'
-};
+
 const greyWorm: ICharacter = {
   name: 'Grey Worm',
   house: '?',
@@ -283,15 +303,7 @@ const varys: ICharacter = {
   job: null,
   wikiLink: 'linkToWiki'
 };
-const gendryBaratheon: ICharacter = {
-  name: 'Gendry Baratheon',
-  house: 'Baratheon',
-  home: 'Kings Landing',
-  sigil: 'linkToSigil',
-  alive: null,
-  job: null,
-  wikiLink: 'linkToWiki'
-};
+
 const qyburn: ICharacter = {
   name: 'Qyburn',
   house: '?',
@@ -301,3 +313,14 @@ const qyburn: ICharacter = {
   job: null,
   wikiLink: 'linkToWiki'
 };
+export const unknownArray: ICharacter[] = [
+  bronn,
+  davosSeaworth,
+  melisandre,
+  tormundGiantsbane,
+  bericDondarrion,
+  eddisonTollet,
+  greyWorm,
+  varys,
+  qyburn
+];
