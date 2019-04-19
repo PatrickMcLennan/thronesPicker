@@ -42,7 +42,24 @@ class App extends React.Component<{}, IState> {
         wikiLink: ''
       },
       description: '',
-      picks: {},
+      picks: {
+        ironThrone: '',
+        handOfTheKing: '',
+        nightsWatchLordCommander: '',
+        nightsWatch: '',
+        winterfellLord: '',
+        casterlyRockLord: '',
+        dorneLord: '',
+        reachLord: '',
+        riverrunLord: '',
+        ironIslandsLord: '',
+        wardenNorth: '',
+        wardenEast: '',
+        wardenSouth: '',
+        wardenWest: '',
+        dead: [],
+        unpicked: []
+      },
       currentScore: 0
     },
     serverCall: {

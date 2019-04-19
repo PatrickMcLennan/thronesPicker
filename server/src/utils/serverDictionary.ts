@@ -4,26 +4,22 @@ import { Request, Response } from 'express';
 // TYPES
 
 export interface IPicks {
-  // Kings Landing
-  ironThrone?: ICharacter;
-  handOfTheKing?: ICharacter;
-  // The Wall
-  nightsWatchLordCommander?: ICharacter;
-  nightsWatch?: ICharacter;
-  // WinterFell
-  winterfellLord?: ICharacter;
-  // Casterly Rock
-  casterlyRockLord?: ICharacter;
-  // Dorne
-  dorneLord?: ICharacter;
-  // The Reach
-  reachLord?: ICharacter;
-  // Riverrun
-  riverrunLord?: ICharacter;
-  // Iron Islands
-  ironIslandsLord?: ICharacter;
-  dead?: ICharacter[];
-  unpicked?: ICharacter[];
+  ironThrone: ICharacter;
+  handOfTheKing: ICharacter;
+  nightsWatchLordCommander: ICharacter;
+  nightsWatch: ICharacter;
+  winterfellLord: ICharacter;
+  casterlyRockLord: ICharacter;
+  dorneLord: ICharacter;
+  reachLord: ICharacter;
+  riverrunLord: ICharacter;
+  ironIslandsLord: ICharacter;
+  wardenNorth: ICharacter;
+  wardenEast: ICharacter;
+  wardenSouth: ICharacter;
+  wardenWest: ICharacter;
+  dead: ICharacter[];
+  unpicked: ICharacter[];
 }
 
 // INTERFACES
@@ -51,6 +47,7 @@ export interface ICharacter extends Document {
   alive: boolean;
   wikiLink: string;
 }
+
 export interface ILocation extends Document {
   name: string;
   currentHouse: IHouse;

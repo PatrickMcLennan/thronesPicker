@@ -96,6 +96,10 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                         reachLord: '',
                         riverrrunLord: '',
                         ironIslandsLord: '',
+                        wardenNorth: '',
+                        wardenEast: '',
+                        wardenSouth: '',
+                        wardenWest: '',
                         dead: [],
                         unpicked: []
                     },

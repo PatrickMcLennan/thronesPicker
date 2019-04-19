@@ -3,30 +3,30 @@
 
 export interface IPicks {
   // Kings Landing
-  ironThrone?: ICharacter;
-  handOfTheKing?: ICharacter;
+  ironThrone: ICharacter | string;
+  handOfTheKing: ICharacter | string;
   // The Wall
-  nightsWatchLordCommander?: ICharacter;
-  nightsWatch?: ICharacter;
+  nightsWatchLordCommander: ICharacter | string;
+  nightsWatch: ICharacter | string;
   // WinterFell
-  winterfellLord?: ICharacter;
+  winterfellLord: ICharacter | string;
   // Casterly Rock
-  casterlyRockLord?: ICharacter;
+  casterlyRockLord: ICharacter | string;
   // Dorne
-  dorneLord?: ICharacter;
+  dorneLord: ICharacter | string;
   // The Reach
-  reachLord?: ICharacter;
+  reachLord: ICharacter | string;
   // Riverrun
-  riverrunLord?: ICharacter;
+  riverrunLord: ICharacter | string;
   // Iron Islands
-  ironIslandsLord?: ICharacter;
+  ironIslandsLord: ICharacter | string;
   // Wardens
-  wardenNorth?: ICharacter;
-  wardenEast?: ICharacter;
-  wardenSouth?: ICharacter;
-  wardenWest?: ICharacter;
-  dead?: ICharacter[];
-  unpicked?: ICharacter[];
+  wardenNorth: ICharacter | string;
+  wardenEast: ICharacter | string;
+  wardenSouth: ICharacter | string;
+  wardenWest: ICharacter | string;
+  dead: ICharacter[];
+  unpicked: ICharacter[];
 }
 
 // INTERFACES

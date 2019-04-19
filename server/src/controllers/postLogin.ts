@@ -62,6 +62,10 @@ export const postLogin = async (
         reachLord: '',
         riverrrunLord: '',
         ironIslandsLord: '',
+        wardenNorth: '',
+        wardenEast: '',
+        wardenSouth: '',
+        wardenWest: '',
         dead: [],
         unpicked: []
       },
