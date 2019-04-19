@@ -75,3 +75,15 @@ export interface IPostMakePicksResponse extends Response {
   message: string;
   picks: IPicks;
 }
+
+// EDIT ACCOUNT
+export interface IPutEditAccountRequest extends Request {
+  facebookId: IUser['facebookId'];
+  newHouse: House;
+  newDescription: string;
+}
+export interface IPutEditAccountResponse extends Response {
+  newName: string;
+  newHouse: House;
+  newDescription: string;
+}
