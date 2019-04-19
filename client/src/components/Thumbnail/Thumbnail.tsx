@@ -1,16 +1,17 @@
 import * as React from 'react';
-import { IThumbnail } from '../../utils/clientDictionary';
 
-const Thumbnail: Function = ({
-  src,
-  alt,
-  handler
-}: IThumbnail): JSX.Element => (
+interface IProps {
+  src: string;
+  name: string;
+  handler: Function;
+}
+
+const Thumbnail: Function = ({ src, name, handler }: IProps): JSX.Element => (
   <img
     data-testid="thumbnail"
     src={src}
-    alt={alt}
-    onClick={() => handler(alt)}
+    alt={name}
+    onClick={() => handler(name)}
   />
 );
 

@@ -41,12 +41,6 @@ export interface IUser {
   currentScore: number;
 }
 
-export interface IThumbnail {
-  src: string;
-  alt: string;
-  handler: Function;
-}
-
 export interface ICharacter extends Document {
   name: string;
   house: House;

@@ -48,9 +48,10 @@ class AccountEditor extends React.Component<IProps, IState> {
   handleSubmit = async (
     e: React.ChangeEvent<HTMLFormElement>
   ): Promise<Function> => {
+    const { newHouse, newDescription } = this.state;
     const { putEditAccount, changeComponent }: IProps = this.props;
     e.preventDefault();
-    await putEditAccount(this.state.user);
+    await putEditAccount({ newHouse, newDescription });
     return changeComponent('showHome');
   };
 

@@ -17,7 +17,7 @@ const renderThumbnail = () =>
     <ThemeProvider theme={theme}>
       <Thumbnail
         src={fakeThumbnailSolo.src}
-        alt={fakeThumbnailSolo.alt}
+        name={fakeThumbnailSolo.name}
         handler={fakeHandler}
       />
     </ThemeProvider>
@@ -30,11 +30,11 @@ test('<Thumbnail />', () => {
   // Content
   expect(thumbnail).toBeInTheDocument();
   expect(thumbnail.getAttribute('src')).toBe(fakeThumbnailSolo.src);
-  expect(thumbnail.getAttribute('alt')).toBe(fakeThumbnailSolo.alt);
+  expect(thumbnail.getAttribute('alt')).toBe(fakeThumbnailSolo.name);
 
   fireEvent.click(thumbnail);
 
   expect(fakeHandler).toBeCalledTimes(1);
-  expect(fakeHandler).toBeCalledWith(fakeThumbnailSolo.alt);
+  expect(fakeHandler).toBeCalledWith(fakeThumbnailSolo.name);
   // Styles
 });

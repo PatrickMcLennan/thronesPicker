@@ -1,4 +1,4 @@
-import { IUser, IThumbnail } from './clientDictionary';
+import { IUser } from './clientDictionary';
 
 export const fakeUserSolo: IUser = {
   name: 'user/solo',
@@ -44,8 +44,8 @@ export const fakeUserArray: IUser[] = [
   }
 ];
 
-export const fakeThumbnailSolo: IThumbnail = {
+export const fakeThumbnailSolo = {
   src: 'thumbnail/solo/src',
-  alt: 'thumbnail/solo/alt',
+  name: 'thumbnail/solo/alt',
   handler: (): void => console.log('thumbnail/solo/handler')
 };
