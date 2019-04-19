@@ -1,7 +1,7 @@
 import { Document } from 'mongoose';
 import { Request, Response } from 'express';
 
-// TYPES
+// INTERFACES
 
 export interface IPicks {
   ironThrone: ICharacter;
@@ -21,8 +21,6 @@ export interface IPicks {
   dead: ICharacter[];
   unpicked: ICharacter[];
 }
-
-// INTERFACES
 
 export interface IHouse {
   name: string;

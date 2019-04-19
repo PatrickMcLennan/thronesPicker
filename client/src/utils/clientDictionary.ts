@@ -1,26 +1,18 @@
 // GOOD PNGS
 // https://www.kisspng.com/free/game-of-thrones.html
 
+// INTERFACES
 export interface IPicks {
-  // Kings Landing
   ironThrone: ICharacter | string;
   handOfTheKing: ICharacter | string;
-  // The Wall
   nightsWatchLordCommander: ICharacter | string;
   nightsWatch: ICharacter | string;
-  // WinterFell
   winterfellLord: ICharacter | string;
-  // Casterly Rock
   casterlyRockLord: ICharacter | string;
-  // Dorne
   dorneLord: ICharacter | string;
-  // The Reach
   reachLord: ICharacter | string;
-  // Riverrun
   riverrunLord: ICharacter | string;
-  // Iron Islands
   ironIslandsLord: ICharacter | string;
-  // Wardens
   wardenNorth: ICharacter | string;
   wardenEast: ICharacter | string;
   wardenSouth: ICharacter | string;
@@ -29,14 +21,13 @@ export interface IPicks {
   unpicked: ICharacter[];
 }
 
-// INTERFACES
 export interface IUser {
   name: string;
-  facebookId?: string;
-  accessToken?: number;
+  facebookId: string;
+  accessToken: number;
   profilePic: string;
-  house: IHouse | null;
-  description?: string;
+  house: IHouse;
+  description: string;
   picks: IPicks;
   currentScore: number;
 }

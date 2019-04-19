@@ -34,6 +34,7 @@ class App extends React.Component<{}, IState> {
     user: {
       name: '',
       facebookId: '',
+      accessToken: 0,
       profilePic: '',
       house: {
         name: '',
