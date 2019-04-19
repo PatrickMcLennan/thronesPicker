@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { StyledSection } from './LogInModal';
+import { StyledSection } from './LogInModal.style';
 
 interface IState {
   triggerAnimation: boolean;

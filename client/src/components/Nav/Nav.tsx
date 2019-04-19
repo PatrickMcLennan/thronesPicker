@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { StyledNav, StyledUl, StyledLi } from './Nav.style';
-import Badge from '../Thumbnail/Thumbnail';
+import Thumbnail from '../Thumbnail/Thumbnail';
 import { IUser } from '../../utils/clientDictionary';
 
 interface IProps {
@@ -59,7 +59,11 @@ class Nav extends React.Component<IProps, IState> {
       <StyledNav data-testid="nav" triggerAnimation={triggerAnimation}>
         <h1>name</h1>
         <h1>house</h1>
-        <Badge src={profilePic} alt={name} handler={() => this.toggleMenu} />
+        <Thumbnail
+          src={profilePic}
+          alt={name}
+          handler={() => this.toggleMenu}
+        />
         {renderMenu && (
           <StyledUl triggerAnimation={renderMenu}>
             <StyledLi
