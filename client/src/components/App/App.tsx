@@ -179,7 +179,11 @@ class App extends React.Component<{}, IState> {
         />
         {showLogIn && <LogInModal />}
         {showAccountEditor && (
-          <AccountEditor user={user} putEditAccount={this.putEditAccount} />
+          <AccountEditor
+            user={user}
+            changeComponent={this.changeComponent}
+            putEditAccount={this.putEditAccount}
+          />
         )}
       </ThemeProvider>
     );
