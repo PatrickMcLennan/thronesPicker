@@ -13,6 +13,7 @@ import {
 import { GlobalStyle, theme } from '../../utils/globalStyles';
 
 import LogInModal from '../LogInModal/LogInModal';
+import AccountEditor from '../AccountEditor/AccountEditor';
 import Nav from '../Nav/Nav';
 
 interface IState {
@@ -163,11 +164,10 @@ class App extends React.Component<{}, IState> {
   render(): JSX.Element {
     const { user, otherUsers }: IState = this.state;
     const { name, profilePic, house }: IUser = user;
-    const { showLogIn }: IState = this.state;
+    const { showLogIn, showAccountEditor }: IState = this.state;
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        {showLogIn && <LogInModal />}
         <Nav
           name={name}
           profilePic={profilePic}
@@ -177,6 +177,10 @@ class App extends React.Component<{}, IState> {
             otherUsers[Math.floor(Math.random() * otherUsers.length)]
           }
         />
+        {showLogIn && <LogInModal />}
+        {showAccountEditor && (
+          <AccountEditor user={user} putEditAccount={this.putEditAccount} />
+        )}
       </ThemeProvider>
     );
   }
