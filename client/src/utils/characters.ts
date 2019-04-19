@@ -1,40 +1,55 @@
 import { ICharacter } from './clientDictionary';
 
+import {
+  houseStark,
+  houseLannister,
+  houseArryn,
+  houseGreyjoy,
+  houseClegane,
+  houseTully,
+  houseMormont,
+  houseTarly,
+  houseTarth,
+  houseMartell,
+  houseBaratheon,
+  houseUnknown
+} from './houses';
+
 ////////////// STARKS
 const jonSnow: ICharacter = {
   name: 'Jon Snow',
-  house: 'Stark',
+  house: houseStark,
   home: 'Winterfell',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 const aryaStark: ICharacter = {
   name: 'Arya Stark',
-  house: 'Stark',
+  house: houseStark,
   home: 'Winterfell',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 const sansaStark: ICharacter = {
   name: 'Sansa Stark',
-  house: 'Stark',
+  house: houseStark,
   home: 'Winterfell',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 const branStark: ICharacter = {
   name: 'Bran Stark',
-  house: 'Stark',
+  house: houseStark,
   home: 'Winterfell',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linktoWiki'
 };
 
@@ -48,29 +63,29 @@ export const starkArray: ICharacter[] = [
 ////////////// LANNISTERS
 const jaimeLannister: ICharacter = {
   name: 'Jaime Lannister',
-  house: 'Lannister',
+  house: houseLannister,
   home: 'Casterly Rock',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 const cerseiLannister: ICharacter = {
   name: 'Cersei Lannister',
-  house: 'Lannister',
+  house: houseLannister,
   home: 'Casterly Rock',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 const tyrionLannister: ICharacter = {
   name: 'Tyrion Lannister',
-  house: 'Lannister',
+  house: houseLannister,
   home: 'Casterly Rock',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 
@@ -83,11 +98,11 @@ export const lannisterArray: ICharacter[] = [
 ////////////// ARRYNS
 export const robinArryn: ICharacter = {
   name: 'Robin Arryn',
-  house: 'Arryn',
+  house: houseArryn,
   home: 'The Vale',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 export const arrynArray: ICharacter[] = [robinArryn];
@@ -95,29 +110,29 @@ export const arrynArray: ICharacter[] = [robinArryn];
 ////////////// STARKS
 const theonGreyjoy: ICharacter = {
   name: 'Theon Greyjoy',
-  house: 'Greyjoy',
+  house: houseGreyjoy,
   home: 'Iron Islands',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 const yaraGreyjoy: ICharacter = {
   name: 'Yara Greyjoy',
-  house: 'Greyjoy',
+  house: houseGreyjoy,
   home: 'Iron Islands',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 const euronGreyjoy: ICharacter = {
   name: 'Euron Greyjoy',
-  house: 'Greyjoy',
+  house: houseGreyjoy,
   home: 'Iron Islands',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 export const greyjoyArray: ICharacter[] = [
@@ -129,20 +144,20 @@ export const greyjoyArray: ICharacter[] = [
 ////////////// CLEGANES
 const sandorClegane: ICharacter = {
   name: 'Sandor Clegane',
-  house: 'Clegane',
+  house: houseClegane,
   home: 'Westerlands',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 const gregorClegane: ICharacter = {
   name: 'Gregor Clegane',
-  house: 'Clegane',
+  house: houseClegane,
   home: 'Westerlands',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 export const cleganeArray: ICharacter[] = [sandorClegane, gregorClegane];
@@ -150,11 +165,11 @@ export const cleganeArray: ICharacter[] = [sandorClegane, gregorClegane];
 ////////////// TULLY
 const edmureTully: ICharacter = {
   name: 'Edmure Tully',
-  house: 'Tully',
+  house: houseTully,
   home: 'Riverrun',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 export const tullyArray: ICharacter[] = [edmureTully];
@@ -162,20 +177,20 @@ export const tullyArray: ICharacter[] = [edmureTully];
 ////////////// MORMONT
 const jorahMormont: ICharacter = {
   name: 'Jorah Mormont',
-  house: 'Mormont',
+  house: houseMormont,
   home: 'Bear Island',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 const lyannaMormont: ICharacter = {
   name: 'Lyanna Mormont',
-  house: 'Mormont',
+  house: houseMormont,
   home: 'Bear Island',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 export const mormontArray: ICharacter[] = [jorahMormont, lyannaMormont];
@@ -183,11 +198,11 @@ export const mormontArray: ICharacter[] = [jorahMormont, lyannaMormont];
 ////////////// TARLY
 const samwellTarly: ICharacter = {
   name: 'Samwell Tarly',
-  house: 'Tarly',
+  house: houseTarly,
   home: 'Horn Hill',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 export const tarlyArray: ICharacter[] = [samwellTarly];
@@ -195,11 +210,11 @@ export const tarlyArray: ICharacter[] = [samwellTarly];
 ////////////// TARTH
 const brienneTarth: ICharacter = {
   name: 'Brienne Tarth',
-  house: 'Tarth',
+  house: houseTarth,
   home: 'Evenfall Hall',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 export const tarthArray: ICharacter[] = [brienneTarth];
@@ -207,11 +222,11 @@ export const tarthArray: ICharacter[] = [brienneTarth];
 ////////////// MARTELL
 const ellariaSand: ICharacter = {
   name: 'Ellaria Sand',
-  house: 'Martell',
+  house: houseMartell,
   home: 'Sunspear',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 export const martellArray: ICharacter[] = [ellariaSand];
@@ -219,11 +234,11 @@ export const martellArray: ICharacter[] = [ellariaSand];
 ////////////// BARATHEON
 const gendryBaratheon: ICharacter = {
   name: 'Gendry Baratheon',
-  house: 'Baratheon',
+  house: houseBaratheon,
   home: 'Kings Landing',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 export const baratheonArray: ICharacter[] = [gendryBaratheon];
@@ -231,86 +246,86 @@ export const baratheonArray: ICharacter[] = [gendryBaratheon];
 ////////////// OTHERS
 const bronn: ICharacter = {
   name: 'Bronn',
-  house: 'Lannister',
+  house: houseUnknown,
   home: '?',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 const davosSeaworth: ICharacter = {
   name: 'Davos Seaworth',
-  house: 'Stark',
+  house: houseUnknown,
   home: 'Winterfell',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 const melisandre: ICharacter = {
   name: 'Melisandre',
-  house: '?',
+  house: houseUnknown,
   home: 'Asshai',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 const tormundGiantsbane: ICharacter = {
   name: 'Tormund Giantsbane',
-  house: 'Wildling',
+  house: houseUnknown,
   home: 'North of the Wall',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 
 const bericDondarrion: ICharacter = {
   name: 'Beric Dondarrion',
-  house: 'Dondarrion',
+  house: houseUnknown,
   home: 'Blackhaven',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 const eddisonTollet: ICharacter = {
   name: 'Eddison Tollet',
-  house: 'Tollet',
+  house: houseUnknown,
   home: '?',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 
 const greyWorm: ICharacter = {
   name: 'Grey Worm',
-  house: '?',
+  house: houseUnknown,
   home: '?',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 const varys: ICharacter = {
   name: 'Varys',
-  house: '?',
+  house: houseUnknown,
   home: '?',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 
 const qyburn: ICharacter = {
   name: 'Qyburn',
-  house: '?',
+  house: houseUnknown,
   home: '?',
   sigil: 'linkToSigil',
   alive: null,
-  job: null,
+  placement: null,
   wikiLink: 'linkToWiki'
 };
 export const unknownArray: ICharacter[] = [

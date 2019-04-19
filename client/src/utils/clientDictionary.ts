@@ -1,5 +1,5 @@
-// TYPES
-export type House = string;
+// GOOD PNGS
+// https://www.kisspng.com/free/game-of-thrones.html
 
 export interface IPicks {
   // Kings Landing
@@ -35,7 +35,7 @@ export interface IUser {
   facebookId?: string;
   accessToken?: number;
   profilePic: string;
-  house: House | null;
+  house: IHouse | null;
   description?: string;
   picks: IPicks;
   currentScore: number;
@@ -43,16 +43,16 @@ export interface IUser {
 
 export interface ICharacter {
   name: string;
-  house: House;
+  house: IHouse;
   home: string;
   sigil: string;
-  alive: boolean | null;
-  job: IPicks | null;
+  alive: boolean;
+  placement: IPicks;
   wikiLink: string;
 }
 export interface ILocation {
   name: string;
-  currentHouse: House;
+  currentHouse: IHouse;
   wikiLink: string;
 }
 export interface IHouse {
@@ -80,12 +80,12 @@ export interface IPostLoginResponseFailure extends IServerCall {
 
 // EDIT ACCOUNT
 export interface IPutEditAccountRequest extends Request {
-  newHouse: House;
+  newHouse: IHouse;
   newDescription: string;
 }
 export interface IPutEditAccountResponse extends Response {
   newName: string;
-  newHouse: House;
+  newHouse: IHouse;
   newDescription: string;
 }
 
@@ -98,82 +98,3 @@ export interface IPostMakePicsResponse extends Response {
   facebookId: string;
   newPicks: IPicks;
 }
-// GOOD PNGS
-// https://www.kisspng.com/free/game-of-thrones.html
-
-////////////// CHARACTERS //////////////
-
-////////////// STARKS
-// Jon Snow
-// Arya Stark
-// Sansa Stark
-// Bran Stark
-
-////////////// LANNISTERS
-// Jaime Lannister
-// Cersei Lannister
-// Tyrion Lannister
-
-////////////// ARRYNS
-// Robin Arryn
-
-////////////// GREYJOYS
-// Theon Greyjoy
-// Yara Greyjoy
-// Euron Greyjoy
-
-////////////// CLEGANES
-// Sandor 'The Hound' Clegane
-// Gregor 'The Mountain' Clegane
-
-////////////// OTHERS
-// Edmure Tully
-// Jorah Mormont
-// Bronn
-// Davos Seaworth
-// Melisandre
-// Tormund Giantsbane
-// Brienne of Tarth
-// Beric Dondarrion
-
-// Eddison Tollett
-// Ellaria Sand
-// Grey Worm
-// Varys
-// Samwell Tarly
-// Gendry Baratheon
-// Qyburn
-
-////////////// JOBS //////////////
-
-////////////// KINGS LANDING
-// King / Queen
-// Hand of the King
-
-////////////// THE WALL
-// Lord Commander of the Nights Watch
-// Nights Watch
-
-////////////// WINTERFELL
-// Lord
-
-////////////// CASTERLY ROCK
-// Lord
-
-////////////// DORNE
-// Lord
-
-////////////// THE REACH
-// Lord
-
-////////////// RIVERRUN
-// Lord
-
-////////////// IRON ISLANDS
-// Lord
-
-////////////// WARDENS
-// North
-// South
-// East
-// WestNorth

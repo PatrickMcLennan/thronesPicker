@@ -11,7 +11,8 @@ import {
   tarlyArray,
   tarthArray,
   martellArray,
-  unknownArray
+  unknownArray,
+  baratheonArray
 } from './characters';
 
 export const houseStark: IHouse = {
@@ -74,7 +75,13 @@ export const houseMartell: IHouse = {
   members: martellArray
 };
 
-export const houseUknown: IHouse = {
+export const houseBaratheon: IHouse = {
+  name: 'Baratheon',
+  sigil: baratheonArray[0].sigil,
+  members: baratheonArray
+};
+
+export const houseUnknown: IHouse = {
   name: 'Unknown',
   sigil: 'placeholder link',
   members: unknownArray
