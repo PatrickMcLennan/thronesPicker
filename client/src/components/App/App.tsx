@@ -13,6 +13,7 @@ import {
 import { GlobalStyle, theme } from '../../utils/globalStyles';
 
 import LogInModal from '../LogInModal/LogInModal';
+import RulesModal from '../RulesModal/RulesModal';
 import AccountEditor from '../AccountEditor/AccountEditor';
 import Nav from '../Nav/Nav';
 
@@ -24,7 +25,7 @@ interface IState {
   showAccountEditor: boolean;
   showMakePicks: boolean;
   showOtherUsers: boolean;
-  showTheRules: boolean;
+  showRules: boolean;
   allComponents: string[];
   otherUsers: IUser[];
 }
@@ -49,14 +50,14 @@ class App extends React.Component<{}, IState> {
     showAccountEditor: false,
     showMakePicks: false,
     showOtherUsers: false,
-    showTheRules: false,
+    showRules: false,
     allComponents: [
       'showLogin',
       'showHome',
       'showAccountEditor',
       'showMakePicks',
       'showOtherUsers',
-      'showTheRules'
+      'showRules'
     ],
     otherUsers: []
   };
@@ -164,7 +165,7 @@ class App extends React.Component<{}, IState> {
   render(): JSX.Element {
     const { user, otherUsers }: IState = this.state;
     const { name, profilePic, house }: IUser = user;
-    const { showLogIn, showAccountEditor }: IState = this.state;
+    const { showLogIn, showAccountEditor, showRules }: IState = this.state;
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyle />
@@ -178,6 +179,7 @@ class App extends React.Component<{}, IState> {
           }
         />
         {showLogIn && <LogInModal />}
+        {showRules && <RulesModal changeComponent={this.changeComponent} />}
         {showAccountEditor && (
           <AccountEditor
             user={user}

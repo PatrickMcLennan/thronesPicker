@@ -6,7 +6,6 @@ import { ThemeProvider } from 'styled-components';
 
 import { theme } from '../../../utils/globalStyles';
 import AccountEditor from '../AccountEditor';
-import { IUser } from '../../../utils/clientDictionary';
 import { fakeUserSolo } from '../../../utils/testDummies';
 
 afterEach(cleanup);
