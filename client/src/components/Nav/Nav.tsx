@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { StyledUl } from './Nav.style';
 import Badge from '../Badge/Badge';
 import { IUser } from '../../utils/clientDictionary';
 
@@ -32,7 +33,7 @@ class Nav extends React.Component<IProps, IState> {
   };
 
   render(): JSX.Element {
-    const { name, profilePic }: IProps = this.props;
+    const { name, profilePic, randomSuggestion }: IProps = this.props;
     const { renderMenu }: IState = this.state;
     return (
       <nav data-testid="nav">
@@ -40,12 +41,12 @@ class Nav extends React.Component<IProps, IState> {
         <h1>name</h1>
         <h1>house</h1>
         {renderMenu && (
-          <ul>
+          <StyledUl triggerAnimation={renderMenu}>
             <li>Home</li>
             <li>Edit Account</li>
             <li>Make Pics</li>
-            <li>See Random Pick</li>
-          </ul>
+            <li>{randomSuggestion.name}</li>
+          </StyledUl>
         )}
       </nav>
     );
