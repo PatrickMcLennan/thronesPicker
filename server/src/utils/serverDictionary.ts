@@ -2,7 +2,6 @@ import { Document } from 'mongoose';
 import { Request, Response } from 'express';
 
 // TYPES
-export type House = string;
 
 export interface IPicks {
   // Kings Landing
@@ -28,26 +27,33 @@ export interface IPicks {
 }
 
 // INTERFACES
+
+export interface IHouse {
+  name: string;
+  sigil: string;
+  members: ICharacter[];
+  wikiLink?: string;
+}
 export interface IUser extends Document {
   name: string;
-  facebookId?: number;
-  accessToken?: number;
+  facebookId: number;
+  accessToken: number;
   profilePic: string;
-  house: House;
-  description?: string;
+  house: IHouse;
+  description: string;
   picks: IPicks;
   currentScore: number;
 }
 
 export interface ICharacter extends Document {
   name: string;
-  house: House;
+  house: IHouse;
   alive: boolean;
   wikiLink: string;
 }
 export interface ILocation extends Document {
   name: string;
-  currentHouse: House;
+  currentHouse: IHouse;
   wikiLink: string;
 }
 
@@ -80,11 +86,11 @@ export interface IPostMakePicksResponse extends Response {
 // EDIT ACCOUNT
 export interface IPutEditAccountRequest extends Request {
   facebookId: IUser['facebookId'];
-  newHouse: House;
+  newHouse: IHouse;
   newDescription: string;
 }
 export interface IPutEditAccountResponse extends Response {
   newName: string;
-  newHouse: House;
+  newHouse: IHouse;
   newDescription: string;
 }

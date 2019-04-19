@@ -29,7 +29,7 @@ export const putEditAccount: Function = async (
       message: `Sorry, there was an issue editing your account.  Please try again later.`
     });
   } else {
-    user.house = newHouse;
+    user.house = { ...newHouse };
     user.description = newDescription;
     user.name = `${user.name} ${user.house}`;
     await user.save();

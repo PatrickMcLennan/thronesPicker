@@ -42,35 +42,76 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var node_fetch_1 = __importDefault(require("node-fetch"));
 var schemas_1 = require("../schemas");
 exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var _a, accessToken, userID, loginError, userExists, user, otherUsers;
+    var _a, accessToken, userID, loginError, rawUserJson, user, otherUsers, newUser;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _a = req.body, accessToken = _a.accessToken, userID = _a.userID;
                 loginError = false;
-                userExists = false;
                 return [4, node_fetch_1.default("https://graph.facebook.com/v3.2/me?access_token=" + accessToken + "&method=get&pretty=0&sdk=joey&suppress_http_code=1")
                         .then(function (rawUserData) { return rawUserData.json(); })
-                        .then(function (user) {
-                        return schemas_1.User.findOne({ facebookId: user.facebookId });
-                    })
+                        .then(function (userJson) { return (rawUserJson = userJson); })
                         .catch(function (err) { return (loginError = true); })];
             case 1:
+                _b.sent();
+                return [4, schemas_1.User.findOne({
+                        facebookId: rawUserJson.facebookId
+                    })];
+            case 2:
                 user = _b.sent();
                 return [4, schemas_1.User.find({}, function (allUsers) {
                         return allUsers
-                            .map(function (savedUser) { return user.toJSON(); })
-                            .filter(function (savedUser) { return savedUser.facebookId !== user.facebookId; });
+                            .map(function (savedUser) { return savedUser.toJSON(); })
+                            .filter(function (savedUser) { return savedUser.facebookId !== userID; });
                     })];
-            case 2:
+            case 3:
                 otherUsers = _b.sent();
-                if (loginError) {
-                    return [2, res.send({
-                            success: loginError,
-                            message: "Sorry - there was an issue logging in at this time.  Please try again later."
-                        })];
-                }
-                else {
+                if (!loginError) return [3, 4];
+                return [2, res.send({
+                        success: loginError,
+                        message: "Sorry - there was an issue logging in at this time.  Please try again later."
+                    })];
+            case 4:
+                if (!!user) return [3, 6];
+                newUser = new schemas_1.User({
+                    name: rawUserJson.name,
+                    facebookId: rawUserJson.facebookId.toString(),
+                    accessToken: rawUserJson.accessToken.toString(),
+                    profilePic: rawUserJson.profilePic,
+                    house: {
+                        name: '',
+                        sigil: '',
+                        members: [],
+                        wikiLink: ''
+                    },
+                    description: '',
+                    picks: {
+                        ironThrone: '',
+                        handOfTheKing: '',
+                        nightsWatchLordCommander: '',
+                        nightsWatch: '',
+                        winterfellLord: '',
+                        casterlyRockLord: '',
+                        dorneLord: '',
+                        reachLord: '',
+                        riverrrunLord: '',
+                        ironIslandsLord: '',
+                        dead: [],
+                        unpicked: []
+                    },
+                    currentScore: 0
+                });
+                return [4, newUser.save()];
+            case 5:
+                _b.sent();
+                return [2, res.send({
+                        success: true,
+                        message: "Welcome to thronePicker " + newUser.name,
+                        user: newUser,
+                        otherUsers: otherUsers
+                    })];
+            case 6:
+                if (user) {
                     return [2, res.send({
                             success: true,
                             message: "I wish you luck in the wars to come.",
@@ -78,7 +119,8 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                             otherUsers: otherUsers
                         })];
                 }
-                return [2];
+                _b.label = 7;
+            case 7: return [2];
         }
     });
 }); };
