@@ -38,6 +38,7 @@ export interface IUser {
   house: House | null;
   description?: string;
   picks: IPicks;
+  currentScore: number;
 }
 
 export interface IThumbnail {

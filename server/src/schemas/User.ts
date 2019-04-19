@@ -20,6 +20,10 @@ const UserSchema: Schema<IUser> = new Schema({
   },
   description: {
     type: String
+  },
+  currentScore: {
+    type: Number,
+    required: 'Each Player must have a score'
   }
 });
 

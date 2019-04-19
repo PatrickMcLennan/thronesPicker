@@ -7,7 +7,8 @@ export const fakeUserSolo: IUser = {
   profilePic: 'user/solo/profilePic',
   house: 'user/solo/house',
   description: 'user/solo/description',
-  picks: {}
+  picks: {},
+  currentScore: 0
 };
 
 export const fakeUserArray: IUser[] = [
@@ -18,7 +19,8 @@ export const fakeUserArray: IUser[] = [
     profilePic: 'user/array/1/profilePic',
     house: 'user/array/1/house',
     description: 'user/array/1/description',
-    picks: {}
+    picks: {},
+    currentScore: 0
   },
   {
     name: 'user/array/2',
@@ -27,7 +29,8 @@ export const fakeUserArray: IUser[] = [
     profilePic: 'user/array/2/profilePic',
     house: 'user/array/2/house',
     description: 'user/array/2/description',
-    picks: {}
+    picks: {},
+    currentScore: 0
   },
   {
     name: 'user/array/3',
@@ -36,7 +39,8 @@ export const fakeUserArray: IUser[] = [
     profilePic: 'user/array/3/profilePic',
     house: 'user/array/3/house',
     description: 'user/array/3/description',
-    picks: {}
+    picks: {},
+    currentScore: 0
   }
 ];
 

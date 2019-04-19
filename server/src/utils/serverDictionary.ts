@@ -36,6 +36,7 @@ export interface IUser extends Document {
   house: House;
   description?: string;
   picks: IPicks;
+  currentScore: number;
 }
 
 export interface ICharacter extends Document {

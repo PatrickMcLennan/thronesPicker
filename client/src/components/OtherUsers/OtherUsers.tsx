@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { StyledSection } from './RulesModal.style';
+import { StyledSection } from './OtherUsers.style';
 
 interface IProps {
   changeComponent: Function;
@@ -10,7 +10,7 @@ interface IState {
   triggerAnimation: boolean;
 }
 
-class RulesModal extends React.Component<IProps, IState> {
+class OtherUsers extends React.Component<IProps, IState> {
   state = {
     triggerAnimation: false
   };
@@ -23,25 +23,26 @@ class RulesModal extends React.Component<IProps, IState> {
       })
     );
   }
-
   componentWillUnmount() {
-    this.setState((prevState: IState) => ({
-      ...prevState,
-      triggerAnimation: false
-    }));
-    return setTimeout((): null => null, 750);
+    this.setState(
+      (prevState: IState): IState => ({
+        ...prevState,
+        triggerAnimation: false
+      })
+    );
+    return setTimeout((): void => null, 750);
   }
 
   render(): JSX.Element {
     const { triggerAnimation } = this.state;
     return (
       <StyledSection
-        data-testid="rulesModal"
+        data-testid="otherUsers"
         triggerAnimation={triggerAnimation}>
-        <h1>hello from the rules modal</h1>
+        <h1>hello from otherUsers</h1>
       </StyledSection>
     );
   }
 }
 
-export default RulesModal;
+export default OtherUsers;

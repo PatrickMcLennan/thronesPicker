@@ -21,7 +21,6 @@ interface IState {
   user: IUser;
   serverCall: IServerCall;
   showLogIn: boolean;
-  showHome: boolean;
   showAccountEditor: boolean;
   showMakePicks: boolean;
   showOtherUsers: boolean;
@@ -38,7 +37,8 @@ class App extends React.Component<{}, IState> {
       profilePic: '',
       house: '',
       description: '',
-      picks: {}
+      picks: {},
+      currentScore: 0
     },
     serverCall: {
       show: false,
@@ -46,14 +46,12 @@ class App extends React.Component<{}, IState> {
       message: ''
     },
     showLogIn: true,
-    showHome: false,
     showAccountEditor: false,
     showMakePicks: false,
     showOtherUsers: false,
     showRules: false,
     allComponents: [
       'showLogin',
-      'showHome',
       'showAccountEditor',
       'showMakePicks',
       'showOtherUsers',
@@ -72,7 +70,7 @@ class App extends React.Component<{}, IState> {
           ...prevState,
           user,
           showLogIn: false,
-          showHome: true,
+          showOtherUsers: true,
           otherUsers
         })
       );
