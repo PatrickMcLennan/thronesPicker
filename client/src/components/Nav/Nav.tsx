@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { StyledUl } from './Nav.style';
+import { StyledUl, StyledLi } from './Nav.style';
 import Badge from '../Badge/Badge';
 import { IUser } from '../../utils/clientDictionary';
 
@@ -33,7 +33,12 @@ class Nav extends React.Component<IProps, IState> {
   };
 
   render(): JSX.Element {
-    const { name, profilePic, randomSuggestion }: IProps = this.props;
+    const {
+      name,
+      profilePic,
+      randomSuggestion,
+      changeComponent
+    }: IProps = this.props;
     const { renderMenu }: IState = this.state;
     return (
       <nav data-testid="nav">
@@ -42,10 +47,33 @@ class Nav extends React.Component<IProps, IState> {
         <h1>house</h1>
         {renderMenu && (
           <StyledUl triggerAnimation={renderMenu}>
-            <li>Home</li>
-            <li>Edit Account</li>
-            <li>Make Pics</li>
-            <li>{randomSuggestion.name}</li>
+            <StyledLi
+              data-testid="menu__item"
+              onClick={changeComponent('showHome')}
+              delay={0.25}>
+              Home
+            </StyledLi>
+            <StyledLi
+              data-testid="menu__item"
+              onClick={changeComponent('showAccountEditor')}
+              delay={0.5}>
+              Edit Account
+            </StyledLi>
+            <StyledLi
+              data-testid="menu__item"
+              onClick={changeComponent('showMakePicks')}
+              delay={0.75}>
+              Make Picks
+            </StyledLi>
+            <StyledLi
+              data-testid="menu__item"
+              onClick={changeComponent('showOtherUsers')}
+              delay={1}>
+              See other Picks
+            </StyledLi>
+            <StyledLi data-testid="menu__item" delay={0.1}>
+              {randomSuggestion.name}
+            </StyledLi>
           </StyledUl>
         )}
       </nav>

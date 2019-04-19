@@ -22,6 +22,8 @@ interface IState {
   showHome: boolean;
   showAccountEditor: boolean;
   showMakePicks: boolean;
+  showOtherUsers: boolean;
+  allComponents: string[];
   otherUsers: IUser[];
 }
 
@@ -44,6 +46,14 @@ class App extends React.Component<{}, IState> {
     showHome: false,
     showAccountEditor: false,
     showMakePicks: false,
+    showOtherUsers: false,
+    allComponents: [
+      'showLogin',
+      'showHome',
+      'showAccountEditor',
+      'showMakePicks',
+      'showOtherUsers'
+    ],
     otherUsers: []
   };
 
@@ -136,14 +146,7 @@ class App extends React.Component<{}, IState> {
   };
 
   changeComponent: Function = (newComponent: string): void => {
-    const allComponents: string[] = [
-      'showLogIn',
-      'showHome',
-      'showAccountEditor',
-      'showMakePicks'
-    ];
-
-    return allComponents.forEach(
+    return this.state.allComponents.forEach(
       (componentKey: string): void =>
         this.setState(
           (prevState: IState): IState => ({
