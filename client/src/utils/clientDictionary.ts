@@ -59,6 +59,7 @@ export interface IHouse {
   name: string;
   sigil: string;
   members: ICharacter[];
+  wikiLink?: string;
 }
 
 // SERVERCALL
