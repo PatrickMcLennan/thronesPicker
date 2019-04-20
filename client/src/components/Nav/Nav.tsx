@@ -70,38 +70,43 @@ class Nav extends React.Component<IProps, IState> {
     const { renderMenu, triggerAnimation }: IState = this.state;
     return (
       <StyledNav data-testid="nav" triggerAnimation={triggerAnimation}>
-        <h1>{name}</h1>
-        <h1>{house.name}</h1>
-        <Thumbnail src={profilePic} name={name} size={'small'} />
+        <h1 data-testid="nav__name">{name}</h1>
+        <h1 data-testid="nav__house">{house.name}</h1>
+        <Thumbnail
+          src={profilePic}
+          name={name}
+          size={'small'}
+          onClick={this.toggleMenu}
+        />
         {renderMenu && (
           <>
-            <StyledUl triggerAnimation={renderMenu}>
+            <StyledUl data-testid="nav__ul" triggerAnimation={renderMenu}>
               <StyledLi
-                data-testid="menu__item"
+                data-testid="nav__li"
                 onClick={changeComponent('showHome')}
                 delay={0.25}>
                 Home
               </StyledLi>
               <StyledLi
-                data-testid="menu__item"
+                data-testid="nav__li"
                 onClick={changeComponent('showAccountEditor')}
                 delay={0.5}>
                 Edit Account
               </StyledLi>
               <StyledLi
-                data-testid="menu__item"
+                data-testid="nav__li"
                 onClick={changeComponent('showMakePicks')}
                 delay={0.75}>
                 Make Picks
               </StyledLi>
               <StyledLi
-                data-testid="menu__item"
+                data-testid="nav__li"
                 onClick={changeComponent('showTheRules')}
                 delay={1}>
                 The Rules
               </StyledLi>
               <StyledLi
-                data-testid="menu__item"
+                data-testid="nav__li"
                 onClick={changeComponent('showOtherUsers')}
                 delay={1.25}>
                 See other Picks

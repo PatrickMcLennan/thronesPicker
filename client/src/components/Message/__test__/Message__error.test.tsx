@@ -32,4 +32,6 @@ test('<Message />', () => {
   expect(message).toHaveStyleRule('background', 'blue');
   expect(message).toHaveStyleRule('border-top', '1px solid red');
   expect(message).toHaveStyleRule('border-bottom', '1px solid red');
+
+  setTimeout(() => expect(message).not.toBeInTheDocument(), 2750);
 });

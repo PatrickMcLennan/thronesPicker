@@ -6,6 +6,7 @@ interface IProps {
   src: string;
   name: string;
   size: string;
+  onClick?: Function;
 }
 
 interface IState {

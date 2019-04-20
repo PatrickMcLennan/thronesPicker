@@ -8,8 +8,13 @@ interface IProps {
 export const StyledDiv = styled.div`
   display: none;
   background: blue;
-  border-top: 1px solid red;
-  border-bottom: 1px solid red;
+
+  ${(props: IProps) =>
+    !props.success &&
+    css`
+      border-top: 1px solid red;
+      border-bottom: 1px solid red;
+    `}
 
   ${(props: IProps) =>
     props.success &&
