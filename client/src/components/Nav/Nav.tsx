@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import { StyledNav, StyledUl, StyledLi } from './Nav.style';
 import Thumbnail from '../Thumbnail/Thumbnail';
-import { IUser, IHouse } from '../../utils/clientDictionary';
+import { IUser } from '../../utils/clientDictionary';
 
 interface IProps {
   name?: string;
   profilePic: string;
-  house: IHouse;
+  house: string;
   changeComponent: Function;
   randomSuggestion: IUser;
 }
@@ -59,7 +59,7 @@ class Nav extends React.Component<IProps, IState> {
     return (
       <StyledNav data-testid="nav" triggerAnimation={triggerAnimation}>
         <h1>{name}</h1>
-        <h1>{house.name}</h1>
+        <h1>{house}</h1>
         <Thumbnail
           src={profilePic}
           alt={name}

@@ -37,12 +37,7 @@ class App extends React.Component<{}, IState> {
       facebookId: '',
       accessToken: 0,
       profilePic: '',
-      house: {
-        name: '',
-        sigilUrl: '',
-        members: [],
-        wikiLink: ''
-      },
+      house: '',
       description: '',
       picks: {
         ironThrone: '',

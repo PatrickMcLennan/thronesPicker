@@ -26,7 +26,7 @@ export interface IUser {
   facebookId: string;
   accessToken: number;
   profilePic: string;
-  house: IHouse;
+  house: string;
   description: string;
   picks: IPicks;
   currentScore: number;
@@ -34,7 +34,7 @@ export interface IUser {
 
 export interface ICharacter {
   name: string;
-  house: IHouse;
+  house: string;
   home: string;
   sigilUrl: string;
   alive: boolean;
@@ -43,14 +43,8 @@ export interface ICharacter {
 }
 export interface ILocation {
   name: string;
-  currentHouse: IHouse;
+  currentHouse: string;
   wikiLink: string;
-}
-export interface IHouse {
-  name: string;
-  sigilUrl: string;
-  members: ICharacter[];
-  wikiLink?: string;
 }
 
 // SERVERCALL
@@ -72,12 +66,12 @@ export interface IPostLoginResponseFailure extends IServerCall {
 
 // EDIT ACCOUNT
 export interface IPutEditAccountRequest extends Request {
-  newHouse: IHouse;
+  newHouse: string;
   newDescription: string;
 }
 export interface IPutEditAccountResponse extends Response {
   newName: string;
-  newHouse: IHouse;
+  newHouse: string;
   newDescription: string;
 }
 

@@ -14,7 +14,7 @@ const daenerysTargaryen: ICharacter = {
 export const targaryenArray: ICharacter[] = [daenerysTargaryen];
 
 ////////////// STARKS
-const jonSnow: ICharacter = {
+export const jonSnow: ICharacter = {
   name: 'Jon Snow',
   house: 'Stark',
   home: 'Winterfell',
@@ -24,7 +24,7 @@ const jonSnow: ICharacter = {
   placement: null,
   wikiLink: 'https://awoiaf.westeros.org/index.php/Jon_Snow'
 };
-const aryaStark: ICharacter = {
+export const aryaStark: ICharacter = {
   name: 'Arya Stark',
   house: 'Stark',
   home: 'Winterfell',
@@ -34,7 +34,7 @@ const aryaStark: ICharacter = {
   placement: null,
   wikiLink: 'https://awoiaf.westeros.org/index.php/Arya_Stark'
 };
-const sansaStark: ICharacter = {
+export const sansaStark: ICharacter = {
   name: 'Sansa Stark',
   house: 'Stark',
   home: 'Winterfell',
@@ -44,7 +44,7 @@ const sansaStark: ICharacter = {
   placement: null,
   wikiLink: 'https://awoiaf.westeros.org/index.php/Sansa_Stark'
 };
-const branStark: ICharacter = {
+export const branStark: ICharacter = {
   name: 'Bran Stark',
   house: 'Stark',
   home: 'Winterfell',
@@ -63,7 +63,7 @@ export const starkArray: ICharacter[] = [
 ];
 
 ////////////// LANNISTERS
-const jaimeLannister: ICharacter = {
+export const jaimeLannister: ICharacter = {
   name: 'Jaime Lannister',
   house: 'Lannister',
   home: 'Casterly Rock',
@@ -73,7 +73,7 @@ const jaimeLannister: ICharacter = {
   placement: null,
   wikiLink: 'https://awoiaf.westeros.org/index.php/Jaime_Lannister'
 };
-const cerseiLannister: ICharacter = {
+export const cerseiLannister: ICharacter = {
   name: 'Cersei Lannister',
   house: 'Lannister',
   home: 'Casterly Rock',
@@ -83,7 +83,7 @@ const cerseiLannister: ICharacter = {
   placement: null,
   wikiLink: 'https://awoiaf.westeros.org/index.php/Cersei_Lannister'
 };
-const tyrionLannister: ICharacter = {
+export const tyrionLannister: ICharacter = {
   name: 'Tyrion Lannister',
   house: 'Lannister',
   home: 'Casterly Rock',
