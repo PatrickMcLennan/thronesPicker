@@ -15,6 +15,10 @@
   "linterOptions": {
     "exclude": "src/utils/auth.ts"
   },
-  "include": ["src/**/*", "src/utils/index.d.ts"],
+  "include": [
+    "src/**/*",
+    "src/utils/index.d.ts",
+    "../server/src/utils/characters.ts"
+  ],
   "exclude": ["node_modules", ".vscode"]
 }

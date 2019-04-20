@@ -27,15 +27,15 @@ export interface IUser extends Document {
   facebookId: number;
   accessToken: number;
   profilePic: string;
-  house: IHouse;
+  house: string;
   description: string;
   picks: IPicks;
   currentScore: number;
 }
 
-export interface ICharacter extends Document {
+export interface ICharacter {
   name: string;
-  house: IHouse;
+  house: string;
   home: string;
   sigilUrl: string;
   alive: boolean;
@@ -45,15 +45,8 @@ export interface ICharacter extends Document {
 
 export interface ILocation extends Document {
   name: string;
-  currentHouse: IHouse;
+  currentHouse: string;
   wikiLink: string;
-}
-
-export interface IHouse {
-  name: string;
-  sigilUrl: string;
-  members: ICharacter[];
-  wikiLink?: string;
 }
 
 // LOG IN
@@ -85,11 +78,11 @@ export interface IPostMakePicksResponse extends Response {
 // EDIT ACCOUNT
 export interface IPutEditAccountRequest extends Request {
   facebookId: IUser['facebookId'];
-  newHouse: IHouse;
+  newHouse: string;
   newDescription: string;
 }
 export interface IPutEditAccountResponse extends Response {
   newName: string;
-  newHouse: IHouse;
+  newHouse: string;
   newDescription: string;
 }

@@ -186,7 +186,7 @@ class App extends React.Component<{}, IState> {
 
   render(): JSX.Element {
     const { user, otherUsers, serverCall }: IState = this.state;
-    const { show, success, message } = serverCall;
+    const { showResult, success, message } = serverCall;
     const { name, profilePic, house }: IUser = user;
     const { showLogIn, showAccountEditor, showRules }: IState = this.state;
     return (
@@ -210,6 +210,8 @@ class App extends React.Component<{}, IState> {
             putEditAccount={this.putEditAccount}
           />
         )}
+
+        {showResult && <Message success={success} message={message} />}
       </ThemeProvider>
     );
   }

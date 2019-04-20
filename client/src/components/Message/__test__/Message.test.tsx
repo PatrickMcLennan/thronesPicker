@@ -12,16 +12,19 @@ afterEach(cleanup);
 const renderMessage: Function = (): any =>
   render(
     <ThemeProvider theme={theme}>
-      <Message />
+      <Message success={true} message={`Success`} />
     </ThemeProvider>
   );
 
 test('<Message />', () => {
   const { getByTestId } = renderMessage();
   const message = getByTestId('message');
+  const h1 = getByTestId('message__h1');
 
   // Content
   expect(message).toBeInTheDocument();
+  expect(message).toContainElement(h1);
+  expect(h1.textContent).toBe('Success');
 
   // Styles
   expect(message).toHaveStyleRule('background', 'blue');

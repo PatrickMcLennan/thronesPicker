@@ -1,11 +1,11 @@
 import { default as fetch } from 'node-fetch';
-import { DocumentQuery } from 'mongoose';
 import { User } from '../schemas';
-import { IUser, IHouse } from '../utils';
 import {
+  IUser,
   IPostLoginRequest,
   IPostLoginResponseSuccess,
-  IPostLoginResponseFailure
+  IPostLoginResponseFailure,
+  allCharacters
 } from '../utils';
 
 export const postLogin = async (
@@ -67,7 +67,7 @@ export const postLogin = async (
         wardenSouth: '',
         wardenWest: '',
         dead: [],
-        unpicked: []
+        unpicked: [...allCharacters]
       },
       currentScore: 0
     });

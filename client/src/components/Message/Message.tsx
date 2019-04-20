@@ -31,9 +31,13 @@ class Message extends React.Component<IProps, IState> {
   }
   render(): JSX.Element {
     const { triggerAnimation } = this.state;
+    const { success, message } = this.props;
     return (
-      <StyledDiv triggerAnimation={triggerAnimation} data-testid="message">
-        <h1>hello</h1>
+      <StyledDiv
+        triggerAnimation={triggerAnimation}
+        data-testid="message"
+        success={success}>
+        <h1 data-testid="message__h1">{message}</h1>
       </StyledDiv>
     );
   }

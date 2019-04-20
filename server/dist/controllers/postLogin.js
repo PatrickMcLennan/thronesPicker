@@ -41,6 +41,7 @@ var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var node_fetch_1 = __importDefault(require("node-fetch"));
 var schemas_1 = require("../schemas");
+var utils_1 = require("../utils");
 exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
     var _a, accessToken, userID, loginError, rawUserJson, user, otherUsers, newUser;
     return __generator(this, function (_b) {
@@ -101,7 +102,7 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                         wardenSouth: '',
                         wardenWest: '',
                         dead: [],
-                        unpicked: []
+                        unpicked: utils_1.allCharacters.slice()
                     },
                     currentScore: 0
                 });

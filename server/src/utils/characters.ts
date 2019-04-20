@@ -1,25 +1,9 @@
-import { ICharacter } from './clientDictionary';
-
-import {
-  houseTargaryen,
-  houseStark,
-  houseLannister,
-  houseArryn,
-  houseGreyjoy,
-  houseClegane,
-  houseTully,
-  houseMormont,
-  houseTarly,
-  houseTarth,
-  houseMartell,
-  houseBaratheon,
-  houseUnknown
-} from './houses';
+import { ICharacter } from './serverDictionary';
 
 ////////////// TARGARYENS
 const daenerysTargaryen: ICharacter = {
   name: 'Daenerys Targaryen',
-  house: houseTargaryen,
+  house: 'Targaryen',
   home: 'DragonStone',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Targaryen.svg&width=218&lang=en',
@@ -32,7 +16,7 @@ export const targaryenArray: ICharacter[] = [daenerysTargaryen];
 ////////////// STARKS
 const jonSnow: ICharacter = {
   name: 'Jon Snow',
-  house: houseStark,
+  house: 'Stark',
   home: 'Winterfell',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
@@ -42,7 +26,7 @@ const jonSnow: ICharacter = {
 };
 const aryaStark: ICharacter = {
   name: 'Arya Stark',
-  house: houseStark,
+  house: 'Stark',
   home: 'Winterfell',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
@@ -52,7 +36,7 @@ const aryaStark: ICharacter = {
 };
 const sansaStark: ICharacter = {
   name: 'Sansa Stark',
-  house: houseStark,
+  house: 'Stark',
   home: 'Winterfell',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
@@ -62,7 +46,7 @@ const sansaStark: ICharacter = {
 };
 const branStark: ICharacter = {
   name: 'Bran Stark',
-  house: houseStark,
+  house: 'Stark',
   home: 'Winterfell',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
@@ -81,7 +65,7 @@ export const starkArray: ICharacter[] = [
 ////////////// LANNISTERS
 const jaimeLannister: ICharacter = {
   name: 'Jaime Lannister',
-  house: houseLannister,
+  house: 'Lannister',
   home: 'Casterly Rock',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Lannister.svg&width=218&lang=en',
@@ -91,7 +75,7 @@ const jaimeLannister: ICharacter = {
 };
 const cerseiLannister: ICharacter = {
   name: 'Cersei Lannister',
-  house: houseLannister,
+  house: 'Lannister',
   home: 'Casterly Rock',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Lannister.svg&width=218&lang=en',
@@ -101,7 +85,7 @@ const cerseiLannister: ICharacter = {
 };
 const tyrionLannister: ICharacter = {
   name: 'Tyrion Lannister',
-  house: houseLannister,
+  house: 'Lannister',
   home: 'Casterly Rock',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Lannister.svg&width=218&lang=en',
@@ -119,7 +103,7 @@ export const lannisterArray: ICharacter[] = [
 ////////////// ARRYNS
 export const robinArryn: ICharacter = {
   name: 'Robin Arryn',
-  house: houseArryn,
+  house: 'Arryn',
   home: 'The Vale',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Arryn.svg&width=218&lang=en',
@@ -132,7 +116,7 @@ export const arrynArray: ICharacter[] = [robinArryn];
 ////////////// STARKS
 const theonGreyjoy: ICharacter = {
   name: 'Theon Greyjoy',
-  house: houseGreyjoy,
+  house: 'Greyjoy',
   home: 'Iron Islands',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Greyjoy.svg&width=218&lang=en',
@@ -142,7 +126,7 @@ const theonGreyjoy: ICharacter = {
 };
 const yaraGreyjoy: ICharacter = {
   name: 'Yara Greyjoy',
-  house: houseGreyjoy,
+  house: 'Greyjoy',
   home: 'Iron Islands',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Greyjoy.svg&width=218&lang=en',
@@ -152,7 +136,7 @@ const yaraGreyjoy: ICharacter = {
 };
 const euronGreyjoy: ICharacter = {
   name: 'Euron Greyjoy',
-  house: houseGreyjoy,
+  house: 'Greyjoy',
   home: 'Iron Islands',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Greyjoy.svg&width=218&lang=en',
@@ -169,7 +153,7 @@ export const greyjoyArray: ICharacter[] = [
 ////////////// CLEGANES
 const sandorClegane: ICharacter = {
   name: 'Sandor Clegane',
-  house: houseClegane,
+  house: 'Clegane',
   home: 'Westerlands',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Clegane.svg&width=218&lang=en',
@@ -179,7 +163,7 @@ const sandorClegane: ICharacter = {
 };
 const gregorClegane: ICharacter = {
   name: 'Gregor Clegane',
-  house: houseClegane,
+  house: 'Clegane',
   home: 'Westerlands',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Clegane.svg&width=218&lang=en',
@@ -192,7 +176,7 @@ export const cleganeArray: ICharacter[] = [sandorClegane, gregorClegane];
 ////////////// TULLY
 const edmureTully: ICharacter = {
   name: 'Edmure Tully',
-  house: houseTully,
+  house: 'Tully',
   home: 'Riverrun',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Tully.svg&width=218&lang=en',
@@ -205,7 +189,7 @@ export const tullyArray: ICharacter[] = [edmureTully];
 ////////////// MORMONT
 const jorahMormont: ICharacter = {
   name: 'Jorah Mormont',
-  house: houseMormont,
+  house: 'Mormont',
   home: 'Bear Island',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Mormont.svg&width=218&lang=en',
@@ -215,7 +199,7 @@ const jorahMormont: ICharacter = {
 };
 const lyannaMormont: ICharacter = {
   name: 'Lyanna Mormont',
-  house: houseMormont,
+  house: 'Mormont',
   home: 'Bear Island',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Mormont.svg&width=218&lang=en',
@@ -228,7 +212,7 @@ export const mormontArray: ICharacter[] = [jorahMormont, lyannaMormont];
 ////////////// TARLY
 const samwellTarly: ICharacter = {
   name: 'Samwell Tarly',
-  house: houseTarly,
+  house: 'Tarly',
   home: 'Horn Hill',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Tarly.svg&width=218&lang=en',
@@ -241,7 +225,7 @@ export const tarlyArray: ICharacter[] = [samwellTarly];
 ////////////// TARTH
 const brienneTarth: ICharacter = {
   name: 'Brienne Tarth',
-  house: houseTarth,
+  house: 'Tarth',
   home: 'Evenfall Hall',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Tarth.svg&width=218&lang=en',
@@ -254,7 +238,7 @@ export const tarthArray: ICharacter[] = [brienneTarth];
 ////////////// MARTELL
 const ellariaSand: ICharacter = {
   name: 'Ellaria Sand',
-  house: houseMartell,
+  house: 'Martell',
   home: 'Sunspear',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Martell.svg&width=240&lang=en',
@@ -267,7 +251,7 @@ export const martellArray: ICharacter[] = [ellariaSand];
 ////////////// BARATHEON
 const gendryBaratheon: ICharacter = {
   name: 'Gendry Baratheon',
-  house: houseBaratheon,
+  house: 'Baratheon',
   home: 'Kings Landing',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Baratheon.svg&width=218&lang=en',
@@ -280,7 +264,7 @@ export const baratheonArray: ICharacter[] = [gendryBaratheon];
 ////////////// OTHERS
 const bronn: ICharacter = {
   name: 'Bronn',
-  house: houseUnknown,
+  house: 'Unknown',
   home: '?',
   sigilUrl: 'linkTosigilUrl',
   alive: null,
@@ -289,7 +273,7 @@ const bronn: ICharacter = {
 };
 const davosSeaworth: ICharacter = {
   name: 'Davos Seaworth',
-  house: houseUnknown,
+  house: 'Unknown',
   home: 'Winterfell',
   sigilUrl: 'linkTosigilUrl',
   alive: null,
@@ -298,7 +282,7 @@ const davosSeaworth: ICharacter = {
 };
 const melisandre: ICharacter = {
   name: 'Melisandre',
-  house: houseUnknown,
+  house: 'Unknown',
   home: 'Asshai',
   sigilUrl: 'linkTosigilUrl',
   alive: null,
@@ -307,7 +291,7 @@ const melisandre: ICharacter = {
 };
 const tormundGiantsbane: ICharacter = {
   name: 'Tormund Giantsbane',
-  house: houseUnknown,
+  house: 'Unknown',
   home: 'North of the Wall',
   sigilUrl: 'linkTosigilUrl',
   alive: null,
@@ -317,7 +301,7 @@ const tormundGiantsbane: ICharacter = {
 
 const bericDondarrion: ICharacter = {
   name: 'Beric Dondarrion',
-  house: houseUnknown,
+  house: 'Unknown',
   home: 'Blackhaven',
   sigilUrl: 'linkTosigilUrl',
   alive: null,
@@ -326,7 +310,7 @@ const bericDondarrion: ICharacter = {
 };
 const eddisonTollet: ICharacter = {
   name: 'Eddison Tollet',
-  house: houseUnknown,
+  house: 'Unknown',
   home: '?',
   sigilUrl: 'linkTosigilUrl',
   alive: null,
@@ -336,7 +320,7 @@ const eddisonTollet: ICharacter = {
 
 const greyWorm: ICharacter = {
   name: 'Grey Worm',
-  house: houseUnknown,
+  house: 'Unknown',
   home: '?',
   sigilUrl: 'linkTosigilUrl',
   alive: null,
@@ -345,7 +329,7 @@ const greyWorm: ICharacter = {
 };
 const varys: ICharacter = {
   name: 'Varys',
-  house: houseUnknown,
+  house: 'Unknown',
   home: '?',
   sigilUrl: 'linkTosigilUrl',
   alive: null,
@@ -355,7 +339,7 @@ const varys: ICharacter = {
 
 const qyburn: ICharacter = {
   name: 'Qyburn',
-  house: houseUnknown,
+  house: 'Unknown',
   home: '?',
   sigilUrl: 'linkTosigilUrl',
   alive: null,
@@ -372,4 +356,20 @@ export const unknownArray: ICharacter[] = [
   greyWorm,
   varys,
   qyburn
+];
+
+export const allCharacters: ICharacter[] = [
+  ...targaryenArray,
+  ...starkArray,
+  ...lannisterArray,
+  ...arrynArray,
+  ...greyjoyArray,
+  ...cleganeArray,
+  ...tullyArray,
+  ...mormontArray,
+  ...tarlyArray,
+  ...tarthArray,
+  ...martellArray,
+  ...baratheonArray,
+  ...unknownArray
 ];
