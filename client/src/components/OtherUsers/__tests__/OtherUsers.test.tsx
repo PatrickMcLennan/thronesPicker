@@ -35,11 +35,6 @@ test('<OtherUsers />', () => {
   // Content
   expect(otherUsers).toBeInTheDocument();
 
-  debug();
-
-  badges.forEach((badge: any) => {
-    expect(badge.getAttribute('src')).toBe(badges.indexOf(badge).profilePic);
-  });
   // Styles
   expect(otherUsers).toHaveStyleRule('background', 'yellow');
 });
