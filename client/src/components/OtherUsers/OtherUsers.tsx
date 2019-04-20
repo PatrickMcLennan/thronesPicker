@@ -58,6 +58,7 @@ class OtherUsers extends React.Component<IProps, IState> {
         {otherUsers.map(
           (user: IUser): JSX.Element => (
             <Badge
+              data-testid="otherUsers__badge"
               src={user.profilePic}
               name={user.name}
               house={user.house.name}

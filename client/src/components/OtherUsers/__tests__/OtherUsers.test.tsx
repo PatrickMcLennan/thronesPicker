@@ -28,11 +28,18 @@ const renderOtherUsers = () =>
   );
 
 test('<OtherUsers />', () => {
-  const { getByTestId } = renderOtherUsers();
+  const { getByTestId, queryAllByTestId, debug } = renderOtherUsers();
   const otherUsers = getByTestId('otherUsers');
+  const badges = queryAllByTestId('badge');
 
   // Content
   expect(otherUsers).toBeInTheDocument();
+
+  debug();
+
+  badges.forEach((badge: any) => {
+    expect(badge.getAttribute('src')).toBe(badges.indexOf(badge).profilePic);
+  });
   // Styles
   expect(otherUsers).toHaveStyleRule('background', 'yellow');
 });
