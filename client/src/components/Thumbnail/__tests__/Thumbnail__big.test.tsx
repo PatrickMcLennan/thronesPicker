@@ -10,12 +10,16 @@ import { fakeThumbnailSolo } from '../../../utils/testDummies';
 
 afterEach(cleanup);
 
-const fakeHandler: Function = jest.fn();
+const big = 'big';
 
 const renderThumbnail = () =>
   render(
     <ThemeProvider theme={theme}>
-      <Thumbnail src={fakeThumbnailSolo.src} name={fakeThumbnailSolo.name} />
+      <Thumbnail
+        src={fakeThumbnailSolo.src}
+        name={fakeThumbnailSolo.name}
+        size={big}
+      />
     </ThemeProvider>
   );
 
@@ -29,4 +33,7 @@ test('<Thumbnail />', () => {
   expect(thumbnail.getAttribute('alt')).toBe(fakeThumbnailSolo.name);
 
   // Styles
+
+  expect(thumbnail).toHaveStyleRule('height', '4rem');
+  expect(thumbnail).toHaveStyleRule('width', '4rem');
 });

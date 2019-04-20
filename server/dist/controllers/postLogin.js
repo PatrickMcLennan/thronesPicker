@@ -79,6 +79,7 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                     facebookId: rawUserJson.facebookId.toString(),
                     accessToken: rawUserJson.accessToken.toString(),
                     profilePic: rawUserJson.profilePic,
+                    sigilUrl: '',
                     house: {
                         name: '',
                         sigil: '',

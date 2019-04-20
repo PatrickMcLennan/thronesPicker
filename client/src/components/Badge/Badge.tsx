@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { StyledFigure } from './Badge.style';
 import Thumbnail from '../Thumbnail/Thumbnail';
-import { IUser } from '../../../../server/src/utils/serverDictionary';
 
 interface IProps {
   src: string;
@@ -11,6 +10,7 @@ interface IProps {
   sigilUrl: string;
   handler: Function;
   currentScore?: number;
+  thumbnailSize: string;
 }
 
 interface IState {
@@ -42,11 +42,11 @@ class Badge extends React.Component<IProps, IState> {
   }
 
   render(): JSX.Element {
-    const { src, name, house, handler, currentScore } = this.props;
+    const { src, name, house, currentScore, thumbnailSize } = this.props;
     const { triggerAnimation } = this.state;
     return (
       <StyledFigure data-testid="badge" triggerAnimation={triggerAnimation}>
-        <Thumbnail src={src} name={name} />
+        <Thumbnail src={src} name={name} size={thumbnailSize} />
         <figcaption>
           <p>{name}</p>
           <p>House {house}</p>

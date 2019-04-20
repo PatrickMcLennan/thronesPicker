@@ -14,6 +14,10 @@ var UserSchema = new mongoose_1.Schema({
         type: String,
         required: 'A user must have a link to a profile picture'
     },
+    sigilUrl: {
+        type: String,
+        required: 'Each User must have a sigil Url'
+    },
     house: {
         type: String,
         required: 'Each user must swear allegiance to a House name.'

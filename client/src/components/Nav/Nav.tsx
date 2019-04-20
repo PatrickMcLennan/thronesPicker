@@ -1,8 +1,10 @@
 import * as React from 'react';
 
-import { StyledNav, StyledUl, StyledLi } from './Nav.style';
+import Badge from '../Badge/Badge';
 import Thumbnail from '../Thumbnail/Thumbnail';
-import { IUser, IPicks } from '../../utils/clientDictionary';
+
+import { StyledNav, StyledUl, StyledLi } from './Nav.style';
+import { IUser } from '../../utils/clientDictionary';
 
 interface IProps {
   name?: string;
@@ -70,48 +72,52 @@ class Nav extends React.Component<IProps, IState> {
       <StyledNav data-testid="nav" triggerAnimation={triggerAnimation}>
         <h1>{name}</h1>
         <h1>{house}</h1>
-        <Thumbnail src={profilePic} name={name} />
+        <Thumbnail src={profilePic} name={name} size={'small'} />
         {renderMenu && (
-          <StyledUl triggerAnimation={renderMenu}>
-            <StyledLi
-              data-testid="menu__item"
-              onClick={changeComponent('showHome')}
-              delay={0.25}>
-              Home
-            </StyledLi>
-            <StyledLi
-              data-testid="menu__item"
-              onClick={changeComponent('showAccountEditor')}
-              delay={0.5}>
-              Edit Account
-            </StyledLi>
-            <StyledLi
-              data-testid="menu__item"
-              onClick={changeComponent('showMakePicks')}
-              delay={0.75}>
-              Make Picks
-            </StyledLi>
-            <StyledLi
-              data-testid="menu__item"
-              onClick={changeComponent('showTheRules')}
-              delay={1}>
-              The Rules
-            </StyledLi>
-            <StyledLi
-              data-testid="menu__item"
-              onClick={changeComponent('showOtherUsers')}
-              delay={1.25}>
-              See other Picks
-            </StyledLi>
-            <StyledLi
-              data-testid="menu__item"
-              onClick={(): Function =>
-                this.renderPicks(randomSuggestion, 'showUserPicks')
-              }
-              delay={0.1}>
-              {randomSuggestion.name}
-            </StyledLi>
-          </StyledUl>
+          <>
+            <StyledUl triggerAnimation={renderMenu}>
+              <StyledLi
+                data-testid="menu__item"
+                onClick={changeComponent('showHome')}
+                delay={0.25}>
+                Home
+              </StyledLi>
+              <StyledLi
+                data-testid="menu__item"
+                onClick={changeComponent('showAccountEditor')}
+                delay={0.5}>
+                Edit Account
+              </StyledLi>
+              <StyledLi
+                data-testid="menu__item"
+                onClick={changeComponent('showMakePicks')}
+                delay={0.75}>
+                Make Picks
+              </StyledLi>
+              <StyledLi
+                data-testid="menu__item"
+                onClick={changeComponent('showTheRules')}
+                delay={1}>
+                The Rules
+              </StyledLi>
+              <StyledLi
+                data-testid="menu__item"
+                onClick={changeComponent('showOtherUsers')}
+                delay={1.25}>
+                See other Picks
+              </StyledLi>
+            </StyledUl>
+
+            <Badge
+              src={randomSuggestion.profilePic}
+              name={randomSuggestion.name}
+              house={randomSuggestion.house}
+              sigilUrl={randomSuggestion.sigilUrl}
+              handler={this.renderPicks(randomSuggestion, 'showUserPicks')}
+              currentScore={randomSuggestion.currentScore}
+              thumbnailSize={'small'}
+            />
+          </>
         )}
       </StyledNav>
     );

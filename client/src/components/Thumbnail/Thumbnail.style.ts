@@ -1,6 +1,24 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const StyledImage = styled.img`
+interface IProps {
+  size: string;
+}
+
+export const StyledImg = styled.img`
   border-radius: 100%;
   border: 1px solid white;
+
+  ${(props: IProps) =>
+    props.size === 'small' &&
+    css`
+      height: 2rem;
+      width: 2rem;
+    `}
+
+  ${(props: IProps) =>
+    props.size === 'big' &&
+    css`
+      height: 4rem;
+      width: 4rem;
+    `}
 `;

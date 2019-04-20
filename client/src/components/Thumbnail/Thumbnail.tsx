@@ -1,8 +1,11 @@
 import * as React from 'react';
 
+import { StyledImg } from './Thumbnail.style';
+
 interface IProps {
   src: string;
   name: string;
+  size: string;
 }
 
 interface IState {
@@ -28,8 +31,10 @@ class Thumbnail extends React.Component<IProps, IState> {
   }
 
   render(): JSX.Element {
-    const { src, name } = this.props;
-    return <img data-testid="thumbnail" src={src} alt={name} />;
+    const { src, name, size } = this.props;
+    return (
+      <StyledImg data-testid="thumbnail" src={src} alt={name} size={size} />
+    );
   }
 }
 

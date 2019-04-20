@@ -50,6 +50,7 @@ class UserPicks extends React.Component<IProps, IState> {
           sigilUrl={sigilUrl}
           currentScore={currentScore}
           handler={(): Function => this.renderOtherUsers('showOtherUsers')}
+          thumbnailSize={'small'}
         />
       </section>
     );

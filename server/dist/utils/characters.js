@@ -10,7 +10,7 @@ var daenerysTargaryen = {
     wikiLink: 'https://awoiaf.westeros.org/index.php/Daenerys_Targaryen'
 };
 exports.targaryenArray = [daenerysTargaryen];
-var jonSnow = {
+exports.jonSnow = {
     name: 'Jon Snow',
     house: 'Stark',
     home: 'Winterfell',
@@ -19,7 +19,7 @@ var jonSnow = {
     placement: null,
     wikiLink: 'https://awoiaf.westeros.org/index.php/Jon_Snow'
 };
-var aryaStark = {
+exports.aryaStark = {
     name: 'Arya Stark',
     house: 'Stark',
     home: 'Winterfell',
@@ -28,7 +28,7 @@ var aryaStark = {
     placement: null,
     wikiLink: 'https://awoiaf.westeros.org/index.php/Arya_Stark'
 };
-var sansaStark = {
+exports.sansaStark = {
     name: 'Sansa Stark',
     house: 'Stark',
     home: 'Winterfell',
@@ -37,7 +37,7 @@ var sansaStark = {
     placement: null,
     wikiLink: 'https://awoiaf.westeros.org/index.php/Sansa_Stark'
 };
-var branStark = {
+exports.branStark = {
     name: 'Bran Stark',
     house: 'Stark',
     home: 'Winterfell',
@@ -47,12 +47,12 @@ var branStark = {
     wikiLink: 'https://awoiaf.westeros.org/index.php/Bran_Stark'
 };
 exports.starkArray = [
-    jonSnow,
-    aryaStark,
-    sansaStark,
-    branStark
+    exports.jonSnow,
+    exports.aryaStark,
+    exports.sansaStark,
+    exports.branStark
 ];
-var jaimeLannister = {
+exports.jaimeLannister = {
     name: 'Jaime Lannister',
     house: 'Lannister',
     home: 'Casterly Rock',
@@ -61,7 +61,7 @@ var jaimeLannister = {
     placement: null,
     wikiLink: 'https://awoiaf.westeros.org/index.php/Jaime_Lannister'
 };
-var cerseiLannister = {
+exports.cerseiLannister = {
     name: 'Cersei Lannister',
     house: 'Lannister',
     home: 'Casterly Rock',
@@ -70,7 +70,7 @@ var cerseiLannister = {
     placement: null,
     wikiLink: 'https://awoiaf.westeros.org/index.php/Cersei_Lannister'
 };
-var tyrionLannister = {
+exports.tyrionLannister = {
     name: 'Tyrion Lannister',
     house: 'Lannister',
     home: 'Casterly Rock',
@@ -80,9 +80,9 @@ var tyrionLannister = {
     wikiLink: 'https://awoiaf.westeros.org/index.php/Tyrion_Lannister'
 };
 exports.lannisterArray = [
-    jaimeLannister,
-    cerseiLannister,
-    tyrionLannister
+    exports.jaimeLannister,
+    exports.cerseiLannister,
+    exports.tyrionLannister
 ];
 exports.robinArryn = {
     name: 'Robin Arryn',
