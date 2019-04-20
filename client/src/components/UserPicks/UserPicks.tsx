@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import Badge from '../Badge/Badge';
+import { emptyUser } from '../../utils/emptyUser';
 import { IUser } from '../../../../server/src/utils/serverDictionary';
 
 interface IProps {
@@ -31,7 +32,11 @@ class UserPicks extends React.Component<IProps, IState> {
     return setTimeout((): null => null, 750);
   }
 
-  renderOtherUsers: Function = ()
+  renderOtherUsers: Function = (): Function => {
+    const { changeCurrentUser, changeComponent } = this.props;
+    changeCurrentUser({ ...emptyUser });
+    return changeComponent('showOtherUsers');
+  };
 
   render(): JSX.Element {
     const {
@@ -50,7 +55,7 @@ class UserPicks extends React.Component<IProps, IState> {
           currentScore={currentScore}
           changeComponent={changeComponent}
           changeCurrentUser={changeCurrentUser}
-          handler={(): Function => this.handler()}
+          handler={(): Function => this.renderOtherUsers()}
         />
       </section>
     );
