@@ -11,6 +11,7 @@ import {
   IPostMakePicsResponse
 } from '../../utils/clientDictionary';
 import { GlobalStyle, theme } from '../../utils/globalStyles';
+import { fbLogIn } from '../../utils/auth';
 
 import LogInModal from '../LogInModal/LogInModal';
 import RulesModal from '../RulesModal/RulesModal';
@@ -79,21 +80,25 @@ class App extends React.Component<{}, IState> {
     otherUsers: []
   };
 
-  getLogIn: Function = (): void => {
+  getLogIn: Function = async (): Promise<void> => {
     const callBack: Function = ({
       user,
-      otherUsers
+      otherUsers,
+      success,
+      message
     }: IPostLoginResponse): void => {
       this.setState(
         (prevState: IState): IState => ({
           ...prevState,
           user,
+          otherUsers,
           showLogIn: false,
-          showOtherUsers: true,
-          otherUsers
+          showOtherUsers: true
         })
       );
+      this.showMessage(success, message);
     };
+    return fbLogIn(callBack);
   };
 
   showMessage: Function = ({ success, message }: IServerCall) => {
