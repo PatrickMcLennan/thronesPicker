@@ -7,12 +7,14 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '../../../utils/globalStyles';
 import Message from '../Message';
 
+const successMessage = { success: true, message: `Success` };
+
 afterEach(cleanup);
 
 const renderMessage: Function = (): any =>
   render(
     <ThemeProvider theme={theme}>
-      <Message success={true} message={`Success`} />
+      <Message {...successMessage} />
     </ThemeProvider>
   );
 
@@ -28,4 +30,6 @@ test('<Message />', () => {
 
   // Styles
   expect(message).toHaveStyleRule('background', 'blue');
+  expect(message).toHaveStyleRule('border-top', '1px solid rdded');
+  expect(message).toHaveStyleRule('border-bottom', '1px solid red');
 });
