@@ -25,16 +25,21 @@ const renderAccountEditor: Function = (): any =>
     </ThemeProvider>
   );
 
-test('<AccountEditor />', async () => {
-  const { getByTestId, queryByTestId } = renderAccountEditor();
+test('<AccountEditor />', () => {
+  const {
+    getByTestId,
+    queryByTestId,
+    queryAllByTestId
+  } = renderAccountEditor();
   const accountEditor = getByTestId('accountEditor');
   const form = getByTestId('accountEditor__form');
   const [labelNewDescription, inputNewDescription] = [
     getByTestId('accountEditor__label--newDescription'),
     getByTestId('accountEditor__input--newDescription')
   ];
-  const labelNewHouse = getByTestId('accountEditor__label--newHouse');
+
   const houseList = queryByTestId('accountEditor__ul');
+  const houseBadges = queryAllByTestId('accountEditor__badge--house');
   const buttonBadge = queryByTestId('accountEditor__badge--button');
   const buttonBadge__name = queryByTestId('badge__name');
   const buttonBadge__house = queryByTestId('badge__house');
@@ -56,11 +61,11 @@ test('<AccountEditor />', async () => {
   expect(buttonBadge__name.textContent).toBe('Stark');
   expect(buttonBadge__house.textContent).toBe('House Stark');
   expect(houseList).not.toBeInTheDocument();
-  fireEvent.click(buttonBadge);
+  houseBadges.forEach((houseBadge: JSX.Element) =>
+    expect(houseBadge).not.toBeInTheDocument()
+  );
 
-  await wait(() => {
-    expect(houseList).toBeInTheDocument();
-  }); // expect(houseList).toBeInTheDocument();
+  // fireEvent.click(buttonBadge);
 
   // Styles
   expect(form).toHaveStyleRule('background', 'purple');

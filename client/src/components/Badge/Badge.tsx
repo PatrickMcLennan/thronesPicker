@@ -8,7 +8,8 @@ interface IProps {
   name: string;
   house: string;
   sigilUrl: string;
-  handler: Function;
+  onClick?: Function;
+  handler?: Function;
   currentScore?: number;
   thumbnailSize: string;
 }
@@ -42,10 +43,20 @@ class Badge extends React.Component<IProps, IState> {
   }
 
   render(): JSX.Element {
-    const { src, name, house, currentScore, thumbnailSize } = this.props;
+    const {
+      src,
+      name,
+      house,
+      currentScore,
+      thumbnailSize,
+      handler
+    } = this.props;
     const { triggerAnimation } = this.state;
     return (
-      <StyledFigure data-testid="badge" triggerAnimation={triggerAnimation}>
+      <StyledFigure
+        data-testid="badge"
+        triggerAnimation={triggerAnimation}
+        onClick={handler}>
         <Thumbnail src={src} name={name} size={thumbnailSize} />
         <figcaption>
           <p data-testid="badge__name">{name}</p>

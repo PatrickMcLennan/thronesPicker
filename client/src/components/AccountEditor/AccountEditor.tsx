@@ -96,8 +96,7 @@ class AccountEditor extends React.Component<IProps, IState> {
           onSubmit={this.handleSubmit}>
           <StyledLabel
             data-testid="accountEditor__label--newHouse"
-            htmlFor="newHouse"
-            onClick={this.renderHouseList}>
+            htmlFor="newHouse">
             <StyledP data-testid="accountEditor__p--newHouse">
               Choose Your House
             </StyledP>
@@ -107,7 +106,7 @@ class AccountEditor extends React.Component<IProps, IState> {
               name={house.name.length >= 1 ? house.name : ''}
               house={house.name.length >= 1 ? house.name : `Bend the knee...`}
               sigilUrl={house.name.length >= 1 ? house.sigilUrl : ''}
-              handler={this.renderHouseList}
+              onClick={() => this.renderHouseList}
               thumbnailSize="small"
             />
             {showHouseList && (
@@ -117,6 +116,7 @@ class AccountEditor extends React.Component<IProps, IState> {
                     houseList.name !== house.name && (
                       <li>
                         <Badge
+                          data-testid="accountEditor__badge--house"
                           src={houseList.sigilUrl}
                           name={houseList.name}
                           house=""
