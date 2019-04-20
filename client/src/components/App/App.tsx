@@ -22,6 +22,7 @@ import Message from '../Message/Message';
 
 interface IState {
   user: IUser;
+  currentPick: IPicks;
   serverCall: IServerCall;
   showLogIn: boolean;
   showAccountEditor: boolean;
@@ -60,6 +61,24 @@ class App extends React.Component<{}, IState> {
         unpicked: []
       },
       currentScore: 0
+    },
+    currentPick: {
+      ironThrone: '',
+      handOfTheKing: '',
+      nightsWatchLordCommander: '',
+      nightsWatch: '',
+      winterfellLord: '',
+      casterlyRockLord: '',
+      dorneLord: '',
+      reachLord: '',
+      riverrunLord: '',
+      ironIslandsLord: '',
+      wardenNorth: '',
+      wardenEast: '',
+      wardenSouth: '',
+      wardenWest: '',
+      dead: [],
+      unpicked: []
     },
     serverCall: {
       showResult: false,

@@ -62,7 +62,7 @@ class Nav extends React.Component<IProps, IState> {
         <h1>{house}</h1>
         <Thumbnail
           src={profilePic}
-          alt={name}
+          name={name}
           handler={() => this.toggleMenu}
         />
         {renderMenu && (

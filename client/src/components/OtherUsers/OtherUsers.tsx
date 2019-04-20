@@ -54,6 +54,7 @@ class OtherUsers extends React.Component<IProps, IState> {
               handler={() => console.log('wait a minute')}
               currentScore={user.currentScore}
               changeComponent={changeComponent}
+              key={Math.random()}
             />
           )
         )}
