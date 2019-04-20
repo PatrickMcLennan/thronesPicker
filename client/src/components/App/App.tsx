@@ -255,7 +255,7 @@ class App extends React.Component<{}, IState> {
             otherUsers[Math.floor(Math.random() * otherUsers.length)]
           }
         />
-        {showLogIn && <LogInModal />}
+        {showLogIn && <LogInModal getLogIn={this.getLogIn} />}
         {showOtherUsers && (
           <OtherUsers
             changeCurrentUser={this.changeCurrentUser}

@@ -24,23 +24,34 @@ const renderBadge = () =>
         house={house.name}
         sigilUrl={sigilUrl}
         handler={fakeThumbnailHandler}
+        currentScore={0}
         thumbnailSize={'small'}
       />
     </ThemeProvider>
   );
 
 test('<Badge />', () => {
-  const { getByTestId } = renderBadge();
+  const { getByTestId, queryByTestId } = renderBadge();
   const badge = getByTestId('badge');
   const thumbnail = getByTestId('thumbnail');
+  const badge__name = getByTestId('badge__name');
+  const badge__house = getByTestId('badge__house');
+  const badge__score = getByTestId('badge__score');
 
   // Content
   expect(badge).toBeInTheDocument();
   expect(badge).toContainElement(thumbnail);
+  expect(badge).toContainElement(badge__name);
+  expect(badge).toContainElement(badge__score);
 
   expect(thumbnail.getAttribute('src')).toBe(profilePic);
   expect(thumbnail.getAttribute('alt')).toBe(name);
+  expect(badge__name.textContent).toBe('user/solo');
+  expect(badge__house.textContent).toBe('House Stark');
+  expect(badge__score.textContent).toBe('0');
 
   // Styles
   expect(badge).toHaveStyleRule('background', 'green');
+  expect(thumbnail).toHaveStyleRule('height', '2rem');
+  expect(thumbnail).toHaveStyleRule('width', '2rem');
 });

@@ -61,7 +61,7 @@ class Badge extends React.Component<IProps, IState> {
         <figcaption>
           <p data-testid="badge__name">{name}</p>
           <p data-testid="badge__house">House {house}</p>
-          {currentScore && <p>{currentScore}</p>}
+          <p data-testid="badge__score">{currentScore}</p>
         </figcaption>
       </StyledFigure>
     );
