@@ -8,6 +8,7 @@ import { IUser } from '../../utils/clientDictionary';
 interface IProps {
   otherUsers: IUser[];
   changeComponent: Function;
+  changeCurrentPic: Function;
 }
 
 interface IState {

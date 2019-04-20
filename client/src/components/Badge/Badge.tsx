@@ -2,11 +2,13 @@ import * as React from 'react';
 
 import { StyledFigure } from './Badge.style';
 import Thumbnail from '../Thumbnail/Thumbnail';
+import { IPicks } from '../../../../server/src/utils/serverDictionary';
 
 interface IProps {
   src: string;
   name: string;
   house: string | null;
+  picks: IPicks;
   handler: Function;
   currentScore?: number;
   changeComponent: Function;
@@ -44,8 +46,11 @@ class Badge extends React.Component<IProps, IState> {
     const { src, name, house, handler, currentScore } = this.props;
     const { triggerAnimation } = this.state;
     return (
-      <StyledFigure data-testid="badge" triggerAnimation={triggerAnimation}>
-        <Thumbnail src={src} name={name} handler={handler} />
+      <StyledFigure
+        data-testid="badge"
+        triggerAnimation={triggerAnimation}
+        onClick={(): Function => handler()}>
+        <Thumbnail src={src} name={name} />
         <figcaption>
           <p>{name}</p>
           <p>House {house}</p>

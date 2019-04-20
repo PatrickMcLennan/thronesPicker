@@ -3,7 +3,6 @@ import * as React from 'react';
 interface IProps {
   src: string;
   name: string;
-  handler: Function;
 }
 
 interface IState {
@@ -29,15 +28,8 @@ class Thumbnail extends React.Component<IProps, IState> {
   }
 
   render(): JSX.Element {
-    const { src, name, handler } = this.props;
-    return (
-      <img
-        data-testid="thumbnail"
-        src={src}
-        alt={name}
-        onClick={() => handler(name)}
-      />
-    );
+    const { src, name } = this.props;
+    return <img data-testid="thumbnail" src={src} alt={name} />;
   }
 }
 

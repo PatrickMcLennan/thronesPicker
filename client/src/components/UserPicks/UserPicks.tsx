@@ -5,6 +5,7 @@ import { IUser } from '../../../../server/src/utils/serverDictionary';
 
 interface IProps {
   user: IUser;
+  changeComponent: Function;
 }
 
 interface IState {
@@ -30,10 +31,22 @@ class UserPicks extends React.Component<IProps, IState> {
   }
 
   render(): JSX.Element {
-    const { name, house, currentScore }: IProps = this.props;
+    const {
+      name,
+      house,
+      currentScore,
+      profilePic,
+      changeComponent
+    }: IProps = this.props;
     return (
       <section data-testid="userPicks">
-        <Badge />
+        <Badge
+          name={name}
+          src={profilePic}
+          currentScore={currentScore}
+          house={house}
+          changeComponent={changeComponent}
+        />
       </section>
     );
   }

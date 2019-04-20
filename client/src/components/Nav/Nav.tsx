@@ -2,13 +2,14 @@ import * as React from 'react';
 
 import { StyledNav, StyledUl, StyledLi } from './Nav.style';
 import Thumbnail from '../Thumbnail/Thumbnail';
-import { IUser } from '../../utils/clientDictionary';
+import { IUser, IPicks } from '../../utils/clientDictionary';
 
 interface IProps {
   name?: string;
   profilePic: string;
   house: string;
   changeComponent: Function;
+  changeCurrentPick: Function;
   randomSuggestion: IUser;
 }
 
@@ -38,6 +39,12 @@ class Nav extends React.Component<IProps, IState> {
     return setTimeout((): null => null, 750);
   }
 
+  renderPicks: Function = (picks: IPicks, newComponent: string): Function => {
+    const { changeComponent, changeCurrentPick } = this.props;
+    changeCurrentPick(picks);
+    return changeComponent('showUserPicks');
+  };
+
   toggleMenu: Function = (): void => {
     return this.setState(
       (prevState: IState): IState => ({
@@ -60,11 +67,7 @@ class Nav extends React.Component<IProps, IState> {
       <StyledNav data-testid="nav" triggerAnimation={triggerAnimation}>
         <h1>{name}</h1>
         <h1>{house}</h1>
-        <Thumbnail
-          src={profilePic}
-          name={name}
-          handler={() => this.toggleMenu}
-        />
+        <Thumbnail src={profilePic} name={name} />
         {renderMenu && (
           <StyledUl triggerAnimation={renderMenu}>
             <StyledLi
@@ -97,7 +100,10 @@ class Nav extends React.Component<IProps, IState> {
               delay={1.25}>
               See other Picks
             </StyledLi>
-            <StyledLi data-testid="menu__item" delay={0.1}>
+            <StyledLi
+              data-testid="menu__item"
+              onClick={(): Function => this.renderPicks()}
+              delay={0.1}>
               {randomSuggestion.name}
             </StyledLi>
           </StyledUl>

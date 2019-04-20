@@ -193,6 +193,15 @@ class App extends React.Component<{}, IState> {
       .catch((err: IServerCall): Function => this.showMessage(err));
   };
 
+  changeCurrentPick: Function = (setPicks: IPicks): void => {
+    return this.setState(
+      (prevState: IState): IState => ({
+        ...prevState,
+        currentPick: setPicks
+      })
+    );
+  };
+
   changeComponent: Function = (newComponent: string): void => {
     return this.state.allComponents.forEach(
       (componentKey: string): void =>
@@ -223,6 +232,7 @@ class App extends React.Component<{}, IState> {
           name={name}
           profilePic={profilePic}
           house={house}
+          changeCurrentPick={this.changeCurrentPick}
           changeComponent={this.changeComponent}
           randomSuggestion={
             otherUsers[Math.floor(Math.random() * otherUsers.length)]
@@ -231,11 +241,17 @@ class App extends React.Component<{}, IState> {
         {showLogIn && <LogInModal />}
         {showOtherUsers && (
           <OtherUsers
+            changeCurrentPick={this.changeCurrentPick}
             changeComponent={this.changeComponent}
             otherUsers={otherUsers}
           />
         )}
-        {showUserPicks && <UserPicks user={user} />}
+        {showUserPicks && (
+          <UserPicks
+            changeCurrentPick={this.changeCurrentPick}
+            changeComponent={this.changeComponent}
+          />
+        )}
         {showRules && <RulesModal changeComponent={this.changeComponent} />}
         {showAccountEditor && (
           <AccountEditor
