@@ -12,7 +12,6 @@ import { IUser } from '../../../utils/clientDictionary';
 
 afterEach(cleanup);
 
-const changeComponent: Function = jest.fn();
 const fakeThumbnailHandler: Function = jest.fn();
 const { profilePic, name, house, sigilUrl, currentScore }: IUser = fakeUserSolo;
 
@@ -22,9 +21,10 @@ const renderBadge = () =>
       <Badge
         src={profilePic}
         name={name}
-        house={house}
+        house={house.name}
         sigilUrl={sigilUrl}
         handler={fakeThumbnailHandler}
+        thumbnailSize={'small'}
       />
     </ThemeProvider>
   );

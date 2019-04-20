@@ -60,10 +60,11 @@ class OtherUsers extends React.Component<IProps, IState> {
             <Badge
               src={user.profilePic}
               name={user.name}
-              house={user.house}
+              house={user.house.name}
               sigilUrl={user.sigilUrl}
               handler={() => this.renderUserPicks(user, 'showUserPicks')}
               currentScore={user.currentScore}
+              thumbnailSize={'small'}
               key={Math.random()}
             />
           )

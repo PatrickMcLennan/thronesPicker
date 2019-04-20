@@ -14,7 +14,10 @@ export const fakeUserSolo: IUser = {
   accessToken: 0,
   profilePic: 'user/solo/profilePic',
   sigilUrl: 'user/solo/sigilUrl',
-  house: 'Stark',
+  house: {
+    name: 'Stark',
+    sigilUrl: 'stark sigil link'
+  },
   description: 'user/solo/description',
   picks: {
     ironThrone: jonSnow,

@@ -4,12 +4,12 @@ import Badge from '../Badge/Badge';
 import Thumbnail from '../Thumbnail/Thumbnail';
 
 import { StyledNav, StyledUl, StyledLi } from './Nav.style';
-import { IUser } from '../../utils/clientDictionary';
+import { IUser, IHouse } from '../../utils/clientDictionary';
 
 interface IProps {
   name?: string;
   profilePic: string;
-  house: string;
+  house: IHouse;
   changeComponent: Function;
   changeCurrentUser: Function;
   randomSuggestion: IUser;
@@ -71,7 +71,7 @@ class Nav extends React.Component<IProps, IState> {
     return (
       <StyledNav data-testid="nav" triggerAnimation={triggerAnimation}>
         <h1>{name}</h1>
-        <h1>{house}</h1>
+        <h1>{house.name}</h1>
         <Thumbnail src={profilePic} name={name} size={'small'} />
         {renderMenu && (
           <>
@@ -111,7 +111,7 @@ class Nav extends React.Component<IProps, IState> {
             <Badge
               src={randomSuggestion.profilePic}
               name={randomSuggestion.name}
-              house={randomSuggestion.house}
+              house={randomSuggestion.house.name}
               sigilUrl={randomSuggestion.sigilUrl}
               handler={this.renderPicks(randomSuggestion, 'showUserPicks')}
               currentScore={randomSuggestion.currentScore}

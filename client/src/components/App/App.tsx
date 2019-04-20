@@ -42,7 +42,10 @@ class App extends React.Component<{}, IState> {
       accessToken: 0,
       profilePic: '',
       sigilUrl: '',
-      house: '',
+      house: {
+        name: '',
+        sigilUrl: ''
+      },
       description: '',
       picks: {
         ironThrone: '',
@@ -70,7 +73,10 @@ class App extends React.Component<{}, IState> {
       accessToken: 0,
       profilePic: '',
       sigilUrl: '',
-      house: '',
+      house: {
+        name: '',
+        sigilUrl: ''
+      },
       description: '',
       picks: {
         ironThrone: '',

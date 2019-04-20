@@ -27,7 +27,7 @@ export interface IUser {
   accessToken: number;
   profilePic: string;
   sigilUrl: string;
-  house: string;
+  house: IHouse;
   description: string;
   picks: IPicks;
   currentScore: number;
@@ -42,9 +42,14 @@ export interface ICharacter {
   placement: IPicks;
   wikiLink: string;
 }
+
+export interface IHouse {
+  name: string;
+  sigilUrl: string;
+}
 export interface ILocation {
   name: string;
-  currentHouse: string;
+  currentHouse: IHouse;
   wikiLink: string;
 }
 
@@ -67,12 +72,12 @@ export interface IPostLoginResponseFailure extends IServerCall {
 
 // EDIT ACCOUNT
 export interface IPutEditAccountRequest extends Request {
-  newHouse: string;
+  newHouse: IHouse;
   newDescription: string;
 }
 export interface IPutEditAccountResponse extends Response {
   newName: string;
-  newHouse: string;
+  newHouse: IHouse;
   newDescription: string;
 }
 

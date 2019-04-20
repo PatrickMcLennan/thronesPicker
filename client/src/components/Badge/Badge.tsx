@@ -48,8 +48,8 @@ class Badge extends React.Component<IProps, IState> {
       <StyledFigure data-testid="badge" triggerAnimation={triggerAnimation}>
         <Thumbnail src={src} name={name} size={thumbnailSize} />
         <figcaption>
-          <p>{name}</p>
-          <p>House {house}</p>
+          <p data-testid="badge__name">{name}</p>
+          <p data-testid="badge__house">House {house}</p>
           {currentScore && <p>{currentScore}</p>}
         </figcaption>
       </StyledFigure>

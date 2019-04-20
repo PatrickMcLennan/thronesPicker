@@ -46,7 +46,7 @@ class UserPicks extends React.Component<IProps, IState> {
         <Badge
           src={profilePic}
           name={name}
-          house={house}
+          house={house.name}
           sigilUrl={sigilUrl}
           currentScore={currentScore}
           handler={(): Function => this.renderOtherUsers('showOtherUsers')}

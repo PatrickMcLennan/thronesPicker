@@ -6,7 +6,10 @@ export const emptyUser: IUser = {
   accessToken: 0,
   profilePic: '',
   sigilUrl: '',
-  house: '',
+  house: {
+    name: '',
+    sigilUrl: ''
+  },
   description: '',
   picks: {
     ironThrone: '',

@@ -34,6 +34,13 @@ export const theme = {
       flex-direction: ${fd};
       flex-wrap: ${fw};
     `,
+  inputs: {
+    inputsMain: css`
+      text-align: right;
+      border: none;
+      border-bottom: 1px solid white;
+    `
+  },
   typo: {
     color: 'red'
   }
