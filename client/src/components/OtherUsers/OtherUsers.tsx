@@ -2,7 +2,10 @@ import * as React from 'react';
 
 import { StyledSection } from './OtherUsers.style';
 
+import { IUser } from '../../utils/clientDictionary';
+
 interface IProps {
+  otherUsers: IUser[];
   changeComponent: Function;
 }
 

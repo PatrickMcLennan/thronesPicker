@@ -6,15 +6,19 @@ import { ThemeProvider } from 'styled-components';
 
 import { theme } from '../../../utils/globalStyles';
 import OtherUsers from '../OtherUsers';
+import { fakeUserSolo } from '../../../utils/testDummies';
+
+import { IUser } from '../../../utils/clientDictionary';
 
 afterEach(cleanup);
 
 const changeComponent: Function = jest.fn();
+const otherUsers: IUser[] = [fakeUserSolo, fakeUserSolo, fakeUserSolo];
 
 const renderOtherUsers = () =>
   render(
     <ThemeProvider theme={theme}>
-      <OtherUsers changeComponent={changeComponent} />
+      <OtherUsers changeComponent={changeComponent} otherUsers={otherUsers} />
     </ThemeProvider>
   );
 

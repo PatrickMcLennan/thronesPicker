@@ -16,6 +16,7 @@ import { fbLogIn } from '../../utils/auth';
 import LogInModal from '../LogInModal/LogInModal';
 import RulesModal from '../RulesModal/RulesModal';
 import AccountEditor from '../AccountEditor/AccountEditor';
+import OtherUsers from '../OtherUsers/OtherUsers';
 import Nav from '../Nav/Nav';
 import Message from '../Message/Message';
 
@@ -188,7 +189,12 @@ class App extends React.Component<{}, IState> {
     const { user, otherUsers, serverCall }: IState = this.state;
     const { showResult, success, message } = serverCall;
     const { name, profilePic, house }: IUser = user;
-    const { showLogIn, showAccountEditor, showRules }: IState = this.state;
+    const {
+      showLogIn,
+      showAccountEditor,
+      showRules,
+      showOtherUsers
+    }: IState = this.state;
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyle />
@@ -202,6 +208,12 @@ class App extends React.Component<{}, IState> {
           }
         />
         {showLogIn && <LogInModal />}
+        {showOtherUsers && (
+          <OtherUsers
+            changeComponent={this.changeComponent}
+            otherUsers={otherUsers}
+          />
+        )}
         {showRules && <RulesModal changeComponent={this.changeComponent} />}
         {showAccountEditor && (
           <AccountEditor
