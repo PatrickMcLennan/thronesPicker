@@ -4,20 +4,20 @@ import { Request, Response } from 'express';
 // INTERFACES
 
 export interface IPicks {
-  ironThrone: ICharacter;
-  handOfTheKing: ICharacter;
-  nightsWatchLordCommander: ICharacter;
-  nightsWatch: ICharacter;
-  winterfellLord: ICharacter;
-  casterlyRockLord: ICharacter;
-  dorneLord: ICharacter;
-  reachLord: ICharacter;
-  riverrunLord: ICharacter;
-  ironIslandsLord: ICharacter;
-  wardenNorth: ICharacter;
-  wardenEast: ICharacter;
-  wardenSouth: ICharacter;
-  wardenWest: ICharacter;
+  ironThrone: ICharacter | string;
+  handOfTheKing: ICharacter | string;
+  nightsWatchLordCommander: ICharacter | string;
+  nightsWatch: ICharacter | string;
+  winterfellLord: ICharacter | string;
+  casterlyRockLord: ICharacter | string;
+  dorneLord: ICharacter | string;
+  reachLord: ICharacter | string;
+  riverrunLord: ICharacter | string;
+  ironIslandsLord: ICharacter | string;
+  wardenNorth: ICharacter | string;
+  wardenEast: ICharacter | string;
+  wardenSouth: ICharacter | string;
+  wardenWest: ICharacter | string;
   dead: ICharacter[];
   unpicked: ICharacter[];
 }

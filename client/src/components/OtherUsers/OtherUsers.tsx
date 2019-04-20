@@ -3,12 +3,12 @@ import * as React from 'react';
 import { StyledSection } from './OtherUsers.style';
 import Badge from '../Badge/Badge';
 
-import { IUser } from '../../utils/clientDictionary';
+import { IUser, IPicks } from '../../utils/clientDictionary';
 
 interface IProps {
   otherUsers: IUser[];
   changeComponent: Function;
-  changeCurrentPic: Function;
+  changeCurrentUser: Function;
 }
 
 interface IState {
@@ -39,6 +39,15 @@ class OtherUsers extends React.Component<IProps, IState> {
     return setTimeout((): void => null, 750);
   }
 
+  renderUserPicks: Function = (
+    newCurrentUser: IUser,
+    newComponent: string
+  ): Function => {
+    const { changeCurrentUser, changeComponent } = this.props;
+    changeCurrentUser(newCurrentUser);
+    return changeComponent(newComponent);
+  };
+
   render(): JSX.Element {
     const { otherUsers, changeComponent } = this.props;
     const { triggerAnimation } = this.state;
@@ -52,7 +61,8 @@ class OtherUsers extends React.Component<IProps, IState> {
               src={user.profilePic}
               name={user.name}
               house={user.house}
-              handler={() => console.log('wait a minute')}
+              user={user}
+              handler={() => this.renderUserPicks(user, 'showUserPicks')}
               currentScore={user.currentScore}
               changeComponent={changeComponent}
               key={Math.random()}

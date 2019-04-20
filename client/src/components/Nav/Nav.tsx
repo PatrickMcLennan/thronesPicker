@@ -9,7 +9,7 @@ interface IProps {
   profilePic: string;
   house: string;
   changeComponent: Function;
-  changeCurrentPick: Function;
+  changeCurrentUser: Function;
   randomSuggestion: IUser;
 }
 
@@ -39,10 +39,13 @@ class Nav extends React.Component<IProps, IState> {
     return setTimeout((): null => null, 750);
   }
 
-  renderPicks: Function = (picks: IPicks, newComponent: string): Function => {
-    const { changeComponent, changeCurrentPick } = this.props;
-    changeCurrentPick(picks);
-    return changeComponent('showUserPicks');
+  renderPicks: Function = (
+    newCurrentUser: IUser,
+    newComponent: string
+  ): Function => {
+    const { changeComponent, changeCurrentUser } = this.props;
+    changeCurrentUser(newCurrentUser);
+    return changeComponent(newComponent);
   };
 
   toggleMenu: Function = (): void => {
@@ -102,7 +105,9 @@ class Nav extends React.Component<IProps, IState> {
             </StyledLi>
             <StyledLi
               data-testid="menu__item"
-              onClick={(): Function => this.renderPicks()}
+              onClick={(): Function =>
+                this.renderPicks(randomSuggestion, 'showUserPicks')
+              }
               delay={0.1}>
               {randomSuggestion.name}
             </StyledLi>

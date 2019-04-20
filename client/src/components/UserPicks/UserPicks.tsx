@@ -4,7 +4,8 @@ import Badge from '../Badge/Badge';
 import { IUser } from '../../../../server/src/utils/serverDictionary';
 
 interface IProps {
-  user: IUser;
+  currentUser: IUser;
+  changeCurrentUser: Function;
   changeComponent: Function;
 }
 
@@ -30,24 +31,30 @@ class UserPicks extends React.Component<IProps, IState> {
     return setTimeout((): null => null, 750);
   }
 
+  renderOtherUsers: Function = ()
+
   render(): JSX.Element {
     const {
-      name,
-      house,
-      currentScore,
-      profilePic,
-      changeComponent
+      currentUser,
+      changeComponent,
+      changeCurrentUser
     }: IProps = this.props;
+    const { profilePic, name, house, currentScore } = currentUser;
     return (
       <section data-testid="userPicks">
         <Badge
-          name={name}
           src={profilePic}
-          currentScore={currentScore}
+          name={name}
           house={house}
+          user={currentUser}
+          currentScore={currentScore}
           changeComponent={changeComponent}
+          changeCurrentUser={changeCurrentUser}
+          handler={(): Function => this.handler()}
         />
       </section>
     );
   }
 }
+
+export default UserPicks;

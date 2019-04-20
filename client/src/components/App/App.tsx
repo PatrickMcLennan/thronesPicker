@@ -23,7 +23,7 @@ import Message from '../Message/Message';
 
 interface IState {
   user: IUser;
-  currentPick: IPicks;
+  currentUser: IUser;
   serverCall: IServerCall;
   showLogIn: boolean;
   showAccountEditor: boolean;
@@ -63,23 +63,32 @@ class App extends React.Component<{}, IState> {
       },
       currentScore: 0
     },
-    currentPick: {
-      ironThrone: '',
-      handOfTheKing: '',
-      nightsWatchLordCommander: '',
-      nightsWatch: '',
-      winterfellLord: '',
-      casterlyRockLord: '',
-      dorneLord: '',
-      reachLord: '',
-      riverrunLord: '',
-      ironIslandsLord: '',
-      wardenNorth: '',
-      wardenEast: '',
-      wardenSouth: '',
-      wardenWest: '',
-      dead: [],
-      unpicked: []
+    currentUser: {
+      name: '',
+      facebookId: '',
+      accessToken: 0,
+      profilePic: '',
+      house: '',
+      description: '',
+      picks: {
+        ironThrone: '',
+        handOfTheKing: '',
+        nightsWatchLordCommander: '',
+        nightsWatch: '',
+        winterfellLord: '',
+        casterlyRockLord: '',
+        dorneLord: '',
+        reachLord: '',
+        riverrunLord: '',
+        ironIslandsLord: '',
+        wardenNorth: '',
+        wardenEast: '',
+        wardenSouth: '',
+        wardenWest: '',
+        dead: [],
+        unpicked: []
+      },
+      currentScore: 0
     },
     serverCall: {
       showResult: false,
@@ -193,11 +202,11 @@ class App extends React.Component<{}, IState> {
       .catch((err: IServerCall): Function => this.showMessage(err));
   };
 
-  changeCurrentPick: Function = (setPicks: IPicks): void => {
+  changeCurrentUser: Function = (newCurrentUser: IUser): void => {
     return this.setState(
       (prevState: IState): IState => ({
         ...prevState,
-        currentPick: setPicks
+        currentUser: newCurrentUser
       })
     );
   };
@@ -215,7 +224,7 @@ class App extends React.Component<{}, IState> {
   };
 
   render(): JSX.Element {
-    const { user, otherUsers, serverCall }: IState = this.state;
+    const { user, otherUsers, serverCall, currentUser }: IState = this.state;
     const { showResult, success, message } = serverCall;
     const { name, profilePic, house }: IUser = user;
     const {
@@ -232,7 +241,7 @@ class App extends React.Component<{}, IState> {
           name={name}
           profilePic={profilePic}
           house={house}
-          changeCurrentPick={this.changeCurrentPick}
+          changeCurrentUser={this.changeCurrentUser}
           changeComponent={this.changeComponent}
           randomSuggestion={
             otherUsers[Math.floor(Math.random() * otherUsers.length)]
@@ -241,14 +250,15 @@ class App extends React.Component<{}, IState> {
         {showLogIn && <LogInModal />}
         {showOtherUsers && (
           <OtherUsers
-            changeCurrentPick={this.changeCurrentPick}
+            changeCurrentUser={this.changeCurrentUser}
             changeComponent={this.changeComponent}
             otherUsers={otherUsers}
           />
         )}
         {showUserPicks && (
           <UserPicks
-            changeCurrentPick={this.changeCurrentPick}
+            currentUser={currentUser}
+            changeCurrentUser={this.changeCurrentUser}
             changeComponent={this.changeComponent}
           />
         )}

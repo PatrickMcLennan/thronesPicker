@@ -2,16 +2,17 @@ import * as React from 'react';
 
 import { StyledFigure } from './Badge.style';
 import Thumbnail from '../Thumbnail/Thumbnail';
-import { IPicks } from '../../../../server/src/utils/serverDictionary';
+import { IUser } from '../../../../server/src/utils/serverDictionary';
 
 interface IProps {
   src: string;
   name: string;
   house: string | null;
-  picks: IPicks;
+  user: IUser;
   handler: Function;
   currentScore?: number;
   changeComponent: Function;
+  changeCurrentUser: Function;
 }
 
 interface IState {
