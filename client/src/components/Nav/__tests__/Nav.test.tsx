@@ -20,9 +20,7 @@ const renderNav = () =>
   render(
     <ThemeProvider theme={theme}>
       <Nav
-        name={name}
-        profilePic={profilePic}
-        house={house}
+        user={fakeUserSolo}
         changeComponent={changeComponent}
         changeCurrentUser={changeCurrentUser}
         randomSuggestion={fakeUserSolo}
@@ -31,7 +29,7 @@ const renderNav = () =>
   );
 
 test('<Nav />', () => {
-  const { getByTestId, queryByTestId, queryAllByTestId } = renderNav();
+  const { getByTestId, queryByTestId, queryAllByTestId, debug } = renderNav();
   const nav = getByTestId('nav');
   const nav__name = getByTestId('nav__name');
   const nav__house = getByTestId('nav__house');
@@ -52,7 +50,7 @@ test('<Nav />', () => {
     expect(menuItem).not.toBeInTheDocument()
   );
 
-  fireEvent.click(thumbnail);
+  fireEvent.click(nav);
 
   expect(nav).toContainElement(nav__ul);
   lis.forEach((menuItem: any) => expect(nav__ul).toContainElement(menuItem));

@@ -7,9 +7,7 @@ import { StyledNav, StyledUl, StyledLi } from './Nav.style';
 import { IUser, IHouse } from '../../utils/clientDictionary';
 
 interface IProps {
-  name?: string;
-  profilePic: string;
-  house: IHouse;
+  user: IUser;
   changeComponent: Function;
   changeCurrentUser: Function;
   randomSuggestion: IUser;
@@ -50,7 +48,7 @@ class Nav extends React.Component<IProps, IState> {
     return changeComponent(newComponent);
   };
 
-  toggleMenu: Function = (): void => {
+  toggleMenu: Function = (): any => {
     return this.setState(
       (prevState: IState): IState => ({
         ...prevState,
@@ -60,23 +58,22 @@ class Nav extends React.Component<IProps, IState> {
   };
 
   render(): JSX.Element {
-    const {
-      name,
-      house,
-      profilePic,
-      randomSuggestion,
-      changeComponent
-    }: IProps = this.props;
+    const { user, randomSuggestion, changeComponent }: IProps = this.props;
+    const { name, house, profilePic } = user;
     const { renderMenu, triggerAnimation }: IState = this.state;
     return (
-      <StyledNav data-testid="nav" triggerAnimation={triggerAnimation}>
-        <h1 data-testid="nav__name">{name}</h1>
-        <h1 data-testid="nav__house">{house.name}</h1>
+      <StyledNav
+        data-testid="nav"
+        triggerAnimation={triggerAnimation}
+        onClick={this.toggleMenu}>
+        <h1 data-testid="nav__name">{name.length >= 1 ? name : 'Log In'}</h1>
+        <h1 data-testid="nav__house">
+          {house.name.length >= 1 ? house.name : 'Choose Your House'}
+        </h1>
         <Thumbnail
-          src={profilePic}
+          src={profilePic.length >= 1 ? profilePic : 'placeholder'}
           name={name}
           size={'small'}
-          onClick={this.toggleMenu}
         />
         {renderMenu && (
           <>

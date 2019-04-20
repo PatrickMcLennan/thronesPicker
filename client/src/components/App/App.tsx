@@ -244,42 +244,44 @@ class App extends React.Component<{}, IState> {
     }: IState = this.state;
     return (
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Nav
-          name={name}
-          profilePic={profilePic}
-          house={house}
-          changeCurrentUser={this.changeCurrentUser}
-          changeComponent={this.changeComponent}
-          randomSuggestion={
-            otherUsers[Math.floor(Math.random() * otherUsers.length)]
-          }
-        />
-        {showLogIn && <LogInModal getLogIn={this.getLogIn} />}
-        {showOtherUsers && (
-          <OtherUsers
-            changeCurrentUser={this.changeCurrentUser}
-            changeComponent={this.changeComponent}
-            otherUsers={otherUsers}
-          />
-        )}
-        {showUserPicks && (
-          <UserPicks
-            currentUser={currentUser}
-            changeCurrentUser={this.changeCurrentUser}
-            changeComponent={this.changeComponent}
-          />
-        )}
-        {showRules && <RulesModal changeComponent={this.changeComponent} />}
-        {showAccountEditor && (
-          <AccountEditor
-            user={user}
-            changeComponent={this.changeComponent}
-            putEditAccount={this.putEditAccount}
-          />
-        )}
+        <>
+          <GlobalStyle />
+          {name.length >= 1 && (
+            <Nav
+              user={user}
+              changeCurrentUser={this.changeCurrentUser}
+              changeComponent={this.changeComponent}
+              randomSuggestion={
+                otherUsers[Math.floor(Math.random() * otherUsers.length)]
+              }
+            />
+          )}
+          {showLogIn && <LogInModal getLogIn={this.getLogIn} />}
+          {showOtherUsers && (
+            <OtherUsers
+              changeCurrentUser={this.changeCurrentUser}
+              changeComponent={this.changeComponent}
+              otherUsers={otherUsers}
+            />
+          )}
+          {showUserPicks && (
+            <UserPicks
+              currentUser={currentUser}
+              changeCurrentUser={this.changeCurrentUser}
+              changeComponent={this.changeComponent}
+            />
+          )}
+          {showRules && <RulesModal changeComponent={this.changeComponent} />}
+          {showAccountEditor && (
+            <AccountEditor
+              user={user}
+              changeComponent={this.changeComponent}
+              putEditAccount={this.putEditAccount}
+            />
+          )}
 
-        {showResult && <Message success={success} message={message} />}
+          {showResult && <Message success={success} message={message} />}
+        </>
       </ThemeProvider>
     );
   }
