@@ -17,6 +17,7 @@ import LogInModal from '../LogInModal/LogInModal';
 import RulesModal from '../RulesModal/RulesModal';
 import AccountEditor from '../AccountEditor/AccountEditor';
 import OtherUsers from '../OtherUsers/OtherUsers';
+import UserPicks from '../OtherUsers/OtherUsers';
 import Nav from '../Nav/Nav';
 import Message from '../Message/Message';
 
@@ -26,7 +27,7 @@ interface IState {
   serverCall: IServerCall;
   showLogIn: boolean;
   showAccountEditor: boolean;
-  showMakePicks: boolean;
+  showUserPicks: boolean;
   showOtherUsers: boolean;
   showRules: boolean;
   allComponents: string[];
@@ -87,13 +88,13 @@ class App extends React.Component<{}, IState> {
     },
     showLogIn: true,
     showAccountEditor: false,
-    showMakePicks: false,
+    showUserPicks: false,
     showOtherUsers: false,
     showRules: false,
     allComponents: [
       'showLogin',
       'showAccountEditor',
-      'showMakePicks',
+      'showUserPicks',
       'showOtherUsers',
       'showRules'
     ],
@@ -212,7 +213,8 @@ class App extends React.Component<{}, IState> {
       showLogIn,
       showAccountEditor,
       showRules,
-      showOtherUsers
+      showOtherUsers,
+      showUserPicks
     }: IState = this.state;
     return (
       <ThemeProvider theme={theme}>
@@ -233,6 +235,7 @@ class App extends React.Component<{}, IState> {
             otherUsers={otherUsers}
           />
         )}
+        {showUserPicks && <UserPicks user={user} />}
         {showRules && <RulesModal changeComponent={this.changeComponent} />}
         {showAccountEditor && (
           <AccountEditor
