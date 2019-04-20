@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import Badge from '../Badge/Badge';
 import { emptyUser } from '../../utils/emptyUser';
-import { IUser } from '../../../../server/src/utils/serverDictionary';
+import { IUser } from '../../utils/clientDictionary';
 
 interface IProps {
   currentUser: IUser;
@@ -32,30 +32,24 @@ class UserPicks extends React.Component<IProps, IState> {
     return setTimeout((): null => null, 750);
   }
 
-  renderOtherUsers: Function = (): Function => {
+  renderOtherUsers: Function = (newComponent: string): Function => {
     const { changeCurrentUser, changeComponent } = this.props;
     changeCurrentUser({ ...emptyUser });
-    return changeComponent('showOtherUsers');
+    return changeComponent(newComponent);
   };
 
   render(): JSX.Element {
-    const {
-      currentUser,
-      changeComponent,
-      changeCurrentUser
-    }: IProps = this.props;
-    const { profilePic, name, house, currentScore } = currentUser;
+    const { currentUser }: IProps = this.props;
+    const { profilePic, name, house, currentScore, sigilUrl } = currentUser;
     return (
       <section data-testid="userPicks">
         <Badge
           src={profilePic}
           name={name}
           house={house}
-          user={currentUser}
+          sigilUrl={sigilUrl}
           currentScore={currentScore}
-          changeComponent={changeComponent}
-          changeCurrentUser={changeCurrentUser}
-          handler={(): Function => this.renderOtherUsers()}
+          handler={(): Function => this.renderOtherUsers('showOtherUsers')}
         />
       </section>
     );

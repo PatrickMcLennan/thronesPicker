@@ -27,6 +27,7 @@ export interface IUser extends Document {
   facebookId: number;
   accessToken: number;
   profilePic: string;
+  sigilUrl: string;
   house: string;
   description: string;
   picks: IPicks;

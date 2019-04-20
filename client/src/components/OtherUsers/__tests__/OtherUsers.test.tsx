@@ -13,12 +13,17 @@ import { IUser } from '../../../utils/clientDictionary';
 afterEach(cleanup);
 
 const changeComponent: Function = jest.fn();
+const changCurrentUser: Function = jest.fn();
 const otherUsers: IUser[] = [fakeUserSolo, fakeUserSolo, fakeUserSolo];
 
 const renderOtherUsers = () =>
   render(
     <ThemeProvider theme={theme}>
-      <OtherUsers changeComponent={changeComponent} otherUsers={otherUsers} />
+      <OtherUsers
+        changeComponent={changeComponent}
+        changeCurrentUser={changCurrentUser}
+        otherUsers={otherUsers}
+      />
     </ThemeProvider>
   );
 

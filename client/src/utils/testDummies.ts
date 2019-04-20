@@ -13,6 +13,7 @@ export const fakeUserSolo: IUser = {
   facebookId: 'user/solo/facebookIdString',
   accessToken: 0,
   profilePic: 'user/solo/profilePic',
+  sigilUrl: 'user/solo/sigilUrl',
   house: 'Stark',
   description: 'user/solo/description',
   picks: {

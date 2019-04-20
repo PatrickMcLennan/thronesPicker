@@ -26,6 +26,7 @@ export interface IUser {
   facebookId: string;
   accessToken: number;
   profilePic: string;
+  sigilUrl: string;
   house: string;
   description: string;
   picks: IPicks;

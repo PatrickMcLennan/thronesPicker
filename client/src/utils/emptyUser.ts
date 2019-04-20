@@ -5,6 +5,7 @@ export const emptyUser: IUser = {
   facebookId: '',
   accessToken: 0,
   profilePic: '',
+  sigilUrl: '',
   house: '',
   description: '',
   picks: {

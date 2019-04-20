@@ -7,12 +7,10 @@ import { IUser } from '../../../../server/src/utils/serverDictionary';
 interface IProps {
   src: string;
   name: string;
-  house: string | null;
-  user: IUser;
+  house: string;
+  sigilUrl: string;
   handler: Function;
   currentScore?: number;
-  changeComponent: Function;
-  changeCurrentUser: Function;
 }
 
 interface IState {
@@ -47,10 +45,7 @@ class Badge extends React.Component<IProps, IState> {
     const { src, name, house, handler, currentScore } = this.props;
     const { triggerAnimation } = this.state;
     return (
-      <StyledFigure
-        data-testid="badge"
-        triggerAnimation={triggerAnimation}
-        onClick={(): Function => handler()}>
+      <StyledFigure data-testid="badge" triggerAnimation={triggerAnimation}>
         <Thumbnail src={src} name={name} />
         <figcaption>
           <p>{name}</p>

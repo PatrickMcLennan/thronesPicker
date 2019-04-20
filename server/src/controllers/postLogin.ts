@@ -44,6 +44,7 @@ export const postLogin = async (
       facebookId: rawUserJson.facebookId.toString(),
       accessToken: rawUserJson.accessToken.toString(),
       profilePic: rawUserJson.profilePic,
+      sigilUrl: '',
       house: {
         name: '',
         sigil: '',

@@ -13,6 +13,8 @@ afterEach(cleanup);
 
 const { name, profilePic, house }: IUser = fakeUserSolo;
 const changeComponent: Function = jest.fn();
+const changeCurrentUser: Function = jest.fn();
+
 const renderNav = () =>
   render(
     <ThemeProvider theme={theme}>
@@ -21,6 +23,7 @@ const renderNav = () =>
         profilePic={profilePic}
         house={house}
         changeComponent={changeComponent}
+        changeCurrentUser={changeCurrentUser}
         randomSuggestion={fakeUserSolo}
       />
     </ThemeProvider>

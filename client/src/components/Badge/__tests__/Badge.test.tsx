@@ -14,7 +14,7 @@ afterEach(cleanup);
 
 const changeComponent: Function = jest.fn();
 const fakeThumbnailHandler: Function = jest.fn();
-const { profilePic, name, house, currentScore }: IUser = fakeUserSolo;
+const { profilePic, name, house, sigilUrl, currentScore }: IUser = fakeUserSolo;
 
 const renderBadge = () =>
   render(
@@ -23,9 +23,8 @@ const renderBadge = () =>
         src={profilePic}
         name={name}
         house={house}
-        currentScore={currentScore}
+        sigilUrl={sigilUrl}
         handler={fakeThumbnailHandler}
-        changeComponent={changeComponent}
       />
     </ThemeProvider>
   );

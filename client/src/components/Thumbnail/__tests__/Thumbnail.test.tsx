@@ -15,11 +15,7 @@ const fakeHandler: Function = jest.fn();
 const renderThumbnail = () =>
   render(
     <ThemeProvider theme={theme}>
-      <Thumbnail
-        src={fakeThumbnailSolo.src}
-        name={fakeThumbnailSolo.name}
-        handler={fakeHandler}
-      />
+      <Thumbnail src={fakeThumbnailSolo.src} name={fakeThumbnailSolo.name} />
     </ThemeProvider>
   );
 
@@ -32,9 +28,5 @@ test('<Thumbnail />', () => {
   expect(thumbnail.getAttribute('src')).toBe(fakeThumbnailSolo.src);
   expect(thumbnail.getAttribute('alt')).toBe(fakeThumbnailSolo.name);
 
-  fireEvent.click(thumbnail);
-
-  expect(fakeHandler).toBeCalledTimes(1);
-  expect(fakeHandler).toBeCalledWith(fakeThumbnailSolo.name);
   // Styles
 });

@@ -17,7 +17,7 @@ import LogInModal from '../LogInModal/LogInModal';
 import RulesModal from '../RulesModal/RulesModal';
 import AccountEditor from '../AccountEditor/AccountEditor';
 import OtherUsers from '../OtherUsers/OtherUsers';
-import UserPicks from '../OtherUsers/OtherUsers';
+import UserPicks from '../UserPicks/UserPicks';
 import Nav from '../Nav/Nav';
 import Message from '../Message/Message';
 
@@ -41,6 +41,7 @@ class App extends React.Component<{}, IState> {
       facebookId: '',
       accessToken: 0,
       profilePic: '',
+      sigilUrl: '',
       house: '',
       description: '',
       picks: {
@@ -68,6 +69,7 @@ class App extends React.Component<{}, IState> {
       facebookId: '',
       accessToken: 0,
       profilePic: '',
+      sigilUrl: '',
       house: '',
       description: '',
       picks: {
@@ -206,7 +208,7 @@ class App extends React.Component<{}, IState> {
     return this.setState(
       (prevState: IState): IState => ({
         ...prevState,
-        currentUser: newCurrentUser
+        currentUser: { ...newCurrentUser }
       })
     );
   };
