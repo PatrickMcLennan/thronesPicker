@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { StyledSection } from './OtherUsers.style';
+import Badge from '../Badge/Badge';
 
 import { IUser } from '../../utils/clientDictionary';
 
@@ -26,6 +27,7 @@ class OtherUsers extends React.Component<IProps, IState> {
       })
     );
   }
+
   componentWillUnmount() {
     this.setState(
       (prevState: IState): IState => ({
@@ -37,12 +39,24 @@ class OtherUsers extends React.Component<IProps, IState> {
   }
 
   render(): JSX.Element {
+    const { otherUsers, changeComponent } = this.props;
     const { triggerAnimation } = this.state;
     return (
       <StyledSection
         data-testid="otherUsers"
         triggerAnimation={triggerAnimation}>
-        <h1>hello from otherUsers</h1>
+        {otherUsers.map(
+          (user: IUser): JSX.Element => (
+            <Badge
+              src={user.profilePic}
+              name={user.name}
+              house={user.house}
+              handler={() => console.log('wait a minute')}
+              currentScore={user.currentScore}
+              changeComponent={changeComponent}
+            />
+          )
+        )}
       </StyledSection>
     );
   }
