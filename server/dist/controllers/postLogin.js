@@ -49,35 +49,30 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
             case 0:
                 _a = req.body, accessToken = _a.accessToken, userID = _a.userID;
                 loginError = false;
-                return [4, node_fetch_1.default("https://graph.facebook.com/v3.2/me?access_token=" + accessToken + "&method=get&pretty=0&sdk=joey&suppress_http_code=1")
-                        .then(function (rawUserData) { return rawUserData.json(); })
-                        .then(function (userJson) { return (rawUserJson = userJson); })
-                        .catch(function (err) { return (loginError = true); })];
-            case 1:
-                _b.sent();
+                rawUserJson = node_fetch_1.default("https://graph.facebook.com/v3.2/me?access_token=" + accessToken + "&method=get&pretty=0&sdk=joey&suppress_http_code=1")
+                    .then(function (rawUserData) { return rawUserData.json(); })
+                    .catch(function (err) { return (loginError = true); });
                 return [4, schemas_1.User.findOne({
                         facebookId: rawUserJson.facebookId
                     })];
-            case 2:
+            case 1:
                 user = _b.sent();
-                return [4, schemas_1.User.find({}, function (allUsers) {
-                        return allUsers
-                            .map(function (savedUser) { return savedUser.toJSON(); })
-                            .filter(function (savedUser) { return savedUser.facebookId !== userID; });
+                return [4, schemas_1.User.find({
+                        facebookId: { $ne: "" + userID }
                     })];
-            case 3:
+            case 2:
                 otherUsers = _b.sent();
-                if (!loginError) return [3, 4];
+                if (!loginError) return [3, 3];
                 return [2, res.send({
                         success: loginError,
                         message: "Sorry - there was an issue logging in at this time.  Please try again later."
                     })];
-            case 4:
-                if (!!user) return [3, 6];
+            case 3:
+                if (!!user) return [3, 5];
                 newUser = new schemas_1.User({
                     name: rawUserJson.name,
-                    facebookId: rawUserJson.facebookId.toString(),
-                    accessToken: rawUserJson.accessToken.toString(),
+                    facebookId: rawUserJson.facebookId,
+                    accessToken: rawUserJson.accessToken,
                     profilePic: rawUserJson.profilePic,
                     sigilUrl: '',
                     house: {
@@ -108,7 +103,7 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                     currentScore: 0
                 });
                 return [4, newUser.save()];
-            case 5:
+            case 4:
                 _b.sent();
                 return [2, res.send({
                         success: true,
@@ -116,7 +111,7 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                         user: newUser,
                         otherUsers: otherUsers
                     })];
-            case 6:
+            case 5:
                 if (user) {
                     return [2, res.send({
                             success: true,
@@ -125,8 +120,8 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                             otherUsers: otherUsers
                         })];
                 }
-                _b.label = 7;
-            case 7: return [2];
+                _b.label = 6;
+            case 6: return [2];
         }
     });
 }); };

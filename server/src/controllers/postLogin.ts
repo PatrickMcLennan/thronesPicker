@@ -15,23 +15,26 @@ export const postLogin = async (
   const { accessToken, userID } = req.body;
 
   let loginError: boolean = false;
-  let rawUserJson: IUser;
 
-  await fetch(
+  const rawUserJson: Promise<IUser | boolean> | any = fetch(
     `https://graph.facebook.com/v3.2/me?access_token=${accessToken}&method=get&pretty=0&sdk=joey&suppress_http_code=1`
   )
     .then((rawUserData): Promise<IUser> => rawUserData.json())
-    .then((userJson: IUser): IUser => (rawUserJson = userJson))
     .catch((err: string): boolean => (loginError = true));
 
   const user: IUser = await User.findOne({
     facebookId: rawUserJson.facebookId
   });
-  const otherUsers: IUser[] = await User.find({}, (allUsers: IUser[]) =>
-    allUsers
-      .map((savedUser: IUser): IUser => savedUser.toJSON())
-      .filter((savedUser: IUser): boolean => savedUser.facebookId !== userID)
-  );
+
+  const otherUsers: IUser[] = await User.find({
+    facebookId: { $ne: `${userID}` }
+  });
+
+  // const otherUsers: IUser[] = await User.find({}, (allUsers: IUser[]) =>
+  //   userArray.filter(
+  //     (savedUser: IUser): boolean => savedUser.facebookId !== userID
+  //   )
+  // );
 
   if (loginError) {
     return res.send({
@@ -41,8 +44,8 @@ export const postLogin = async (
   } else if (!user) {
     const newUser: IUser = new User({
       name: rawUserJson.name,
-      facebookId: rawUserJson.facebookId.toString(),
-      accessToken: rawUserJson.accessToken.toString(),
+      facebookId: rawUserJson.facebookId,
+      accessToken: rawUserJson.accessToken,
       profilePic: rawUserJson.profilePic,
       sigilUrl: '',
       house: {

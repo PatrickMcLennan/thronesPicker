@@ -16,7 +16,25 @@ export const GlobalStyle = createGlobalStyle`
 
   .container {
     position: relative;
+    display: grid;
     overflow-x: hidden;
+    min-height: 100vh;
+    max-width: 100vw;
+    padding: 2rem;
+    background: black; 
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-self: stretch;
+    justify-self: stretch;
+    border-radius: .015%;
+    height: 100%;
+    width: 100%;
   }
 `;
 
