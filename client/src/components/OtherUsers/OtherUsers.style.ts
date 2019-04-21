@@ -18,7 +18,6 @@ const animateIn = keyframes`
 export const StyledSection = styled.section`
   display: none;
   background: yellow;
-  transform: translateY(100%);
   opacity: 0;
   animation-duration: all 0.75s;
 

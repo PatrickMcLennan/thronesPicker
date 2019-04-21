@@ -1,8 +1,19 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 interface IProps {
   triggerAnimation: boolean;
 }
+
+const animateIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(100%)
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%)
+  }
+`;
 
 export const StyledSection = styled.section`
   display: none;
@@ -11,7 +22,14 @@ export const StyledSection = styled.section`
   ${(props: IProps) =>
     props.triggerAnimation &&
     css`
-      display: block;
+      ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')};
+      animation: ${animateIn} forwards;
+    `}
+  ${(props: IProps) =>
+    !props.triggerAnimation &&
+    css`
+      ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')}
+      animation: ${animateIn} backwards;
     `}
 `;
 

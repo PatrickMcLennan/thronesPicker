@@ -1,20 +1,36 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 interface IProps {
   triggerAnimation: boolean;
 }
 
+const animateIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(-100%)
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+`;
+
 export const StyledSection = styled.section`
   display: none;
   background: orangered;
-  transition: all 0.75s;
-  transform: translateY(-100%);
+  animation-duration: 0.75s;
 
   ${(props: IProps) =>
     props.triggerAnimation &&
     css`
       ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')}
-      transform: translateY(0);
+      animation: ${animateIn} forwards;
+    `}
+  ${(props: IProps) =>
+    !props.triggerAnimation &&
+    css`
+      ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')}
+      animation: ${animateIn} backwards;
     `}
 `;
 

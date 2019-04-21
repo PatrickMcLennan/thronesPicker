@@ -3,22 +3,22 @@
 
 // INTERFACES
 export interface IPicks {
-  ironThrone: ICharacter | string;
-  handOfTheKing: ICharacter | string;
-  nightsWatchLordCommander: ICharacter | string;
-  nightsWatch: ICharacter | string;
-  winterfellLord: ICharacter | string;
-  casterlyRockLord: ICharacter | string;
-  dorneLord: ICharacter | string;
-  reachLord: ICharacter | string;
-  riverrunLord: ICharacter | string;
-  ironIslandsLord: ICharacter | string;
-  wardenNorth: ICharacter | string;
-  wardenEast: ICharacter | string;
-  wardenSouth: ICharacter | string;
-  wardenWest: ICharacter | string;
-  dead: ICharacter[] | String[];
-  unpicked: ICharacter[] | String[];
+  ironThrone: ICharacter['name'];
+  handOfTheKing: ICharacter['name'];
+  nightsWatchLordCommander: ICharacter['name'];
+  nightsWatch: ICharacter['name'];
+  winterfellLord: ICharacter['name'];
+  casterlyRockLord: ICharacter['name'];
+  dorneLord: ICharacter['name'];
+  reachLord: ICharacter['name'];
+  riverrunLord: ICharacter['name'];
+  ironIslandsLord: ICharacter['name'];
+  wardenNorth: ICharacter['name'];
+  wardenEast: ICharacter['name'];
+  wardenSouth: ICharacter['name'];
+  wardenWest: ICharacter['name'];
+  dead: ICharacter['name'][];
+  unpicked: ICharacter['name'][];
 }
 
 export interface IUser {
