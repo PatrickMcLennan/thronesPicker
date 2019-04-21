@@ -238,7 +238,7 @@ class App extends React.Component<{}, IState> {
   render(): JSX.Element {
     const { user, otherUsers, serverCall, currentUser }: IState = this.state;
     const { showResult, success, message } = serverCall;
-    const { name, profilePic, house }: IUser = user;
+    const { name }: IUser = user;
     const {
       showLogIn,
       showAccountEditor,
@@ -256,7 +256,9 @@ class App extends React.Component<{}, IState> {
               changeCurrentUser={this.changeCurrentUser}
               changeComponent={this.changeComponent}
               randomSuggestion={
-                otherUsers[Math.floor(Math.random() * otherUsers.length)]
+                otherUsers.length >= 1
+                  ? otherUsers[Math.floor(Math.random() * otherUsers.length)]
+                  : null
               }
             />
           )}

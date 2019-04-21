@@ -4,13 +4,13 @@ import Badge from '../Badge/Badge';
 import Thumbnail from '../Thumbnail/Thumbnail';
 
 import { StyledNav, StyledUl, StyledLi } from './Nav.style';
-import { IUser, IHouse } from '../../utils/clientDictionary';
+import { IUser } from '../../utils/clientDictionary';
 
 interface IProps {
   user: IUser;
   changeComponent: Function;
   changeCurrentUser: Function;
-  randomSuggestion: IUser;
+  randomSuggestion?: IUser;
 }
 
 interface IState {
@@ -25,17 +25,19 @@ class Nav extends React.Component<IProps, IState> {
   };
 
   componentWillMount() {
-    return this.setState((prevState: IState) => ({
-      ...prevState,
-      triggerAnimation: true
-    }));
+    return this.setState({ triggerAnimation: true });
+    // return this.setState((prevState: IState) => ({
+    //   ...prevState,
+    //   triggerAnimation: true
+    // }));
   }
 
   componentWillUnmount() {
-    this.setState((prevState: IState) => ({
-      ...prevState,
-      triggerAnimation: false
-    }));
+    this.setState({ triggerAnimation: false });
+    // this.setState((prevState: IState) => ({
+    //   ...prevState,
+    //   triggerAnimation: false
+    // }));
     return setTimeout((): null => null, 750);
   }
 
@@ -49,12 +51,13 @@ class Nav extends React.Component<IProps, IState> {
   };
 
   toggleMenu: Function = (): any => {
-    return this.setState(
-      (prevState: IState): IState => ({
-        ...prevState,
-        renderMenu: !this.state.renderMenu
-      })
-    );
+    return this.setState({ renderMenu: !this.state.renderMenu });
+    // return this.setState(
+    //   (prevState: IState): IState => ({
+    //     ...prevState,
+    //     renderMenu: !this.state.renderMenu
+    //   })
+    // );
   };
 
   render(): JSX.Element {
@@ -80,43 +83,48 @@ class Nav extends React.Component<IProps, IState> {
             <StyledUl data-testid="nav__ul" triggerAnimation={renderMenu}>
               <StyledLi
                 data-testid="nav__li"
-                onClick={changeComponent('showHome')}
+                onClick={() => changeComponent('showHome')}
                 delay={0.25}>
                 Home
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
-                onClick={changeComponent('showAccountEditor')}
+                onClick={() => changeComponent('showAccountEditor')}
                 delay={0.5}>
                 Edit Account
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
-                onClick={changeComponent('showMakePicks')}
+                onClick={() => changeComponent('showMakePicks')}
                 delay={0.75}>
                 Make Picks
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
-                onClick={changeComponent('showTheRules')}
+                onClick={() => changeComponent('showTheRules')}
                 delay={1}>
                 The Rules
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
-                onClick={changeComponent('showOtherUsers')}
+                onClick={() => changeComponent('showOtherUsers')}
                 delay={1.25}>
                 See other Picks
               </StyledLi>
             </StyledUl>
-
             <Badge
-              src={randomSuggestion.profilePic}
-              name={randomSuggestion.name}
-              house={randomSuggestion.house.name}
-              sigilUrl={randomSuggestion.sigilUrl}
-              handler={this.renderPicks(randomSuggestion, 'showUserPicks')}
-              currentScore={randomSuggestion.currentScore}
+              src={randomSuggestion ? randomSuggestion.profilePic : ''}
+              name={randomSuggestion ? randomSuggestion.name : ''}
+              house={randomSuggestion ? randomSuggestion.house.name : ''}
+              sigilUrl={randomSuggestion ? randomSuggestion.sigilUrl : ''}
+              handler={
+                randomSuggestion
+                  ? () => this.renderPicks(randomSuggestion, 'showUserPicks')
+                  : () => console.log('please work')
+              }
+              currentScore={
+                randomSuggestion ? randomSuggestion.currentScore : 0
+              }
               thumbnailSize={'small'}
             />
           </>
