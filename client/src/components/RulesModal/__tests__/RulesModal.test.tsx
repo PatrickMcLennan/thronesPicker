@@ -21,9 +21,17 @@ const renderRulesModal = () =>
 test('<RulesModal />', () => {
   const { getByTestId } = renderRulesModal();
   const rulesModal = getByTestId('rulesModal');
+  const h4 = getByTestId('rulesModal__h4');
+  const ul = getByTestId('rulesModal__ul');
+  const li = getByTestId('rulesModal__li');
+  const h6 = getByTestId('rulesModal__h6');
+  const children = [h4, ul, li, h6];
 
   // Content
   expect(rulesModal).toBeInTheDocument();
+  children.forEach((child: any) => {
+    expect(rulesModal).toContainElement(child);
+  });
   // Styles
   expect(rulesModal).toHaveStyleRule('background', 'purple');
 });
