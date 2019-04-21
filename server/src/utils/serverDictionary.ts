@@ -40,7 +40,8 @@ export interface ICharacter {
   home: string;
   sigilUrl: string;
   alive: boolean;
-  placement: IPicks;
+  placed: boolean;
+  placement: IPicks | string;
   wikiLink: string;
 }
 

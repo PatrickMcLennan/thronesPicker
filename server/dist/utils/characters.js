@@ -5,8 +5,9 @@ var daenerysTargaryen = {
     house: 'Targaryen',
     home: 'DragonStone',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Targaryen.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Daenerys_Targaryen'
 };
 exports.targaryenArray = [daenerysTargaryen];
@@ -15,8 +16,9 @@ exports.jonSnow = {
     house: 'Stark',
     home: 'Winterfell',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Jon_Snow'
 };
 exports.aryaStark = {
@@ -24,8 +26,9 @@ exports.aryaStark = {
     house: 'Stark',
     home: 'Winterfell',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Arya_Stark'
 };
 exports.sansaStark = {
@@ -33,8 +36,9 @@ exports.sansaStark = {
     house: 'Stark',
     home: 'Winterfell',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Sansa_Stark'
 };
 exports.branStark = {
@@ -42,8 +46,9 @@ exports.branStark = {
     house: 'Stark',
     home: 'Winterfell',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Bran_Stark'
 };
 exports.starkArray = [
@@ -57,8 +62,9 @@ exports.jaimeLannister = {
     house: 'Lannister',
     home: 'Casterly Rock',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Lannister.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Jaime_Lannister'
 };
 exports.cerseiLannister = {
@@ -66,8 +72,9 @@ exports.cerseiLannister = {
     house: 'Lannister',
     home: 'Casterly Rock',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Lannister.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Cersei_Lannister'
 };
 exports.tyrionLannister = {
@@ -75,8 +82,9 @@ exports.tyrionLannister = {
     house: 'Lannister',
     home: 'Casterly Rock',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Lannister.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Tyrion_Lannister'
 };
 exports.lannisterArray = [
@@ -89,8 +97,9 @@ exports.robinArryn = {
     house: 'Arryn',
     home: 'The Vale',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Arryn.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Robin_Arryn'
 };
 exports.arrynArray = [exports.robinArryn];
@@ -99,8 +108,9 @@ var theonGreyjoy = {
     house: 'Greyjoy',
     home: 'Iron Islands',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Greyjoy.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Theon_Greyjoy'
 };
 var yaraGreyjoy = {
@@ -108,8 +118,9 @@ var yaraGreyjoy = {
     house: 'Greyjoy',
     home: 'Iron Islands',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Greyjoy.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Asha_Greyjoy'
 };
 var euronGreyjoy = {
@@ -117,8 +128,9 @@ var euronGreyjoy = {
     house: 'Greyjoy',
     home: 'Iron Islands',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Greyjoy.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Euron_Greyjoy'
 };
 exports.greyjoyArray = [
@@ -131,8 +143,9 @@ var sandorClegane = {
     house: 'Clegane',
     home: 'Westerlands',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Clegane.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Sandor_Clegane'
 };
 var gregorClegane = {
@@ -140,8 +153,9 @@ var gregorClegane = {
     house: 'Clegane',
     home: 'Westerlands',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Clegane.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Gregor_Clegane'
 };
 exports.cleganeArray = [sandorClegane, gregorClegane];
@@ -150,8 +164,9 @@ var edmureTully = {
     house: 'Tully',
     home: 'Riverrun',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Tully.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Edmure_Tully'
 };
 exports.tullyArray = [edmureTully];
@@ -160,8 +175,9 @@ var jorahMormont = {
     house: 'Mormont',
     home: 'Bear Island',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Mormont.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Jorah_Mormont'
 };
 var lyannaMormont = {
@@ -169,8 +185,9 @@ var lyannaMormont = {
     house: 'Mormont',
     home: 'Bear Island',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Mormont.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Lyanna_Mormont'
 };
 exports.mormontArray = [jorahMormont, lyannaMormont];
@@ -179,8 +196,9 @@ var samwellTarly = {
     house: 'Tarly',
     home: 'Horn Hill',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Tarly.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Samwell_Tarly'
 };
 exports.tarlyArray = [samwellTarly];
@@ -189,8 +207,9 @@ var brienneTarth = {
     house: 'Tarth',
     home: 'Evenfall Hall',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Tarth.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Brienne_Tarth'
 };
 exports.tarthArray = [brienneTarth];
@@ -199,8 +218,9 @@ var ellariaSand = {
     house: 'Martell',
     home: 'Sunspear',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Martell.svg&width=240&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Ellaria_Sand'
 };
 exports.martellArray = [ellariaSand];
@@ -209,8 +229,9 @@ var gendryBaratheon = {
     house: 'Baratheon',
     home: 'Kings Landing',
     sigilUrl: 'https://awoiaf.westeros.org/thumb.php?f=House_Baratheon.svg&width=218&lang=en',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Gendry'
 };
 exports.baratheonArray = [gendryBaratheon];
@@ -219,8 +240,9 @@ var bronn = {
     house: 'Unknown',
     home: '?',
     sigilUrl: 'linkTosigilUrl',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Bronn'
 };
 var davosSeaworth = {
@@ -228,8 +250,9 @@ var davosSeaworth = {
     house: 'Unknown',
     home: 'Winterfell',
     sigilUrl: 'linkTosigilUrl',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Davos_Seaworth'
 };
 var melisandre = {
@@ -237,8 +260,9 @@ var melisandre = {
     house: 'Unknown',
     home: 'Asshai',
     sigilUrl: 'linkTosigilUrl',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Melisandre'
 };
 var tormundGiantsbane = {
@@ -246,8 +270,9 @@ var tormundGiantsbane = {
     house: 'Unknown',
     home: 'North of the Wall',
     sigilUrl: 'linkTosigilUrl',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Tormund'
 };
 var bericDondarrion = {
@@ -255,8 +280,9 @@ var bericDondarrion = {
     house: 'Unknown',
     home: 'Blackhaven',
     sigilUrl: 'linkTosigilUrl',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Beric_Dondarrion'
 };
 var eddisonTollet = {
@@ -264,8 +290,9 @@ var eddisonTollet = {
     house: 'Unknown',
     home: '?',
     sigilUrl: 'linkTosigilUrl',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Eddison_Tollett'
 };
 var greyWorm = {
@@ -273,8 +300,9 @@ var greyWorm = {
     house: 'Unknown',
     home: '?',
     sigilUrl: 'linkTosigilUrl',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Grey_Worm'
 };
 var varys = {
@@ -282,8 +310,9 @@ var varys = {
     house: 'Unknown',
     home: '?',
     sigilUrl: 'linkTosigilUrl',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Varys'
 };
 var qyburn = {
@@ -291,8 +320,9 @@ var qyburn = {
     house: 'Unknown',
     home: '?',
     sigilUrl: 'linkTosigilUrl',
-    alive: null,
-    placement: null,
+    alive: false,
+    placed: false,
+    placement: '',
     wikiLink: 'https://awoiaf.westeros.org/index.php/Qyburn'
 };
 exports.unknownArray = [

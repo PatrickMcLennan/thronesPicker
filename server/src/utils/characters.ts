@@ -7,8 +7,9 @@ const daenerysTargaryen: ICharacter = {
   home: 'DragonStone',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Targaryen.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Daenerys_Targaryen'
 };
 export const targaryenArray: ICharacter[] = [daenerysTargaryen];
@@ -20,8 +21,9 @@ export const jonSnow: ICharacter = {
   home: 'Winterfell',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Jon_Snow'
 };
 export const aryaStark: ICharacter = {
@@ -30,8 +32,9 @@ export const aryaStark: ICharacter = {
   home: 'Winterfell',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Arya_Stark'
 };
 export const sansaStark: ICharacter = {
@@ -40,8 +43,9 @@ export const sansaStark: ICharacter = {
   home: 'Winterfell',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Sansa_Stark'
 };
 export const branStark: ICharacter = {
@@ -50,8 +54,9 @@ export const branStark: ICharacter = {
   home: 'Winterfell',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Bran_Stark'
 };
 
@@ -69,8 +74,9 @@ export const jaimeLannister: ICharacter = {
   home: 'Casterly Rock',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Lannister.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Jaime_Lannister'
 };
 export const cerseiLannister: ICharacter = {
@@ -79,8 +85,9 @@ export const cerseiLannister: ICharacter = {
   home: 'Casterly Rock',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Lannister.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Cersei_Lannister'
 };
 export const tyrionLannister: ICharacter = {
@@ -89,8 +96,9 @@ export const tyrionLannister: ICharacter = {
   home: 'Casterly Rock',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Lannister.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Tyrion_Lannister'
 };
 
@@ -107,8 +115,9 @@ export const robinArryn: ICharacter = {
   home: 'The Vale',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Arryn.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Robin_Arryn'
 };
 export const arrynArray: ICharacter[] = [robinArryn];
@@ -120,8 +129,9 @@ const theonGreyjoy: ICharacter = {
   home: 'Iron Islands',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Greyjoy.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Theon_Greyjoy'
 };
 const yaraGreyjoy: ICharacter = {
@@ -130,8 +140,9 @@ const yaraGreyjoy: ICharacter = {
   home: 'Iron Islands',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Greyjoy.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Asha_Greyjoy'
 };
 const euronGreyjoy: ICharacter = {
@@ -140,8 +151,9 @@ const euronGreyjoy: ICharacter = {
   home: 'Iron Islands',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Greyjoy.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Euron_Greyjoy'
 };
 export const greyjoyArray: ICharacter[] = [
@@ -157,8 +169,9 @@ const sandorClegane: ICharacter = {
   home: 'Westerlands',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Clegane.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Sandor_Clegane'
 };
 const gregorClegane: ICharacter = {
@@ -167,8 +180,9 @@ const gregorClegane: ICharacter = {
   home: 'Westerlands',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Clegane.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Gregor_Clegane'
 };
 export const cleganeArray: ICharacter[] = [sandorClegane, gregorClegane];
@@ -180,8 +194,9 @@ const edmureTully: ICharacter = {
   home: 'Riverrun',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Tully.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Edmure_Tully'
 };
 export const tullyArray: ICharacter[] = [edmureTully];
@@ -193,8 +208,9 @@ const jorahMormont: ICharacter = {
   home: 'Bear Island',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Mormont.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Jorah_Mormont'
 };
 const lyannaMormont: ICharacter = {
@@ -203,8 +219,9 @@ const lyannaMormont: ICharacter = {
   home: 'Bear Island',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Mormont.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Lyanna_Mormont'
 };
 export const mormontArray: ICharacter[] = [jorahMormont, lyannaMormont];
@@ -216,8 +233,9 @@ const samwellTarly: ICharacter = {
   home: 'Horn Hill',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Tarly.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Samwell_Tarly'
 };
 export const tarlyArray: ICharacter[] = [samwellTarly];
@@ -229,8 +247,9 @@ const brienneTarth: ICharacter = {
   home: 'Evenfall Hall',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Tarth.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Brienne_Tarth'
 };
 export const tarthArray: ICharacter[] = [brienneTarth];
@@ -242,8 +261,9 @@ const ellariaSand: ICharacter = {
   home: 'Sunspear',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Martell.svg&width=240&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Ellaria_Sand'
 };
 export const martellArray: ICharacter[] = [ellariaSand];
@@ -255,8 +275,9 @@ const gendryBaratheon: ICharacter = {
   home: 'Kings Landing',
   sigilUrl:
     'https://awoiaf.westeros.org/thumb.php?f=House_Baratheon.svg&width=218&lang=en',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Gendry'
 };
 export const baratheonArray: ICharacter[] = [gendryBaratheon];
@@ -267,8 +288,9 @@ const bronn: ICharacter = {
   house: 'Unknown',
   home: '?',
   sigilUrl: 'linkTosigilUrl',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Bronn'
 };
 const davosSeaworth: ICharacter = {
@@ -276,8 +298,9 @@ const davosSeaworth: ICharacter = {
   house: 'Unknown',
   home: 'Winterfell',
   sigilUrl: 'linkTosigilUrl',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Davos_Seaworth'
 };
 const melisandre: ICharacter = {
@@ -285,8 +308,9 @@ const melisandre: ICharacter = {
   house: 'Unknown',
   home: 'Asshai',
   sigilUrl: 'linkTosigilUrl',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Melisandre'
 };
 const tormundGiantsbane: ICharacter = {
@@ -294,8 +318,9 @@ const tormundGiantsbane: ICharacter = {
   house: 'Unknown',
   home: 'North of the Wall',
   sigilUrl: 'linkTosigilUrl',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Tormund'
 };
 
@@ -304,8 +329,9 @@ const bericDondarrion: ICharacter = {
   house: 'Unknown',
   home: 'Blackhaven',
   sigilUrl: 'linkTosigilUrl',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Beric_Dondarrion'
 };
 const eddisonTollet: ICharacter = {
@@ -313,8 +339,9 @@ const eddisonTollet: ICharacter = {
   house: 'Unknown',
   home: '?',
   sigilUrl: 'linkTosigilUrl',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Eddison_Tollett'
 };
 
@@ -323,8 +350,9 @@ const greyWorm: ICharacter = {
   house: 'Unknown',
   home: '?',
   sigilUrl: 'linkTosigilUrl',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Grey_Worm'
 };
 const varys: ICharacter = {
@@ -332,8 +360,9 @@ const varys: ICharacter = {
   house: 'Unknown',
   home: '?',
   sigilUrl: 'linkTosigilUrl',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Varys'
 };
 
@@ -342,8 +371,9 @@ const qyburn: ICharacter = {
   house: 'Unknown',
   home: '?',
   sigilUrl: 'linkTosigilUrl',
-  alive: null,
-  placement: null,
+  alive: false,
+  placed: false,
+  placement: '',
   wikiLink: 'https://awoiaf.westeros.org/index.php/Qyburn'
 };
 export const unknownArray: ICharacter[] = [

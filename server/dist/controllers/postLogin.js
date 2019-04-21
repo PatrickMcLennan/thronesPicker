@@ -54,7 +54,6 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                 return [4, getUser.json()];
             case 2:
                 userJSON = _b.sent();
-                console.log(userJSON);
                 if (!(userJSON.id === userID)) return [3, 10];
                 return [4, schemas_1.User.findOne({ facebookId: userID })];
             case 3:
@@ -77,7 +76,7 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                     name: userJSON.name,
                     facebookId: userJSON.id,
                     accessToken: accessToken,
-                    profilePic: userJSON.profilePic,
+                    profilePic: "//graph.facebook.com/" + userJSON.id + "/picture",
                     sigilUrl: '',
                     house: {
                         name: '',

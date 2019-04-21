@@ -19,8 +19,6 @@ export const postLogin = async (
   );
   const userJSON: IUser = await getUser.json();
 
-  console.log(userJSON);
-
   if (userJSON.id === userID) {
     const userExists: IUser = await User.findOne({ facebookId: userID });
 
@@ -39,7 +37,7 @@ export const postLogin = async (
         name: userJSON.name,
         facebookId: userJSON.id,
         accessToken: accessToken,
-        profilePic: userJSON.profilePic,
+        profilePic: `//graph.facebook.com/${userJSON.id}/picture`,
         sigilUrl: '',
         house: {
           name: '',
