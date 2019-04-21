@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = require("mongoose");
-var Character_1 = require("./Character");
 var UserSchema = new mongoose_1.Schema({
     name: {
         type: String,
@@ -26,7 +25,7 @@ var UserSchema = new mongoose_1.Schema({
             type: String
         },
         members: {
-            type: [Character_1.Character]
+            type: [String]
         },
         wikiLink: String
     },
@@ -35,51 +34,51 @@ var UserSchema = new mongoose_1.Schema({
     },
     picks: {
         ironThrone: {
-            type: Character_1.Character
+            type: String
         },
         handOfTheKing: {
-            type: Character_1.Character
+            type: String
         },
         nightsWatchLordCommander: {
-            type: Character_1.Character
+            type: String
         },
         nightsWatch: {
-            type: Character_1.Character
+            type: String
         },
         winterfellLord: {
-            type: Character_1.Character
+            type: String
         },
         casterlyRockLord: {
-            type: Character_1.Character
+            type: String
         },
         dorneLord: {
-            type: Character_1.Character
+            type: String
         },
         reachLord: {
-            type: Character_1.Character
+            type: String
         },
         riverrunLord: {
-            type: Character_1.Character
+            type: String
         },
         ironIslandsLord: {
-            type: Character_1.Character
+            type: String
         },
         wardenNorth: {
-            type: Character_1.Character
+            type: String
         },
         wardenEast: {
-            type: Character_1.Character
+            type: String
         },
         wardenSouth: {
-            type: Character_1.Character
+            type: String
         },
         wardenWest: {
-            type: Character_1.Character
+            type: String
         },
         dead: {
-            type: [Character_1.Character]
+            type: [String]
         },
-        unpicked: [Character_1.Character]
+        unpicked: [Object]
     },
     currentScore: {
         type: Number,

@@ -17,8 +17,8 @@ export interface IPicks {
   wardenEast: ICharacter | string;
   wardenSouth: ICharacter | string;
   wardenWest: ICharacter | string;
-  dead: ICharacter[];
-  unpicked: ICharacter[];
+  dead: ICharacter[] | String[];
+  unpicked: ICharacter[] | String[];
 }
 
 export interface IUser {
@@ -39,7 +39,7 @@ export interface ICharacter {
   home: string;
   sigilUrl: string;
   alive: boolean;
-  placement: IPicks;
+  placement: IPicks | string;
   wikiLink: string;
 }
 

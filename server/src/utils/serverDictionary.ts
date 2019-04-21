@@ -18,8 +18,8 @@ export interface IPicks {
   wardenEast: ICharacter | string;
   wardenSouth: ICharacter | string;
   wardenWest: ICharacter | string;
-  dead: ICharacter[];
-  unpicked: ICharacter[];
+  dead: ICharacter[] | string;
+  unpicked: ICharacter[] | string;
 }
 
 export interface IUser extends Document {
@@ -34,7 +34,7 @@ export interface IUser extends Document {
   currentScore: number;
 }
 
-export interface ICharacter extends Document {
+export interface ICharacter {
   name: string;
   house: string;
   home: string;

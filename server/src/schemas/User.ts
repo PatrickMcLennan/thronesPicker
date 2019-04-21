@@ -1,5 +1,5 @@
 import { model, Model, Schema } from 'mongoose';
-import { Character } from './Character';
+// import { Character } from './Character';
 import { IUser } from '../utils';
 
 const UserSchema: Schema<IUser> = new Schema(
@@ -27,7 +27,7 @@ const UserSchema: Schema<IUser> = new Schema(
         type: String
       },
       members: {
-        type: [Character]
+        type: [String]
       },
       wikiLink: String
     },
@@ -36,51 +36,51 @@ const UserSchema: Schema<IUser> = new Schema(
     },
     picks: {
       ironThrone: {
-        type: Character
+        type: String
       },
       handOfTheKing: {
-        type: Character
+        type: String
       },
       nightsWatchLordCommander: {
-        type: Character
+        type: String
       },
       nightsWatch: {
-        type: Character
+        type: String
       },
       winterfellLord: {
-        type: Character
+        type: String
       },
       casterlyRockLord: {
-        type: Character
+        type: String
       },
       dorneLord: {
-        type: Character
+        type: String
       },
       reachLord: {
-        type: Character
+        type: String
       },
       riverrunLord: {
-        type: Character
+        type: String
       },
       ironIslandsLord: {
-        type: Character
+        type: String
       },
       wardenNorth: {
-        type: Character
+        type: String
       },
       wardenEast: {
-        type: Character
+        type: String
       },
       wardenSouth: {
-        type: Character
+        type: String
       },
       wardenWest: {
-        type: Character
+        type: String
       },
       dead: {
-        type: [Character]
+        type: [String]
       },
-      unpicked: [Character]
+      unpicked: [Object]
     },
     currentScore: {
       type: Number,
