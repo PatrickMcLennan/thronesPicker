@@ -43,37 +43,41 @@ var node_fetch_1 = __importDefault(require("node-fetch"));
 var schemas_1 = require("../schemas");
 var utils_1 = require("../utils");
 exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var _a, accessToken, userID, loginError, rawUserJson, user, otherUsers, newUser;
+    var _a, accessToken, userID, getUser, userJSON, userExists, otherUsers, newUser, otherUsers, otherUsers;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _a = req.body, accessToken = _a.accessToken, userID = _a.userID;
-                loginError = false;
-                rawUserJson = node_fetch_1.default("https://graph.facebook.com/v3.2/me?access_token=" + accessToken + "&method=get&pretty=0&sdk=joey&suppress_http_code=1")
-                    .then(function (rawUserData) { return rawUserData.json(); })
-                    .catch(function (err) { return (loginError = true); });
-                return [4, schemas_1.User.findOne({
-                        facebookId: rawUserJson.facebookId
-                    })];
+                return [4, node_fetch_1.default("https://graph.facebook.com/v3.2/me?access_token=" + accessToken + "&method=get&pretty=0&sdk=joey&suppress_http_code=1")];
             case 1:
-                user = _b.sent();
+                getUser = _b.sent();
+                return [4, getUser.json()];
+            case 2:
+                userJSON = _b.sent();
+                console.log(userJSON);
+                if (!(userJSON.id === userID)) return [3, 10];
+                return [4, schemas_1.User.findOne({ facebookId: userID })];
+            case 3:
+                userExists = _b.sent();
+                if (!userExists) return [3, 5];
                 return [4, schemas_1.User.find({
                         facebookId: { $ne: "" + userID }
                     })];
-            case 2:
+            case 4:
                 otherUsers = _b.sent();
-                if (!loginError) return [3, 3];
                 return [2, res.send({
-                        success: loginError,
-                        message: "Sorry - there was an issue logging in at this time.  Please try again later."
+                        success: true,
+                        message: "I wish you luck in the wars to come.",
+                        user: userExists,
+                        otherUsers: otherUsers
                     })];
-            case 3:
-                if (!!user) return [3, 5];
+            case 5:
+                if (!!userExists) return [3, 8];
                 newUser = new schemas_1.User({
-                    name: rawUserJson.name,
-                    facebookId: rawUserJson.facebookId,
-                    accessToken: rawUserJson.accessToken,
-                    profilePic: rawUserJson.profilePic,
+                    name: userJSON.name,
+                    facebookId: userJSON.id,
+                    accessToken: accessToken,
+                    profilePic: userJSON.profilePic,
                     sigilUrl: '',
                     house: {
                         name: '',
@@ -102,8 +106,13 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                     },
                     currentScore: 0
                 });
+                return [4, schemas_1.User.find({
+                        facebookId: { $ne: newUser.facebookId }
+                    })];
+            case 6:
+                otherUsers = _b.sent();
                 return [4, newUser.save()];
-            case 4:
+            case 7:
                 _b.sent();
                 return [2, res.send({
                         success: true,
@@ -111,17 +120,20 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                         user: newUser,
                         otherUsers: otherUsers
                     })];
-            case 5:
-                if (user) {
-                    return [2, res.send({
-                            success: true,
-                            message: "I wish you luck in the wars to come.",
-                            user: user,
-                            otherUsers: otherUsers
-                        })];
-                }
-                _b.label = 6;
-            case 6: return [2];
+            case 8:
+                if (!userExists) return [3, 10];
+                return [4, schemas_1.User.find({
+                        facebookId: { $ne: "" + userID }
+                    })];
+            case 9:
+                otherUsers = _b.sent();
+                return [2, res.send({
+                        success: true,
+                        message: "I wish you luck in the wars to come.",
+                        user: userExists,
+                        otherUsers: otherUsers
+                    })];
+            case 10: return [2];
         }
     });
 }); };

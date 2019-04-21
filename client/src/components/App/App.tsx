@@ -11,7 +11,7 @@ import {
   IPostMakePicsResponse
 } from '../../utils/clientDictionary';
 import { GlobalStyle, theme } from '../../utils/globalStyles';
-import { fbLogIn } from '../../utils/auth';
+import { fbLogInInit, fbLogIn } from '../../utils/auth';
 
 import LogInModal from '../LogInModal/LogInModal';
 import RulesModal from '../RulesModal/RulesModal';
@@ -117,6 +117,10 @@ class App extends React.Component<{}, IState> {
     ],
     otherUsers: []
   };
+
+  componentDidMount() {
+    return fbLogInInit();
+  }
 
   getLogIn: Function = async (): Promise<void> => {
     const callBack: Function = ({

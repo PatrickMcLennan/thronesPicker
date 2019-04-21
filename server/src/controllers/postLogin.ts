@@ -14,80 +14,80 @@ export const postLogin = async (
 ) => {
   const { accessToken, userID } = req.body;
 
-  let loginError: boolean = false;
-
-  const rawUserJson: Promise<IUser | boolean> | any = fetch(
+  const getUser = await fetch(
     `https://graph.facebook.com/v3.2/me?access_token=${accessToken}&method=get&pretty=0&sdk=joey&suppress_http_code=1`
-  )
-    .then((rawUserData): Promise<IUser> => rawUserData.json())
-    .catch((err: string): boolean => (loginError = true));
+  );
+  const userJSON: IUser = await getUser.json();
 
-  const user: IUser = await User.findOne({
-    facebookId: rawUserJson.facebookId
-  });
+  console.log(userJSON);
 
-  const otherUsers: IUser[] = await User.find({
-    facebookId: { $ne: `${userID}` }
-  });
+  if (userJSON.id === userID) {
+    const userExists: IUser = await User.findOne({ facebookId: userID });
 
-  // const otherUsers: IUser[] = await User.find({}, (allUsers: IUser[]) =>
-  //   userArray.filter(
-  //     (savedUser: IUser): boolean => savedUser.facebookId !== userID
-  //   )
-  // );
-
-  if (loginError) {
-    return res.send({
-      success: loginError,
-      message: `Sorry - there was an issue logging in at this time.  Please try again later.`
-    });
-  } else if (!user) {
-    const newUser: IUser = new User({
-      name: rawUserJson.name,
-      facebookId: rawUserJson.facebookId,
-      accessToken: rawUserJson.accessToken,
-      profilePic: rawUserJson.profilePic,
-      sigilUrl: '',
-      house: {
-        name: '',
-        sigil: '',
-        members: [],
-        wikiLink: ''
-      },
-      description: '',
-      picks: {
-        ironThrone: '',
-        handOfTheKing: '',
-        nightsWatchLordCommander: '',
-        nightsWatch: '',
-        winterfellLord: '',
-        casterlyRockLord: '',
-        dorneLord: '',
-        reachLord: '',
-        riverrrunLord: '',
-        ironIslandsLord: '',
-        wardenNorth: '',
-        wardenEast: '',
-        wardenSouth: '',
-        wardenWest: '',
-        dead: [],
-        unpicked: [...allCharacters]
-      },
-      currentScore: 0
-    });
-    await newUser.save();
-    return res.send({
-      success: true,
-      message: `Welcome to thronePicker ${newUser.name}`,
-      user: newUser,
-      otherUsers
-    });
-  } else if (user) {
-    return res.send({
-      success: true,
-      message: `I wish you luck in the wars to come.`,
-      user,
-      otherUsers
-    });
+    if (userExists) {
+      const otherUsers: IUser[] = await User.find({
+        facebookId: { $ne: `${userID}` }
+      });
+      return res.send({
+        success: true,
+        message: `I wish you luck in the wars to come.`,
+        user: userExists,
+        otherUsers
+      });
+    } else if (!userExists) {
+      const newUser: IUser = new User({
+        name: userJSON.name,
+        facebookId: userJSON.id,
+        accessToken: accessToken,
+        profilePic: userJSON.profilePic,
+        sigilUrl: '',
+        house: {
+          name: '',
+          sigil: '',
+          members: [],
+          wikiLink: ''
+        },
+        description: '',
+        picks: {
+          ironThrone: '',
+          handOfTheKing: '',
+          nightsWatchLordCommander: '',
+          nightsWatch: '',
+          winterfellLord: '',
+          casterlyRockLord: '',
+          dorneLord: '',
+          reachLord: '',
+          riverrrunLord: '',
+          ironIslandsLord: '',
+          wardenNorth: '',
+          wardenEast: '',
+          wardenSouth: '',
+          wardenWest: '',
+          dead: [],
+          unpicked: [...allCharacters]
+        },
+        currentScore: 0
+      });
+      const otherUsers: IUser[] = await User.find({
+        facebookId: { $ne: newUser.facebookId }
+      });
+      await newUser.save();
+      return res.send({
+        success: true,
+        message: `Welcome to thronePicker ${newUser.name}`,
+        user: newUser,
+        otherUsers
+      });
+    } else if (userExists) {
+      const otherUsers: IUser[] = await User.find({
+        facebookId: { $ne: `${userID}` }
+      });
+      return res.send({
+        success: true,
+        message: `I wish you luck in the wars to come.`,
+        user: userExists,
+        otherUsers
+      });
+    }
   }
 };
