@@ -34,3 +34,8 @@ const CharacterSchema: Schema<ICharacter> = new Schema({
     required: 'Each Character requires a link to their Wiki'
   }
 });
+
+export const Character: Model<ICharacter> = model<ICharacter>(
+  'Character',
+  CharacterSchema
+);

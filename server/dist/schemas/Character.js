@@ -34,4 +34,5 @@ var CharacterSchema = new mongoose_1.Schema({
         required: 'Each Character requires a link to their Wiki'
     }
 });
+exports.Character = mongoose_1.model('Character', CharacterSchema);
 //# sourceMappingURL=Character.js.map

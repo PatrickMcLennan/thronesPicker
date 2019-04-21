@@ -1,10 +1,4 @@
-import {
-  jonSnow,
-  starkArray,
-  lannisterArray,
-  greyjoyArray,
-  allCharacters
-} from '../../../server/src/utils/characters';
+import { jonSnow, lannisterArray } from '../../../server/src/utils/characters';
 
 import { IUser } from './clientDictionary';
 

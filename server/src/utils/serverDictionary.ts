@@ -34,7 +34,7 @@ export interface IUser extends Document {
   currentScore: number;
 }
 
-export interface ICharacter {
+export interface ICharacter extends Document {
   name: string;
   house: string;
   home: string;
