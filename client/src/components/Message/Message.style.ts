@@ -30,6 +30,7 @@ export const StyledDiv = styled.div`
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
+  padding: 1rem 3rem;
 
   backface-visibility: visible;
   animation: ${animateIn} 0.25s backwards;
