@@ -2,10 +2,12 @@ import { default as fetch } from 'node-fetch';
 import { User } from '../schemas';
 import {
   IUser,
+  ICharacter,
   IPostLoginRequest,
   IPostLoginResponseSuccess,
   IPostLoginResponseFailure,
-  allCharacters
+  allCharacters,
+  unknownArray
 } from '../utils';
 
 export const postLogin = async (
@@ -28,7 +30,7 @@ export const postLogin = async (
       });
       return res.send({
         success: true,
-        message: `I wish you luck in the wars to come.`,
+        message: `Good fortune in the wars to come.`,
         user: userExists,
         otherUsers
       });
@@ -40,9 +42,9 @@ export const postLogin = async (
         profilePic: `//graph.facebook.com/${userJSON.id}/picture`,
         sigilUrl: '',
         house: {
-          name: '',
-          sigil: '',
-          members: [],
+          name: 'Unknown',
+          sigil: 'Unknow House sigil Url',
+          members: unknownArray,
           wikiLink: ''
         },
         description: '',
@@ -82,7 +84,7 @@ export const postLogin = async (
       });
       return res.send({
         success: true,
-        message: `I wish you luck in the wars to come.`,
+        message: `Good fortune in the wars to come.`,
         user: userExists,
         otherUsers
       });

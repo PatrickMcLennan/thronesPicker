@@ -3,7 +3,7 @@ import * as React from 'react';
 import Badge from '../Badge/Badge';
 import Thumbnail from '../Thumbnail/Thumbnail';
 
-import { StyledNav, StyledUl, StyledLi } from './Nav.style';
+import { StyledNav, StyledUl, StyledLi, StyledH4 } from './Nav.style';
 import { IUser } from '../../utils/clientDictionary';
 
 interface IProps {
@@ -69,11 +69,16 @@ class Nav extends React.Component<IProps, IState> {
         data-testid="nav"
         triggerAnimation={triggerAnimation}
         onClick={this.toggleMenu}>
-        <h4 data-testid="nav__name">{name.length >= 1 ? name : 'Log In'}</h4>
+        <div>
+          <StyledH4 data-testid="nav__name">
+            {name.length >= 1 ? name : 'Log In'}
+          </StyledH4>
+          <StyledH4 data-testid="nav__house">{house.name}</StyledH4>
+        </div>
         <Thumbnail
           src={profilePic.length >= 1 ? profilePic : 'placeholder'}
           name={name}
-          size={'small'}
+          size={'big'}
         />
         {renderMenu && (
           <>

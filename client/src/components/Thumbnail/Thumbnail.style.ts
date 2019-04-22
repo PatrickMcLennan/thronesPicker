@@ -11,14 +11,14 @@ export const StyledImg = styled.img`
   ${(props: IProps) =>
     props.size === 'small' &&
     css`
-      height: 2rem;
-      width: 2rem;
+      height: 4rem;
+      width: 4rem;
     `}
 
   ${(props: IProps) =>
     props.size === 'big' &&
     css`
-      height: 4rem;
-      width: 4rem;
+      height: 6rem;
+      width: 6rem;
     `}
 `;

@@ -27,7 +27,7 @@ const UserSchema: Schema<IUser> = new Schema(
         type: String
       },
       members: {
-        type: [String]
+        type: [Object]
       },
       wikiLink: String
     },
@@ -36,49 +36,49 @@ const UserSchema: Schema<IUser> = new Schema(
     },
     picks: {
       ironThrone: {
-        type: String
+        type: Object
       },
       handOfTheKing: {
-        type: String
+        type: Object
       },
       nightsWatchLordCommander: {
-        type: String
+        type: Object
       },
       nightsWatch: {
-        type: String
+        type: Object
       },
       winterfellLord: {
-        type: String
+        type: Object
       },
       casterlyRockLord: {
-        type: String
+        type: Object
       },
       dorneLord: {
-        type: String
+        type: Object
       },
       reachLord: {
-        type: String
+        type: Object
       },
       riverrunLord: {
-        type: String
+        type: Object
       },
       ironIslandsLord: {
-        type: String
+        type: Object
       },
       wardenNorth: {
-        type: String
+        type: Object
       },
       wardenEast: {
-        type: String
+        type: Object
       },
       wardenSouth: {
-        type: String
+        type: Object
       },
       wardenWest: {
-        type: String
+        type: Object
       },
       dead: {
-        type: [String]
+        type: [Object]
       },
       unpicked: [Object]
     },

@@ -9,15 +9,20 @@ export const StyledNav = styled.nav`
   display: none;
   position: fixed;
   top: 2.5vh;
-  left: 0;
-  right: 0;
+  left: 77.5%;
+  right: 2.5%;
   z-index: 100;
+  cursor: pointer;
+  border: 1px solid red;
+  opacity: 0;
 
   ${(props: IProps) =>
     props.triggerAnimation &&
     css`
       ${({ theme: { flexin } }: any) =>
-        flexin(`flex-end`, `center`, `row`, `no-wrap`)}
+        flexin(`flex-end`, `center`, `row`, `no-wrap`)};
+      opacity: 1;
+      transition: all 0.35s;
     `}
 `;
 
@@ -36,4 +41,10 @@ export const StyledLi = styled.li`
   transform-origin: right;
   display: block;
   font-size: 2.5rem;
+`;
+
+export const StyledH4 = styled.h4`
+  font-size: 2.1rem;
+  text-transform: uppercase;
+  font-weight: 100;
 `;

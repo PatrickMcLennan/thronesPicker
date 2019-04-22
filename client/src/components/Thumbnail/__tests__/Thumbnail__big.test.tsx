@@ -34,6 +34,6 @@ test('<Thumbnail />', () => {
 
   // Styles
 
-  expect(thumbnail).toHaveStyleRule('height', '4rem');
-  expect(thumbnail).toHaveStyleRule('width', '4rem');
+  expect(thumbnail).toHaveStyleRule('height', '6rem');
+  expect(thumbnail).toHaveStyleRule('width', '6rem');
 });

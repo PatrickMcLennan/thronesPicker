@@ -66,7 +66,7 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                 otherUsers = _b.sent();
                 return [2, res.send({
                         success: true,
-                        message: "I wish you luck in the wars to come.",
+                        message: "Good fortune in the wars to come.",
                         user: userExists,
                         otherUsers: otherUsers
                     })];
@@ -79,9 +79,9 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                     profilePic: "//graph.facebook.com/" + userJSON.id + "/picture",
                     sigilUrl: '',
                     house: {
-                        name: '',
-                        sigil: '',
-                        members: [],
+                        name: 'Unknown',
+                        sigil: 'Unknow House sigil Url',
+                        members: utils_1.unknownArray,
                         wikiLink: ''
                     },
                     description: '',
@@ -128,7 +128,7 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                 otherUsers = _b.sent();
                 return [2, res.send({
                         success: true,
-                        message: "I wish you luck in the wars to come.",
+                        message: "Good fortune in the wars to come.",
                         user: userExists,
                         otherUsers: otherUsers
                     })];
