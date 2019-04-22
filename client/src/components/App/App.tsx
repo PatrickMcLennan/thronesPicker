@@ -141,7 +141,7 @@ class App extends React.Component<{}, IState> {
   changeComponent: Function = (
     newComponent: string,
   ): any => {
-    const currentComponent: string = this.state.allComponents.find((component: string): boolean => this.state.[component].render === true)
+    const currentComponent: any = this.state.allComponents.find((component: string): any => this.state.[component].render === true)
     this.setState((prevState: IState) => ({
       ...prevState,
       [currentComponent]: {
