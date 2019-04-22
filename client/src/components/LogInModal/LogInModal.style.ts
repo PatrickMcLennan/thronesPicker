@@ -17,13 +17,14 @@ const animateIn = keyframes`
 
 export const StyledSection = styled.section`
   display: none;
-  background: orangered;
+  border: 1px solid white;
   animation-duration: 0.75s;
 
   ${(props: IProps) =>
     props.triggerAnimation &&
     css`
-      ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')}
+      ${({ theme: { flexin } }: any) =>
+        flexin('space-evenly', 'center', 'column')}
       animation: ${animateIn} forwards;
     `}
   ${(props: IProps) =>
@@ -35,8 +36,22 @@ export const StyledSection = styled.section`
 `;
 
 export const StyledH1 = styled.h1`
-  font-size: 3.25rem;
+  font-size: 6.25vw;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.25rem;
+  font-weight: 100;
+  margin: 3rem 0;
+  color: white;
+
+  & span:first-of-type {
+    font-size: 7vw;
+    margin-bottom: 0.5vh;
+  }
+  & span:last-of-type {
+    font-size: 7vw;
+    margin-top: 0.5vh;
+  }
 `;
 
 export const StyledH2 = styled.h2`

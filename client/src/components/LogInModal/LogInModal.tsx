@@ -42,7 +42,9 @@ class LogInModal extends React.Component<IProps, IState> {
       <StyledSection
         triggerAnimation={triggerAnimation}
         data-testid="logInModal">
-        <StyledH1 data-testid="logInModal__h1">thronePicker</StyledH1>
+        <StyledH1 data-testid="logInModal__h1">
+          <span>t</span>hronePicke<span>r</span>{' '}
+        </StyledH1>
         <StyledH2 data-testid="logInModal__h2">
           Place your bets on who will win the Game of Thrones
         </StyledH2>

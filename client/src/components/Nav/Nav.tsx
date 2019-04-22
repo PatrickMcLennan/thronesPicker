@@ -108,8 +108,8 @@ class Nav extends React.Component<IProps, IState> {
               <StyledLi
                 data-testid="nav__li"
                 onClick={() => changeComponent('showOtherUsers')}
-                delay={1.25}>
-                triggerAnimation={renderMenu}
+                delay={1.25}
+                triggerAnimation={renderMenu}>
                 See other Picks
               </StyledLi>
             </StyledUl>

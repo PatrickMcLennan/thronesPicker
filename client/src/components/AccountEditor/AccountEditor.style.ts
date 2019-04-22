@@ -17,7 +17,7 @@ const animateIn = keyframes`
 
 export const StyledSection = styled.section`
   display: none;
-  background: red;
+  border: 1px solid white;
 
   ${(props: IProps) =>
     props.triggerAnimation &&

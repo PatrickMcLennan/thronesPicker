@@ -1,5 +1,24 @@
 import { css, createGlobalStyle } from 'styled-components';
 
+interface IColorGradient {
+  first: string;
+  last: string;
+}
+
+const backgrounds: IColorGradient[] = [
+  { first: '#2980B9', last: '#6DD5FA' },
+  { first: '#36D1DC', last: '#5B86E5' },
+  { first: '#EF3B36', last: '#FFFFFF' },
+  { first: '#1f4037', last: '#99f2c8' },
+  { first: '#334d50', last: '#cbcaa5' }
+];
+
+const getBackground: Function = (): string => {
+  const gradient: IColorGradient =
+    backgrounds[Math.floor(Math.random() * backgrounds.length)];
+  return `${gradient.first}, ${gradient.last}`;
+};
+
 export const GlobalStyle = createGlobalStyle`
   *,
   *::before,
@@ -12,6 +31,7 @@ export const GlobalStyle = createGlobalStyle`
   html {
     font-size: 62.5%;
     box-sizing: border-box;
+    font-family: 'Lato'
   }
 
   .container {
@@ -21,7 +41,7 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     max-width: 100vw;
     padding: 2rem;
-    background: black; 
+    background: linear-gradient(${getBackground()}); 
   }
 
   section {
@@ -35,6 +55,9 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: .015%;
     height: 100%;
     width: 100%;
+  }
+  li {
+    list-style-type: none;
   }
 `;
 
