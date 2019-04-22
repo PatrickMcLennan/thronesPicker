@@ -28,23 +28,14 @@ const animateOut = keyframes`
 `;
 
 export const StyledNav = styled.nav`
-  display: none;
+  ${({ theme: { flexin } }: any) =>
+    flexin(`flex-end`, `center`, `row`, `no-wrap`)};
   position: fixed;
   top: 2.5vh;
   left: 77.5%;
   right: 2.5%;
   z-index: 100;
   cursor: pointer;
-  opacity: 0;
-
-  ${(props: IProps) =>
-    props.triggerAnimation &&
-    css`
-      ${({ theme: { flexin } }: any) =>
-        flexin(`flex-end`, `center`, `row`, `no-wrap`)};
-      opacity: 1;
-      transition: all 0.35s;
-    `}
 `;
 
 export const StyledH4 = styled.h4`
@@ -82,13 +73,13 @@ export const StyledLi = styled.li`
   transform-origin: right;
   display: none;
   font-size: 2.5rem;
-  opacity: 0;
   transform: translateY(100%) rotateY(90deg);
 
   ${(props: IProps) =>
     props.triggerAnimation &&
     css`
       display: block;
+
       animation: ${animateIn} 0.35s forwards;
       animation-delay: ${(props: IProps) => `${props.delay}s`};
     `}
@@ -96,6 +87,8 @@ export const StyledLi = styled.li`
     !props.triggerAnimation &&
     css`
       display: block;
+      opacity: 1;
+      transform: translateY(0) rotateY(0);
       animation: ${animateOut} 0.35s forwards;
       animation-delay: ${(props: IProps) => `${props.delay}s`};
     `}

@@ -21,6 +21,7 @@ import OtherUsers from '../OtherUsers/OtherUsers';
 import UserPicks from '../UserPicks/UserPicks';
 import Nav from '../Nav/Nav';
 import Message from '../Message/Message';
+import { allCharacters } from '../../../../server/src/utils';
 
 interface IState {
   user: IUser;
@@ -31,7 +32,7 @@ interface IState {
   showUserPicks: ISection;
   showOtherUsers: ISection;
   showRules: ISection;
-  allComponents: string[];
+  currentComponent: string;
   otherUsers: IUser[];
 }
 
@@ -124,13 +125,7 @@ class App extends React.Component<{}, IState> {
       animate: false,
       render: false
     },
-    allComponents: [
-      'showLogin',
-      'showAccountEditor',
-      'showUserPicks',
-      'showOtherUsers',
-      'showRules'
-    ],
+    currentComponent: 'showLogIn',
     otherUsers: []
   };
 
@@ -138,10 +133,8 @@ class App extends React.Component<{}, IState> {
     return fbLogInInit();
   }
 
-  changeComponent: Function = (
-    newComponent: string,
-  ): any => {
-    const currentComponent: any = this.state.allComponents.find((component: string): any => this.state.[component].render === true)
+  changeComponent: Function = (newComponent: string): any => {
+    const { currentComponent } = this.state;
     this.setState((prevState: IState) => ({
       ...prevState,
       [currentComponent]: {
@@ -157,7 +150,8 @@ class App extends React.Component<{}, IState> {
       () =>
         this.setState((prevState: IState) => ({
           ...prevState,
-          [currentComponent]: { animate: false, render: false }
+          [currentComponent]: { animate: false, render: false },
+          currentComponent: newComponent
         })),
       750
     );

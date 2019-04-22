@@ -32,18 +32,10 @@ class Nav extends React.Component<IProps, IState> {
 
   componentWillMount(): void {
     return this.setState({ triggerAnimation: true });
-    // return this.setState((prevState: IState) => ({
-    //   ...prevState,
-    //   triggerAnimation: true
-    // }));
   }
 
   componentWillUnmount() {
     this.setState({ triggerAnimation: false });
-    // this.setState((prevState: IState) => ({
-    //   ...prevState,
-    //   triggerAnimation: false
-    // }));
     return setTimeout((): null => null, 750);
   }
 
@@ -58,9 +50,29 @@ class Nav extends React.Component<IProps, IState> {
 
   toggleMenu: Function = (): any => {
     const { renderMenu } = this.state;
-    return renderMenu
-      ? setTimeout(() => this.setState({ renderMenu: false }), 1100)
-      : this.setState({ renderMenu: true });
+    if (!renderMenu) {
+      return this.setState(
+        (prevState: IState): IState => ({
+          ...prevState,
+          renderMenu: true,
+          triggerAnimation: true
+        })
+      );
+    } else if (renderMenu) {
+      this.setState(
+        (prevState: IState): IState => ({
+          ...prevState,
+          triggerAnimation: false
+        })
+      );
+      return setTimeout(
+        () =>
+          this.setState(
+            (prevState: IState): IState => ({ ...prevState, renderMenu: false })
+          ),
+        750
+      );
+    }
   };
 
   render(): JSX.Element {
@@ -85,31 +97,32 @@ class Nav extends React.Component<IProps, IState> {
         />
         {renderMenu && (
           <>
-            <StyledUl data-testid="nav__ul" triggerAnimation={renderMenu}>
+            <StyledUl data-testid="nav__ul">
               <StyledLi
                 data-testid="nav__li"
+                triggerAnimation={triggerAnimation}
                 onClick={() => changeComponent('showHome')}
                 delay={0.15}>
                 Home
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
+                triggerAnimation={triggerAnimation}
                 onClick={() => changeComponent('showAccountEditor')}
-                triggerAnimation={renderMenu}
                 delay={0.3}>
                 Edit Account
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
                 onClick={() => changeComponent('showMakePicks')}
-                triggerAnimation={renderMenu}
+                triggerAnimation={triggerAnimation}
                 delay={0.45}>
                 Make Picks
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
                 onClick={() => changeComponent('showTheRules')}
-                triggerAnimation={renderMenu}
+                triggerAnimation={triggerAnimation}
                 delay={0.6}>
                 The Rules
               </StyledLi>
@@ -117,7 +130,7 @@ class Nav extends React.Component<IProps, IState> {
                 data-testid="nav__li"
                 onClick={() => changeComponent('showOtherUsers')}
                 delay={0.75}
-                triggerAnimation={renderMenu}>
+                triggerAnimation={triggerAnimation}>
                 See other Picks
               </StyledLi>
             </StyledUl>
