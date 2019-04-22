@@ -24,7 +24,7 @@ class Nav extends React.Component<IProps, IState> {
     triggerAnimation: false
   };
 
-  componentWillMount() {
+  componentWillMount(): void {
     return this.setState({ triggerAnimation: true });
     // return this.setState((prevState: IState) => ({
     //   ...prevState,
@@ -69,10 +69,7 @@ class Nav extends React.Component<IProps, IState> {
         data-testid="nav"
         triggerAnimation={triggerAnimation}
         onClick={this.toggleMenu}>
-        <h1 data-testid="nav__name">{name.length >= 1 ? name : 'Log In'}</h1>
-        <h1 data-testid="nav__house">
-          {house.name.length >= 1 ? house.name : 'Choose Your House'}
-        </h1>
+        <h4 data-testid="nav__name">{name.length >= 1 ? name : 'Log In'}</h4>
         <Thumbnail
           src={profilePic.length >= 1 ? profilePic : 'placeholder'}
           name={name}
@@ -90,18 +87,21 @@ class Nav extends React.Component<IProps, IState> {
               <StyledLi
                 data-testid="nav__li"
                 onClick={() => changeComponent('showAccountEditor')}
+                triggerAnimation={renderMenu}
                 delay={0.5}>
                 Edit Account
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
                 onClick={() => changeComponent('showMakePicks')}
+                triggerAnimation={renderMenu}
                 delay={0.75}>
                 Make Picks
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
                 onClick={() => changeComponent('showTheRules')}
+                triggerAnimation={renderMenu}
                 delay={1}>
                 The Rules
               </StyledLi>
@@ -109,6 +109,7 @@ class Nav extends React.Component<IProps, IState> {
                 data-testid="nav__li"
                 onClick={() => changeComponent('showOtherUsers')}
                 delay={1.25}>
+                triggerAnimation={renderMenu}
                 See other Picks
               </StyledLi>
             </StyledUl>

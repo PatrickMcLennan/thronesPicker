@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cleanup, render, wait } from 'react-testing-library';
+import { cleanup, render } from 'react-testing-library';
 import 'jest-styled-components';
 import 'jest-dom/extend-expect';
 import { ThemeProvider } from 'styled-components';
@@ -32,7 +32,6 @@ test('<Nav />', () => {
   const { getByTestId, queryByTestId, queryAllByTestId, debug } = renderNav();
   const nav = getByTestId('nav');
   const nav__name = getByTestId('nav__name');
-  const nav__house = getByTestId('nav__house');
   const thumbnail = getByTestId('thumbnail');
 
   const nav__ul = queryByTestId('nav__ul');
@@ -43,7 +42,6 @@ test('<Nav />', () => {
   expect(thumbnail.getAttribute('src')).toBe(profilePic);
   expect(thumbnail.getAttribute('alt')).toBe(name);
   expect(nav__name.textContent).toBe(name);
-  expect(nav__house.textContent).toBe(house.name);
 
   expect(nav__ul).not.toBeInTheDocument();
   lis.forEach((menuItem: HTMLElement) =>

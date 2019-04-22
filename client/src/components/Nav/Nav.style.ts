@@ -11,6 +11,7 @@ export const StyledNav = styled.nav`
   top: 2.5vh;
   left: 0;
   right: 0;
+  z-index: 100;
 
   ${(props: IProps) =>
     props.triggerAnimation &&
