@@ -17,8 +17,13 @@ const animateIn = keyframes`
 `;
 
 export const StyledDiv = styled.div`
-  display: block;
+  position: absolute;
+  margin: 15vh ;
   opacity: 0;
+  bottom: 10vh;
+  left: 35%;
+  right: 35%;
+  border: 5px solid green;
   transform: translate3d(100%, 100%, 100%);
 
   ${(props: IProps) =>

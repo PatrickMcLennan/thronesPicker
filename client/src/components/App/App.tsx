@@ -100,7 +100,7 @@ class App extends React.Component<{}, IState> {
     },
     serverCall: {
       showResult: false,
-      success: true,
+      success: false,
       message: ''
     },
     showLogIn: true,
@@ -144,15 +144,24 @@ class App extends React.Component<{}, IState> {
   };
 
   showMessage: Function = ({ success, message }: IServerCall) => {
-    this.setState({
-      serverCall: { showResult: true, success, message }
-    });
-
+    this.setState(
+      (prevState: IState): IState => ({
+        ...prevState,
+        serverCall: {
+          showResult: true,
+          success,
+          message
+        }
+      })
+    );
     return setTimeout(
       (): void =>
-        this.setState({
-          serverCall: { showResult: false, success: false, message: '' }
-        }),
+        this.setState(
+          (prevState: IState): IState => ({
+            ...prevState,
+            serverCall: { showResult: false, success: false, message: '' }
+          })
+        ),
       2750
     );
   };

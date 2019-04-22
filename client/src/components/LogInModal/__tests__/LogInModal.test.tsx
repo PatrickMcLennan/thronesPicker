@@ -37,7 +37,6 @@ test('<LogInModal />', async () => {
   expect(button.textContent).toBe('Log In With Facebook');
 
   // Styles
-  expect(logInModal).toHaveStyleRule('background', 'orangered');
   fireEvent.click(button);
   await wait(() => {
     expect(getLogIn).toBeCalledTimes(1);
