@@ -96,7 +96,7 @@ export const StyledLi = styled.li`
     !props.triggerAnimation &&
     css`
       display: block;
-      animation: ${animateOut} 0.35s backwards;
+      animation: ${animateOut} 0.35s forwards;
       animation-delay: ${(props: IProps) => `${props.delay}s`};
     `}
 `;
