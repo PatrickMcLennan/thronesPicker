@@ -3,7 +3,13 @@ import * as React from 'react';
 import Badge from '../Badge/Badge';
 import Thumbnail from '../Thumbnail/Thumbnail';
 
-import { StyledNav, StyledUl, StyledLi, StyledH4 } from './Nav.style';
+import {
+  StyledNav,
+  StyledUl,
+  StyledLi,
+  StyledH4,
+  StyledH4Box
+} from './Nav.style';
 import { IUser } from '../../utils/clientDictionary';
 
 interface IProps {
@@ -51,13 +57,10 @@ class Nav extends React.Component<IProps, IState> {
   };
 
   toggleMenu: Function = (): any => {
-    return this.setState({ renderMenu: !this.state.renderMenu });
-    // return this.setState(
-    //   (prevState: IState): IState => ({
-    //     ...prevState,
-    //     renderMenu: !this.state.renderMenu
-    //   })
-    // );
+    const { renderMenu } = this.state;
+    return renderMenu
+      ? setTimeout(() => this.setState({ renderMenu: false }), 1100)
+      : this.setState({ renderMenu: true });
   };
 
   render(): JSX.Element {
@@ -69,12 +72,12 @@ class Nav extends React.Component<IProps, IState> {
         data-testid="nav"
         triggerAnimation={triggerAnimation}
         onClick={this.toggleMenu}>
-        <div>
+        <StyledH4Box>
           <StyledH4 data-testid="nav__name">
             {name.length >= 1 ? name : 'Log In'}
           </StyledH4>
-          <StyledH4 data-testid="nav__house">{house.name}</StyledH4>
-        </div>
+          <StyledH4 data-testid="nav__house">House {house.name}</StyledH4>
+        </StyledH4Box>
         <Thumbnail
           src={profilePic.length >= 1 ? profilePic : 'placeholder'}
           name={name}
@@ -86,34 +89,34 @@ class Nav extends React.Component<IProps, IState> {
               <StyledLi
                 data-testid="nav__li"
                 onClick={() => changeComponent('showHome')}
-                delay={0.25}>
+                delay={0.15}>
                 Home
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
                 onClick={() => changeComponent('showAccountEditor')}
                 triggerAnimation={renderMenu}
-                delay={0.5}>
+                delay={0.3}>
                 Edit Account
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
                 onClick={() => changeComponent('showMakePicks')}
                 triggerAnimation={renderMenu}
-                delay={0.75}>
+                delay={0.45}>
                 Make Picks
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
                 onClick={() => changeComponent('showTheRules')}
                 triggerAnimation={renderMenu}
-                delay={1}>
+                delay={0.6}>
                 The Rules
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
                 onClick={() => changeComponent('showOtherUsers')}
-                delay={1.25}
+                delay={0.75}
                 triggerAnimation={renderMenu}>
                 See other Picks
               </StyledLi>

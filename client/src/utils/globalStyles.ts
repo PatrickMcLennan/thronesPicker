@@ -31,7 +31,8 @@ export const GlobalStyle = createGlobalStyle`
   html {
     font-size: 62.5%;
     box-sizing: border-box;
-    font-family: 'Lato'
+    font-family: 'Lato';
+    color: white;
   }
 
   .container {
