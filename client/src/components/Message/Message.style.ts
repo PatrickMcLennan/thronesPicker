@@ -8,53 +8,53 @@ interface IProps {
 const animateIn = keyframes`
   0% {
     opacity: 0;
-  transform: translate3d(100%, 100%, 100%);
   }
   100% {
     opacity: 1;
-    transform: translate3d(0,0,0);
+  }
+`;
+
+const animateOut = keyframes`
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 `;
 
 export const StyledDiv = styled.div`
-  position: absolute;
-  margin: 15vh ;
+  position: fixed;
   opacity: 0;
-  bottom: 10vh;
-  left: 20%;
-  right: 20%;
-  border: 5px solid green;
+  bottom: 20vh;
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
 
   backface-visibility: visible;
-        border: 1px solid white;
-        transform-style: preserve-3d;
-        transform: translate3d(0);
-        animation: ${animateIn} 0.25s backwards;
-
-  ${(props: IProps) =>
-    !props.success &&
-    css`
-      border-top: 3px solid red;
-      border-bottom: 3px solid red;
-    `}
+  animation: ${animateIn} 0.25s backwards;
+  border-top: 3px solid ${({ theme: { colors } }: any) => colors.error};
+  border-bottom: 3px solid ${({ theme: { colors } }: any) => colors.error};
 
   ${(props: IProps) =>
     props.success &&
     css`
-      border-top: 3px solid green;
-      border-bottom: 3px solid green;
+      border-top: 3px solid ${({ theme: { colors } }: any) => colors.success};
+      border-bottom: 3px solid ${({ theme: { colors } }: any) => colors.success};
     `}
 
   ${(props: IProps) =>
     props.triggerAnimation &&
     css`
       backface-visibility: visible;
-      border: 1px solid white;
-      transform-style: preserve-3d;
-      transform: translate3d(0);
-      animation: ${animateIn} 0.25s forwards;
+      animation: ${animateIn} 0.35s forwards;
     `}
+    ${(props: IProps) =>
+      !props.triggerAnimation &&
+      css`
+        backface-visibility: visible;
+        animation: ${animateOut} 0.35s forwards;
+      `}
 `;
 
 export const StyledH5 = styled.h5`

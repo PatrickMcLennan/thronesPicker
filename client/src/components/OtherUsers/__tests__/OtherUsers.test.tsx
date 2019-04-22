@@ -52,5 +52,4 @@ test('<OtherUsers />', () => {
   expect(badges.length).toBe(fakeOtherUsers.length);
 
   // Styles
-  expect(otherUsers).toHaveStyleRule('background', 'yellow');
 });

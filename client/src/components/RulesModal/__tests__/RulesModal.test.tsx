@@ -33,5 +33,4 @@ test('<RulesModal />', () => {
     expect(rulesModal).toContainElement(child);
   });
   // Styles
-  expect(rulesModal).toHaveStyleRule('background', 'purple');
 });

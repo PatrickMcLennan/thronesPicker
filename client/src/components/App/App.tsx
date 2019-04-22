@@ -157,7 +157,6 @@ class App extends React.Component<{}, IState> {
         }
       })
     );
-    console.log(success, message);
     return setTimeout(
       (): void =>
         this.setState(

@@ -75,6 +75,10 @@ export const theme = {
       flex-direction: ${fd};
       flex-wrap: ${fw};
     `,
+  colors: {
+    success: '#00b894',
+    error: '#d63031'
+  },
   inputs: {
     inputsMain: css`
       text-align: right;
