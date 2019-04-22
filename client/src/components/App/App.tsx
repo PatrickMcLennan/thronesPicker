@@ -129,6 +129,7 @@ class App extends React.Component<{}, IState> {
       success,
       message
     }: IPostLoginResponse): void => {
+      this.showMessage(success, message);
       this.setState(
         (prevState: IState): IState => ({
           ...prevState,
@@ -138,12 +139,14 @@ class App extends React.Component<{}, IState> {
           showOtherUsers: true
         })
       );
-      this.showMessage(success, message);
     };
     return fbLogIn(callBack);
   };
 
-  showMessage: Function = ({ success, message }: IServerCall) => {
+  showMessage: Function = (
+    success: IServerCall['success'],
+    message: IServerCall['message']
+  ) => {
     this.setState(
       (prevState: IState): IState => ({
         ...prevState,
@@ -154,6 +157,7 @@ class App extends React.Component<{}, IState> {
         }
       })
     );
+    console.log(success, message);
     return setTimeout(
       (): void =>
         this.setState(

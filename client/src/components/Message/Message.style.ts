@@ -21,10 +21,10 @@ export const StyledDiv = styled.div`
   margin: 15vh ;
   opacity: 0;
   bottom: 10vh;
-  left: 35%;
-  right: 35%;
+  left: 20%;
+  right: 20%;
   border: 5px solid green;
-  transform: translate3d(100%, 100%, 100%);
+  text-align: center;
 
   ${(props: IProps) =>
     !props.success &&
@@ -50,4 +50,12 @@ export const StyledDiv = styled.div`
       transition: all 0.5s;
       animation: ${animateIn} 0.5s forwards;
     `}
+`;
+
+export const StyledH5 = styled.h5`
+  font-size: 1.75rem;
+  color: white;
+  letter-spacing: 0.25rem;
+  font-weight: 300;
+  text-transform: uppercase;
 `;

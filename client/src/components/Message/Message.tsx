@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { StyledDiv } from './Message.style';
+import { StyledDiv, StyledH5 } from './Message.style';
 
 interface IProps {
   success: boolean;
@@ -28,7 +28,7 @@ class Message extends React.Component<IProps, IState> {
         triggerAnimation={triggerAnimation}
         data-testid="message"
         success={success}>
-        <h1 data-testid="message__h1">{message}</h1>
+        <StyledH5 data-testid="message__h1">{message}</StyledH5>
       </StyledDiv>
     );
   }
