@@ -6,7 +6,7 @@ interface IProps {
 
 const animateIn = keyframes`
   0% {
-    transform: translateY(100%);
+    transform: translateY(100vh);
   opacity: 0;
   }
   100% {
@@ -20,7 +20,7 @@ const animateOut = keyframes`
   opacity: 1;
   }
   100% {
-    transform: translateY(100%);
+    transform: translateY(100vh);
   opacity: 0;
   }
 `;

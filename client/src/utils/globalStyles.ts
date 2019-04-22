@@ -56,6 +56,7 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: .015%;
     height: 100%;
     width: 100%;
+    z-index: 1;
   }
   li {
     list-style-type: none;

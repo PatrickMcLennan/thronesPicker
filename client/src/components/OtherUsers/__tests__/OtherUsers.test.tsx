@@ -20,6 +20,7 @@ const renderOtherUsers = () =>
   render(
     <ThemeProvider theme={theme}>
       <OtherUsers
+        animate={true}
         changeComponent={changeComponent}
         changeCurrentUser={changCurrentUser}
         otherUsers={fakeOtherUsers}

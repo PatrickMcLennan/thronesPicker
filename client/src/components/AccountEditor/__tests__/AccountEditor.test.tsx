@@ -19,6 +19,7 @@ const renderAccountEditor: Function = (): any =>
     <ThemeProvider theme={theme}>
       <AccountEditor
         user={fakeUserSolo}
+        animate={true}
         changeComponent={changeComponent}
         putEditAccount={putEditAccount}
       />
