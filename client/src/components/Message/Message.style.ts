@@ -26,6 +26,12 @@ export const StyledDiv = styled.div`
   border: 5px solid green;
   text-align: center;
 
+  backface-visibility: visible;
+        border: 1px solid white;
+        transform-style: preserve-3d;
+        transform: translate3d(0);
+        animation: ${animateIn} 0.25s backwards;
+
   ${(props: IProps) =>
     !props.success &&
     css`
@@ -47,8 +53,7 @@ export const StyledDiv = styled.div`
       border: 1px solid white;
       transform-style: preserve-3d;
       transform: translate3d(0);
-      transition: all 0.5s;
-      animation: ${animateIn} 0.5s forwards;
+      animation: ${animateIn} 0.25s forwards;
     `}
 `;
 
