@@ -52,14 +52,37 @@ export const StyledH1 = styled.h1`
     font-size: 7vw;
     margin-top: 0.5vh;
   }
+
+  &::after {
+    content: '';
+    height: 1px;
+    width: 80%;
+    margin: 1rem auto;
+    display: block;
+    background: white;
+  }
 `;
 
 export const StyledH2 = styled.h2`
   font-size: 2.25rem;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 0.25rem;
+  font-weight: 300;
   text-align: center;
 `;
 
 export const StyledButton = styled.button`
   border: 1px solid white;
+  text-transform: uppercase;
+  font-style: italic;
+  color: white;
+  font-weight: 100;
+  letter-spacing: 0.25rem;
   background: #3b5999;
+  padding: 1.5rem 4.5vw;
+  font-size: 2.25rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  scale: 1;
 `;
