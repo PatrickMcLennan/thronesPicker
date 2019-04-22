@@ -53,6 +53,11 @@ export interface ILocation {
   wikiLink: string;
 }
 
+export interface ISection {
+  animate: boolean;
+  render: boolean;
+}
+
 // SERVERCALL
 export interface IServerCall {
   showResult: boolean;
@@ -81,7 +86,7 @@ export interface IPutEditAccountResponse extends Response {
   newDescription: string;
 }
 
-// MAKE/CHANGE PICS
+// MAKE/CHANGE PICkS
 export interface IPostMakePicsRequest extends Request {
   facebookId: string;
   newPicks: IPicks;

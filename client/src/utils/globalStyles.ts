@@ -63,6 +63,9 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const theme = {
+  animation: {
+    timeMain: 750
+  },
   flexin: (
     jc: string = `center`,
     ai: string = `center`,

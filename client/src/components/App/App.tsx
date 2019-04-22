@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 
 import {
   IUser,
+  ISection,
   IServerCall,
   IPostLoginResponse,
   IPutEditAccountRequest,
@@ -25,11 +26,11 @@ interface IState {
   user: IUser;
   currentUser: IUser;
   serverCall: IServerCall;
-  showLogIn: boolean;
-  showAccountEditor: boolean;
-  showUserPicks: boolean;
-  showOtherUsers: boolean;
-  showRules: boolean;
+  showLogIn: ISection;
+  showAccountEditor: ISection;
+  showUserPicks: ISection;
+  showOtherUsers: ISection;
+  showRules: ISection;
   allComponents: string[];
   otherUsers: IUser[];
 }
@@ -103,11 +104,26 @@ class App extends React.Component<{}, IState> {
       success: false,
       message: ''
     },
-    showLogIn: true,
-    showAccountEditor: false,
-    showUserPicks: false,
-    showOtherUsers: false,
-    showRules: false,
+    showLogIn: {
+      animate: true,
+      render: true
+    },
+    showAccountEditor: {
+      animate: false,
+      render: false
+    },
+    showUserPicks: {
+      animate: false,
+      render: false
+    },
+    showOtherUsers: {
+      animate: false,
+      render: false
+    },
+    showRules: {
+      animate: false,
+      render: false
+    },
     allComponents: [
       'showLogin',
       'showAccountEditor',
@@ -122,6 +138,31 @@ class App extends React.Component<{}, IState> {
     return fbLogInInit();
   }
 
+  changeComponent: Function = (
+    newComponent: string,
+  ): any => {
+    const currentComponent: string = this.state.allComponents.find((component: string): boolean => this.state.[component].render === true)
+    this.setState((prevState: IState) => ({
+      ...prevState,
+      [currentComponent]: {
+        animate: false,
+        render: true
+      },
+      [newComponent]: {
+        animate: true,
+        render: true
+      }
+    }));
+    return setTimeout(
+      () =>
+        this.setState((prevState: IState) => ({
+          ...prevState,
+          [currentComponent]: { animate: false, render: false }
+        })),
+      750
+    );
+  };
+
   getLogIn: Function = async (): Promise<void> => {
     const callBack: Function = ({
       user,
@@ -135,8 +176,14 @@ class App extends React.Component<{}, IState> {
           ...prevState,
           user,
           otherUsers,
-          showLogIn: false,
-          showOtherUsers: true
+          showLogIn: {
+            animate: false,
+            render: true
+          },
+          showOtherUsers: {
+            animate: true,
+            render: true
+          }
         })
       );
     };
@@ -232,18 +279,6 @@ class App extends React.Component<{}, IState> {
         ...prevState,
         currentUser: { ...newCurrentUser }
       })
-    );
-  };
-
-  changeComponent: Function = (newComponent: string): void => {
-    return this.state.allComponents.forEach(
-      (componentKey: string): void =>
-        this.setState(
-          (prevState: IState): IState => ({
-            ...prevState,
-            [componentKey]: componentKey === newComponent
-          })
-        )
     );
   };
 
