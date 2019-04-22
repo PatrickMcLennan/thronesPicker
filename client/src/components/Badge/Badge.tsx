@@ -11,6 +11,7 @@ interface IProps {
   onClick?: Function;
   handler?: Function;
   currentScore?: number;
+  delay?: number;
   thumbnailSize: string;
 }
 

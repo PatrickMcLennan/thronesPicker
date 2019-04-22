@@ -1,37 +1,20 @@
 import * as React from 'react';
 
 import Badge from '../Badge/Badge';
+import SectionHeader from '../SectionHeader/SectionHeader';
 import { emptyUser } from '../../utils/emptyUser';
 import { IUser } from '../../utils/clientDictionary';
 
+import { StyledSection } from './UserPicks.style';
+
 interface IProps {
+  animate: boolean;
   currentUser: IUser;
   changeCurrentUser: Function;
   changeComponent: Function;
 }
 
-interface IState {
-  triggerAnimation: boolean;
-}
-
-class UserPicks extends React.Component<IProps, IState> {
-  state = {
-    triggerAnimation: false
-  };
-
-  componentDidMount(): void {
-    return this.setState(
-      (prevState: IState): IState => ({ ...prevState, triggerAnimation: true })
-    );
-  }
-
-  componentWillUnmount() {
-    this.setState(
-      (prevState: IState): IState => ({ ...prevState, triggerAnimation: false })
-    );
-    return setTimeout((): null => null, 750);
-  }
-
+class UserPicks extends React.Component<IProps, {}> {
   renderOtherUsers: Function = (newComponent: string): Function => {
     const { changeCurrentUser, changeComponent } = this.props;
     changeCurrentUser({ ...emptyUser });
@@ -39,10 +22,11 @@ class UserPicks extends React.Component<IProps, IState> {
   };
 
   render(): JSX.Element {
-    const { currentUser }: IProps = this.props;
+    const { currentUser, animate }: IProps = this.props;
     const { profilePic, name, house, currentScore, sigilUrl } = currentUser;
     return (
-      <section data-testid="userPicks">
+      <StyledSection data-testid="userPicks" animate={animate}>
+        <SectionHeader firstLetter="U" word="ser Pick" lastLetter="S" />
         <Badge
           src={profilePic}
           name={name}
@@ -52,7 +36,7 @@ class UserPicks extends React.Component<IProps, IState> {
           handler={(): Function => this.renderOtherUsers('showOtherUsers')}
           thumbnailSize={'small'}
         />
-      </section>
+      </StyledSection>
     );
   }
 }

@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import Badge from '../Badge/Badge';
+import SectionHeader from '../SectionHeader/SectionHeader';
 
 import {
   StyledForm,
@@ -15,6 +16,7 @@ import { IUser, IHouse } from '../../utils/clientDictionary';
 
 interface IProps {
   user: IUser;
+  animate: boolean;
   changeComponent: Function;
   putEditAccount: Function;
 }
@@ -22,31 +24,16 @@ interface IProps {
 interface IState {
   newHouse: IHouse;
   newDescription: string;
-  triggerAnimation: boolean;
   showHouseList: boolean;
 }
 
 class AccountEditor extends React.Component<IProps, IState> {
   state = {
     newHouse: this.props.user.house,
+
     newDescription: this.props.user.description,
-    triggerAnimation: false,
     showHouseList: false
   };
-
-  componentDidMount(): void {
-    return this.setState(
-      (prevState: IState): IState => ({ ...prevState, triggerAnimation: true })
-    );
-  }
-
-  componentWillUnmount() {
-    this.setState((prevState: IState) => ({
-      ...prevState,
-      triggerAnimation: false
-    }));
-    return setTimeout((): null => null, 750);
-  }
 
   renderHouseList: Function = (): void => {
     return this.setState(
@@ -82,17 +69,14 @@ class AccountEditor extends React.Component<IProps, IState> {
   };
 
   render(): JSX.Element {
-    const {
-      user: { house }
-    } = this.props;
-    const { triggerAnimation, newDescription, showHouseList } = this.state;
+    const { user, animate } = this.props;
+    const { house } = user;
+    const { newDescription, showHouseList } = this.state;
     return (
-      <StyledSection
-        data-testid="accountEditor"
-        triggerAnimation={triggerAnimation}>
+      <StyledSection data-testid="accountEditor" triggerAnimation={animate}>
+        <SectionHeader firstLetter="E" word="dit Accoun" lastLetter="t" />
         <StyledForm
           data-testid="accountEditor__form"
-          triggerAnimation={triggerAnimation}
           onSubmit={this.handleSubmit}>
           <StyledLabel
             data-testid="accountEditor__label--newHouse"

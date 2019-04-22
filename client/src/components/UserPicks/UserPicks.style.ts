@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 
 interface IProps {
-  triggerAnimation: boolean;
+  animate: boolean;
 }
 
 const animateIn = keyframes`
@@ -21,14 +21,14 @@ export const StyledSection = styled.section`
   transform: translateX(-100%);
 
   ${(props: IProps) =>
-    props.triggerAnimation &&
+    props.animate &&
     css`
-      animation: ${animateIn} forwards;
+      animation: ${animateIn} 0.5s forwards;
     `}
 
   ${(props: IProps) =>
-    !props.triggerAnimation &&
+    !props.animate &&
     css`
-      animation: ${animateIn} backwards;
+      animation: ${animateIn} 0.5s backwards;
     `}
 `;

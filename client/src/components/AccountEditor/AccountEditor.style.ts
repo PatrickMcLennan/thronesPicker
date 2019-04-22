@@ -14,6 +14,16 @@ const animateIn = keyframes`
     transform: translateX(0%)
   }
 `;
+const animateOut = keyframes`
+  0% {
+    opacity: 1;
+    transform: translateX(0%)
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%)
+  }
+`;
 
 export const StyledSection = styled.section`
   display: none;
@@ -23,25 +33,18 @@ export const StyledSection = styled.section`
     props.triggerAnimation &&
     css`
       ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')};
-      animation: ${animateIn} forwards;
+      animation: ${animateIn} 0.75s forwards;
     `}
   ${(props: IProps) =>
     !props.triggerAnimation &&
     css`
       ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')}
-      animation: ${animateIn} backwards;
+      animation: ${animateOut} .75s forwards;
     `}
 `;
 
 export const StyledForm = styled.form`
-  display: none;
   background: purple;
-
-  ${(props: IProps) =>
-    props.triggerAnimation &&
-    css`
-      display: block;
-    `}
 `;
 
 export const StyledLabel = styled.label`

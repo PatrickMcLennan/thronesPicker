@@ -21,7 +21,6 @@ import OtherUsers from '../OtherUsers/OtherUsers';
 import UserPicks from '../UserPicks/UserPicks';
 import Nav from '../Nav/Nav';
 import Message from '../Message/Message';
-import { allCharacters } from '../../../../server/src/utils';
 
 interface IState {
   user: IUser;
@@ -177,7 +176,8 @@ class App extends React.Component<{}, IState> {
           showOtherUsers: {
             animate: true,
             render: true
-          }
+          },
+          currentComponent: 'showOtherUsers'
         })
       );
     };
@@ -303,25 +303,30 @@ class App extends React.Component<{}, IState> {
               }
             />
           )}
-          {showLogIn && <LogInModal getLogIn={this.getLogIn} />}
-          {showOtherUsers && (
+          {showLogIn.render && <LogInModal getLogIn={this.getLogIn} />}
+          {showOtherUsers.render && (
             <OtherUsers
+              animate={showOtherUsers.animate}
               changeCurrentUser={this.changeCurrentUser}
               changeComponent={this.changeComponent}
               otherUsers={otherUsers}
             />
           )}
-          {showUserPicks && (
+          {showUserPicks.render && (
             <UserPicks
+              animate={showUserPicks.animate}
               currentUser={currentUser}
               changeCurrentUser={this.changeCurrentUser}
               changeComponent={this.changeComponent}
             />
           )}
-          {showRules && <RulesModal changeComponent={this.changeComponent} />}
-          {showAccountEditor && (
+          {showRules.render && (
+            <RulesModal changeComponent={this.changeComponent} />
+          )}
+          {showAccountEditor.render && (
             <AccountEditor
               user={user}
+              animate={showAccountEditor.animate}
               changeComponent={this.changeComponent}
               putEditAccount={this.putEditAccount}
             />

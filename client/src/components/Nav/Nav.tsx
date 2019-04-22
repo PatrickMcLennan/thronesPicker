@@ -133,22 +133,28 @@ class Nav extends React.Component<IProps, IState> {
                 triggerAnimation={triggerAnimation}>
                 See other Picks
               </StyledLi>
+              <StyledLi
+                data-testid="nav__li"
+                delay={0.9}
+                triggerAnimation={triggerAnimation}>
+                <Badge
+                  src={randomSuggestion ? randomSuggestion.profilePic : ''}
+                  name={randomSuggestion ? randomSuggestion.name : ''}
+                  house={randomSuggestion ? randomSuggestion.house.name : ''}
+                  sigilUrl={randomSuggestion ? randomSuggestion.sigilUrl : ''}
+                  handler={
+                    randomSuggestion
+                      ? () =>
+                          this.renderPicks(randomSuggestion, 'showUserPicks')
+                      : () => console.log('please work')
+                  }
+                  currentScore={
+                    randomSuggestion ? randomSuggestion.currentScore : 0
+                  }
+                  thumbnailSize={'small'}
+                />
+              </StyledLi>
             </StyledUl>
-            <Badge
-              src={randomSuggestion ? randomSuggestion.profilePic : ''}
-              name={randomSuggestion ? randomSuggestion.name : ''}
-              house={randomSuggestion ? randomSuggestion.house.name : ''}
-              sigilUrl={randomSuggestion ? randomSuggestion.sigilUrl : ''}
-              handler={
-                randomSuggestion
-                  ? () => this.renderPicks(randomSuggestion, 'showUserPicks')
-                  : () => console.log('please work')
-              }
-              currentScore={
-                randomSuggestion ? randomSuggestion.currentScore : 0
-              }
-              thumbnailSize={'small'}
-            />
           </>
         )}
       </StyledNav>

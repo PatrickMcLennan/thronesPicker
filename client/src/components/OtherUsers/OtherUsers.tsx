@@ -1,44 +1,19 @@
 import * as React from 'react';
 
 import { StyledSection } from './OtherUsers.style';
+import SectionHeader from '../SectionHeader/SectionHeader';
 import Badge from '../Badge/Badge';
 
 import { IUser } from '../../utils/clientDictionary';
 
 interface IProps {
+  animate: boolean;
   otherUsers: IUser[];
   changeCurrentUser: Function;
   changeComponent: Function;
 }
 
-interface IState {
-  triggerAnimation: boolean;
-}
-
-class OtherUsers extends React.Component<IProps, IState> {
-  state = {
-    triggerAnimation: false
-  };
-
-  componentWillMount(): void {
-    return this.setState(
-      (prevState: IState): IState => ({
-        ...prevState,
-        triggerAnimation: true
-      })
-    );
-  }
-
-  componentWillUnmount() {
-    this.setState(
-      (prevState: IState): IState => ({
-        ...prevState,
-        triggerAnimation: false
-      })
-    );
-    return setTimeout((): void => null, 750);
-  }
-
+class OtherUsers extends React.Component<IProps, {}> {
   renderUserPicks: Function = (
     newCurrentUser: IUser,
     newComponent: string
@@ -49,12 +24,10 @@ class OtherUsers extends React.Component<IProps, IState> {
   };
 
   render(): JSX.Element {
-    const { otherUsers } = this.props;
-    const { triggerAnimation } = this.state;
+    const { otherUsers, animate } = this.props;
     return (
-      <StyledSection
-        data-testid="otherUsers"
-        triggerAnimation={triggerAnimation}>
+      <StyledSection data-testid="otherUsers" triggerAnimation={animate}>
+        <SectionHeader firstLetter="O" word="ther Pick" lastLetter="s" />
         {otherUsers.map(
           (user: IUser): JSX.Element => (
             <Badge

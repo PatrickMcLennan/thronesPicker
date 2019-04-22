@@ -74,12 +74,13 @@ export const StyledLi = styled.li`
   display: none;
   font-size: 2.5rem;
   transform: translateY(100%) rotateY(90deg);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
 
   ${(props: IProps) =>
     props.triggerAnimation &&
     css`
       display: block;
-
       animation: ${animateIn} 0.35s forwards;
       animation-delay: ${(props: IProps) => `${props.delay}s`};
     `}
