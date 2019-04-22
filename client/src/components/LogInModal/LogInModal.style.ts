@@ -4,34 +4,28 @@ interface IProps {
   triggerAnimation: boolean;
 }
 
-const animateIn = keyframes`
+const animateOut = keyframes`
   0% {
-    opacity: 0;
-    transform: translateY(-100%)
+    opacity: 1;
+    transform: translateY(0);
   }
   100% {
-    opacity: 1;
-    transform: translateY(0)
+    opacity: 0;
+    transform: translateY(-100%);
   }
 `;
 
 export const StyledSection = styled.section`
-  display: none;
+  ${({ theme: { flexin } }: any) => flexin('space-evenly', 'center', 'column')}
   border: 1px solid white;
-  animation-duration: 0.75s;
+  opacity: 1;
+  transform: translateY(0);
 
-  ${(props: IProps) =>
-    props.triggerAnimation &&
-    css`
-      ${({ theme: { flexin } }: any) =>
-        flexin('space-evenly', 'center', 'column')}
-      animation: ${animateIn} forwards;
-    `}
   ${(props: IProps) =>
     !props.triggerAnimation &&
     css`
-      ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')}
-      animation: ${animateIn} backwards;
+      animation: ${animateOut} forwards;
+      animation-duration: 0.75s;
     `}
 `;
 

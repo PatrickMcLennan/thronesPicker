@@ -27,16 +27,13 @@ class LogInModal extends React.Component<IProps, IState> {
     }));
   }
 
-  componentWillUnmount() {
-    this.setState((prevState: IState) => ({
-      ...prevState,
-      triggerAnimation: false
-    }));
-    return setTimeout((): null => null, 750);
-  }
+  handleClick: Function = (): any => {
+    const { getLogIn } = this.props;
+    this.setState({ triggerAnimation: false });
+    return setTimeout(() => getLogIn(), 750);
+  };
 
   render(): JSX.Element {
-    const { getLogIn } = this.props;
     const { triggerAnimation } = this.state;
     return (
       <StyledSection
@@ -49,7 +46,7 @@ class LogInModal extends React.Component<IProps, IState> {
           Place your bets on who will win the Game of Thrones
         </StyledH2>
         <StyledButton
-          onClick={() => getLogIn()}
+          onClick={this.handleClick}
           data-testid="logInModal__button">
           Log In With Facebook
         </StyledButton>
