@@ -224,7 +224,9 @@ class App extends React.Component<{}, IState> {
       user: { facebookId }
     } = this.state;
 
-    await fetch(`http://linktobackend.com/editAccount`, {
+    console.log(newHouse, newDescription);
+
+    await fetch(`http://localhost:4000/editAccount`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -234,6 +236,7 @@ class App extends React.Component<{}, IState> {
       .then(
         (response: IPutEditAccountResponse): Function => {
           const { newName } = response;
+          console.log(response);
           this.setState((prevState: IState) => ({
             ...prevState,
             user: {
@@ -297,7 +300,7 @@ class App extends React.Component<{}, IState> {
       <ThemeProvider theme={theme}>
         <>
           <GlobalStyle />
-          {name.length >= 1 && (
+          {!showLogIn.render && (
             <Nav
               user={user}
               changeCurrentUser={this.changeCurrentUser}

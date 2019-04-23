@@ -38,22 +38,27 @@ var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var schemas_1 = require("../schemas");
 exports.putEditAccount = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var serverError, facebookId, newHouse, newDescription, user;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var serverError, _a, facebookId, newHouse, newDescription, user, reNamer;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
                 serverError = false;
-                facebookId = req.facebookId, newHouse = req.newHouse, newDescription = req.newDescription;
+                _a = req.body, facebookId = _a.facebookId, newHouse = _a.newHouse, newDescription = _a.newDescription;
                 return [4, schemas_1.User.findOne({ facebookId: facebookId }, function (err, user) {
                         if (err) {
                             serverError = true;
                         }
                         else {
+                            console.log(user);
                             return user;
                         }
                     })];
             case 1:
-                user = _a.sent();
+                user = _b.sent();
+                reNamer = function (name, houseName) {
+                    var firstName = name.split(' ');
+                    return firstName[0] + " " + houseName;
+                };
                 if (!serverError) return [3, 2];
                 return [2, res.send({
                         success: serverError,
@@ -62,10 +67,10 @@ exports.putEditAccount = function (req, res) { return __awaiter(_this, void 0, v
             case 2:
                 user.house = newHouse;
                 user.description = newDescription;
-                user.name = user.name + " " + user.house;
+                user.name = reNamer(user.name, newHouse.name);
                 return [4, user.save()];
             case 3:
-                _a.sent();
+                _b.sent();
                 return [2, res.send({
                         success: true,
                         message: "Your account has been updated",

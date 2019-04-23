@@ -5,12 +5,16 @@ import {
 } from '../utils';
 import { User } from '../schemas';
 
-export const putEditAccount: Function = async (
+export const putEditAccount = async (
   req: IPutEditAccountRequest,
   res: IPutEditAccountResponse
 ) => {
   let serverError: boolean = false;
-  const { facebookId, newHouse, newDescription }: IPutEditAccountRequest = req;
+  const {
+    facebookId,
+    newHouse,
+    newDescription
+  }: IPutEditAccountRequest = req.body;
 
   const user: IUser = await User.findOne(
     { facebookId },
@@ -18,10 +22,16 @@ export const putEditAccount: Function = async (
       if (err) {
         serverError = true;
       } else {
+        console.log(user);
         return user;
       }
     }
   );
+
+  const reNamer: Function = (name: string, houseName: string): string => {
+    const firstName: string[] = name.split(' ');
+    return `${firstName[0]} ${houseName}`;
+  };
 
   if (serverError) {
     return res.send({
@@ -31,7 +41,7 @@ export const putEditAccount: Function = async (
   } else {
     user.house = newHouse;
     user.description = newDescription;
-    user.name = `${user.name} ${user.house}`;
+    user.name = reNamer(user.name, newHouse.name);
     await user.save();
 
     return res.send({

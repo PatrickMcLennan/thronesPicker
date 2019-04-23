@@ -7,6 +7,7 @@ import * as dotenv from 'dotenv';
 
 import { mongoConfig } from './utils';
 import { postLogin, postMakePicks } from './controllers';
+import { putEditAccount } from './controllers/';
 dotenv.config();
 
 const PORT: string | number = process.env.PORT || 4000;
@@ -15,6 +16,8 @@ const app: express.Application = express();
 app.use(compression());
 app.use(cors());
 app.use(json());
+
+app.put('/editAccount', putEditAccount);
 
 app.post('/login', postLogin);
 app.post('/makePicks', postMakePicks);

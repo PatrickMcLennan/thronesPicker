@@ -81,7 +81,7 @@ class AccountEditor extends React.Component<IProps, IState> {
   };
 
   render(): JSX.Element {
-    const { user, animate } = this.props;
+    const { animate } = this.props;
     const { newHouse, newDescription, showHouseList, houseList } = this.state;
     return (
       <StyledSection data-testid="accountEditor" triggerAnimation={animate}>

@@ -18,12 +18,14 @@ var cors_1 = __importDefault(require("cors"));
 var dotenv = __importStar(require("dotenv"));
 var utils_1 = require("./utils");
 var controllers_1 = require("./controllers");
+var controllers_2 = require("./controllers/");
 dotenv.config();
 var PORT = process.env.PORT || 4000;
 var app = express_1.default();
 app.use(compression_1.default());
 app.use(cors_1.default());
 app.use(body_parser_1.json());
+app.put('/editAccount', controllers_2.putEditAccount);
 app.post('/login', controllers_1.postLogin);
 app.post('/makePicks', controllers_1.postMakePicks);
 app.listen(PORT, function () {

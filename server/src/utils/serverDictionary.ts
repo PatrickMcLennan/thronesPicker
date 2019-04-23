@@ -3,23 +3,28 @@ import { Request, Response } from 'express';
 
 // INTERFACES
 
+export interface IHouse {
+  name: string;
+  sigilUrl: string;
+}
+
 export interface IPicks {
-  ironThrone: ICharacter | string;
-  handOfTheKing: ICharacter | string;
-  nightsWatchLordCommander: ICharacter | string;
-  nightsWatch: ICharacter | string;
-  winterfellLord: ICharacter | string;
-  casterlyRockLord: ICharacter | string;
-  dorneLord: ICharacter | string;
-  reachLord: ICharacter | string;
-  riverrunLord: ICharacter | string;
-  ironIslandsLord: ICharacter | string;
-  wardenNorth: ICharacter | string;
-  wardenEast: ICharacter | string;
-  wardenSouth: ICharacter | string;
-  wardenWest: ICharacter | string;
-  dead: ICharacter[] | string;
-  unpicked: ICharacter[] | string;
+  ironThrone: ICharacter | ICharacter['name'];
+  handOfTheKing: ICharacter | ICharacter['name'];
+  nightsWatchLordCommander: ICharacter | ICharacter['name'];
+  nightsWatch: ICharacter | ICharacter['name'];
+  winterfellLord: ICharacter | ICharacter['name'];
+  casterlyRockLord: ICharacter | ICharacter['name'];
+  dorneLord: ICharacter | ICharacter['name'];
+  reachLord: ICharacter | ICharacter['name'];
+  riverrunLord: ICharacter | ICharacter['name'];
+  ironIslandsLord: ICharacter | ICharacter['name'];
+  wardenNorth: ICharacter | ICharacter['name'];
+  wardenEast: ICharacter | ICharacter['name'];
+  wardenSouth: ICharacter | ICharacter['name'];
+  wardenWest: ICharacter | ICharacter['name'];
+  dead: ICharacter[] | ICharacter['name'];
+  unpicked: ICharacter[] | ICharacter['name'];
 }
 
 export interface IUser extends Document {
@@ -28,7 +33,7 @@ export interface IUser extends Document {
   accessToken: number;
   profilePic: string;
   sigilUrl: string;
-  house: string;
+  house: IHouse;
   description: string;
   picks: IPicks;
   currentScore: number;
@@ -80,7 +85,7 @@ export interface IPostMakePicksResponse extends Response {
 // EDIT ACCOUNT
 export interface IPutEditAccountRequest extends Request {
   facebookId: IUser['facebookId'];
-  newHouse: string;
+  newHouse: IHouse;
   newDescription: string;
 }
 export interface IPutEditAccountResponse extends Response {
