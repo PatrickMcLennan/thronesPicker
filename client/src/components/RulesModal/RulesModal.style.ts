@@ -33,13 +33,17 @@ export const StyledSection = styled.section`
     props.triggerAnimation &&
     css`
       display: block;
-      animation: ${animateIn} 0.75s forwards;
+      animation: ${animateIn} forwards;
+      animation-duration: ${({ theme: { animation } }: any) =>
+        animation.timeMain};
     `}
 
   ${(props: IProps) =>
     !props.triggerAnimation &&
     css`
       display: block;
-      animation: ${animateOut} 0.75s forwards;
+      animation: ${animateOut} forwards;
+      animation-duration: ${({ theme: { animation } }: any) =>
+        animation.timeMain};
     `}
 `;

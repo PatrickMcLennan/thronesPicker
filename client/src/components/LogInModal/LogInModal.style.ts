@@ -25,7 +25,8 @@ export const StyledSection = styled.section`
     !props.triggerAnimation &&
     css`
       animation: ${animateOut} forwards;
-      animation-duration: 0.75s;
+      animation-duration: ${({ theme: { animation } }: any) =>
+        animation.timeMain};
     `}
 `;
 

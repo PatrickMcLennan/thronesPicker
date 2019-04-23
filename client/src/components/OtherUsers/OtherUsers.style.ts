@@ -34,13 +34,17 @@ export const StyledSection = styled.section`
     props.triggerAnimation &&
     css`
       ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')};
-      animation: ${animateIn} 0.75s forwards;
+      animation: ${animateIn} forwards;
+      animation-duration: ${({ theme: { animation } }: any) =>
+        animation.timeMain};
     `}
 
   ${(props: IProps) =>
     !props.triggerAnimation &&
     css`
       ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')};
-      animation: ${animateOut} 0.75s forwards;
+      animation: ${animateOut} forwards;
+      animation-duration: ${({ theme: { animation } }: any) =>
+        animation.timeMain};
     `}
 `;

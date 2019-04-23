@@ -23,12 +23,16 @@ export const StyledSection = styled.section`
   ${(props: IProps) =>
     props.animate &&
     css`
-      animation: ${animateIn} 0.5s forwards;
+      animation: ${animateIn} forwards;
+      animation-duration: ${({ theme: { animation } }: any) =>
+        animation.timeMain};
     `}
 
   ${(props: IProps) =>
     !props.animate &&
     css`
-      animation: ${animateIn} 0.5s backwards;
+      animation: ${animateIn} backwards;
+      animation-duration: ${({ theme: { animation } }: any) =>
+        animation.timeMain};
     `}
 `;
