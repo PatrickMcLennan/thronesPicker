@@ -84,6 +84,8 @@ export interface IPutEditAccountResponse extends Response {
   newName: string;
   newHouse: IHouse;
   newDescription: string;
+  message: string;
+  success: boolean;
 }
 
 // MAKE/CHANGE PICkS

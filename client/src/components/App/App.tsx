@@ -174,15 +174,6 @@ class App extends React.Component<{}, IState> {
           ...prevState,
           user,
           otherUsers
-          // showLogIn: {
-          //   animate: false,
-          //   render: true
-          // },
-          // showOtherUsers: {
-          //   animate: true,
-          //   render: true
-          // },
-          // currentComponent: 'showOtherUsers'
         })
       );
       this.changeComponent('showOtherUsers');
@@ -224,8 +215,6 @@ class App extends React.Component<{}, IState> {
       user: { facebookId }
     } = this.state;
 
-    console.log(newHouse, newDescription);
-
     await fetch(`http://localhost:4000/editAccount`, {
       method: 'PUT',
       headers: {
@@ -234,9 +223,13 @@ class App extends React.Component<{}, IState> {
       body: JSON.stringify({ facebookId, newHouse, newDescription })
     })
       .then(
+        (response: IPutEditAccountResponse): Promise<IPutEditAccountResponse> =>
+          response.json()
+      )
+      .then(
         (response: IPutEditAccountResponse): Function => {
           const { newName } = response;
-          console.log(response);
+          console.log(newName);
           this.setState((prevState: IState) => ({
             ...prevState,
             user: {
@@ -246,10 +239,13 @@ class App extends React.Component<{}, IState> {
               description: newDescription
             }
           }));
-          return this.showMessage(response);
+          return this.showMessage(response.success, response.message);
         }
       )
-      .catch((err: IServerCall): Function => this.showMessage(err));
+      .catch(
+        (err: IServerCall): Function =>
+          this.showMessage(err.success, err.message)
+      );
   };
 
   postMakePicks: Function = async (newPicks: IPicks): Promise<void> => {
@@ -288,7 +284,6 @@ class App extends React.Component<{}, IState> {
   render(): JSX.Element {
     const { user, otherUsers, serverCall, currentUser }: IState = this.state;
     const { showResult, success, message } = serverCall;
-    const { name }: IUser = user;
     const {
       showLogIn,
       showAccountEditor,
