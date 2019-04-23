@@ -66,7 +66,7 @@ export const GlobalStyle = createGlobalStyle`
 
 export const theme = {
   animation: {
-    timeMain: 750
+    timeMain: '.375s'
   },
   flexin: (
     jc: string = `center`,

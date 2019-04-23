@@ -139,20 +139,25 @@ class App extends React.Component<{}, IState> {
       [currentComponent]: {
         animate: false,
         render: true
-      },
-      [newComponent]: {
-        animate: true,
-        render: true
       }
     }));
     return setTimeout(
       () =>
-        this.setState((prevState: IState) => ({
-          ...prevState,
-          [currentComponent]: { animate: false, render: false },
-          currentComponent: newComponent
-        })),
-      750
+        this.setState(
+          (prevState: IState): IState => ({
+            ...prevState,
+            [currentComponent]: {
+              animate: false,
+              render: false
+            },
+            [newComponent]: {
+              animate: true,
+              render: true
+            },
+            currentComponent: newComponent
+          })
+        ),
+      375
     );
   };
 
