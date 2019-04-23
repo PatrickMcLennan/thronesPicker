@@ -6,11 +6,11 @@ interface IColorGradient {
 }
 
 const backgrounds: IColorGradient[] = [
-  { first: '#000000', last: '#e74c3c' },
-  { first: '#215f00', last: '#e4e4d9' },
-  { first: '#16222A', last: '#3A6073' },
-  { first: '#870000', last: '#190A05' },
-  { first: '#1f4037', last: '#99f2c8' }
+  { first: '#0f0c29', last: '#24243e' },
+  { first: '#EB5757', last: '#000000' },
+  { first: '#4b6cb7', last: '#182848' },
+  { first: '#44A08D', last: '#093637' },
+  { first: '#093028', last: '#237A57' }
 ];
 
 const getBackground: Function = (): string => {

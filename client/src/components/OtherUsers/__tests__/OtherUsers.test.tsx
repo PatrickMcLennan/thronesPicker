@@ -48,7 +48,7 @@ test('<OtherUsers />', () => {
     expect(badgeHouse.textContent).toBe(`House ${fakeUserSolo.house.name}`);
   });
   badgeScore.forEach((badgeScore: any) => {
-    expect(badgeScore.textContent).toBe(`${fakeUserSolo.currentScore}`);
+    expect(badgeScore.textContent).toBe(`Score: ${fakeUserSolo.currentScore}`);
   });
   expect(badges.length).toBe(fakeOtherUsers.length);
 

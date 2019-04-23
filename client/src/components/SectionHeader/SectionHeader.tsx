@@ -6,14 +6,16 @@ interface IProps {
   firstLetter: string;
   lastLetter: string;
   word: string;
+  size: number;
 }
 
 const SectionHeader: React.FunctionComponent<IProps> = ({
   firstLetter,
   word,
-  lastLetter
+  lastLetter,
+  size
 }: IProps): JSX.Element => (
-  <StyledH3 data-testid="sectionHeader">
+  <StyledH3 data-testid="sectionHeader" size={size}>
     <StyledSpan data-testid="sectionHeader__firstLetter">
       {firstLetter}
     </StyledSpan>

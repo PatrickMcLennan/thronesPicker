@@ -19,7 +19,12 @@ class RulesModal extends React.Component<IProps, {}> {
     const { animate } = this.props;
     return (
       <StyledSection data-testid="rulesModal" triggerAnimation={animate}>
-        <SectionHeader firstLetter="T" word="he Rule" lastLetter="s" />
+        <SectionHeader
+          firstLetter="T"
+          word="he Rule"
+          lastLetter="s"
+          size={3.5}
+        />
         <StyledUl data-testid="rulesModal__ul">
           <StyledLi data-testid="rulesModal__li">
             1. Choose which Character is most likely to be doing what at the end

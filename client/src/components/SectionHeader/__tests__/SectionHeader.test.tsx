@@ -12,7 +12,7 @@ afterEach(cleanup);
 const renderSectionHeader = () =>
   render(
     <ThemeProvider theme={theme}>
-      <SectionHeader firstLetter="t" word="es" lastLetter="t" />
+      <SectionHeader firstLetter="t" word="es" lastLetter="t" size={3.5} />
     </ThemeProvider>
   );
 
@@ -29,4 +29,6 @@ test('<SectionHeader />', () => {
     expect(sectionHeader).toContainElement(letter);
     expect(letter).toHaveStyleRule('font-size', '5.5rem');
   });
+
+  expect(sectionHeader).toHaveStyleRule('font-size', '3.5rem');
 });

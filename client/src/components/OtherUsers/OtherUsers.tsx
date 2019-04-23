@@ -27,7 +27,12 @@ class OtherUsers extends React.Component<IProps, {}> {
     const { otherUsers, animate } = this.props;
     return (
       <StyledSection data-testid="otherUsers" triggerAnimation={animate}>
-        <SectionHeader firstLetter="O" word="ther Pick" lastLetter="s" />
+        <SectionHeader
+          firstLetter="O"
+          word="ther Pick"
+          lastLetter="s"
+          size={3.5}
+        />
         {otherUsers.map(
           (user: IUser): JSX.Element => (
             <Badge

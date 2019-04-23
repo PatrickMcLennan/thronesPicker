@@ -26,7 +26,12 @@ class UserPicks extends React.Component<IProps, {}> {
     const { profilePic, name, house, currentScore, sigilUrl } = currentUser;
     return (
       <StyledSection data-testid="userPicks" animate={animate}>
-        <SectionHeader firstLetter="U" word="ser Pick" lastLetter="S" />
+        <SectionHeader
+          firstLetter="U"
+          word="ser Pick"
+          lastLetter="S"
+          size={3.5}
+        />
         <Badge
           src={profilePic}
           name={name}

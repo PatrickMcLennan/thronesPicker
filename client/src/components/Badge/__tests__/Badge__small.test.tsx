@@ -48,7 +48,7 @@ test('<Badge />', () => {
   expect(thumbnail.getAttribute('alt')).toBe(name);
   expect(badge__name.textContent).toBe('user/solo');
   expect(badge__house.textContent).toBe('House Stark');
-  expect(badge__score.textContent).toBe('0');
+  expect(badge__score.textContent).toBe('Score: 0');
 
   // Styles
   expect(thumbnail).toHaveStyleRule('height', '4rem');

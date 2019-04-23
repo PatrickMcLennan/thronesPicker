@@ -27,9 +27,24 @@ export const StyledFigure = styled.figure`
 
 export const StyledFigCaption = styled.figcaption`
   ${({ theme: { flexin } }: any) => flexin('space-evenly', 'center', 'column')}
+`;
+
+export const StyledP = styled.p`
   font-size: 2rem;
   text-align: center;
   text-transform: uppercase;
   font-weight: 100;
   letter-spacing: 0.35rem;
+
+  &[data-testid='badge__house'] {
+    font-size: 1.6rem;
+    font-style: italic;
+    letter-spacing: 0.25rem;
+    margin: 0.15rem 0;
+  }
+
+  &[data-testid='badge__score'] {
+    font-size: 1.75rem;
+    letter-spacing: 0.25rem;
+  }
 `;

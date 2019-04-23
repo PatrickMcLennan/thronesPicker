@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
+interface IProps {
+  size: number;
+}
+
 export const StyledH3 = styled.h3`
   ${({ theme: { flexin } }: any) => flexin()}
-  font-size: 3.5rem;
+  font-size: ${(props: IProps) => `${props.size}rem`};
   font-weight: 100;
   letter-spacing: 0.5rem;
   text-transform: uppercase;

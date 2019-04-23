@@ -31,6 +31,7 @@ export const StyledSection = styled.section`
 `;
 
 export const StyledH1 = styled.h1`
+  ${({ theme: { flexin } }: any) => flexin()}
   font-size: 6.25vw;
   text-align: center;
   text-transform: uppercase;
@@ -40,12 +41,10 @@ export const StyledH1 = styled.h1`
   color: white;
 
   & span:first-of-type {
-    font-size: 7vw;
-    margin-bottom: 0.5vh;
+    font-size: 9.5vw;
   }
   & span:last-of-type {
-    font-size: 7vw;
-    margin-top: 0.5vh;
+    font-size: 9.5vw;
   }
 
   &::after {

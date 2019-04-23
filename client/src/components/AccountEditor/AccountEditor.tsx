@@ -85,7 +85,12 @@ class AccountEditor extends React.Component<IProps, IState> {
     const { newHouse, newDescription, showHouseList, houseList } = this.state;
     return (
       <StyledSection data-testid="accountEditor" triggerAnimation={animate}>
-        <SectionHeader firstLetter="E" word="dit Accoun" lastLetter="t" />
+        <SectionHeader
+          firstLetter="E"
+          word="dit Accoun"
+          lastLetter="t"
+          size={3.5}
+        />
         <StyledForm
           data-testid="accountEditor__form"
           onSubmit={this.handleSubmit}>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { StyledFigure, StyledFigCaption } from './Badge.style';
+import { StyledFigure, StyledFigCaption, StyledP } from './Badge.style';
 import Thumbnail from '../Thumbnail/Thumbnail';
 
 interface IProps {
@@ -61,9 +61,9 @@ class Badge extends React.Component<IProps, IState> {
         onClick={handler}>
         <Thumbnail src={src} name={name} size={thumbnailSize} />
         <StyledFigCaption>
-          <p data-testid="badge__name">{name}</p>
-          <p data-testid="badge__house">House {house}</p>
-          <p data-testid="badge__score">{currentScore}</p>
+          <StyledP data-testid="badge__name">{name}</StyledP>
+          <StyledP data-testid="badge__house">House {house}</StyledP>
+          <StyledP data-testid="badge__score">Score: {currentScore}</StyledP>
         </StyledFigCaption>
         <Thumbnail src={sigilUrl} name={name} size={thumbnailSize} />
       </StyledFigure>

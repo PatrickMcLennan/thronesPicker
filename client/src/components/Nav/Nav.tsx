@@ -72,25 +72,31 @@ class Nav extends React.Component<IProps, IState> {
   ): Function => {
     const { changeComponent, changeCurrentUser } = this.props;
     changeCurrentUser(newCurrentUser);
-    this.toggleMenu()
+    this.toggleMenu();
     return changeComponent(newComponent);
   };
 
   handleClick: Function = (newComponent: string): Function => {
-    const {changeComponent} = this.props;
+    const { changeComponent } = this.props;
     this.toggleMenu();
-    return changeComponent(newComponent)
-  }
+    return changeComponent(newComponent);
+  };
 
   render(): JSX.Element {
     const { user, randomSuggestion, changeComponent }: IProps = this.props;
     const { name, house, profilePic } = user;
     const { renderMenu, triggerAnimation }: IState = this.state;
     return (
-      <StyledNav
-        data-testid="nav"
-        triggerAnimation={triggerAnimation}>
-        <Badge src={user.profilePic} name={user.name} house={user.house.name} sigilUrl={user.sigilUrl} handler={this.toggleMenu} currentScore={user.currentScore} thumbnailSize='big' />
+      <StyledNav data-testid="nav" triggerAnimation={triggerAnimation}>
+        <Badge
+          src={user.profilePic}
+          name={user.name}
+          house={user.house.name}
+          sigilUrl={user.sigilUrl}
+          handler={this.toggleMenu}
+          currentScore={user.currentScore}
+          thumbnailSize="big"
+        />
         {renderMenu && (
           <>
             <StyledUl data-testid="nav__ul">
@@ -98,33 +104,33 @@ class Nav extends React.Component<IProps, IState> {
                 data-testid="nav__li"
                 triggerAnimation={triggerAnimation}
                 onClick={() => this.handleClick('showAccountEditor')}
-                delay={0.15}>
+                delay={0.1}>
                 Edit Account
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
                 onClick={() => this.handleClick('showMakePicks')}
                 triggerAnimation={triggerAnimation}
-                delay={0.30}>
+                delay={0.2}>
                 Make Picks
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
                 onClick={() => this.handleClick('showRules')}
                 triggerAnimation={triggerAnimation}
-                delay={0.45}>
+                delay={0.3}>
                 The Rules
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
                 onClick={() => this.handleClick('showOtherUsers')}
-                delay={0.6}
+                delay={0.4}
                 triggerAnimation={triggerAnimation}>
                 See other Picks
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
-                delay={0.75}
+                delay={0.5}
                 triggerAnimation={triggerAnimation}>
                 <Badge
                   src={randomSuggestion ? randomSuggestion.profilePic : ''}
