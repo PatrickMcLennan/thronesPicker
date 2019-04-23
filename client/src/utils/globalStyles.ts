@@ -6,11 +6,11 @@ interface IColorGradient {
 }
 
 const backgrounds: IColorGradient[] = [
-  { first: '#2980B9', last: '#6DD5FA' },
-  { first: '#36D1DC', last: '#5B86E5' },
-  { first: '#EF3B36', last: '#FFFFFF' },
-  { first: '#1f4037', last: '#99f2c8' },
-  { first: '#334d50', last: '#cbcaa5' }
+  { first: '#000000', last: '#e74c3c' },
+  { first: '#215f00', last: '#e4e4d9' },
+  { first: '#16222A', last: '#3A6073' },
+  { first: '#870000', last: '#190A05' },
+  { first: '#1f4037', last: '#99f2c8' }
 ];
 
 const getBackground: Function = (): string => {
@@ -55,7 +55,7 @@ export const GlobalStyle = createGlobalStyle`
     align-self: stretch;
     justify-self: stretch;
     border-radius: .015%;
-    min-height: 100%;
+    height: 100%;
     width: 100%;
     z-index: 1;
   }

@@ -32,7 +32,8 @@ export const StyledSection = styled.section`
   ${(props: IProps) =>
     props.triggerAnimation &&
     css`
-      ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')};
+      ${({ theme: { flexin } }: any) =>
+        flexin('space-evenly', 'center', 'column')};
       animation: ${animateIn} forwards;
       animation-duration: ${({ theme: { animation } }: any) =>
         animation.timeMain};
@@ -40,7 +41,8 @@ export const StyledSection = styled.section`
   ${(props: IProps) =>
     !props.triggerAnimation &&
     css`
-      ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')}
+      ${({ theme: { flexin } }: any) =>
+        flexin('space-evenly', 'center', 'column')}
       animation: ${animateOut} forwards;
       animation-duration: ${({ theme: { animation } }: any) =>
         animation.timeMain};
