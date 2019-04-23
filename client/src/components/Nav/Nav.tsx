@@ -39,15 +39,6 @@ class Nav extends React.Component<IProps, IState> {
     return setTimeout((): null => null, 750);
   }
 
-  renderPicks: Function = (
-    newCurrentUser: IUser,
-    newComponent: string
-  ): Function => {
-    const { changeComponent, changeCurrentUser } = this.props;
-    changeCurrentUser(newCurrentUser);
-    return changeComponent(newComponent);
-  };
-
   toggleMenu: Function = (): any => {
     const { renderMenu } = this.state;
     if (!renderMenu) {
@@ -75,6 +66,22 @@ class Nav extends React.Component<IProps, IState> {
     }
   };
 
+  renderPicks: Function = (
+    newCurrentUser: IUser,
+    newComponent: string
+  ): Function => {
+    const { changeComponent, changeCurrentUser } = this.props;
+    changeCurrentUser(newCurrentUser);
+    this.toggleMenu()
+    return changeComponent(newComponent);
+  };
+
+  handleClick: Function = (newComponent: string): Function => {
+    const {changeComponent} = this.props;
+    this.toggleMenu();
+    return changeComponent(newComponent)
+  }
+
   render(): JSX.Element {
     const { user, randomSuggestion, changeComponent }: IProps = this.props;
     const { name, house, profilePic } = user;
@@ -82,60 +89,42 @@ class Nav extends React.Component<IProps, IState> {
     return (
       <StyledNav
         data-testid="nav"
-        triggerAnimation={triggerAnimation}
-        onClick={this.toggleMenu}>
-        <StyledH4Box>
-          <StyledH4 data-testid="nav__name">
-            {name.length >= 1 ? name : 'Log In'}
-          </StyledH4>
-          <StyledH4 data-testid="nav__house">House {house.name}</StyledH4>
-        </StyledH4Box>
-        <Thumbnail
-          src={profilePic.length >= 1 ? profilePic : 'placeholder'}
-          name={name}
-          size={'big'}
-        />
+        triggerAnimation={triggerAnimation}>
+        <Badge src={user.profilePic} name={user.name} house={user.house.name} sigilUrl={user.sigilUrl} handler={this.toggleMenu} currentScore={user.currentScore} thumbnailSize='big' />
         {renderMenu && (
           <>
             <StyledUl data-testid="nav__ul">
               <StyledLi
                 data-testid="nav__li"
                 triggerAnimation={triggerAnimation}
-                onClick={() => changeComponent('showHome')}
+                onClick={() => this.handleClick('showAccountEditor')}
                 delay={0.15}>
-                Home
-              </StyledLi>
-              <StyledLi
-                data-testid="nav__li"
-                triggerAnimation={triggerAnimation}
-                onClick={() => changeComponent('showAccountEditor')}
-                delay={0.3}>
                 Edit Account
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
-                onClick={() => changeComponent('showMakePicks')}
+                onClick={() => this.handleClick('showMakePicks')}
                 triggerAnimation={triggerAnimation}
-                delay={0.45}>
+                delay={0.30}>
                 Make Picks
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
-                onClick={() => changeComponent('showRules')}
+                onClick={() => this.handleClick('showRules')}
                 triggerAnimation={triggerAnimation}
-                delay={0.6}>
+                delay={0.45}>
                 The Rules
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
-                onClick={() => changeComponent('showOtherUsers')}
-                delay={0.75}
+                onClick={() => this.handleClick('showOtherUsers')}
+                delay={0.6}
                 triggerAnimation={triggerAnimation}>
                 See other Picks
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
-                delay={0.9}
+                delay={0.75}
                 triggerAnimation={triggerAnimation}>
                 <Badge
                   src={randomSuggestion ? randomSuggestion.profilePic : ''}
@@ -151,7 +140,7 @@ class Nav extends React.Component<IProps, IState> {
                   currentScore={
                     randomSuggestion ? randomSuggestion.currentScore : 0
                   }
-                  thumbnailSize={'small'}
+                  thumbnailSize={'big'}
                 />
               </StyledLi>
             </StyledUl>

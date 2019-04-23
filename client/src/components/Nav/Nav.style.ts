@@ -32,7 +32,6 @@ export const StyledNav = styled.nav`
     flexin(`flex-end`, `center`, `row`, `no-wrap`)};
   position: fixed;
   top: 2.5vh;
-  left: 77.5%;
   right: 2.5%;
   z-index: 100;
   cursor: pointer;

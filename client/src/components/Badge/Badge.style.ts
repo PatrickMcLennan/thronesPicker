@@ -12,6 +12,14 @@ export const StyledFigure = styled.figure`
   ${(props: IProps) =>
     props.triggerAnimation &&
     css`
-      ${({ theme: { flexin } }: any) => flexin()}
+      ${({ theme: { flexin } }: any) => flexin('space-evenly')}
+    min-width: 200px;
+    height: 80px;
+    background: orange;
     `}
 `;
+
+
+export const StyledFigCaption = styled.figcaption`
+  ${({theme: {flexin}}: any) => flexin('space-evenly', 'flex-end', 'column')}
+`
