@@ -22,23 +22,23 @@ class RulesModal extends React.Component<IProps, {}> {
         <SectionHeader firstLetter="T" word="he Rule" lastLetter="s" />
         <StyledUl data-testid="rulesModal__ul">
           <StyledLi data-testid="rulesModal__li">
-            Choose which Character is most likely to be doing what at the end of
-            the series.{' '}
+            1. Choose which Character is most likely to be doing what at the end
+            of the series.{' '}
             <StyledSpan>
               EX - Dead, Warden of the East, Lord of WinterFell, Nights Watch,
               etc.
             </StyledSpan>
           </StyledLi>
           <StyledLi data-testid="rulesModal__li">
-            Each correct pick earns you 1 point. Whoever has the most points at
-            the end will win.
+            2. Each correct pick earns you 1 point. Whoever has the most points
+            at the end will win.
             <StyledSpan>
               EX - Jaime Lannister wins the Iron Throne and Sansa Stark dies.
               You picked both to die. You gain 1 point for Sansa, 0 for Jaime.
             </StyledSpan>
           </StyledLi>
           <StyledLi data-testid="rulesModal__li">
-            Unpicked Characters earn no points.
+            3. Unpicked Characters earn no points.
             <StyledSpan>
               EX - Brienne of Tarth becomes Warden of the West. You left her
               unpicked. You get nothing. Don't do this.
@@ -46,8 +46,9 @@ class RulesModal extends React.Component<IProps, {}> {
           </StyledLi>
           <StyledLi data-testid="rulesModal__li">
             <b>
-              All Picks have to be locked in by <b>8 P.M Sunday, April 29th.</b>{' '}
-              You will not be able to change your picks after that.
+              4. All Picks have to be locked in by{' '}
+              <b>8 P.M Sunday, April 29th.</b> You will not be able to change
+              your picks after that.
             </b>
             <StyledSpan>
               The further we get into this season the easier it will be to make
@@ -56,7 +57,7 @@ class RulesModal extends React.Component<IProps, {}> {
             </StyledSpan>
           </StyledLi>
           <StyledLi data-testid="rulesModal__li">
-            Ties will be settled by combat.
+            5. Ties will be settled by combat.
             <StyledSpan>Non - negotiable.</StyledSpan>
           </StyledLi>
         </StyledUl>

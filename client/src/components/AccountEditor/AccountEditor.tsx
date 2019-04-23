@@ -25,20 +25,26 @@ interface IState {
   newHouse: IHouse;
   newDescription: string;
   showHouseList: boolean;
+  houseList: IHouse[];
 }
 
 class AccountEditor extends React.Component<IProps, IState> {
   state = {
     newHouse: this.props.user.house,
     newDescription: this.props.user.description,
-    showHouseList: false
+    showHouseList: false,
+    houseList: allHouses
   };
 
   renderHouseList: Function = (): void => {
+    const { user } = this.props;
     return this.setState(
       (prevState: IState): IState => ({
         ...prevState,
-        showHouseList: !this.state.showHouseList
+        showHouseList: !this.state.showHouseList,
+        houseList: this.state.houseList.filter(
+          (singleHouse: IHouse): boolean => singleHouse.name !== user.house.name
+        )
       })
     );
   };
@@ -53,7 +59,14 @@ class AccountEditor extends React.Component<IProps, IState> {
   handleHouseChange: Function = (newHouse: IHouse): void => {
     this.renderHouseList();
     return this.setState(
-      (prevState: IState): IState => ({ ...prevState, newHouse })
+      (prevState: IState): IState => ({
+        ...prevState,
+        newHouse,
+        houseList: this.state.houseList.filter(
+          (singleHouse: IHouse): boolean =>
+            singleHouse.name !== this.state.newHouse.name
+        )
+      })
     );
   };
 
@@ -69,8 +82,7 @@ class AccountEditor extends React.Component<IProps, IState> {
 
   render(): JSX.Element {
     const { user, animate } = this.props;
-    const { house } = user;
-    const { newDescription, showHouseList } = this.state;
+    const { newHouse, newDescription, showHouseList, houseList } = this.state;
     return (
       <StyledSection data-testid="accountEditor" triggerAnimation={animate}>
         <SectionHeader firstLetter="E" word="dit Accoun" lastLetter="t" />
@@ -84,29 +96,29 @@ class AccountEditor extends React.Component<IProps, IState> {
               Choose Your House:
             </StyledP>
             <Badge
-              src={house.sigilUrl}
+              src={newHouse.sigilUrl}
               name={''}
-              house={house.name}
-              sigilUrl={house.sigilUrl}
-              onClick={this.renderHouseList}
+              house={newHouse.name}
+              sigilUrl={newHouse.sigilUrl}
+              handler={this.renderHouseList}
               thumbnailSize="small"
             />
             {showHouseList && (
               <StyledUl data-testid="accountEditor__ul">
-                {allHouses.filter(
-                  (singleHouse: IHouse): JSX.Element =>
-                    singleHouse.name !== house.name && (
-                      <li data-testid="accountEditor__li">
-                        <Badge
-                          src={singleHouse.sigilUrl}
-                          name={singleHouse.name}
-                          house=""
-                          sigilUrl={singleHouse.sigilUrl}
-                          handler={this.handleHouseChange(singleHouse)}
-                          thumbnailSize={'small'}
-                        />
-                      </li>
-                    )
+                {houseList.map(
+                  (singleHouse: IHouse): JSX.Element => (
+                    <li data-testid="accountEditor__li">
+                      <Badge
+                        src={singleHouse.sigilUrl}
+                        name=""
+                        house={singleHouse.name}
+                        sigilUrl={singleHouse.sigilUrl}
+                        handler={() => this.handleHouseChange(singleHouse)}
+                        thumbnailSize={'small'}
+                        key={Math.random()}
+                      />
+                    </li>
+                  )
                 )}
               </StyledUl>
             )}

@@ -21,11 +21,10 @@ const renderRulesModal = () =>
 test('<RulesModal />', () => {
   const { getByTestId, getAllByTestId } = renderRulesModal();
   const rulesModal = getByTestId('rulesModal');
-  const h4 = getByTestId('rulesModal__h4');
   const ul = getByTestId('rulesModal__ul');
   const lis = getAllByTestId('rulesModal__li');
   const h6 = getByTestId('rulesModal__h6');
-  const rulesChildren = [h4, ul, h6];
+  const rulesChildren = [ul, h6];
 
   // Content
   expect(rulesModal).toBeInTheDocument();

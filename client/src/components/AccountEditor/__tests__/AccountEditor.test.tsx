@@ -31,8 +31,7 @@ test('<AccountEditor />', () => {
   const {
     getByTestId,
     queryByTestId,
-    queryAllByTestId,
-    debug
+    queryAllByTestId
   } = renderAccountEditor();
   const accountEditor = getByTestId('accountEditor');
   const form = getByTestId('accountEditor__form');
@@ -57,7 +56,7 @@ test('<AccountEditor />', () => {
   expect(thumbnail.getAttribute('src')).toBe('stark sigil link');
   expect(badges.length).toBe(1);
 
-  fireEvent.click(badges[0]);
+  // fireEvent.click(badges[0]);
   const houseUl = queryByTestId('accountEditor__ul');
   const houseBadges = queryAllByTestId('accountEditor__li');
 
@@ -66,7 +65,6 @@ test('<AccountEditor />', () => {
   // expect(putEditAccount).toBeCalledWith('Targaryen', 'Go Starks!');
 
   // Styles
-  expect(form).toHaveStyleRule('background', 'purple');
   expect(thumbnail).toHaveStyleRule('height', '4rem');
   expect(thumbnail).toHaveStyleRule('width', '4rem');
 });

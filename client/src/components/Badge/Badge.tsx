@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { StyledFigure } from './Badge.style';
+import { StyledFigure, StyledFigCaption } from './Badge.style';
 import Thumbnail from '../Thumbnail/Thumbnail';
 
 interface IProps {
@@ -50,7 +50,8 @@ class Badge extends React.Component<IProps, IState> {
       house,
       currentScore,
       thumbnailSize,
-      handler
+      handler,
+      sigilUrl
     } = this.props;
     const { triggerAnimation } = this.state;
     return (
@@ -59,11 +60,12 @@ class Badge extends React.Component<IProps, IState> {
         triggerAnimation={triggerAnimation}
         onClick={handler}>
         <Thumbnail src={src} name={name} size={thumbnailSize} />
-        <figcaption>
+        <StyledFigCaption>
           <p data-testid="badge__name">{name}</p>
           <p data-testid="badge__house">House {house}</p>
           <p data-testid="badge__score">{currentScore}</p>
-        </figcaption>
+        </StyledFigCaption>
+        <Thumbnail src={sigilUrl} name={name} size={thumbnailSize} />
       </StyledFigure>
     );
   }

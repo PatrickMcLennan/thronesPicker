@@ -50,7 +50,14 @@ export const StyledSection = styled.section`
 `;
 
 export const StyledForm = styled.form`
-  background: purple;
+  ${({ theme: { flexin } }: any) =>
+    flexin('center', 'center', 'column', 'wrap')}
+  border: 1px solid white;
+  padding: 5rem;
+
+  & > * {
+    margin: 2rem;
+  }
 `;
 
 export const StyledLabel = styled.label`
@@ -66,17 +73,24 @@ export const StyledP = styled.p`
   font-size: 1.6rem;
   text-transform: uppercase;
   text-align: left;
+  margin: 1rem 0;
 `;
 
 export const StyledInput = styled.input`
   ${({ theme: { inputs } }: any) => inputs.inputsMain}
+
+  &[type="submit"] {
+    ${({ theme: { inputs } }: any) => inputs.submit}
+  }
 `;
 
 export const StyledUl = styled.ul`
-  ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')}
+  ${({ theme: { flexin } }: any) => flexin()}
   position:absolute;
+  overflow-y: scroll;
+  height: 250px;
+  transform-origin: top;
   top: 100%;
-  bottom: 0;
   left: 0;
   right: 0;
 `;

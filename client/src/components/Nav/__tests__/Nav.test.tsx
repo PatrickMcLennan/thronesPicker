@@ -31,7 +31,7 @@ const renderNav = () =>
 test('<Nav />', () => {
   const { getByTestId, queryByTestId, queryAllByTestId, debug } = renderNav();
   const nav = getByTestId('nav');
-  const nav__name = getByTestId('nav__name');
+  const navBadge = getByTestId('badge');
   const thumbnail = getByTestId('thumbnail');
   const unrenderedNav__ul = queryByTestId('nav__ul');
   const unrenderedLis = queryAllByTestId('nav__ul');
@@ -40,14 +40,13 @@ test('<Nav />', () => {
   expect(nav).toBeInTheDocument();
   expect(thumbnail.getAttribute('src')).toBe(profilePic);
   expect(thumbnail.getAttribute('alt')).toBe(name);
-  expect(nav__name.textContent).toBe(name);
 
   expect(unrenderedNav__ul).not.toBeInTheDocument();
   unrenderedLis.forEach((menuItem: HTMLElement) =>
     expect(menuItem).not.toBeInTheDocument()
   );
 
-  fireEvent.click(nav);
+  fireEvent.click(navBadge);
 
   const nav__ul = queryByTestId('nav__ul');
   const lis = queryAllByTestId('nav__ul');

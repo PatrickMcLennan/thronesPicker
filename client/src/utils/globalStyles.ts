@@ -90,6 +90,19 @@ export const theme = {
       text-align: right;
       border: none;
       border-bottom: 1px solid white;
+      background: none;
+      font-size: 2.5rem;
+      padding: 0.5rem;
+      color: white;
+      font-family: 'Lato';
+    `,
+    submit: css`
+      padding: 1rem 3rem;
+      text-align: center;
+      text-transform: uppercase;
+      border: 1px solid white;
+      font-weight: 100;
+      cursor: pointer;
     `
   },
   typo: {
