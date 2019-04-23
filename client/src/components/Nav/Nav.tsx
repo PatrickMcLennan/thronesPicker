@@ -121,7 +121,7 @@ class Nav extends React.Component<IProps, IState> {
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
-                onClick={() => changeComponent('showTheRules')}
+                onClick={() => changeComponent('showRules')}
                 triggerAnimation={triggerAnimation}
                 delay={0.6}>
                 The Rules

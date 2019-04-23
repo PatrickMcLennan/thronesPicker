@@ -6,7 +6,8 @@ interface IProps {
 
 export const StyledFigure = styled.figure`
   display: none;
-  background: green;
+  border: 1px solid white;
+  cursor: pointer;
 
   ${(props: IProps) =>
     props.triggerAnimation &&

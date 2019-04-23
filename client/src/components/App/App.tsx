@@ -168,18 +168,19 @@ class App extends React.Component<{}, IState> {
         (prevState: IState): IState => ({
           ...prevState,
           user,
-          otherUsers,
-          showLogIn: {
-            animate: false,
-            render: true
-          },
-          showOtherUsers: {
-            animate: true,
-            render: true
-          },
-          currentComponent: 'showOtherUsers'
+          otherUsers
+          // showLogIn: {
+          //   animate: false,
+          //   render: true
+          // },
+          // showOtherUsers: {
+          //   animate: true,
+          //   render: true
+          // },
+          // currentComponent: 'showOtherUsers'
         })
       );
+      this.changeComponent('showOtherUsers');
     };
     return fbLogIn(callBack);
   };
@@ -321,7 +322,10 @@ class App extends React.Component<{}, IState> {
             />
           )}
           {showRules.render && (
-            <RulesModal changeComponent={this.changeComponent} />
+            <RulesModal
+              changeComponent={this.changeComponent}
+              animate={showRules.animate}
+            />
           )}
           {showAccountEditor.render && (
             <AccountEditor

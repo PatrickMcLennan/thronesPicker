@@ -43,6 +43,7 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 100vw;
     padding: 2rem;
     background: linear-gradient(${getBackground()}); 
+    background-position: fixed;
   }
 
   section {
@@ -54,7 +55,7 @@ export const GlobalStyle = createGlobalStyle`
     align-self: stretch;
     justify-self: stretch;
     border-radius: .015%;
-    height: 100%;
+    min-height: 100%;
     width: 100%;
     z-index: 1;
   }

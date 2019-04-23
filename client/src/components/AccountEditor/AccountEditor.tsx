@@ -94,15 +94,15 @@ class AccountEditor extends React.Component<IProps, IState> {
             {showHouseList && (
               <StyledUl data-testid="accountEditor__ul">
                 {allHouses.filter(
-                  (houseList: IHouse): JSX.Element =>
-                    houseList.name !== house.name && (
+                  (singleHouse: IHouse): JSX.Element =>
+                    singleHouse.name !== house.name && (
                       <li data-testid="accountEditor__li">
                         <Badge
-                          src={houseList.sigilUrl}
-                          name={houseList.name}
+                          src={singleHouse.sigilUrl}
+                          name={singleHouse.name}
                           house=""
-                          sigilUrl={houseList.sigilUrl}
-                          handler={this.handleHouseChange(houseList)}
+                          sigilUrl={singleHouse.sigilUrl}
+                          handler={this.handleHouseChange(singleHouse)}
                           thumbnailSize={'small'}
                         />
                       </li>

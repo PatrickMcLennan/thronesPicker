@@ -42,7 +42,6 @@ test('<Badge />', () => {
   expect(thumbnail.getAttribute('alt')).toBe(name);
 
   // Styles
-  expect(badge).toHaveStyleRule('background', 'green');
   expect(thumbnail).toHaveStyleRule('height', '6rem');
   expect(thumbnail).toHaveStyleRule('width', '6rem');
 });

@@ -3,41 +3,15 @@ import * as React from 'react';
 import { StyledSection } from './RulesModal.style';
 
 interface IProps {
+  animate: boolean;
   changeComponent: Function;
 }
 
-interface IState {
-  triggerAnimation: boolean;
-}
-
-class RulesModal extends React.Component<IProps, IState> {
-  state = {
-    triggerAnimation: false
-  };
-
-  componentWillMount(): void {
-    return this.setState(
-      (prevState: IState): IState => ({
-        ...prevState,
-        triggerAnimation: true
-      })
-    );
-  }
-
-  componentWillUnmount() {
-    this.setState((prevState: IState) => ({
-      ...prevState,
-      triggerAnimation: false
-    }));
-    return setTimeout((): null => null, 750);
-  }
-
+class RulesModal extends React.Component<IProps, {}> {
   render(): JSX.Element {
-    const { triggerAnimation } = this.state;
+    const { animate } = this.props;
     return (
-      <StyledSection
-        data-testid="rulesModal"
-        triggerAnimation={triggerAnimation}>
+      <StyledSection data-testid="rulesModal" triggerAnimation={animate}>
         <h4 data-testid="rulesModal__h4">The Rules:</h4>
         <ul data-testid="rulesModal__ul">
           <li data-testid="rulesModal__li">

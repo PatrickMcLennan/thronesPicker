@@ -51,7 +51,6 @@ test('<Badge />', () => {
   expect(badge__score.textContent).toBe('0');
 
   // Styles
-  expect(badge).toHaveStyleRule('background', 'green');
   expect(thumbnail).toHaveStyleRule('height', '4rem');
   expect(thumbnail).toHaveStyleRule('width', '4rem');
 });
