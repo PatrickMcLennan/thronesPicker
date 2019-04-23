@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cleanup, render } from 'react-testing-library';
+import { cleanup, render, fireEvent } from 'react-testing-library';
 import 'jest-styled-components';
 import 'jest-dom/extend-expect';
 import { ThemeProvider } from 'styled-components';
@@ -51,6 +51,12 @@ test('<OtherUsers />', () => {
     expect(badgeScore.textContent).toBe(`${fakeUserSolo.currentScore}`);
   });
   expect(badges.length).toBe(fakeOtherUsers.length);
+
+  fireEvent.click(badges[0]);
+  expect(changCurrentUser).toBeCalledTimes(1);
+  expect(changCurrentUser).toBeCalledWith(fakeOtherUsers[0]);
+  expect(changeComponent).toBeCalledTimes(1);
+  expect(changeComponent).toBeCalledWith('showUserPicks');
 
   // Styles
 });

@@ -30,7 +30,6 @@ interface IState {
 class AccountEditor extends React.Component<IProps, IState> {
   state = {
     newHouse: this.props.user.house,
-
     newDescription: this.props.user.description,
     showHouseList: false
   };
@@ -82,15 +81,14 @@ class AccountEditor extends React.Component<IProps, IState> {
             data-testid="accountEditor__label--newHouse"
             htmlFor="newHouse">
             <StyledP data-testid="accountEditor__p--newHouse">
-              Choose Your House
+              Choose Your House:
             </StyledP>
             <Badge
-              data-testid="accountEditor__badge--button"
-              src={house.name.length >= 1 ? house.sigilUrl : ''}
-              name={house.name.length >= 1 ? house.name : ''}
-              house={house.name.length >= 1 ? house.name : `Bend the knee...`}
-              sigilUrl={house.name.length >= 1 ? house.sigilUrl : ''}
-              onClick={() => this.renderHouseList}
+              src={house.sigilUrl}
+              name={''}
+              house={house.name}
+              sigilUrl={house.sigilUrl}
+              onClick={this.renderHouseList}
               thumbnailSize="small"
             />
             {showHouseList && (
@@ -98,9 +96,8 @@ class AccountEditor extends React.Component<IProps, IState> {
                 {allHouses.filter(
                   (houseList: IHouse): JSX.Element =>
                     houseList.name !== house.name && (
-                      <li>
+                      <li data-testid="accountEditor__li">
                         <Badge
-                          data-testid="accountEditor__badge--house"
                           src={houseList.sigilUrl}
                           name={houseList.name}
                           house=""
@@ -118,7 +115,7 @@ class AccountEditor extends React.Component<IProps, IState> {
             data-testid="accountEditor__label--newDescription"
             htmlFor="newDescription">
             <StyledP data-testid="accountEditor__p--newDescription">
-              Your Description
+              Your Description:
             </StyledP>
             <StyledInput
               data-testid="accountEditor__input--newDescription"
@@ -129,6 +126,12 @@ class AccountEditor extends React.Component<IProps, IState> {
               onChange={this.handleChange}
             />
           </StyledLabel>
+          <StyledInput
+            data-testid="accountEditor__input--submit"
+            type="submit"
+            value="Edit Account"
+            id="submit"
+          />
         </StyledForm>
       </StyledSection>
     );

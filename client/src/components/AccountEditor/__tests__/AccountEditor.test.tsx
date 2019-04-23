@@ -8,6 +8,7 @@ import { theme } from '../../../utils/globalStyles';
 import AccountEditor from '../AccountEditor';
 import { fakeUserSolo } from '../../../utils/testDummies';
 import { allHouses } from '../../../utils/houseList';
+import { debug } from 'util';
 
 afterEach(cleanup);
 
@@ -30,7 +31,8 @@ test('<AccountEditor />', () => {
   const {
     getByTestId,
     queryByTestId,
-    queryAllByTestId
+    queryAllByTestId,
+    debug
   } = renderAccountEditor();
   const accountEditor = getByTestId('accountEditor');
   const form = getByTestId('accountEditor__form');
@@ -38,16 +40,11 @@ test('<AccountEditor />', () => {
     getByTestId('accountEditor__label--newDescription'),
     getByTestId('accountEditor__input--newDescription')
   ];
-
-  const houseList = queryByTestId('accountEditor__ul');
-  const houseBadges = queryAllByTestId('accountEditor__badge--house');
-  const buttonBadge = queryByTestId('accountEditor__badge--button');
-  const buttonBadge__name = queryByTestId('badge__name');
-  const buttonBadge__house = queryByTestId('badge__house');
+  const submit = getByTestId('accountEditor__input--submit');
+  const badges = queryAllByTestId('badge');
   const thumbnail = queryByTestId('thumbnail');
 
   // Content
-  expect(accountEditor).toBeInTheDocument();
   expect(accountEditor).toContainElement(form);
 
   expect(labelNewDescription).toContainElement(inputNewDescription);
@@ -57,17 +54,19 @@ test('<AccountEditor />', () => {
   expect(inputNewDescription.value).toBe('user/solo/description');
   fireEvent.change(inputNewDescription, { target: { value: 'Go Starks!' } });
   expect(inputNewDescription.value).toBe('Go Starks!');
-
   expect(thumbnail.getAttribute('src')).toBe('stark sigil link');
-  expect(buttonBadge__name.textContent).toBe('Stark');
-  expect(buttonBadge__house.textContent).toBe('House Stark');
-  expect(houseList).not.toBeInTheDocument();
-  houseBadges.forEach((houseBadge: JSX.Element) =>
-    expect(houseBadge).not.toBeInTheDocument()
-  );
+  expect(badges.length).toBe(1);
 
-  // fireEvent.click(buttonBadge);
+  fireEvent.click(badges[0]);
+  const houseUl = queryByTestId('accountEditor__ul');
+  const houseBadges = queryAllByTestId('accountEditor__li');
+
+  fireEvent.click(submit);
+  expect(putEditAccount).toBeCalledTimes(1);
+  // expect(putEditAccount).toBeCalledWith('Targaryen', 'Go Starks!');
 
   // Styles
   expect(form).toHaveStyleRule('background', 'purple');
+  expect(thumbnail).toHaveStyleRule('height', '4rem');
+  expect(thumbnail).toHaveStyleRule('width', '4rem');
 });
