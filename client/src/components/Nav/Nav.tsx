@@ -83,8 +83,7 @@ class Nav extends React.Component<IProps, IState> {
   };
 
   render(): JSX.Element {
-    const { user, randomSuggestion, changeComponent }: IProps = this.props;
-    const { name, house, profilePic } = user;
+    const { user, randomSuggestion }: IProps = this.props;
     const { renderMenu, triggerAnimation }: IState = this.state;
     return (
       <StyledNav data-testid="nav" triggerAnimation={triggerAnimation}>
@@ -92,7 +91,7 @@ class Nav extends React.Component<IProps, IState> {
           src={user.profilePic}
           name={user.name}
           house={user.house.name}
-          sigilUrl={user.sigilUrl}
+          sigilUrl={user.house.sigilUrl}
           handler={this.toggleMenu}
           currentScore={user.currentScore}
           thumbnailSize="big"
@@ -109,7 +108,7 @@ class Nav extends React.Component<IProps, IState> {
               </StyledLi>
               <StyledLi
                 data-testid="nav__li"
-                onClick={() => this.handleClick('showMakePicks')}
+                onClick={() => this.handleClick('showUserPicks')}
                 triggerAnimation={triggerAnimation}
                 delay={0.2}>
                 Make Picks

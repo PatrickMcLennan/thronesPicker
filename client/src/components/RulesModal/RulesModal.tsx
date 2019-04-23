@@ -45,8 +45,9 @@ class RulesModal extends React.Component<IProps, {}> {
           <StyledLi data-testid="rulesModal__li">
             3. Unpicked Characters earn no points.
             <StyledSpan>
-              EX - Brienne of Tarth becomes Warden of the West. You left her
-              unpicked. You get nothing. Don't do this.
+              EX - Brienne of Tarth becomes Warden of the West and Beric
+              Dondarrion dies. You left them unpicked. You get nothing. Don't do
+              this.
             </StyledSpan>
           </StyledLi>
           <StyledLi data-testid="rulesModal__li">
@@ -56,9 +57,9 @@ class RulesModal extends React.Component<IProps, {}> {
               your picks after that.
             </b>
             <StyledSpan>
-              The further we get into this season the easier it will be to make
-              correct picks. You will still be able to Log In, edit your account
-              and observe scores.
+              Until then you can change your picks as much as you'd like. After,
+              you will still be able to Log In, edit your account and compare
+              scores.
             </StyledSpan>
           </StyledLi>
           <StyledLi data-testid="rulesModal__li">

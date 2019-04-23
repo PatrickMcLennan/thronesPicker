@@ -7,22 +7,33 @@ interface IProps {
 const animateIn = keyframes`
   0% {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateY(-100%);
   }
   100% {
     opacity: 1;
-    transform: translateX(0%);
+    transform: translateY(0%);
+  }
+`;
+
+const animateOut = keyframes`
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
   }
 `;
 
 export const StyledSection = styled.section`
-  display: none;
   opacity: 0;
-  transform: translateX(-100%);
+  transform: translateY(-100%);
 
   ${(props: IProps) =>
     props.animate &&
     css`
+      ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')}
       animation: ${animateIn} forwards;
       animation-duration: ${({ theme: { animation } }: any) =>
         animation.timeMain};
@@ -31,7 +42,8 @@ export const StyledSection = styled.section`
   ${(props: IProps) =>
     !props.animate &&
     css`
-      animation: ${animateIn} backwards;
+      ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')}
+      animation: ${animateOut} forwards;
       animation-duration: ${({ theme: { animation } }: any) =>
         animation.timeMain};
     `}

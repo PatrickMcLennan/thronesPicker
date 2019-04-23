@@ -79,8 +79,8 @@ export const StyledSpan = styled.h6`
   padding: 1.5rem;
   font-size: 1.75;
   font-style: italic;
-  letter-spacing: 0.2rem;
-
+  letter-spacing: 0.25rem;
+  line-height: 1.4;
   font-weight: 300;
   text-transform: uppercase;
 `;

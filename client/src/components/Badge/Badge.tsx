@@ -63,7 +63,9 @@ class Badge extends React.Component<IProps, IState> {
         <StyledFigCaption>
           <StyledP data-testid="badge__name">{name}</StyledP>
           <StyledP data-testid="badge__house">House {house}</StyledP>
-          <StyledP data-testid="badge__score">Score: {currentScore}</StyledP>
+          {name.length >= 1 && (
+            <StyledP data-testid="badge__score">Score: {currentScore}</StyledP>
+          )}
         </StyledFigCaption>
         <Thumbnail src={sigilUrl} name={name} size={thumbnailSize} />
       </StyledFigure>
