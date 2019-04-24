@@ -7,6 +7,7 @@ export const StyledDiv = styled.div`
 
 export const StyledH6 = styled.h6`
   font-size: 2.25rem;
+  margin: 1rem;
   font-weight: 100;
   letter-spacing: 0.3rem;
   text-transform: uppercase;
@@ -18,4 +19,5 @@ export const StyledUl = styled.ul`
   top: 100%;
   left: 0;
   right: 0;
+  height: 200px;
 `;

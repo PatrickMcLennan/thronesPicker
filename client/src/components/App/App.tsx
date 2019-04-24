@@ -267,6 +267,7 @@ class App extends React.Component<{}, IState> {
               personalPicks={currentUser === user}
               changeCurrentUser={this.changeCurrentUser}
               changeComponent={this.changeComponent}
+              postMakePicks={this.postMakePicks}
             />
           )}
           {showRules.render && (

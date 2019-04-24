@@ -62,3 +62,7 @@ export const ThroneDiv = styled(Row)`
   width: 100%;
   border: 1px solid white;
 `;
+
+export const StyledButton = styled.button`
+  ${({ theme: { inputs } }: any) => inputs.submit}
+`;

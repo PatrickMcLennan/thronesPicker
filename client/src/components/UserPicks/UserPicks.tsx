@@ -3,9 +3,9 @@ import * as React from 'react';
 import Badge from '../Badge/Badge';
 import SectionHeader from '../SectionHeader/SectionHeader';
 import Pick from '../Pick/Pick';
-import { IUser, ICharacter } from '../../utils/clientDictionary';
+import { IUser, ICharacter, IPicks } from '../../utils/clientDictionary';
 
-import { StyledSection, ThroneDiv } from './UserPicks.style';
+import { StyledSection, ThroneDiv, StyledButton } from './UserPicks.style';
 
 interface IProps {
   animate: boolean;
@@ -13,6 +13,7 @@ interface IProps {
   changeCurrentUser: Function;
   changeComponent: Function;
   personalPicks: boolean;
+  postMakePicks: Function;
 }
 
 class UserPicks extends React.Component<IProps, IUser> {
@@ -34,6 +35,12 @@ class UserPicks extends React.Component<IProps, IUser> {
         picks: { [pick]: newCharacter }
       })
     );
+  };
+
+  submitPicks: Function = async (): Promise<Function> => {
+    const { picks } = this.state;
+    const { postMakePicks } = this.props;
+    return postMakePicks(picks);
   };
 
   render(): JSX.Element {
@@ -72,7 +79,19 @@ class UserPicks extends React.Component<IProps, IUser> {
             showDropdown={true}
             handleCharacterChange={this.handleCharacterChange}
           />
+          <Pick
+            jobHeader={'Hand of the King'}
+            pickName="handOfTheKing"
+            pick={picks.handOfTheKing}
+            personalPicks={personalPicks}
+            userPicks={picks}
+            showDropdown={true}
+            handleCharacterChange={this.handleCharacterChange}
+          />
         </ThroneDiv>
+        {personalPicks && (
+          <StyledButton onClick={this.submitPicks}>Submit Picks</StyledButton>
+        )}
       </StyledSection>
     );
   }
