@@ -3,6 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 export const StyledDiv = styled.div`
   ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')};
   position: relative;
+  margin: 2rem 0;
 `;
 
 export const StyledH6 = styled.h6`

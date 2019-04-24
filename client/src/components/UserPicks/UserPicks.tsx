@@ -110,14 +110,6 @@ class UserPicks extends React.Component<IProps, IUser> {
           />
         </ThroneDiv>
         <WardenDiv>
-          <Pick
-            jobHeader={'Warden of the West'}
-            pickName="wardenWest"
-            pick={picks.wardenWest}
-            personalPicks={personalPicks}
-            handleCharacterChange={this.handleCharacterChange}
-            key={Math.random()}
-          />
           <Column>
             <Pick
               jobHeader={'Warden of the North'}
@@ -136,6 +128,14 @@ class UserPicks extends React.Component<IProps, IUser> {
               key={Math.random()}
             />
           </Column>
+          <Pick
+            jobHeader={'Warden of the West'}
+            pickName="wardenWest"
+            pick={picks.wardenWest}
+            personalPicks={personalPicks}
+            handleCharacterChange={this.handleCharacterChange}
+            key={Math.random()}
+          />
           <Pick
             jobHeader={'Warden of the East'}
             pickName="wardenEast"
