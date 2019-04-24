@@ -68,6 +68,7 @@ class Pick extends React.Component<IProps, {}> {
           home={pick.home}
           sigilUrl={pick.sigilUrl}
           thumbnailSize="big"
+          key={Math.random()}
           handler={
             personalPicks
               ? () => this.renderCharacterList(pick.name)

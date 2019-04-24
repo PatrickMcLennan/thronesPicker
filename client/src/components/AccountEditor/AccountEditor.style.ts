@@ -91,4 +91,8 @@ export const StyledUl = styled.ul`
   top: 100%;
   left: 0;
   right: 0;
+
+  & li {
+    margin: 0.5rem;
+  }
 `;

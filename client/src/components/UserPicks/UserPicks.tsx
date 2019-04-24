@@ -82,21 +82,34 @@ class UserPicks extends React.Component<IProps, IUser> {
       );
     }
 
-    if (currentCharacter.name !== '...') {
-      const copy: ICharacter[] = this.state.picks.unpicked;
-      copy.push(currentCharacter);
+    if (picks.unpicked.includes(newCharacter)) {
+      const copy: ICharacter[] = picks.unpicked.filter(
+        (character: ICharacter): boolean => character.name !== newCharacter.name
+      );
       return this.setState(
         (prevState: IUser): IUser => ({
           ...prevState,
           picks: {
             ...this.state.picks,
-            unpicked: { ...copy }
+            unpicked: copy
           }
         })
       );
-    } else {
-      return;
     }
+
+    const { unpicked } = picks;
+    if (currentCharacter.name !== '...') {
+      unpicked.push(currentCharacter);
+    }
+    this.setState(
+      (prevState: IUser): IUser => ({
+        ...prevState,
+        picks: {
+          ...this.state.picks,
+          unpicked
+        }
+      })
+    );
   };
 
   submitPicks: Function = async (): Promise<Function> => {
@@ -130,6 +143,7 @@ class UserPicks extends React.Component<IProps, IUser> {
           sigilUrl={sigilUrl}
           currentScore={currentScore}
           thumbnailSize={'big'}
+          key={Math.random()}
         />
         <ThroneDiv>
           <Pick
@@ -150,38 +164,44 @@ class UserPicks extends React.Component<IProps, IUser> {
           />
         </ThroneDiv>
         <WardenDiv>
-          <Pick
-            jobHeader={'Warden of the North'}
-            pickName="wardenNorth"
-            pick={picks.wardenNorth}
-            personalPicks={personalPicks}
-            handleCharacterChange={this.handleCharacterChange}
-            key={Math.random()}
-          />
-          <Pick
-            jobHeader={'Warden of the South'}
-            pickName="wardenSouth"
-            pick={picks.wardenSouth}
-            personalPicks={personalPicks}
-            handleCharacterChange={this.handleCharacterChange}
-            key={Math.random()}
-          />
-          <Pick
-            jobHeader={'Warden of the West'}
-            pickName="wardenWest"
-            pick={picks.wardenWest}
-            personalPicks={personalPicks}
-            handleCharacterChange={this.handleCharacterChange}
-            key={Math.random()}
-          />
-          <Pick
-            jobHeader={'Warden of the East'}
-            pickName="wardenEast"
-            pick={picks.wardenEast}
-            personalPicks={personalPicks}
-            handleCharacterChange={this.handleCharacterChange}
-            key={Math.random()}
-          />
+          <Column>
+            <Pick
+              jobHeader={'Warden of the West'}
+              pickName="wardenWest"
+              pick={picks.wardenWest}
+              personalPicks={personalPicks}
+              handleCharacterChange={this.handleCharacterChange}
+              key={Math.random()}
+            />
+          </Column>
+          <Column>
+            <Pick
+              jobHeader={'Warden of the North'}
+              pickName="wardenNorth"
+              pick={picks.wardenNorth}
+              personalPicks={personalPicks}
+              handleCharacterChange={this.handleCharacterChange}
+              key={Math.random()}
+            />
+            <Pick
+              jobHeader={'Warden of the South'}
+              pickName="wardenSouth"
+              pick={picks.wardenSouth}
+              personalPicks={personalPicks}
+              handleCharacterChange={this.handleCharacterChange}
+              key={Math.random()}
+            />
+          </Column>
+          <Column>
+            <Pick
+              jobHeader={'Warden of the East'}
+              pickName="wardenEast"
+              pick={picks.wardenEast}
+              personalPicks={personalPicks}
+              handleCharacterChange={this.handleCharacterChange}
+              key={Math.random()}
+            />
+          </Column>
         </WardenDiv>
         <LordDiv>
           <Column>
@@ -243,11 +263,35 @@ class UserPicks extends React.Component<IProps, IUser> {
 
         <DeadDiv>
           <StyledH6>Dead</StyledH6>
-          {picks.dead.map((character: ICharacter): JSX.Element => <Badge src={character.imgLink} name={character.name} house={character.house} home={character.home} sigilUrl={character.sigilUrl} thumbnailSize='big' key={Math.random()}/>)}
+          {picks.dead.map(
+            (character: ICharacter): JSX.Element => (
+              <Badge
+                src={character.imgLink}
+                name={character.name}
+                house={character.house}
+                home={character.home}
+                sigilUrl={character.sigilUrl}
+                thumbnailSize="big"
+                key={Math.random()}
+              />
+            )
+          )}
         </DeadDiv>
         <UnpickedDiv>
-        <StyledH6>Unpicked</StyledH6>
-          {picks.unpicked.map((character: ICharacter): JSX.Element => <Badge src={character.imgLink} name={character.name} house={character.house} home={character.home} sigilUrl={character.sigilUrl} thumbnailSize='big' key={Math.random()}/>)}
+          <StyledH6>Unpicked</StyledH6>
+          {picks.unpicked.map(
+            (character: ICharacter): JSX.Element => (
+              <Badge
+                src={character.imgLink}
+                name={character.name}
+                house={character.house}
+                home={character.home}
+                sigilUrl={character.sigilUrl}
+                thumbnailSize="big"
+                key={Math.random()}
+              />
+            )
+          )}
         </UnpickedDiv>
       </StyledSection>
     );
