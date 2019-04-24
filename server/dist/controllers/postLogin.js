@@ -94,7 +94,7 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                         casterlyRockLord: utils_1.emptyCharacter,
                         dorneLord: utils_1.emptyCharacter,
                         reachLord: utils_1.emptyCharacter,
-                        riverrrunLord: utils_1.emptyCharacter,
+                        riverrunLord: utils_1.emptyCharacter,
                         ironIslandsLord: utils_1.emptyCharacter,
                         wardenNorth: utils_1.emptyCharacter,
                         wardenEast: utils_1.emptyCharacter,
@@ -110,6 +110,7 @@ exports.postLogin = function (req, res) { return __awaiter(_this, void 0, void 0
                     })];
             case 6:
                 otherUsers = _b.sent();
+                console.log(newUser);
                 return [4, newUser.save()];
             case 7:
                 _b.sent();

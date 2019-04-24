@@ -75,7 +75,6 @@ exports.postMakePicks = function (req, res) { return __awaiter(_this, void 0, vo
                 return [4, user.save()];
             case 3:
                 _b.sent();
-                console.log(user);
                 return [2, res.send({
                         success: true,
                         message: "Picks have been submitted successfully",

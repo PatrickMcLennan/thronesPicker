@@ -181,14 +181,14 @@ class UserPicks extends React.Component<IProps, IUser> {
               handleCharacterChange={this.handleCharacterChange}
               key={Math.random()}
             />
-            {/* <Pick
+            <Pick
               jobHeader={'Lord Of Riverrun'}
               pickName="riverrunLord"
               pick={picks.riverrunLord}
               personalPicks={personalPicks}
               handleCharacterChange={this.handleCharacterChange}
               key={Math.random()}
-            /> */}
+            />
             <Pick
               jobHeader={'Lord Of The Iron Islands'}
               pickName="ironIslandsLord"

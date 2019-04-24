@@ -27,7 +27,6 @@ export const postMakePicks = async (
   } else {
     user.picks = { ...newPicks };
     await user.save();
-    console.log(user);
     return res.send({
       success: true,
       message: `Picks have been submitted successfully`,

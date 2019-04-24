@@ -58,7 +58,7 @@ export const postLogin = async (
           casterlyRockLord: emptyCharacter,
           dorneLord: emptyCharacter,
           reachLord: emptyCharacter,
-          riverrrunLord: emptyCharacter,
+          riverrunLord: emptyCharacter,
           ironIslandsLord: emptyCharacter,
           wardenNorth: emptyCharacter,
           wardenEast: emptyCharacter,
@@ -72,6 +72,7 @@ export const postLogin = async (
       const otherUsers: IUser[] = await User.find({
         facebookId: { $ne: newUser.facebookId }
       });
+      console.log(newUser);
       await newUser.save();
       return res.send({
         success: true,
