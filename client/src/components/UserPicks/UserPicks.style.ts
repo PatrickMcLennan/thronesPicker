@@ -49,23 +49,26 @@ export const StyledSection = styled.section`
     `}
 `;
 
-const Row = styled.div`
-  margin: 2rem 0;
-  width: 100%;
+const Container = styled.div`
+  margin: 2rem;
 `;
 
-export const Column = styled.div`
+const Row = styled(Container)`
+  ${({ theme: { flexin } }: any) => flexin('space-evenly', 'center', 'row')};
+  width: 100%;
+  background: red;
+`;
+
+export const Column = styled(Container)`
   ${({ theme: { flexin } }: any) => flexin('space-evenly', 'center', 'column')}
+  background: purple;
 `;
 
-export const ThroneDiv = styled(Row)`
-  ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')};
-  padding: 2rem;
-  width: 100%;
-
+export const ThroneDiv = styled(Column)`
+  flex-wrap: nowrap;
   & div {
     &:not(:last-of-type)::after {
-      margin: 2rem 0 0 0;
+      margin: 2rem 0;
       height: 35px;
       width: 1px;
       background-color: white;
@@ -75,20 +78,16 @@ export const ThroneDiv = styled(Row)`
   }
 `;
 
-export const WardenDiv = styled.div`
-  ${({ theme: { flexin } }: any) => flexin('space-evenly')};
-
-  /* &:first-of-type(div) {
+export const WardenDiv = styled(Row)`
+  &:first-of-type(div) {
     order: 2;
   }
   &:last-of-type(div) {
     order: 3;
-  } */
+  }
 `;
 
-export const LordDiv = styled.div`
-  ${({ theme: { flexin } }: any) => flexin('space-evenly', 'center', 'column')};
-`;
+export const LordDiv = styled(Row)``;
 
 export const StyledButton = styled.button`
   ${({ theme: { inputs } }: any) => inputs.submit}
