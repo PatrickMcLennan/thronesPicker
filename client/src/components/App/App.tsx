@@ -9,7 +9,7 @@ import {
   IPutEditAccountRequest,
   IPutEditAccountResponse,
   IPicks,
-  IPostMakePicsResponse
+  IPostMakePicksResponse
 } from '../../utils/clientDictionary';
 import { GlobalStyle, theme } from '../../utils/globalStyles';
 import { fbLogInInit, fbLogIn } from '../../utils/auth';
@@ -197,7 +197,7 @@ class App extends React.Component<{}, IState> {
       user: { facebookId }
     } = this.state;
 
-    await fetch(`http://linktobackend.com/makePicks`, {
+    await fetch(`http://localhost:4000/makePicks`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -205,10 +205,16 @@ class App extends React.Component<{}, IState> {
       body: JSON.stringify({ facebookId, newPicks })
     })
       .then(
-        (response: IPostMakePicsResponse): Function => {
+        (
+          rawResponse: IPostMakePicksResponse
+        ): Promise<IPostMakePicksResponse> => rawResponse.json()
+      )
+      .then(
+        (response: IPostMakePicksResponse): Function => {
           this.setState((prevState: IState) => ({
             ...prevState,
-            user: { ...this.state.user, picks: newPicks }
+            user: { ...this.state.user, picks: newPicks },
+            currentUser: { ...this.state.user, picks: newPicks }
           }));
           return this.showMessage(response);
         }

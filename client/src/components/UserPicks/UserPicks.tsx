@@ -6,6 +6,7 @@ import Pick from '../Pick/Pick';
 import { IUser, ICharacter, IPicks } from '../../utils/clientDictionary';
 
 import { StyledSection, ThroneDiv, StyledButton } from './UserPicks.style';
+import { allCharacters } from '../../utils/characters';
 
 interface IProps {
   animate: boolean;
@@ -32,7 +33,7 @@ class UserPicks extends React.Component<IProps, IUser> {
     return this.setState(
       (prevState: IUser): any => ({
         ...prevState,
-        picks: { [pick]: newCharacter }
+        picks: { ...this.state.picks, [pick]: newCharacter }
       })
     );
   };

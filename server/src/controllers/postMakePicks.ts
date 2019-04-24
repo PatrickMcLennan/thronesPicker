@@ -6,7 +6,7 @@ export const postMakePicks = async (
   res: IPostMakePicksResponse
 ) => {
   let serverError: boolean = false;
-  const { facebookId, picks }: IPostMakePicksRequest = req.body;
+  const { facebookId, newPicks }: IPostMakePicksRequest = req.body;
 
   const user: IUser = await User.findOne(
     { facebookId },
@@ -25,11 +25,13 @@ export const postMakePicks = async (
       message: `Sorry - there was an issue submitting your picks at this time.  Please try again a little later.`
     });
   } else {
-    user.picks = picks;
+    user.picks = { ...newPicks };
     await user.save();
+    console.log(user);
     return res.send({
       success: true,
-      message: `Picks have been submitted successfully`
+      message: `Picks have been submitted successfully`,
+      picks: user.picks
     });
   }
 };

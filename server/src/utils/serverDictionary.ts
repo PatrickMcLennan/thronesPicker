@@ -9,22 +9,22 @@ export interface IHouse {
 }
 
 export interface IPicks {
-  ironThrone: ICharacter | ICharacter['name'];
-  handOfTheKing: ICharacter | ICharacter['name'];
-  nightsWatchLordCommander: ICharacter | ICharacter['name'];
-  nightsWatch: ICharacter | ICharacter['name'];
-  winterfellLord: ICharacter | ICharacter['name'];
-  casterlyRockLord: ICharacter | ICharacter['name'];
-  dorneLord: ICharacter | ICharacter['name'];
-  reachLord: ICharacter | ICharacter['name'];
-  riverrunLord: ICharacter | ICharacter['name'];
-  ironIslandsLord: ICharacter | ICharacter['name'];
-  wardenNorth: ICharacter | ICharacter['name'];
-  wardenEast: ICharacter | ICharacter['name'];
-  wardenSouth: ICharacter | ICharacter['name'];
-  wardenWest: ICharacter | ICharacter['name'];
-  dead: ICharacter[] | ICharacter['name'];
-  unpicked: ICharacter[] | ICharacter['name'];
+  ironThrone: ICharacter;
+  handOfTheKing: ICharacter;
+  nightsWatchLordCommander: ICharacter;
+  nightsWatch: ICharacter;
+  winterfellLord: ICharacter;
+  casterlyRockLord: ICharacter;
+  dorneLord: ICharacter;
+  reachLord: ICharacter;
+  riverrunLord: ICharacter;
+  ironIslandsLord: ICharacter;
+  wardenNorth: ICharacter;
+  wardenEast: ICharacter;
+  wardenSouth: ICharacter;
+  wardenWest: ICharacter;
+  dead: ICharacter[];
+  unpicked: ICharacter[];
 }
 
 export interface IUser extends Document {
@@ -74,7 +74,7 @@ export interface IPostLoginResponseFailure extends Response {
 // MAKE PICKS
 export interface IPostMakePicksRequest extends Request {
   facebookId: IUser['facebookId'];
-  picks: IPicks;
+  newPicks: IPicks;
 }
 export interface IPostMakePicksResponse extends Response {
   success: boolean;

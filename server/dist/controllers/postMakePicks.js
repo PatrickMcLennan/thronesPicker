@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -38,12 +49,12 @@ var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var schemas_1 = require("../schemas");
 exports.postMakePicks = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var serverError, _a, facebookId, picks, user;
+    var serverError, _a, facebookId, newPicks, user;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 serverError = false;
-                _a = req.body, facebookId = _a.facebookId, picks = _a.picks;
+                _a = req.body, facebookId = _a.facebookId, newPicks = _a.newPicks;
                 return [4, schemas_1.User.findOne({ facebookId: facebookId }, function (err, user) {
                         if (err) {
                             serverError = true;
@@ -60,13 +71,15 @@ exports.postMakePicks = function (req, res) { return __awaiter(_this, void 0, vo
                         message: "Sorry - there was an issue submitting your picks at this time.  Please try again a little later."
                     })];
             case 2:
-                user.picks = picks;
+                user.picks = __assign({}, newPicks);
                 return [4, user.save()];
             case 3:
                 _b.sent();
+                console.log(user);
                 return [2, res.send({
                         success: true,
-                        message: "Picks have been submitted successfully"
+                        message: "Picks have been submitted successfully",
+                        picks: user.picks
                     })];
         }
     });

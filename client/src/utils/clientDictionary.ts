@@ -90,11 +90,12 @@ export interface IPutEditAccountResponse extends Response {
 }
 
 // MAKE/CHANGE PICkS
-export interface IPostMakePicsRequest extends Request {
+export interface IPostMakePicksRequest extends Request {
   facebookId: string;
   newPicks: IPicks;
 }
-export interface IPostMakePicsResponse extends Response {
-  facebookId: string;
-  newPicks: IPicks;
+export interface IPostMakePicksResponse extends Response {
+  picks: IPicks;
+  message: string;
+  success: boolean;
 }

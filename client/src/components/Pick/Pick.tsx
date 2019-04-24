@@ -27,17 +27,18 @@ class Pick extends React.Component<IProps, {}> {
   state = {
     pick: this.props.pick,
     toggleDropdown: false,
-    availableCharacters: allCharacters.filter(
-      (character: ICharacter): boolean =>
-        character.name !== this.props.pick.name
-    )
+    availableCharacters: allCharacters
   };
 
   renderCharacterList: Function = (): void => {
+    const { pick } = this.props;
     return this.setState(
       (prevState: IState): IState => ({
         ...prevState,
-        toggleDropdown: !this.state.toggleDropdown
+        toggleDropdown: !this.state.toggleDropdown,
+        availableCharacters: allCharacters.filter(
+          (character: ICharacter): boolean => character.name !== pick.name
+        )
       })
     );
   };
