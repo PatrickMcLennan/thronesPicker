@@ -229,7 +229,7 @@ class App extends React.Component<{}, IState> {
           this.state.user === this.state.currentUser
             ? console.log('yes')
             : console.log('no');
-          return this.showMessage(response);
+          return this.showMessage(response.success, response.message);
         }
       )
       .catch((err: IServerCall): Function => this.showMessage(err));

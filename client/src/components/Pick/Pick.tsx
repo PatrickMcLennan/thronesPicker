@@ -19,13 +19,11 @@ interface IProps {
 
 interface IState {
   toggleDropdown: boolean;
-  pick: ICharacter;
   availableCharacters: ICharacter[];
 }
 
 class Pick extends React.Component<IProps, {}> {
   state = {
-    pick: this.props.pick,
     toggleDropdown: false,
     availableCharacters: allCharacters
   };
@@ -53,7 +51,6 @@ class Pick extends React.Component<IProps, {}> {
     this.setState(
       (prevState: IState): IState => ({
         ...prevState,
-        pick: newCharacter,
         toggleDropdown: !this.state.toggleDropdown
       })
     );
@@ -61,8 +58,8 @@ class Pick extends React.Component<IProps, {}> {
   };
 
   render(): JSX.Element {
-    const { jobHeader, personalPicks } = this.props;
-    const { toggleDropdown, availableCharacters, pick } = this.state;
+    const { jobHeader, personalPicks, pick } = this.props;
+    const { toggleDropdown, availableCharacters } = this.state;
     return (
       <StyledDiv data-testid="pick">
         <StyledH6>{jobHeader}</StyledH6>

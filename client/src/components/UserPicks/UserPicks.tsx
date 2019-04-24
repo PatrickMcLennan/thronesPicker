@@ -3,7 +3,7 @@ import * as React from 'react';
 import Badge from '../Badge/Badge';
 import SectionHeader from '../SectionHeader/SectionHeader';
 import Pick from '../Pick/Pick';
-import { IUser, ICharacter, IPicks } from '../../utils/clientDictionary';
+import { IUser, ICharacter } from '../../utils/clientDictionary';
 
 import { StyledSection, ThroneDiv, StyledButton } from './UserPicks.style';
 import { allCharacters } from '../../utils/characters';
