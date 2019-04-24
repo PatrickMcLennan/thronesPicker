@@ -11,6 +11,7 @@ interface IProps {
   onClick?: Function;
   handler?: Function;
   currentScore?: number;
+  home?: string;
   delay?: number;
   thumbnailSize: string;
 }
@@ -48,6 +49,7 @@ class Badge extends React.Component<IProps, IState> {
       src,
       name,
       house,
+      home,
       currentScore,
       thumbnailSize,
       handler,
@@ -64,6 +66,9 @@ class Badge extends React.Component<IProps, IState> {
           <StyledP data-testid="badge__name">{name}</StyledP>
           <StyledP data-testid="badge__house">House {house}</StyledP>
           {name.length >= 1 && (
+            <StyledP data-testid="badge__score">Score: {currentScore}</StyledP>
+          )}
+          {home && (
             <StyledP data-testid="badge__score">Score: {currentScore}</StyledP>
           )}
         </StyledFigCaption>

@@ -12,7 +12,7 @@ afterEach(cleanup);
 const renderPick: Function = (): any =>
   render(
     <ThemeProvider theme={theme}>
-      <Pick />
+      <Pick jobProperty="Iron Throne" personalPicks={false} picked={false} />
     </ThemeProvider>
   );
 

@@ -40,7 +40,7 @@ export interface ICharacter {
   sigilUrl: string;
   alive: boolean;
   placement: IPicks | string;
-  wikiLink: string;
+  imgLink: string;
 }
 
 export interface IHouse {

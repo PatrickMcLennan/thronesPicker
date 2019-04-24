@@ -49,4 +49,16 @@ export const StyledSection = styled.section`
     `}
 `;
 
-// export const ThroneDiv = styled.div``;
+const Row = styled.div`
+  margin-top: 2rem;
+  width: 100%;
+  border: 1px solid red;
+`;
+
+export const ThroneDiv = styled(Row)`
+  ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')};
+  margin-top: 2rem;
+  padding: 2rem;
+  width: 100%;
+  border: 1px solid white;
+`;
