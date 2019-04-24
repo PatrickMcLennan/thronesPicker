@@ -35,43 +35,49 @@ class UserPicks extends React.Component<IProps, IUser> {
   }
 
   handleCharacterChange: Function = (
-    pick: string,
+    pickName: string,
     newCharacter: ICharacter
   ): void => {
     const { picks } = this.state;
-    const currentPicks: ICharacter[] = Object.values(picks);
-    const currentKeys: string[] = Object.keys(picks);
-    const previousPlacement: number = currentPicks.indexOf(newCharacter);
-    const previousKey: string = currentKeys[previousPlacement];
+    const allCurrentPicks: ICharacter[] = Object.values(picks);
+    const allCurrentKeys: string[] = Object.keys(picks);
 
-    if (previousKey === 'unpicked' || previousKey === 'dead') {
-      return this.setState(
+    const currentCharacter: ICharacter = allCurrentPicks.indexOf(
+      allCurrentKeys[pickName]
+    );
+
+    const newCharPreviousPlacement: number = allCurrentPicks.indexOf(
+      newCharacter
+    );
+    const newCharPreviousKey: string = allCurrentKeys[newCharPreviousPlacement];
+
+    if (newCharPreviousKey === 'unpicked' || newCharPreviousKey === 'dead') {
+      this.setState(
         (prevState: IUser): IUser => ({
           ...prevState,
           picks: {
             ...this.state.picks,
-            [pick]: newCharacter,
-            [previousKey]: this.state.picks[previousKey].filter(
+            [pickName]: newCharacter,
+            [newCharPreviousKey]: this.state.picks[newCharPreviousKey].filter(
               (character: ICharacter): boolean =>
                 character.name !== newCharacter.name
             )
           }
         })
       );
-    } else if (previousKey !== 'unpicked' && previousKey !== 'dead') {
-      return this.setState(
+    } else if (
+      newCharPreviousKey !== 'unpicked' &&
+      newCharPreviousKey !== 'dead'
+    ) {
+      this.setState(
         (prevState: IUser): any => ({
           ...prevState,
           picks: {
             ...this.state.picks,
-            [pick]: newCharacter,
-            [previousKey]: emptyCharacter
+            [pickName]: newCharacter,
+            [newCharPreviousKey]: emptyCharacter
           }
         })
-      );
-    } else {
-      return this.setState(
-        (prevState: IUser): IUser => ({ ...prevState, [pick]: newCharacter })
       );
     }
   };
@@ -127,24 +133,22 @@ class UserPicks extends React.Component<IProps, IUser> {
           />
         </ThroneDiv>
         <WardenDiv>
-          <Column>
-            <Pick
-              jobHeader={'Warden of the North'}
-              pickName="wardenNorth"
-              pick={picks.wardenNorth}
-              personalPicks={personalPicks}
-              handleCharacterChange={this.handleCharacterChange}
-              key={Math.random()}
-            />
-            <Pick
-              jobHeader={'Warden of the South'}
-              pickName="wardenSouth"
-              pick={picks.wardenSouth}
-              personalPicks={personalPicks}
-              handleCharacterChange={this.handleCharacterChange}
-              key={Math.random()}
-            />
-          </Column>
+          <Pick
+            jobHeader={'Warden of the North'}
+            pickName="wardenNorth"
+            pick={picks.wardenNorth}
+            personalPicks={personalPicks}
+            handleCharacterChange={this.handleCharacterChange}
+            key={Math.random()}
+          />
+          <Pick
+            jobHeader={'Warden of the South'}
+            pickName="wardenSouth"
+            pick={picks.wardenSouth}
+            personalPicks={personalPicks}
+            handleCharacterChange={this.handleCharacterChange}
+            key={Math.random()}
+          />
           <Pick
             jobHeader={'Warden of the West'}
             pickName="wardenWest"
