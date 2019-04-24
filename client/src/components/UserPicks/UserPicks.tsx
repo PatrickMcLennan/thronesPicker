@@ -34,15 +34,24 @@ class UserPicks extends React.Component<IProps, IUser> {
     const currentPicks: ICharacter[] = Object.values(this.state.picks);
     const currentKeys: string[] = Object.keys(this.state.picks);
     const previousPlacement: number = currentPicks.indexOf(newCharacter);
-    const previousKey: number = currentKeys.indexOf(newCharacter);
+    const previousKey: string = currentKeys[previousPlacement];
 
-    if (previousKey !== this.state.unpicked)
+    if (previousKey !== 'unpicked') {
       return this.setState(
         (prevState: IUser): any => ({
           ...prevState,
-          picks: { ...this.state.picks, [pick]: newCharacter }
+          picks: {
+            ...this.state.picks,
+            [pick]: newCharacter,
+            [previousKey]: emptyCharacter
+          }
         })
       );
+    } else {
+      return this.setState(
+        (prevState: IUser): IUser => ({ ...prevState, [pick]: newCharacter })
+      );
+    }
   };
 
   submitPicks: Function = async (): Promise<Function> => {
