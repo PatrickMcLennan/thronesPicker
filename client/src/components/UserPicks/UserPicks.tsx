@@ -92,8 +92,6 @@ class UserPicks extends React.Component<IProps, IUser> {
             pickName="ironThrone"
             pick={picks.ironThrone}
             personalPicks={personalPicks}
-            userPicks={picks}
-            showDropdown={true}
             handleCharacterChange={this.handleCharacterChange}
             key={Math.random()}
           />
@@ -102,8 +100,6 @@ class UserPicks extends React.Component<IProps, IUser> {
             pickName="handOfTheKing"
             pick={picks.handOfTheKing}
             personalPicks={personalPicks}
-            userPicks={picks}
-            showDropdown={true}
             handleCharacterChange={this.handleCharacterChange}
             key={Math.random()}
           />
@@ -114,8 +110,6 @@ class UserPicks extends React.Component<IProps, IUser> {
             pickName="wardenWest"
             pick={picks.wardenWest}
             personalPicks={personalPicks}
-            userPicks={picks}
-            showDropdown={true}
             handleCharacterChange={this.handleCharacterChange}
             key={Math.random()}
           />
@@ -125,8 +119,6 @@ class UserPicks extends React.Component<IProps, IUser> {
               pickName="wardenNorth"
               pick={picks.wardenNorth}
               personalPicks={personalPicks}
-              userPicks={picks}
-              showDropdown={true}
               handleCharacterChange={this.handleCharacterChange}
               key={Math.random()}
             />
@@ -135,8 +127,6 @@ class UserPicks extends React.Component<IProps, IUser> {
               pickName="wardenSouth"
               pick={picks.wardenSouth}
               personalPicks={personalPicks}
-              userPicks={picks}
-              showDropdown={true}
               handleCharacterChange={this.handleCharacterChange}
               key={Math.random()}
             />
@@ -146,8 +136,6 @@ class UserPicks extends React.Component<IProps, IUser> {
             pickName="wardenEast"
             pick={picks.wardenEast}
             personalPicks={personalPicks}
-            userPicks={picks}
-            showDropdown={true}
             handleCharacterChange={this.handleCharacterChange}
             key={Math.random()}
           />
@@ -159,8 +147,6 @@ class UserPicks extends React.Component<IProps, IUser> {
               pickName="winterfellLord"
               pick={picks.winterfellLord}
               personalPicks={personalPicks}
-              userPicks={picks}
-              showDropdown={true}
               handleCharacterChange={this.handleCharacterChange}
               key={Math.random()}
             />
@@ -169,8 +155,6 @@ class UserPicks extends React.Component<IProps, IUser> {
               pickName="dorneLord"
               pick={picks.dorneLord}
               personalPicks={personalPicks}
-              userPicks={picks}
-              showDropdown={true}
               handleCharacterChange={this.handleCharacterChange}
               key={Math.random()}
             />
@@ -179,8 +163,6 @@ class UserPicks extends React.Component<IProps, IUser> {
               pickName="reachLord"
               pick={picks.reachLord}
               personalPicks={personalPicks}
-              userPicks={picks}
-              showDropdown={true}
               handleCharacterChange={this.handleCharacterChange}
               key={Math.random()}
             />
@@ -191,8 +173,6 @@ class UserPicks extends React.Component<IProps, IUser> {
               pickName="casterlyRockLord"
               pick={picks.casterlyRockLord}
               personalPicks={personalPicks}
-              userPicks={picks}
-              showDropdown={true}
               handleCharacterChange={this.handleCharacterChange}
               key={Math.random()}
             />
@@ -201,8 +181,6 @@ class UserPicks extends React.Component<IProps, IUser> {
               pickName="riverrunLord"
               pick={picks.riverrunLord}
               personalPicks={personalPicks}
-              userPicks={picks}
-              showDropdown={true}
               handleCharacterChange={this.handleCharacterChange}
               key={Math.random()}
             />
@@ -211,8 +189,6 @@ class UserPicks extends React.Component<IProps, IUser> {
               pickName="ironIslandsLord"
               pick={picks.ironIslandsLord}
               personalPicks={personalPicks}
-              userPicks={picks}
-              showDropdown={true}
               handleCharacterChange={this.handleCharacterChange}
               key={Math.random()}
             />

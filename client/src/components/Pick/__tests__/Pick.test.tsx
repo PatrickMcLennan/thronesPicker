@@ -19,9 +19,7 @@ const renderPick: Function = (): any =>
         jobHeader="Iron Throne"
         pickName="ironThrone"
         pick={emptyUser.picks.ironThrone}
-        userPicks={emptyUser.picks}
         personalPicks={true}
-        showDropdown={true}
         handleCharacterChange={handleCharacterChange}
       />
     </ThemeProvider>

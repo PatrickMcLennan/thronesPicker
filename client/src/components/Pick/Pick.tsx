@@ -12,8 +12,6 @@ interface IProps {
   pickName: string;
   pick: ICharacter;
   personalPicks: boolean;
-  userPicks: IPicks;
-  showDropdown: boolean;
   handleCharacterChange: Function;
 }
 
