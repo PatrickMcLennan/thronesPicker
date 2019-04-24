@@ -73,6 +73,10 @@ export const WardenDiv = styled(Row)`
 
 export const LordDiv = styled(Row)``;
 
+export const DeadDiv = styled.div`
+  ${({ theme: { flexin } }: any) => flexin()}
+`;
+
 export const StyledButton = styled.button`
   margin: 2rem 0;
   background: none;

@@ -53,12 +53,13 @@ export const StyledForm = styled.form`
     flexin('space-evenly', 'center', 'column', 'wrap')}
   padding: 5rem;
   flex: 1;
-  background: red;
+  width: 100%;
 `;
 
 export const StyledLabel = styled.label`
   ${({ theme: { flexin } }: any) =>
-    flexin('space-evenly', 'flex-start', 'column', 'no-wrap')};
+    flexin('space-evenly', 'center', 'column', 'no-wrap')};
+  width: 100%;
 
   &[data-testid='accountEditor__label--newHouse'] {
     position: relative;

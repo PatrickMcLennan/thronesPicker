@@ -11,9 +11,11 @@ import {
   WardenDiv,
   Column,
   StyledButton,
-  LordDiv
+  LordDiv,
+  DeadDiv
 } from './UserPicks.style';
 import { emptyCharacter } from '../../utils/characters';
+import { theme } from '../../utils/globalStyles';
 
 interface IProps {
   animate: boolean;
@@ -36,12 +38,27 @@ class UserPicks extends React.Component<IProps, IUser> {
     pick: string,
     newCharacter: ICharacter
   ): void => {
-    const currentPicks: ICharacter[] = Object.values(this.state.picks);
-    const currentKeys: string[] = Object.keys(this.state.picks);
+    const { picks } = this.state;
+    const currentPicks: ICharacter[] = Object.values(picks);
+    const currentKeys: string[] = Object.keys(picks);
     const previousPlacement: number = currentPicks.indexOf(newCharacter);
     const previousKey: string = currentKeys[previousPlacement];
 
-    if (previousKey !== 'unpicked') {
+    if (previousKey === 'unpicked' || previousKey === 'dead') {
+      return this.setState(
+        (prevState: IUser): IUser => ({
+          ...prevState,
+          picks: {
+            ...this.state.picks,
+            [pick]: newCharacter,
+            [previousKey]: this.state.picks[previousKey].filter(
+              (character: ICharacter): boolean =>
+                character.name !== newCharacter.name
+            )
+          }
+        })
+      );
+    } else if (previousKey !== 'unpicked' && previousKey !== 'dead') {
       return this.setState(
         (prevState: IUser): any => ({
           ...prevState,
@@ -203,7 +220,9 @@ class UserPicks extends React.Component<IProps, IUser> {
           <StyledButton onClick={this.submitPicks}>Submit Picks</StyledButton>
         )}
 
-        <h6>Unused </h6>
+        <DeadDiv>
+          <h6>hello</h6>
+        </DeadDiv>
       </StyledSection>
     );
   }
