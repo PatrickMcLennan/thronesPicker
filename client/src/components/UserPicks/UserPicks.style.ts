@@ -90,9 +90,10 @@ export const StyledButton = styled.button`
 export const StyledH6 = styled.h6`
 width: 100%;
 text-transform: uppercase;
-  font-size: 2.4rem;
+  font-size: 2.75rem;
   font-weight: 100;
   letter-spacing: .2rem;
+  margin: .5rem 0;
 `
 
 export const DeadDiv = styled.div`
