@@ -59,7 +59,7 @@ class UserPicks extends React.Component<IProps, IState> {
             jobProperty={'Iron Throne'}
             personalPicks={personalPicks}
             picked={picks.ironThrone.length === 0}
-            // pick={picks.ironThrone}
+            pick={picks.ironThrone}
           />
         </ThroneDiv>
       </StyledSection>
