@@ -7,6 +7,7 @@ import { IUser, ICharacter } from '../../utils/clientDictionary';
 
 import { StyledSection, ThroneDiv, StyledButton } from './UserPicks.style';
 import { allCharacters } from '../../utils/characters';
+import { emptyCharacter } from '../../utils/characters';
 
 interface IProps {
   animate: boolean;
@@ -30,12 +31,18 @@ class UserPicks extends React.Component<IProps, IUser> {
     pick: string,
     newCharacter: ICharacter
   ): void => {
-    return this.setState(
-      (prevState: IUser): any => ({
-        ...prevState,
-        picks: { ...this.state.picks, [pick]: newCharacter }
-      })
-    );
+    const currentPicks: ICharacter[] = Object.values(this.state.picks);
+    const currentKeys: string[] = Object.keys(this.state.picks);
+    const previousPlacement: number = currentPicks.indexOf(newCharacter);
+    const previousKey: number = currentKeys.indexOf(newCharacter);
+
+    if (previousKey !== this.state.unpicked)
+      return this.setState(
+        (prevState: IUser): any => ({
+          ...prevState,
+          picks: { ...this.state.picks, [pick]: newCharacter }
+        })
+      );
   };
 
   submitPicks: Function = async (): Promise<Function> => {
