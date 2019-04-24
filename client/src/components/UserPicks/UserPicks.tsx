@@ -14,6 +14,7 @@ import {
   LordDiv,
   DeadDiv,
   UnpickedDiv,
+  StyledH6
 } from './UserPicks.style';
 import { emptyCharacter } from '../../utils/characters';
 import { theme } from '../../utils/globalStyles';
@@ -241,10 +242,12 @@ class UserPicks extends React.Component<IProps, IUser> {
         )}
 
         <DeadDiv>
-          <h6>hello</h6>
+          <StyledH6>Dead</StyledH6>
+          {picks.dead.map((character: ICharacter): JSX.Element => <Badge src={character.imgLink} name={character.name} house={character.house} home={character.home} sigilUrl={character.sigilUrl} thumbnailSize='big' key={Math.random()}/>)}
         </DeadDiv>
         <UnpickedDiv>
-          {picks.unpicked.map((character: ICharacter): JSX.Element => <Badge src={character.imgLink} name={character.name} house={character.house} home={character.home} sigilUrl={character.sigilUrl} thumbnailSize='big' />)}
+        <StyledH6>Unpicked</StyledH6>
+          {picks.unpicked.map((character: ICharacter): JSX.Element => <Badge src={character.imgLink} name={character.name} house={character.house} home={character.home} sigilUrl={character.sigilUrl} thumbnailSize='big' key={Math.random()}/>)}
         </UnpickedDiv>
       </StyledSection>
     );

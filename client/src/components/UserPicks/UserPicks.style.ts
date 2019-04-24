@@ -73,14 +73,6 @@ export const WardenDiv = styled(Row)`
 
 export const LordDiv = styled(Row)``;
 
-export const DeadDiv = styled.div`
-  ${({ theme: { flexin } }: any) => flexin()}
-`;
-
-export const UnpickedDiv = styled.div`
-  border: 1px solid white;
-`;
-
 export const StyledButton = styled.button`
   margin: 2rem 0;
   background: none;
@@ -93,4 +85,21 @@ export const StyledButton = styled.button`
   font-family: 'Lato';
   padding: 1.5rem 2.5rem;
   cursor: pointer;
+`;
+
+export const StyledH6 = styled.h6`
+width: 100%;
+text-transform: uppercase;
+  font-size: 2.4rem;
+  font-weight: 100;
+  letter-spacing: .2rem;
+`
+
+export const DeadDiv = styled.div`
+  ${({ theme: { flexin } }: any) => flexin()}
+`;
+
+export const UnpickedDiv = styled.div`
+  border: 1px solid white;
+  ${({ theme: { flexin } }: any) => flexin()}
 `;
