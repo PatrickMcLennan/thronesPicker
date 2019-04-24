@@ -50,18 +50,21 @@ export const StyledSection = styled.section`
 `;
 
 const Row = styled.div`
-  margin-top: 2rem;
+  margin: 2rem 0;
   width: 100%;
+`;
+
+export const Column = styled.div`
+  ${({ theme: { flexin } }: any) => flexin('space-evenly', 'center', 'column')}
 `;
 
 export const ThroneDiv = styled(Row)`
   ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')};
-  margin: 2rem 0;
   padding: 2rem;
   width: 100%;
 
   & div {
-    &::after {
+    &:not(:last-of-type)::after {
       margin: 2rem 0 0 0;
       height: 35px;
       width: 1px;
@@ -70,6 +73,21 @@ export const ThroneDiv = styled(Row)`
       content: '';
     }
   }
+`;
+
+export const WardenDiv = styled.div`
+  ${({ theme: { flexin } }: any) => flexin('space-evenly')};
+
+  /* &:first-of-type(div) {
+    order: 2;
+  }
+  &:last-of-type(div) {
+    order: 3;
+  } */
+`;
+
+export const LordDiv = styled.div`
+  ${({ theme: { flexin } }: any) => flexin('space-evenly', 'center', 'column')};
 `;
 
 export const StyledButton = styled.button`

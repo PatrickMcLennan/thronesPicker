@@ -5,7 +5,14 @@ import SectionHeader from '../SectionHeader/SectionHeader';
 import Pick from '../Pick/Pick';
 import { IUser, ICharacter } from '../../utils/clientDictionary';
 
-import { StyledSection, ThroneDiv, StyledButton } from './UserPicks.style';
+import {
+  StyledSection,
+  ThroneDiv,
+  WardenDiv,
+  Column,
+  StyledButton,
+  LordDiv
+} from './UserPicks.style';
 import { emptyCharacter } from '../../utils/characters';
 
 interface IProps {
@@ -101,6 +108,116 @@ class UserPicks extends React.Component<IProps, IUser> {
             key={Math.random()}
           />
         </ThroneDiv>
+        <WardenDiv>
+          <Pick
+            jobHeader={'Warden of the West'}
+            pickName="wardenWest"
+            pick={picks.wardenWest}
+            personalPicks={personalPicks}
+            userPicks={picks}
+            showDropdown={true}
+            handleCharacterChange={this.handleCharacterChange}
+            key={Math.random()}
+          />
+          <Column>
+            <Pick
+              jobHeader={'Warden of the North'}
+              pickName="wardenNorth"
+              pick={picks.wardenNorth}
+              personalPicks={personalPicks}
+              userPicks={picks}
+              showDropdown={true}
+              handleCharacterChange={this.handleCharacterChange}
+              key={Math.random()}
+            />
+            <Pick
+              jobHeader={'Warden of the South'}
+              pickName="wardenSouth"
+              pick={picks.wardenSouth}
+              personalPicks={personalPicks}
+              userPicks={picks}
+              showDropdown={true}
+              handleCharacterChange={this.handleCharacterChange}
+              key={Math.random()}
+            />
+          </Column>
+          <Pick
+            jobHeader={'Warden of the East'}
+            pickName="wardenEast"
+            pick={picks.wardenEast}
+            personalPicks={personalPicks}
+            userPicks={picks}
+            showDropdown={true}
+            handleCharacterChange={this.handleCharacterChange}
+            key={Math.random()}
+          />
+        </WardenDiv>
+        <LordDiv>
+          <Column>
+            <Pick
+              jobHeader={'Lord Of Winterfell'}
+              pickName="winterfellLord"
+              pick={picks.winterfellLord}
+              personalPicks={personalPicks}
+              userPicks={picks}
+              showDropdown={true}
+              handleCharacterChange={this.handleCharacterChange}
+              key={Math.random()}
+            />
+            <Pick
+              jobHeader={'Lord Of Dorne'}
+              pickName="dorneLord"
+              pick={picks.dorneLord}
+              personalPicks={personalPicks}
+              userPicks={picks}
+              showDropdown={true}
+              handleCharacterChange={this.handleCharacterChange}
+              key={Math.random()}
+            />
+            <Pick
+              jobHeader={'Lord Of The Reach'}
+              pickName="reachLord"
+              pick={picks.reachLord}
+              personalPicks={personalPicks}
+              userPicks={picks}
+              showDropdown={true}
+              handleCharacterChange={this.handleCharacterChange}
+              key={Math.random()}
+            />
+          </Column>
+          <Column>
+            <Pick
+              jobHeader={'Lord Of Casterly Rock'}
+              pickName="casterlyRockLord"
+              pick={picks.casterlyRockLord}
+              personalPicks={personalPicks}
+              userPicks={picks}
+              showDropdown={true}
+              handleCharacterChange={this.handleCharacterChange}
+              key={Math.random()}
+            />
+            <Pick
+              jobHeader={'Lord Of Riverrun'}
+              pickName="riverrunLord"
+              pick={picks.riverrunLord}
+              personalPicks={personalPicks}
+              userPicks={picks}
+              showDropdown={true}
+              handleCharacterChange={this.handleCharacterChange}
+              key={Math.random()}
+            />
+            <Pick
+              jobHeader={'Lord Of The Iron Islands'}
+              pickName="ironIslandsLord"
+              pick={picks.ironIslandsLord}
+              personalPicks={personalPicks}
+              userPicks={picks}
+              showDropdown={true}
+              handleCharacterChange={this.handleCharacterChange}
+              key={Math.random()}
+            />
+          </Column>
+        </LordDiv>
         {personalPicks && (
           <StyledButton onClick={this.submitPicks}>Submit Picks</StyledButton>
         )}

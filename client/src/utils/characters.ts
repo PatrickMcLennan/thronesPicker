@@ -8,7 +8,7 @@ export const emptyCharacter: ICharacter = {
   alive: false,
   placed: false,
   placement: '',
-  imgLink: 'empty '
+  imgLink: 'empty'
 };
 
 ////////////// TARGARYENS
