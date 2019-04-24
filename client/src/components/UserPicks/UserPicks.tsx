@@ -32,9 +32,29 @@ class UserPicks extends React.Component<IProps, IUser> {
     ...this.props.currentUser
   };
 
-  componentDidMount() {
-    console.log(this.state.picks);
-  }
+  removeFromUnpicked: Function = (
+    newCharacter: ICharacter,
+    unpickedArray: ICharacter[]
+  ): ICharacter[] => {
+    if (newCharacter.name === '...') {
+      return unpickedArray;
+    } else {
+      return unpickedArray.filter(
+        (character: ICharacter): boolean => character.name !== newCharacter.name
+      );
+    }
+  };
+
+  addToUnpicked: Function = (
+    oldCharacter: ICharacter,
+    unpickedArray: ICharacter[]
+  ): ICharacter[] => {
+    if (oldCharacter.name === '...') {
+      return unpickedArray;
+    } else {
+      return unpickedArray.concat(oldCharacter);
+    }
+  };
 
   handleCharacterChange: Function = (
     pickName: string,
@@ -43,70 +63,30 @@ class UserPicks extends React.Component<IProps, IUser> {
     const { picks } = this.state;
     const allCurrentPicks: ICharacter[] = Object.values(picks);
     const allCurrentKeys: string[] = Object.keys(picks);
-
     const currentCharacter: ICharacter =
       allCurrentPicks[allCurrentKeys.indexOf(pickName)];
-
     const newCharPreviousPlacement: number = allCurrentPicks.indexOf(
       newCharacter
     );
     const newCharPreviousKey: string = allCurrentKeys[newCharPreviousPlacement];
 
-    if (newCharPreviousKey === 'unpicked' || newCharPreviousKey === 'dead') {
-      this.setState(
-        (prevState: IUser): IUser => ({
-          ...prevState,
-          picks: {
-            ...this.state.picks,
-            [pickName]: newCharacter,
-            [newCharPreviousKey]: this.state.picks[newCharPreviousKey].filter(
-              (character: ICharacter): boolean =>
-                character.name !== newCharacter.name
-            )
-          }
-        })
-      );
-    } else if (
-      newCharPreviousKey !== 'unpicked' &&
-      newCharPreviousKey !== 'dead'
-    ) {
-      this.setState(
-        (prevState: IUser): any => ({
-          ...prevState,
-          picks: {
-            ...this.state.picks,
-            [pickName]: newCharacter,
-            [newCharPreviousKey]: emptyCharacter
-          }
-        })
-      );
-    }
+    const addOldCharacter: ICharacter[] = this.addToUnpicked(
+      currentCharacter,
+      picks.unpicked
+    );
+    const removeNewCharacter: ICharacter[] = this.removeFromUnpicked(
+      newCharacter,
+      addOldCharacter
+    );
 
-    if (picks.unpicked.includes(newCharacter)) {
-      const copy: ICharacter[] = picks.unpicked.filter(
-        (character: ICharacter): boolean => character.name !== newCharacter.name
-      );
-      return this.setState(
-        (prevState: IUser): IUser => ({
-          ...prevState,
-          picks: {
-            ...this.state.picks,
-            unpicked: copy
-          }
-        })
-      );
-    }
-
-    const { unpicked } = picks;
-    if (currentCharacter.name !== '...') {
-      unpicked.push(currentCharacter);
-    }
-    this.setState(
+    return this.setState(
       (prevState: IUser): IUser => ({
         ...prevState,
         picks: {
           ...this.state.picks,
-          unpicked
+          [pickName]: newCharacter,
+          [newCharPreviousKey]: emptyCharacter,
+          unpicked: removeNewCharacter
         }
       })
     );
