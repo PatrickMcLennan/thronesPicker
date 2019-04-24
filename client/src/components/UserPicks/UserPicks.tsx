@@ -70,6 +70,7 @@ class UserPicks extends React.Component<IProps, IUser> {
             personalPicks={personalPicks}
             userPicks={picks}
             showDropdown={true}
+            handleCharacterChange={this.handleCharacterChange}
           />
         </ThroneDiv>
       </StyledSection>

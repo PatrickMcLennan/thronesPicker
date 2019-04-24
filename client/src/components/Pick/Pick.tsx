@@ -14,15 +14,18 @@ interface IProps {
   personalPicks: boolean;
   userPicks: IPicks;
   showDropdown: boolean;
+  handleCharacterChange: Function;
 }
 
 interface IState {
   toggleDropdown: boolean;
+  pick: ICharacter;
   availableCharacters: ICharacter[];
 }
 
 class Pick extends React.Component<IProps, {}> {
   state = {
+    pick: this.props.pick,
     toggleDropdown: false,
     availableCharacters: allCharacters.filter(
       (character: ICharacter): boolean =>
@@ -39,11 +42,26 @@ class Pick extends React.Component<IProps, {}> {
     );
   };
 
-  placeholder = (name: string) => console.log(name);
+  chooseCharacter: Function = (characterName: string): Function => {
+    const { handleCharacterChange, pickName } = this.props;
+    const { availableCharacters } = this.state;
+    const newCharacter: ICharacter = availableCharacters.find(
+      (otherCharacters: ICharacter): boolean =>
+        otherCharacters.name === characterName
+    );
+    this.setState(
+      (prevState: IState): IState => ({
+        ...prevState,
+        pick: newCharacter,
+        toggleDropdown: !this.state.toggleDropdown
+      })
+    );
+    return handleCharacterChange(pickName, newCharacter);
+  };
 
   render(): JSX.Element {
-    const { jobHeader, personalPicks, pick } = this.props;
-    const { toggleDropdown, availableCharacters } = this.state;
+    const { jobHeader, personalPicks } = this.props;
+    const { toggleDropdown, availableCharacters, pick } = this.state;
     return (
       <StyledDiv data-testid="pick">
         <StyledH6>{jobHeader}</StyledH6>
@@ -72,7 +90,8 @@ class Pick extends React.Component<IProps, {}> {
                     home={character.home}
                     sigilUrl={character.sigilUrl}
                     thumbnailSize="big"
-                    handler={() => this.placeholder}
+                    handler={() => this.chooseCharacter(character.name)}
+                    key={Math.random()}
                   />
                 </li>
               )

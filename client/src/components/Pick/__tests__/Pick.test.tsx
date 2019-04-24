@@ -10,6 +10,8 @@ import { emptyUser } from '../../../utils/emptyUser';
 
 afterEach(cleanup);
 
+const handleCharacterChange = jest.fn();
+
 const renderPick: Function = (): any =>
   render(
     <ThemeProvider theme={theme}>
@@ -20,6 +22,7 @@ const renderPick: Function = (): any =>
         userPicks={emptyUser.picks}
         personalPicks={true}
         showDropdown={true}
+        handleCharacterChange={handleCharacterChange}
       />
     </ThemeProvider>
   );
