@@ -3,11 +3,9 @@ import * as React from 'react';
 import Badge from '../Badge/Badge';
 import SectionHeader from '../SectionHeader/SectionHeader';
 import Pick from '../Pick/Pick';
-import { emptyUser } from '../../utils/emptyUser';
 import { IUser, ICharacter } from '../../utils/clientDictionary';
 
 import { StyledSection, ThroneDiv } from './UserPicks.style';
-import { allCharacters } from '../../../../server/src/utils';
 
 interface IProps {
   animate: boolean;
@@ -17,20 +15,26 @@ interface IProps {
   personalPicks: boolean;
 }
 
-interface IState {
-  currentUser: IUser;
-  personalPicks: boolean;
-}
-
-class UserPicks extends React.Component<IProps, IState> {
+class UserPicks extends React.Component<IProps, IUser> {
   state = {
-    currentUser: this.props.currentUser,
-    personalPicks: this.props.personalPicks
+    ...this.props.currentUser
   };
 
   componentDidMount() {
     console.log(this.props.currentUser.picks);
   }
+
+  handleCharacterChange: Function = (
+    pick: string,
+    newCharacter: ICharacter
+  ): void => {
+    return this.setState(
+      (prevState: IUser): any => ({
+        ...prevState,
+        picks: { [pick]: newCharacter }
+      })
+    );
+  };
 
   render(): JSX.Element {
     const { currentUser, animate, personalPicks }: IProps = this.props;
@@ -56,14 +60,16 @@ class UserPicks extends React.Component<IProps, IState> {
           house={house.name}
           sigilUrl={sigilUrl}
           currentScore={currentScore}
-          handler={(): void => console.log('hell')}
-          thumbnailSize={'small'}
+          thumbnailSize={'big'}
         />
         <ThroneDiv>
           <Pick
-            jobProperty={'Iron Throne'}
-            personalPicks={personalPicks}
+            jobHeader={'Iron Throne'}
+            pickName="ironThrone"
             pick={picks.ironThrone}
+            personalPicks={personalPicks}
+            userPicks={picks}
+            showDropdown={true}
           />
         </ThroneDiv>
       </StyledSection>

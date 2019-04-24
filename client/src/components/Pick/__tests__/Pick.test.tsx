@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { theme } from '../../../utils/globalStyles';
 import Pick from '../Pick';
-import { emptyCharacter } from '../../../utils/characters';
+import { emptyUser } from '../../../utils/emptyUser';
 
 afterEach(cleanup);
 
@@ -14,9 +14,12 @@ const renderPick: Function = (): any =>
   render(
     <ThemeProvider theme={theme}>
       <Pick
-        jobProperty="Iron Throne"
-        personalPicks={false}
-        pick={emptyCharacter}
+        jobHeader="Iron Throne"
+        pickName="ironThrone"
+        pick={emptyUser.picks.ironThrone}
+        userPicks={emptyUser.picks}
+        personalPicks={true}
+        showDropdown={true}
       />
     </ThemeProvider>
   );

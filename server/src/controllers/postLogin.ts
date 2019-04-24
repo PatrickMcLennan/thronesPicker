@@ -7,7 +7,8 @@ import {
   IPostLoginResponseSuccess,
   IPostLoginResponseFailure,
   allCharacters,
-  unknownArray
+  unknownArray,
+  emptyCharacter
 } from '../utils';
 
 export const postLogin = async (
@@ -49,20 +50,20 @@ export const postLogin = async (
         },
         description: '',
         picks: {
-          ironThrone: '',
-          handOfTheKing: '',
-          nightsWatchLordCommander: '',
-          nightsWatch: '',
-          winterfellLord: '',
-          casterlyRockLord: '',
-          dorneLord: '',
-          reachLord: '',
-          riverrrunLord: '',
-          ironIslandsLord: '',
-          wardenNorth: '',
-          wardenEast: '',
-          wardenSouth: '',
-          wardenWest: '',
+          ironThrone: emptyCharacter,
+          handOfTheKing: emptyCharacter,
+          nightsWatchLordCommander: emptyCharacter,
+          nightsWatch: emptyCharacter,
+          winterfellLord: emptyCharacter,
+          casterlyRockLord: emptyCharacter,
+          dorneLord: emptyCharacter,
+          reachLord: emptyCharacter,
+          riverrrunLord: emptyCharacter,
+          ironIslandsLord: emptyCharacter,
+          wardenNorth: emptyCharacter,
+          wardenEast: emptyCharacter,
+          wardenSouth: emptyCharacter,
+          wardenWest: emptyCharacter,
           dead: [],
           unpicked: [...allCharacters]
         },

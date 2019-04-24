@@ -22,7 +22,6 @@ export const putEditAccount = async (
       if (err) {
         serverError = true;
       } else {
-        console.log(user);
         return user;
       }
     }

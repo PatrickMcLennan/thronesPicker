@@ -49,7 +49,6 @@ exports.putEditAccount = function (req, res) { return __awaiter(_this, void 0, v
                             serverError = true;
                         }
                         else {
-                            console.log(user);
                             return user;
                         }
                     })];

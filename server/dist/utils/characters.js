@@ -1,5 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.emptyCharacter = {
+    name: '...',
+    house: '...',
+    home: '...',
+    sigilUrl: 'unknown sigil',
+    alive: false,
+    placed: false,
+    placement: '',
+    imgLink: 'empty '
+};
 var daenerysTargaryen = {
     name: 'Daenerys Targaryen',
     house: 'Targaryen',
@@ -8,7 +18,7 @@ var daenerysTargaryen = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Daenerys_Targaryen'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Daenerys_Targaryen'
 };
 exports.targaryenArray = [daenerysTargaryen];
 exports.jonSnow = {
@@ -19,7 +29,7 @@ exports.jonSnow = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Jon_Snow'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Jon_Snow'
 };
 exports.aryaStark = {
     name: 'Arya Stark',
@@ -29,7 +39,7 @@ exports.aryaStark = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Arya_Stark'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Arya_Stark'
 };
 exports.sansaStark = {
     name: 'Sansa Stark',
@@ -39,7 +49,7 @@ exports.sansaStark = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Sansa_Stark'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Sansa_Stark'
 };
 exports.branStark = {
     name: 'Bran Stark',
@@ -49,7 +59,7 @@ exports.branStark = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Bran_Stark'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Bran_Stark'
 };
 exports.starkArray = [
     exports.jonSnow,
@@ -65,7 +75,7 @@ exports.jaimeLannister = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Jaime_Lannister'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Jaime_Lannister'
 };
 exports.cerseiLannister = {
     name: 'Cersei Lannister',
@@ -75,7 +85,7 @@ exports.cerseiLannister = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Cersei_Lannister'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Cersei_Lannister'
 };
 exports.tyrionLannister = {
     name: 'Tyrion Lannister',
@@ -85,7 +95,7 @@ exports.tyrionLannister = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Tyrion_Lannister'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Tyrion_Lannister'
 };
 exports.lannisterArray = [
     exports.jaimeLannister,
@@ -100,7 +110,7 @@ exports.robinArryn = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Robin_Arryn'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Robin_Arryn'
 };
 exports.arrynArray = [exports.robinArryn];
 var theonGreyjoy = {
@@ -111,7 +121,7 @@ var theonGreyjoy = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Theon_Greyjoy'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Theon_Greyjoy'
 };
 var yaraGreyjoy = {
     name: 'Yara Greyjoy',
@@ -121,7 +131,7 @@ var yaraGreyjoy = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Asha_Greyjoy'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Asha_Greyjoy'
 };
 var euronGreyjoy = {
     name: 'Euron Greyjoy',
@@ -131,7 +141,7 @@ var euronGreyjoy = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Euron_Greyjoy'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Euron_Greyjoy'
 };
 exports.greyjoyArray = [
     theonGreyjoy,
@@ -146,7 +156,7 @@ var sandorClegane = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Sandor_Clegane'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Sandor_Clegane'
 };
 var gregorClegane = {
     name: 'Gregor Clegane',
@@ -156,7 +166,7 @@ var gregorClegane = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Gregor_Clegane'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Gregor_Clegane'
 };
 exports.cleganeArray = [sandorClegane, gregorClegane];
 var edmureTully = {
@@ -167,7 +177,7 @@ var edmureTully = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Edmure_Tully'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Edmure_Tully'
 };
 exports.tullyArray = [edmureTully];
 var jorahMormont = {
@@ -178,7 +188,7 @@ var jorahMormont = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Jorah_Mormont'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Jorah_Mormont'
 };
 var lyannaMormont = {
     name: 'Lyanna Mormont',
@@ -188,7 +198,7 @@ var lyannaMormont = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Lyanna_Mormont'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Lyanna_Mormont'
 };
 exports.mormontArray = [jorahMormont, lyannaMormont];
 var samwellTarly = {
@@ -199,7 +209,7 @@ var samwellTarly = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Samwell_Tarly'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Samwell_Tarly'
 };
 exports.tarlyArray = [samwellTarly];
 var brienneTarth = {
@@ -210,7 +220,7 @@ var brienneTarth = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Brienne_Tarth'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Brienne_Tarth'
 };
 exports.tarthArray = [brienneTarth];
 var ellariaSand = {
@@ -221,7 +231,7 @@ var ellariaSand = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Ellaria_Sand'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Ellaria_Sand'
 };
 exports.martellArray = [ellariaSand];
 var gendryBaratheon = {
@@ -232,7 +242,7 @@ var gendryBaratheon = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Gendry'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Gendry'
 };
 exports.baratheonArray = [gendryBaratheon];
 var bronn = {
@@ -243,7 +253,7 @@ var bronn = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Bronn'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Bronn'
 };
 var davosSeaworth = {
     name: 'Davos Seaworth',
@@ -253,7 +263,7 @@ var davosSeaworth = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Davos_Seaworth'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Davos_Seaworth'
 };
 var melisandre = {
     name: 'Melisandre',
@@ -263,7 +273,7 @@ var melisandre = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Melisandre'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Melisandre'
 };
 var tormundGiantsbane = {
     name: 'Tormund Giantsbane',
@@ -273,7 +283,7 @@ var tormundGiantsbane = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Tormund'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Tormund'
 };
 var bericDondarrion = {
     name: 'Beric Dondarrion',
@@ -283,7 +293,7 @@ var bericDondarrion = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Beric_Dondarrion'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Beric_Dondarrion'
 };
 var eddisonTollet = {
     name: 'Eddison Tollet',
@@ -293,7 +303,7 @@ var eddisonTollet = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Eddison_Tollett'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Eddison_Tollett'
 };
 var greyWorm = {
     name: 'Grey Worm',
@@ -303,7 +313,7 @@ var greyWorm = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Grey_Worm'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Grey_Worm'
 };
 var varys = {
     name: 'Varys',
@@ -313,7 +323,7 @@ var varys = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Varys'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Varys'
 };
 var qyburn = {
     name: 'Qyburn',
@@ -323,7 +333,7 @@ var qyburn = {
     alive: false,
     placed: false,
     placement: '',
-    wikiLink: 'https://awoiaf.westeros.org/index.php/Qyburn'
+    imgLink: 'https://awoiaf.westeros.org/index.php/Qyburn'
 };
 exports.unknownArray = [
     bronn,

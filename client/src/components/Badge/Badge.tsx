@@ -65,7 +65,7 @@ class Badge extends React.Component<IProps, IState> {
         <StyledFigCaption>
           <StyledP data-testid="badge__name">{name}</StyledP>
           <StyledP data-testid="badge__house">House {house}</StyledP>
-          {name.length >= 1 && (
+          {name && (
             <StyledP data-testid="badge__score">Score: {currentScore}</StyledP>
           )}
           {home && (

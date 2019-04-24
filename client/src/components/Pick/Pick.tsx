@@ -4,27 +4,49 @@ import Badge from '../Badge/Badge';
 
 import { StyledH6 } from './Pick.style';
 
-import { ICharacter } from '../../utils/clientDictionary';
+import { IPicks, ICharacter } from '../../utils/clientDictionary';
 
 interface IProps {
-  jobProperty: string;
+  jobHeader: string;
+  pickName: string;
+  pick: ICharacter;
   personalPicks: boolean;
-  pick?: ICharacter;
+  userPicks: IPicks;
+  showDropdown: boolean;
+}
+
+interface IState {
+  canEdit: boolean;
+  toggleDropdown: boolean;
 }
 
 class Pick extends React.Component<IProps, {}> {
+  state = {
+    toggleDropdown: false
+  };
+
+  toggleMenu: Function = (): void => {
+    this.setState(
+      (prevState: IState): IState => ({
+        ...prevState,
+        toggleDropdown: !this.state.toggleDropdown
+      })
+    );
+  };
+
   render(): JSX.Element {
-    const { jobProperty, pick } = this.props;
+    const { jobHeader, personalPicks, pick } = this.props;
     return (
       <div data-testid="pick">
-        <StyledH6>{jobProperty}</StyledH6>
+        <StyledH6>{jobHeader}</StyledH6>
         <Badge
-          src={'Unknown Sigil Url'}
-          name={'...'}
-          house={'...'}
-          home={'...'}
-          sigilUrl={'unknown sgil url'}
+          src={pick.imgLink}
+          name={pick.name}
+          house={pick.house}
+          home={pick.home}
+          sigilUrl={pick.sigilUrl}
           thumbnailSize="big"
+          handler={personalPicks ? this.toggleMenu : (): any => null}
         />
       </div>
     );
