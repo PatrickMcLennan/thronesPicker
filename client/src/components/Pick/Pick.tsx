@@ -2,9 +2,10 @@ import * as React from 'react';
 
 import Badge from '../Badge/Badge';
 
-import { StyledH6 } from './Pick.style';
+import { StyledDiv, StyledH6 } from './Pick.style';
 
 import { IPicks, ICharacter } from '../../utils/clientDictionary';
+import { allCharacters } from '../../utils/characters';
 
 interface IProps {
   jobHeader: string;
@@ -16,17 +17,21 @@ interface IProps {
 }
 
 interface IState {
-  canEdit: boolean;
   toggleDropdown: boolean;
+  availableCharacters: ICharacter[];
 }
 
 class Pick extends React.Component<IProps, {}> {
   state = {
-    toggleDropdown: false
+    toggleDropdown: false,
+    availableCharacters: allCharacters.filter(
+      (character: ICharacter): boolean =>
+        character.name !== this.props.pick.name
+    )
   };
 
-  toggleMenu: Function = (): void => {
-    this.setState(
+  renderCharacterList: Function = (): void => {
+    return this.setState(
       (prevState: IState): IState => ({
         ...prevState,
         toggleDropdown: !this.state.toggleDropdown
@@ -34,10 +39,13 @@ class Pick extends React.Component<IProps, {}> {
     );
   };
 
+  placeholder = (name: string) => console.log(name);
+
   render(): JSX.Element {
     const { jobHeader, personalPicks, pick } = this.props;
+    const { toggleDropdown, availableCharacters } = this.state;
     return (
-      <div data-testid="pick">
+      <StyledDiv data-testid="pick">
         <StyledH6>{jobHeader}</StyledH6>
         <Badge
           src={pick.imgLink}
@@ -46,9 +54,32 @@ class Pick extends React.Component<IProps, {}> {
           home={pick.home}
           sigilUrl={pick.sigilUrl}
           thumbnailSize="big"
-          handler={personalPicks ? this.toggleMenu : (): any => null}
+          handler={
+            personalPicks
+              ? () => this.renderCharacterList(pick.name)
+              : (): any => null
+          }
         />
-      </div>
+        {toggleDropdown && (
+          <ul>
+            {availableCharacters.map(
+              (character: ICharacter): JSX.Element => (
+                <li>
+                  <Badge
+                    src={character.imgLink}
+                    name={character.name}
+                    house={character.house}
+                    home={character.home}
+                    sigilUrl={character.sigilUrl}
+                    thumbnailSize="big"
+                    handler={() => this.placeholder}
+                  />
+                </li>
+              )
+            )}
+          </ul>
+        )}
+      </StyledDiv>
     );
   }
 }
