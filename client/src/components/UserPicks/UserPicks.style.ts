@@ -52,15 +52,24 @@ export const StyledSection = styled.section`
 const Row = styled.div`
   margin-top: 2rem;
   width: 100%;
-  border: 1px solid red;
 `;
 
 export const ThroneDiv = styled(Row)`
   ${({ theme: { flexin } }: any) => flexin('center', 'center', 'column')};
-  margin-top: 2rem;
+  margin: 2rem 0;
   padding: 2rem;
   width: 100%;
-  border: 1px solid white;
+
+  & div {
+    &::after {
+      margin: 2rem 0 0 0;
+      height: 35px;
+      width: 1px;
+      background-color: white;
+      display: block;
+      content: '';
+    }
+  }
 `;
 
 export const StyledButton = styled.button`

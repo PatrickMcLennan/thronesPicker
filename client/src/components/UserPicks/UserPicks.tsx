@@ -6,7 +6,6 @@ import Pick from '../Pick/Pick';
 import { IUser, ICharacter } from '../../utils/clientDictionary';
 
 import { StyledSection, ThroneDiv, StyledButton } from './UserPicks.style';
-import { allCharacters } from '../../utils/characters';
 import { emptyCharacter } from '../../utils/characters';
 
 interface IProps {
@@ -61,15 +60,9 @@ class UserPicks extends React.Component<IProps, IUser> {
   };
 
   render(): JSX.Element {
+    const { picks } = this.state;
     const { currentUser, animate, personalPicks }: IProps = this.props;
-    const {
-      profilePic,
-      name,
-      house,
-      currentScore,
-      sigilUrl,
-      picks
-    } = currentUser;
+    const { profilePic, name, house, currentScore, sigilUrl } = currentUser;
     return (
       <StyledSection data-testid="userPicks" animate={animate}>
         <SectionHeader

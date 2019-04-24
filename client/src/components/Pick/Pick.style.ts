@@ -6,7 +6,7 @@ export const StyledDiv = styled.div`
 `;
 
 export const StyledH6 = styled.h6`
-  font-size: 2.25rem;
+  font-size: 3rem;
   margin: 1rem;
   font-weight: 100;
   letter-spacing: 0.3rem;

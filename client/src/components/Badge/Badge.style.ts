@@ -17,7 +17,6 @@ export const StyledFigure = styled.figure`
       ${({ theme: { flexin } }: any) =>
         flexin('space-evenly', 'center', 'row', 'no-wrap')}
       min-width: 210px;
-      height: 80px;
     `};
 
   & img {
