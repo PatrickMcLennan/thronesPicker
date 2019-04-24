@@ -27,11 +27,12 @@ class RulesModal extends React.Component<IProps, {}> {
         />
         <StyledUl data-testid="rulesModal__ul">
           <StyledLi data-testid="rulesModal__li">
-            1. Choose which Character is most likely to be doing what at the end
-            of the series.{' '}
+            1. From the list of characters, choose which Character is most
+            likely to be where at the end of the series.{' '}
             <StyledSpan>
-              EX - Dead, Warden of the East, Lord of WinterFell, Nights Watch,
-              etc.
+              EX - Bronn is Dead, Arya Stark is the Warden of the East, Jorah
+              Mormont is the Lord of WinterFell, Tyrion is a brother of the
+              Nights Watch, etc.
             </StyledSpan>
           </StyledLi>
           <StyledLi data-testid="rulesModal__li">

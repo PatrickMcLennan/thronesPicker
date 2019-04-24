@@ -275,7 +275,6 @@ class App extends React.Component<{}, IState> {
               animate={showUserPicks.animate}
               currentUser={currentUser}
               personalPicks={currentUser === user}
-              changeCurrentUser={this.changeCurrentUser}
               changeComponent={this.changeComponent}
               postMakePicks={this.postMakePicks}
             />

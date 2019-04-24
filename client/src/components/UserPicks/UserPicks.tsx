@@ -18,7 +18,6 @@ import { emptyCharacter } from '../../utils/characters';
 interface IProps {
   animate: boolean;
   currentUser: IUser;
-  changeCurrentUser: Function;
   changeComponent: Function;
   personalPicks: boolean;
   postMakePicks: Function;
@@ -30,7 +29,7 @@ class UserPicks extends React.Component<IProps, IUser> {
   };
 
   componentDidMount() {
-    console.log(this.props.currentUser.picks);
+    console.log(this.state.picks);
   }
 
   handleCharacterChange: Function = (
@@ -67,9 +66,15 @@ class UserPicks extends React.Component<IProps, IUser> {
   };
 
   render(): JSX.Element {
-    const { picks } = this.state;
-    const { currentUser, animate, personalPicks }: IProps = this.props;
-    const { profilePic, name, house, currentScore, sigilUrl } = currentUser;
+    const {
+      picks,
+      profilePic,
+      name,
+      house,
+      currentScore,
+      sigilUrl
+    } = this.state;
+    const { animate, personalPicks }: IProps = this.props;
     return (
       <StyledSection data-testid="userPicks" animate={animate}>
         <SectionHeader
@@ -176,14 +181,14 @@ class UserPicks extends React.Component<IProps, IUser> {
               handleCharacterChange={this.handleCharacterChange}
               key={Math.random()}
             />
-            <Pick
+            {/* <Pick
               jobHeader={'Lord Of Riverrun'}
               pickName="riverrunLord"
               pick={picks.riverrunLord}
               personalPicks={personalPicks}
               handleCharacterChange={this.handleCharacterChange}
               key={Math.random()}
-            />
+            /> */}
             <Pick
               jobHeader={'Lord Of The Iron Islands'}
               pickName="ironIslandsLord"
