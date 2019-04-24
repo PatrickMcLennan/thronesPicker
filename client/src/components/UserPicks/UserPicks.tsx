@@ -12,7 +12,8 @@ import {
   Column,
   StyledButton,
   LordDiv,
-  DeadDiv
+  DeadDiv,
+  UnpickedDiv,
 } from './UserPicks.style';
 import { emptyCharacter } from '../../utils/characters';
 import { theme } from '../../utils/globalStyles';
@@ -42,9 +43,8 @@ class UserPicks extends React.Component<IProps, IUser> {
     const allCurrentPicks: ICharacter[] = Object.values(picks);
     const allCurrentKeys: string[] = Object.keys(picks);
 
-    const currentCharacter: ICharacter = allCurrentPicks.indexOf(
-      allCurrentKeys[pickName]
-    );
+    const currentCharacter: ICharacter =
+      allCurrentPicks[allCurrentKeys.indexOf(pickName)];
 
     const newCharPreviousPlacement: number = allCurrentPicks.indexOf(
       newCharacter
@@ -79,6 +79,22 @@ class UserPicks extends React.Component<IProps, IUser> {
           }
         })
       );
+    }
+
+    if (currentCharacter.name !== '...') {
+      const copy: ICharacter[] = this.state.picks.unpicked;
+      copy.push(currentCharacter);
+      return this.setState(
+        (prevState: IUser): IUser => ({
+          ...prevState,
+          picks: {
+            ...this.state.picks,
+            unpicked: { ...copy }
+          }
+        })
+      );
+    } else {
+      return;
     }
   };
 
@@ -227,6 +243,9 @@ class UserPicks extends React.Component<IProps, IUser> {
         <DeadDiv>
           <h6>hello</h6>
         </DeadDiv>
+        <UnpickedDiv>
+          {picks.unpicked.map((character: ICharacter): JSX.Element => <Badge src={character.imgLink} name={character.name} house={character.house} home={character.home} sigilUrl={character.sigilUrl} thumbnailSize='big' />)}
+        </UnpickedDiv>
       </StyledSection>
     );
   }

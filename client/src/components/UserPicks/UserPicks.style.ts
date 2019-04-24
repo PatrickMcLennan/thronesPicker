@@ -77,6 +77,10 @@ export const DeadDiv = styled.div`
   ${({ theme: { flexin } }: any) => flexin()}
 `;
 
+export const UnpickedDiv = styled.div`
+  border: 1px solid white;
+`;
+
 export const StyledButton = styled.button`
   margin: 2rem 0;
   background: none;
