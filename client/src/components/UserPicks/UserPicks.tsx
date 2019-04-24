@@ -4,9 +4,10 @@ import Badge from '../Badge/Badge';
 import SectionHeader from '../SectionHeader/SectionHeader';
 import Pick from '../Pick/Pick';
 import { emptyUser } from '../../utils/emptyUser';
-import { IUser } from '../../utils/clientDictionary';
+import { IUser, ICharacter } from '../../utils/clientDictionary';
 
 import { StyledSection, ThroneDiv } from './UserPicks.style';
+import { allCharacters } from '../../../../server/src/utils';
 
 interface IProps {
   animate: boolean;
@@ -26,6 +27,10 @@ class UserPicks extends React.Component<IProps, IState> {
     currentUser: this.props.currentUser,
     personalPicks: this.props.personalPicks
   };
+
+  componentDidMount() {
+    console.log(this.props.currentUser.picks);
+  }
 
   render(): JSX.Element {
     const { currentUser, animate, personalPicks }: IProps = this.props;
@@ -51,14 +56,13 @@ class UserPicks extends React.Component<IProps, IState> {
           house={house.name}
           sigilUrl={sigilUrl}
           currentScore={currentScore}
-          handler={(): void => console.log('hello')}
+          handler={(): void => console.log('hell')}
           thumbnailSize={'small'}
         />
         <ThroneDiv>
           <Pick
             jobProperty={'Iron Throne'}
             personalPicks={personalPicks}
-            picked={picks.ironThrone.length === 0}
             pick={picks.ironThrone}
           />
         </ThroneDiv>

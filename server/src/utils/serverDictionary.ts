@@ -47,7 +47,7 @@ export interface ICharacter {
   alive: boolean;
   placed: boolean;
   placement: IPicks | string;
-  wikiLink: string;
+  imgLink: string;
 }
 
 export interface ILocation extends Document {

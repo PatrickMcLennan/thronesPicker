@@ -1,6 +1,6 @@
-import { ICharacter } from './serverDictionary';
+import { ICharacter } from './clientDictionary';
 
-const emptyCharacter: ICharacter = {
+export const emptyCharacter: ICharacter = {
   name: '...',
   house: '...',
   home: '...',

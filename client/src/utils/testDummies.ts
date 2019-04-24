@@ -1,4 +1,4 @@
-import { jonSnow, lannisterArray } from '../../../server/src/utils/characters';
+import { jonSnow, lannisterArray } from './characters';
 
 import { IUser, ICharacter } from './clientDictionary';
 
@@ -14,25 +14,21 @@ export const fakeUserSolo: IUser = {
   },
   description: 'user/solo/description',
   picks: {
-    ironThrone: jonSnow.name,
-    handOfTheKing: '',
-    nightsWatchLordCommander: '',
-    nightsWatch: '',
-    winterfellLord: '',
-    casterlyRockLord: '',
-    dorneLord: '',
-    reachLord: '',
-    riverrunLord: '',
-    ironIslandsLord: '',
-    wardenNorth: '',
-    wardenEast: '',
-    wardenSouth: '',
-    wardenWest: '',
-    dead: [
-      lannisterArray[0].name,
-      lannisterArray[1].name,
-      lannisterArray[2].name
-    ],
+    ironThrone: jonSnow,
+    handOfTheKing: jonSnow,
+    nightsWatchLordCommander: jonSnow,
+    nightsWatch: jonSnow,
+    winterfellLord: jonSnow,
+    casterlyRockLord: jonSnow,
+    dorneLord: jonSnow,
+    reachLord: jonSnow,
+    riverrunLord: jonSnow,
+    ironIslandsLord: jonSnow,
+    wardenNorth: jonSnow,
+    wardenEast: jonSnow,
+    wardenSouth: jonSnow,
+    wardenWest: jonSnow,
+    dead: [lannisterArray[0], lannisterArray[1], lannisterArray[2]],
     unpicked: []
   },
   currentScore: 0

@@ -1,4 +1,5 @@
 import { IUser } from './clientDictionary';
+import { emptyCharacter, allCharacters } from './characters';
 
 export const emptyUser: IUser = {
   name: '',
@@ -12,22 +13,22 @@ export const emptyUser: IUser = {
   },
   description: '',
   picks: {
-    ironThrone: '',
-    handOfTheKing: '',
-    nightsWatchLordCommander: '',
-    nightsWatch: '',
-    winterfellLord: '',
-    casterlyRockLord: '',
-    dorneLord: '',
-    reachLord: '',
-    riverrunLord: '',
-    ironIslandsLord: '',
-    wardenNorth: '',
-    wardenEast: '',
-    wardenSouth: '',
-    wardenWest: '',
+    ironThrone: emptyCharacter,
+    handOfTheKing: emptyCharacter,
+    nightsWatchLordCommander: emptyCharacter,
+    nightsWatch: emptyCharacter,
+    winterfellLord: emptyCharacter,
+    casterlyRockLord: emptyCharacter,
+    dorneLord: emptyCharacter,
+    reachLord: emptyCharacter,
+    riverrunLord: emptyCharacter,
+    ironIslandsLord: emptyCharacter,
+    wardenNorth: emptyCharacter,
+    wardenEast: emptyCharacter,
+    wardenSouth: emptyCharacter,
+    wardenWest: emptyCharacter,
     dead: [],
-    unpicked: []
+    unpicked: [...allCharacters]
   },
   currentScore: 0
 };

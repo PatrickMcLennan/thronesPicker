@@ -14,6 +14,8 @@ import {
 import { GlobalStyle, theme } from '../../utils/globalStyles';
 import { fbLogInInit, fbLogIn } from '../../utils/auth';
 
+import { emptyCharacter } from '../../utils/characters';
+
 import LogInModal from '../LogInModal/LogInModal';
 import RulesModal from '../RulesModal/RulesModal';
 import AccountEditor from '../AccountEditor/AccountEditor';
@@ -21,6 +23,7 @@ import OtherUsers from '../OtherUsers/OtherUsers';
 import UserPicks from '../UserPicks/UserPicks';
 import Nav from '../Nav/Nav';
 import Message from '../Message/Message';
+import { emptyUser } from '../../utils/emptyUser';
 
 interface IState {
   user: IUser;
@@ -37,68 +40,8 @@ interface IState {
 
 class App extends React.Component<{}, IState> {
   state: IState = {
-    user: {
-      name: '',
-      facebookId: '',
-      accessToken: 0,
-      profilePic: '',
-      sigilUrl: '',
-      house: {
-        name: '',
-        sigilUrl: ''
-      },
-      description: '',
-      picks: {
-        ironThrone: '',
-        handOfTheKing: '',
-        nightsWatchLordCommander: '',
-        nightsWatch: '',
-        winterfellLord: '',
-        casterlyRockLord: '',
-        dorneLord: '',
-        reachLord: '',
-        riverrunLord: '',
-        ironIslandsLord: '',
-        wardenNorth: '',
-        wardenEast: '',
-        wardenSouth: '',
-        wardenWest: '',
-        dead: [],
-        unpicked: []
-      },
-      currentScore: 0
-    },
-    currentUser: {
-      name: '',
-      facebookId: '',
-      accessToken: 0,
-      profilePic: '',
-      sigilUrl: '',
-      house: {
-        name: '',
-        sigilUrl: ''
-      },
-      description: '',
-      picks: {
-        ironThrone: '',
-        handOfTheKing: '',
-        nightsWatchLordCommander: '',
-        nightsWatch: '',
-        winterfellLord: '',
-        casterlyRockLord: '',
-        dorneLord: '',
-        reachLord: '',
-        riverrunLord: '',
-        ironIslandsLord: '',
-        wardenNorth: '',
-        wardenEast: '',
-        wardenSouth: '',
-        wardenWest: '',
-        dead: [],
-        unpicked: []
-      },
-      currentScore: 0
-    },
+    user: emptyUser,
+    currentUser: emptyUser,
     serverCall: {
       showResult: false,
       success: false,
