@@ -47,6 +47,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   section {
+  padding-top: 12.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

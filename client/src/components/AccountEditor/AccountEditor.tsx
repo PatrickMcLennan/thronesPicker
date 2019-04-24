@@ -132,7 +132,7 @@ class AccountEditor extends React.Component<IProps, IState> {
             data-testid="accountEditor__label--newDescription"
             htmlFor="newDescription">
             <StyledP data-testid="accountEditor__p--newDescription">
-              Your Description:
+              Family Creed:
             </StyledP>
             <StyledInput
               data-testid="accountEditor__input--newDescription"

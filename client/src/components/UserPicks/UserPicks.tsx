@@ -202,6 +202,8 @@ class UserPicks extends React.Component<IProps, IUser> {
         {personalPicks && (
           <StyledButton onClick={this.submitPicks}>Submit Picks</StyledButton>
         )}
+
+        <h6>Unused </h6>
       </StyledSection>
     );
   }

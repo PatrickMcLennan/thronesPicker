@@ -50,12 +50,10 @@ export const StyledSection = styled.section`
 
 export const StyledForm = styled.form`
   ${({ theme: { flexin } }: any) =>
-    flexin('center', 'center', 'column', 'wrap')}
+    flexin('space-evenly', 'center', 'column', 'wrap')}
   padding: 5rem;
-
-  & > * {
-    margin: 2rem;
-  }
+  flex: 1;
+  background: red;
 `;
 
 export const StyledLabel = styled.label`
@@ -68,8 +66,9 @@ export const StyledLabel = styled.label`
 `;
 
 export const StyledP = styled.p`
-  font-size: 1.6rem;
+  font-size: 2rem;
   text-transform: uppercase;
+  font-weight: 100;
   text-align: left;
   margin: 1rem 0;
 `;
@@ -86,7 +85,7 @@ export const StyledUl = styled.ul`
   ${({ theme: { flexin } }: any) => flexin()}
   position:absolute;
   overflow-y: scroll;
-  height: 250px;
+  height: 300px;
   transform-origin: top;
   top: 100%;
   left: 0;
