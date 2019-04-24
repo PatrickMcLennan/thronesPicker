@@ -26,8 +26,6 @@ const animateOut = keyframes`
 `;
 
 export const StyledSection = styled.section`
-  border: 1px solid white;
-
   ${(props: IProps) =>
     props.triggerAnimation &&
     css`

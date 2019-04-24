@@ -17,7 +17,6 @@ const animateOut = keyframes`
 
 export const StyledSection = styled.section`
   ${({ theme: { flexin } }: any) => flexin('space-evenly', 'center', 'column')}
-  border: 1px solid white;
   opacity: 1;
   transform: translateY(0);
 

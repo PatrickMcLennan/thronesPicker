@@ -6,7 +6,7 @@ interface IProps {
 
 const animateIn = keyframes`
   0% {
-    transform: translateY(100vh);
+    transform: translateY(100%);
   opacity: 0;
   }
   100% {
@@ -20,14 +20,12 @@ const animateOut = keyframes`
   opacity: 1;
   }
   100% {
-    transform: translateY(100vh);
+    transform: translateY(100%);
   opacity: 0;
   }
 `;
 
 export const StyledSection = styled.section`
-  display: none;
-  border: 1px solid white;
   opacity: 0;
 
   ${(props: IProps) =>

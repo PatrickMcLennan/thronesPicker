@@ -173,6 +173,7 @@ class App extends React.Component<{}, IState> {
         (prevState: IState): IState => ({
           ...prevState,
           user,
+          currentUser: user,
           otherUsers
         })
       );

@@ -38,7 +38,7 @@ class UserPicks extends React.Component<IProps, {}> {
           house={house.name}
           sigilUrl={sigilUrl}
           currentScore={currentScore}
-          handler={(): Function => this.renderOtherUsers('showOtherUsers')}
+          handler={(): void => console.log('hello')}
           thumbnailSize={'small'}
         />
       </StyledSection>

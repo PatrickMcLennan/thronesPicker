@@ -48,3 +48,5 @@ export const StyledSection = styled.section`
         animation.timeMain};
     `}
 `;
+
+// export const ThroneDiv = styled.div``;

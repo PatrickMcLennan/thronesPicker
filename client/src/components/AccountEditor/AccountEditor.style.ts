@@ -27,7 +27,6 @@ const animateOut = keyframes`
 
 export const StyledSection = styled.section`
   display: none;
-  border: 1px solid white;
 
   ${(props: IProps) =>
     props.triggerAnimation &&
@@ -52,7 +51,6 @@ export const StyledSection = styled.section`
 export const StyledForm = styled.form`
   ${({ theme: { flexin } }: any) =>
     flexin('center', 'center', 'column', 'wrap')}
-  border: 1px solid white;
   padding: 5rem;
 
   & > * {
