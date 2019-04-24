@@ -74,5 +74,15 @@ export const WardenDiv = styled(Row)`
 export const LordDiv = styled(Row)``;
 
 export const StyledButton = styled.button`
-  ${({ theme: { inputs } }: any) => inputs.submit}
+  margin: 2rem 0;
+  background: none;
+  border: 1px solid white;
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 0.2rem;
+  color: white;
+  font-size: 2.5rem;
+  font-family: 'Lato';
+  padding: 1.5rem 2.5rem;
+  cursor: pointer;
 `;
