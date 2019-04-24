@@ -79,6 +79,7 @@ class UserPicks extends React.Component<IProps, IUser> {
             userPicks={picks}
             showDropdown={true}
             handleCharacterChange={this.handleCharacterChange}
+            key={Math.random()}
           />
           <Pick
             jobHeader={'Hand of the King'}
@@ -88,6 +89,7 @@ class UserPicks extends React.Component<IProps, IUser> {
             userPicks={picks}
             showDropdown={true}
             handleCharacterChange={this.handleCharacterChange}
+            key={Math.random()}
           />
         </ThroneDiv>
         {personalPicks && (

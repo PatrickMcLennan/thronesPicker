@@ -192,6 +192,15 @@ class App extends React.Component<{}, IState> {
       );
   };
 
+  changeCurrentUser: Function = (newCurrentUser: IUser): void => {
+    return this.setState(
+      (prevState: IState): IState => ({
+        ...prevState,
+        currentUser: { ...newCurrentUser }
+      })
+    );
+  };
+
   postMakePicks: Function = async (newPicks: IPicks): Promise<void> => {
     const {
       user: { facebookId }
@@ -211,24 +220,19 @@ class App extends React.Component<{}, IState> {
       )
       .then(
         (response: IPostMakePicksResponse): Function => {
+          const { user } = response;
           this.setState((prevState: IState) => ({
             ...prevState,
-            user: { ...this.state.user, picks: newPicks },
-            currentUser: { ...this.state.user, picks: newPicks }
+            user,
+            currentUser: user
           }));
+          this.state.user === this.state.currentUser
+            ? console.log('yes')
+            : console.log('no');
           return this.showMessage(response);
         }
       )
       .catch((err: IServerCall): Function => this.showMessage(err));
-  };
-
-  changeCurrentUser: Function = (newCurrentUser: IUser): void => {
-    return this.setState(
-      (prevState: IState): IState => ({
-        ...prevState,
-        currentUser: { ...newCurrentUser }
-      })
-    );
   };
 
   render(): JSX.Element {

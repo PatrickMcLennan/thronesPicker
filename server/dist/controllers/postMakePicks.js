@@ -79,7 +79,7 @@ exports.postMakePicks = function (req, res) { return __awaiter(_this, void 0, vo
                 return [2, res.send({
                         success: true,
                         message: "Picks have been submitted successfully",
-                        picks: user.picks
+                        user: user
                     })];
         }
     });

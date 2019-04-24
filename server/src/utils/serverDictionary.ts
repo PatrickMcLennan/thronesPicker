@@ -79,7 +79,7 @@ export interface IPostMakePicksRequest extends Request {
 export interface IPostMakePicksResponse extends Response {
   success: boolean;
   message: string;
-  picks: IPicks;
+  user: IUser;
 }
 
 // EDIT ACCOUNT

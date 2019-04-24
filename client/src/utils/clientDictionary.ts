@@ -95,7 +95,7 @@ export interface IPostMakePicksRequest extends Request {
   newPicks: IPicks;
 }
 export interface IPostMakePicksResponse extends Response {
-  picks: IPicks;
+  user: IUser;
   message: string;
   success: boolean;
 }

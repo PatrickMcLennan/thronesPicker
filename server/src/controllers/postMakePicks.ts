@@ -31,7 +31,7 @@ export const postMakePicks = async (
     return res.send({
       success: true,
       message: `Picks have been submitted successfully`,
-      picks: user.picks
+      user
     });
   }
 };
