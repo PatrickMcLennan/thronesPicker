@@ -19,13 +19,8 @@ module.exports = {
         loader: 'source-map-loader'
       },
       {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {}
-          }
-        ]
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [{ loader: 'file-loader' }]
       }
     ]
   },

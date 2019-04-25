@@ -84,7 +84,7 @@ class Nav extends React.Component<IProps, IState> {
           src={user.profilePic}
           name={user.name}
           house={user.house.name}
-          sigilUrl={`../../img/${user.house.sigilUrl}.png`}
+          sigilUrl={`~@/img/${user.house.name}.png`}
           handler={this.toggleMenu}
           currentScore={user.currentScore}
           thumbnailSize="big"
