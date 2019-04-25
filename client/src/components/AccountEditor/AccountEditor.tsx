@@ -101,10 +101,10 @@ class AccountEditor extends React.Component<IProps, IState> {
               Choose Your House:
             </StyledP>
             <Badge
-              src={`../img/${newHouse.name}.png`}
+              src={`../../img/${newHouse.name}.png`}
               name={''}
               house={newHouse.name}
-              sigilUrl={`../img/${newHouse.name}.png`}
+              sigilUrl={`../../img/${newHouse.name}.png`}
               handler={this.renderHouseList}
               thumbnailSize="small"
             />
@@ -114,10 +114,10 @@ class AccountEditor extends React.Component<IProps, IState> {
                   (singleHouse: IHouse): JSX.Element => (
                     <li data-testid="accountEditor__li">
                       <Badge
-                        src={singleHouse.sigilUrl}
+                        src={`../../img/${newHouse.name}.png`}
                         name=""
                         house={singleHouse.name}
-                        sigilUrl={singleHouse.sigilUrl}
+                        sigilUrl={`../../img/${newHouse.name}.png`}
                         handler={() => this.handleHouseChange(singleHouse)}
                         thumbnailSize={'small'}
                         key={Math.random()}

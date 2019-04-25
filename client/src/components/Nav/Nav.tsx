@@ -1,15 +1,8 @@
 import * as React from 'react';
 
 import Badge from '../Badge/Badge';
-import Thumbnail from '../Thumbnail/Thumbnail';
 
-import {
-  StyledNav,
-  StyledUl,
-  StyledLi,
-  StyledH4,
-  StyledH4Box
-} from './Nav.style';
+import { StyledNav, StyledUl, StyledLi } from './Nav.style';
 import { IUser } from '../../utils/clientDictionary';
 
 interface IProps {
@@ -91,7 +84,7 @@ class Nav extends React.Component<IProps, IState> {
           src={user.profilePic}
           name={user.name}
           house={user.house.name}
-          sigilUrl={user.house.sigilUrl}
+          sigilUrl={`../../img/${user.house.sigilUrl}.png`}
           handler={this.toggleMenu}
           currentScore={user.currentScore}
           thumbnailSize="big"
