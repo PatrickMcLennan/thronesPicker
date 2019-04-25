@@ -17,7 +17,6 @@ import {
   StyledH6
 } from './UserPicks.style';
 import { emptyCharacter } from '../../utils/characters';
-import { theme } from '../../utils/globalStyles';
 
 interface IProps {
   animate: boolean;

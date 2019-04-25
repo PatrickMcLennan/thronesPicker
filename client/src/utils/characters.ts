@@ -4,11 +4,11 @@ export const emptyCharacter: ICharacter = {
   name: '...',
   house: '...',
   home: '...',
-  sigilUrl: 'unknown sigil',
+  sigilUrl: '../img/placeholder.png',
   alive: false,
   placed: false,
   placement: '',
-  imgLink: 'empty'
+  imgLink: '../img/placeholder.png'
 };
 
 ////////////// TARGARYENS
@@ -16,12 +16,11 @@ const daenerysTargaryen: ICharacter = {
   name: 'Daenerys Targaryen',
   house: 'Targaryen',
   home: 'DragonStone',
-  sigilUrl:
-    'https://awoiaf.westeros.org/thumb.php?f=House_Targaryen.svg&width=218&lang=en',
+  sigilUrl: '../img/targaryen.png',
   alive: false,
   placed: false,
   placement: '',
-  imgLink: 'https://awoiaf.westeros.org/index.php/Daenerys_Targaryen'
+  imgLink: '../img/daenerys.jpg'
 };
 export const targaryenArray: ICharacter[] = [daenerysTargaryen];
 
@@ -30,45 +29,41 @@ export const jonSnow: ICharacter = {
   name: 'Jon Snow',
   house: 'Stark',
   home: 'Winterfell',
-  sigilUrl:
-    'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
+  sigilUrl: '../img/stark.png',
   alive: false,
   placed: false,
   placement: '',
-  imgLink: 'https://awoiaf.westeros.org/index.php/Jon_Snow'
+  imgLink: '../img/jon.jpg'
 };
 export const aryaStark: ICharacter = {
   name: 'Arya Stark',
   house: 'Stark',
   home: 'Winterfell',
-  sigilUrl:
-    'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
+  sigilUrl: '../img/stark.png',
   alive: false,
   placed: false,
   placement: '',
-  imgLink: 'https://awoiaf.westeros.org/index.php/Arya_Stark'
+  imgLink: '../img/arya.jpg'
 };
 export const sansaStark: ICharacter = {
   name: 'Sansa Stark',
   house: 'Stark',
   home: 'Winterfell',
-  sigilUrl:
-    'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
+  sigilUrl: '../img/stark.png',
   alive: false,
   placed: false,
   placement: '',
-  imgLink: 'https://awoiaf.westeros.org/index.php/Sansa_Stark'
+  imgLink: '../img/sansa.jpg'
 };
 export const branStark: ICharacter = {
   name: 'Bran Stark',
   house: 'Stark',
   home: 'Winterfell',
-  sigilUrl:
-    'https://awoiaf.westeros.org/thumb.php?f=House_Stark.svg&width=218&lang=en',
+  sigilUrl: '../img/stark.png',
   alive: false,
   placed: false,
   placement: '',
-  imgLink: 'https://awoiaf.westeros.org/index.php/Bran_Stark'
+  imgLink: '../img/bran.jpg'
 };
 
 export const starkArray: ICharacter[] = [
@@ -83,12 +78,11 @@ export const jaimeLannister: ICharacter = {
   name: 'Jaime Lannister',
   house: 'Lannister',
   home: 'Casterly Rock',
-  sigilUrl:
-    'https://awoiaf.westeros.org/thumb.php?f=House_Lannister.svg&width=218&lang=en',
+  sigilUrl: '../img/lannister./png',
   alive: false,
   placed: false,
   placement: '',
-  imgLink: 'https://awoiaf.westeros.org/index.php/Jaime_Lannister'
+  imgLink: '../img/jaime.jpg'
 };
 export const cerseiLannister: ICharacter = {
   name: 'Cersei Lannister',

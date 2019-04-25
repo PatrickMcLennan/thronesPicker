@@ -101,10 +101,10 @@ class AccountEditor extends React.Component<IProps, IState> {
               Choose Your House:
             </StyledP>
             <Badge
-              src={newHouse.sigilUrl}
+              src={`../img/${newHouse.name}.png`}
               name={''}
               house={newHouse.name}
-              sigilUrl={newHouse.sigilUrl}
+              sigilUrl={`../img/${newHouse.name}.png`}
               handler={this.renderHouseList}
               thumbnailSize="small"
             />

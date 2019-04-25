@@ -14,8 +14,6 @@ import {
 import { GlobalStyle, theme } from '../../utils/globalStyles';
 import { fbLogInInit, fbLogIn } from '../../utils/auth';
 
-import { emptyCharacter } from '../../utils/characters';
-
 import LogInModal from '../LogInModal/LogInModal';
 import RulesModal from '../RulesModal/RulesModal';
 import AccountEditor from '../AccountEditor/AccountEditor';

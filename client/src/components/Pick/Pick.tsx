@@ -4,7 +4,7 @@ import Badge from '../Badge/Badge';
 
 import { StyledDiv, StyledH6 } from './Pick.style';
 
-import { IPicks, ICharacter } from '../../utils/clientDictionary';
+import { ICharacter } from '../../utils/clientDictionary';
 import { allCharacters } from '../../utils/characters';
 
 interface IProps {
